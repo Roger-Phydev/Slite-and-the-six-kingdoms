@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://dm010xkxnaw8m"]
+
+[ext_resource type="Script" uid="uid://hgwfnr66pt8m" path="res://Scripts/bounce_pad.gd" id="1_y18eo"]
+[ext_resource type="Texture2D" uid="uid://cmlyrl1osesx8" path="res://Assets/Objects/bounce pad.png" id="2_ctbhy"]
+[ext_resource type="AudioStream" uid="uid://br64ms0gbpchu" path="res://MusicAndSounds/SFX/boing_1.ogg" id="3_8c1ua"]
+[ext_resource type="AudioStream" uid="uid://b023rmix4kcxk" path="res://MusicAndSounds/SFX/boing_2.ogg" id="4_ewb1u"]
+[ext_resource type="AudioStream" uid="uid://csldeitltc26h" path="res://MusicAndSounds/SFX/boing_3.ogg" id="5_0e4cr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3p40j"]
+size = Vector2(14, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y18eo"]
+size = Vector2(10, 12)
+
+[sub_resource type="Animation" id="Animation_ewb1u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_8c1ua"]
+resource_name = "bounce"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0e4cr"]
+_data = {
+&"RESET": SubResource("Animation_ewb1u"),
+&"bounce": SubResource("Animation_8c1ua")
+}
+
+[node name="BouncePad" type="CharacterBody2D"]
+script = ExtResource("1_y18eo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_3p40j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -11)
+texture = ExtResource("2_ctbhy")
+hframes = 4
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_y18eo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0e4cr")
+}
+
+[node name="LowJump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8c1ua")
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ewb1u")
+
+[node name="HighJump" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 0.5)
+stream = ExtResource("5_0e4cr")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

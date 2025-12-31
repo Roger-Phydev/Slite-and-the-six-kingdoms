@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=3 uid="uid://4mmsxpni7adk"]
+
+[ext_resource type="Texture2D" uid="uid://b0kmmnyu7ni1g" path="res://Assets/Enemies/cactus_spike.png" id="1_abcua"]
+[ext_resource type="Script" uid="uid://c15k3trmmcl6f" path="res://Scripts/enemy_proyectile.gd" id="1_rh3l3"]
+[ext_resource type="AudioStream" uid="uid://dk8umqmyl5xkt" path="res://MusicAndSounds/SFX/proyectile.ogg" id="3_k68qr"]
+
+[sub_resource type="Animation" id="Animation_k68qr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_rh3l3"]
+resource_name = "move"
+length = 0.25
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kiquk"]
+_data = {
+&"RESET": SubResource("Animation_k68qr"),
+&"move": SubResource("Animation_rh3l3")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kiquk"]
+radius = 172.743
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n55t8"]
+radius = 97.0824
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g5as5"]
+radius = 39.0128
+
+[node name="EnemySpike" type="CharacterBody2D"]
+script = ExtResource("1_rh3l3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+texture = ExtResource("1_abcua")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(2, -2, 1, -2, 0, -1, -1, -1, -2, 0, -4, 0, -4, 1, -2, 1, -1, 2, 0, 2, 1, 3, 2, 3)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(4, -3, 0, -3, -2, -3, -3, -2, -4, -2, -5, -1, -6, 0, -6, 1, -5, 2, -4, 3, -3, 3, -2, 4, 0, 4, 4, 4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kiquk")
+}
+
+[node name="WallDetection" type="RayCast2D" parent="."]
+target_position = Vector2(-6, 0)
+collision_mask = 5
+
+[node name="LowVolumeSound" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowVolumeSound"]
+shape = SubResource("CircleShape2D_kiquk")
+
+[node name="MediumVolumeSound" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MediumVolumeSound"]
+shape = SubResource("CircleShape2D_n55t8")
+
+[node name="FullVolumeSound" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FullVolumeSound"]
+shape = SubResource("CircleShape2D_g5as5")
+
+[node name="Flush" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_k68qr")
+
+[node name="Moving" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="LowVolumeSound" to="." method="_on_low_volume_sound_body_entered"]
+[connection signal="body_exited" from="LowVolumeSound" to="." method="_on_low_volume_sound_body_exited"]
+[connection signal="body_entered" from="MediumVolumeSound" to="." method="_on_medium_volume_sound_body_entered"]
+[connection signal="body_exited" from="MediumVolumeSound" to="." method="_on_medium_volume_sound_body_exited"]
+[connection signal="body_entered" from="FullVolumeSound" to="." method="_on_full_volume_sound_body_entered"]
+[connection signal="body_exited" from="FullVolumeSound" to="." method="_on_full_volume_sound_body_exited"]

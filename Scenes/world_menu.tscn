@@ -1,0 +1,277 @@
+[gd_scene load_steps=14 format=3 uid="uid://du2oiro17x33u"]
+
+[ext_resource type="Script" uid="uid://bvwj24dmxsivp" path="res://Scripts/world_menu.gd" id="1_nr0fn"]
+[ext_resource type="Texture2D" uid="uid://d3sv3im4vm3d5" path="res://Assets/Deco/water_a_8frames.png" id="2_ps6cj"]
+[ext_resource type="Texture2D" uid="uid://cimwrr6cc8vau" path="res://Assets/Backgrounds/mountains_a.png" id="3_3fyav"]
+[ext_resource type="Texture2D" uid="uid://b2ug3ea1oofx2" path="res://Assets/Deco/sun.png" id="4_yvuix"]
+[ext_resource type="Texture2D" uid="uid://cg764uiabvlq" path="res://Assets/Backgrounds/trees.png" id="5_7y5wu"]
+[ext_resource type="Texture2D" uid="uid://bwcrq8jgpr1ow" path="res://Assets/Deco/rock.png" id="6_s5ynm"]
+[ext_resource type="Texture2D" uid="uid://c4n53rjwptjn6" path="res://Assets/Deco/tree_trunk.png" id="7_wwc1e"]
+[ext_resource type="Texture2D" uid="uid://dbbea0b3hjxjs" path="res://Assets/Deco/tree.png" id="8_bndn6"]
+[ext_resource type="Texture2D" uid="uid://btj2vrg0qo5gy" path="res://Assets/Enemies/cactus.png" id="9_r3lur"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_547t1"]
+bg_color = Color(0.419608, 0.247059, 0.901961, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pr5gi"]
+bg_color = Color(0.419608, 0.247059, 0.901961, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hrbqk"]
+bg_color = Color(0.218609, 0.0877106, 0.517929, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atlk2"]
+bg_color = Color(0.6, 0.6, 0.8, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="world_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nr0fn")
+
+[node name="sky" type="Sprite2D" parent="."]
+position = Vector2(590, 67)
+scale = Vector2(5.64649, 17.7344)
+texture = ExtResource("2_ps6cj")
+flip_h = true
+
+[node name="mountains" type="Sprite2D" parent="."]
+position = Vector2(232, 260)
+scale = Vector2(1.85547, 2.21875)
+texture = ExtResource("3_3fyav")
+
+[node name="mountains2" type="Sprite2D" parent="."]
+position = Vector2(704, 269)
+scale = Vector2(1.85547, 2.21875)
+texture = ExtResource("3_3fyav")
+
+[node name="mountains3" type="Sprite2D" parent="."]
+position = Vector2(1176, 269)
+scale = Vector2(1.85547, 2.21875)
+texture = ExtResource("3_3fyav")
+flip_h = true
+
+[node name="sun" type="Sprite2D" parent="."]
+position = Vector2(576, 64)
+scale = Vector2(3, 3)
+texture = ExtResource("4_yvuix")
+flip_h = true
+hframes = 6
+frame = 5
+
+[node name="trees" type="Sprite2D" parent="."]
+position = Vector2(216, 352)
+scale = Vector2(1.85547, 2.21875)
+texture = ExtResource("5_7y5wu")
+flip_h = true
+
+[node name="trees2" type="Sprite2D" parent="."]
+position = Vector2(688, 352)
+scale = Vector2(1.85547, 2.21875)
+texture = ExtResource("5_7y5wu")
+flip_h = true
+
+[node name="trees3" type="Sprite2D" parent="."]
+position = Vector2(1160, 352)
+scale = Vector2(1.85547, 2.21875)
+texture = ExtResource("5_7y5wu")
+flip_h = true
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-40, -552)
+scale = Vector2(1, 1.78049)
+color = Color(0.360855, 0.269653, 0.0356174, 1)
+polygon = PackedVector2Array(768, 856, -56, 808, -16, 552, 1544, 584, 1048, 880)
+
+[node name="decoration" type="Sprite2D" parent="."]
+position = Vector2(976, 488)
+scale = Vector2(3, 3.589)
+texture = ExtResource("6_s5ynm")
+flip_h = true
+
+[node name="decoration2" type="Sprite2D" parent="."]
+position = Vector2(808, 584)
+scale = Vector2(3, 3.589)
+texture = ExtResource("6_s5ynm")
+flip_h = true
+
+[node name="decoration3" type="Sprite2D" parent="."]
+position = Vector2(72, 488)
+scale = Vector2(3, 3.589)
+texture = ExtResource("6_s5ynm")
+flip_h = true
+
+[node name="decoration4" type="Sprite2D" parent="."]
+position = Vector2(448, 560)
+scale = Vector2(3, 3.589)
+texture = ExtResource("6_s5ynm")
+flip_h = true
+
+[node name="decoration5" type="Sprite2D" parent="."]
+position = Vector2(160, 568)
+scale = Vector2(3, 3.589)
+texture = ExtResource("7_wwc1e")
+flip_h = true
+
+[node name="decoration6" type="Sprite2D" parent="."]
+position = Vector2(232, 408)
+scale = Vector2(3, 3.589)
+texture = ExtResource("8_bndn6")
+flip_h = true
+
+[node name="decoration7" type="Sprite2D" parent="."]
+position = Vector2(1104, 440)
+scale = Vector2(3, 3.589)
+texture = ExtResource("9_r3lur")
+flip_h = true
+hframes = 6
+frame = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 120
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 60
+
+[node name="Option1" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_547t1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pr5gi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hrbqk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_atlk2")
+action_mode = 0
+text = "Mundo 1"
+
+[node name="Option2" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_547t1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pr5gi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hrbqk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_atlk2")
+action_mode = 0
+text = "Mundo 2"
+
+[node name="Option3" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_547t1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pr5gi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hrbqk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_atlk2")
+action_mode = 0
+text = "Mundo 3"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 60
+
+[node name="Option4" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_547t1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pr5gi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hrbqk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_atlk2")
+action_mode = 0
+text = "Mundo 4"
+
+[node name="Option5" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_547t1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pr5gi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hrbqk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_atlk2")
+action_mode = 0
+text = "Mundo 5
+"
+
+[node name="Option6" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_547t1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pr5gi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hrbqk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_atlk2")
+action_mode = 0
+text = "Mundo 6"
+
+[node name="Return" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_547t1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pr5gi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hrbqk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_atlk2")
+action_mode = 0
+text = "Volver al menú principal"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Option1" to="." method="_on_option_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Option2" to="." method="_on_option_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Option3" to="." method="_on_option_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Option4" to="." method="_on_option_4_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Option5" to="." method="_on_option_5_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Option6" to="." method="_on_option_6_pressed"]
+[connection signal="pressed" from="VBoxContainer/Return" to="." method="_on_return_pressed"]

@@ -1,0 +1,250 @@
+[gd_scene load_steps=16 format=3 uid="uid://ydoepnhhdtm5"]
+
+[ext_resource type="Texture2D" uid="uid://d3sv3im4vm3d5" path="res://Assets/Deco/water_a_8frames.png" id="1_n45e2"]
+[ext_resource type="Script" uid="uid://bfhbubxw0jia8" path="res://Scripts/main_menu.gd" id="1_trj04"]
+[ext_resource type="Texture2D" uid="uid://cimwrr6cc8vau" path="res://Assets/Backgrounds/mountains_a.png" id="2_opfnp"]
+[ext_resource type="Texture2D" uid="uid://b2ug3ea1oofx2" path="res://Assets/Deco/sun.png" id="3_cp0ys"]
+[ext_resource type="Texture2D" uid="uid://cg764uiabvlq" path="res://Assets/Backgrounds/trees.png" id="4_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://bwcrq8jgpr1ow" path="res://Assets/Deco/rock.png" id="5_trj04"]
+[ext_resource type="Texture2D" uid="uid://c4n53rjwptjn6" path="res://Assets/Deco/tree_trunk.png" id="6_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://dbbea0b3hjxjs" path="res://Assets/Deco/tree.png" id="7_trj04"]
+[ext_resource type="Texture2D" uid="uid://btj2vrg0qo5gy" path="res://Assets/Enemies/cactus.png" id="8_16hvj"]
+
+[sub_resource type="Theme" id="Theme_erv1k"]
+default_font_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trj04"]
+bg_color = Color(0.419608, 0.247059, 0.901961, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vr1f0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erv1k"]
+bg_color = Color(0.419608, 0.247059, 0.901961, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_16hvj"]
+bg_color = Color(0.218609, 0.0877106, 0.517929, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28flt"]
+bg_color = Color(0.6, 0.6, 0.8, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_trj04")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="sky" type="Sprite2D" parent="Background"]
+position = Vector2(590, 67)
+scale = Vector2(5.64649, 17.7344)
+texture = ExtResource("1_n45e2")
+flip_h = true
+
+[node name="mountains" type="Sprite2D" parent="Background"]
+position = Vector2(232, 260)
+scale = Vector2(1.85547, 2.21875)
+texture = ExtResource("2_opfnp")
+
+[node name="mountains2" type="Sprite2D" parent="Background"]
+position = Vector2(704, 269)
+scale = Vector2(1.85547, 2.21875)
+texture = ExtResource("2_opfnp")
+
+[node name="mountains3" type="Sprite2D" parent="Background"]
+position = Vector2(1176, 269)
+scale = Vector2(1.85547, 2.21875)
+texture = ExtResource("2_opfnp")
+flip_h = true
+
+[node name="sun" type="Sprite2D" parent="Background"]
+position = Vector2(576, 64)
+scale = Vector2(3, 3)
+texture = ExtResource("3_cp0ys")
+flip_h = true
+hframes = 6
+frame = 5
+
+[node name="trees" type="Sprite2D" parent="Background"]
+position = Vector2(216, 352)
+scale = Vector2(1.85547, 2.21875)
+texture = ExtResource("4_yhxw7")
+flip_h = true
+
+[node name="trees2" type="Sprite2D" parent="Background"]
+position = Vector2(688, 352)
+scale = Vector2(1.85547, 2.21875)
+texture = ExtResource("4_yhxw7")
+flip_h = true
+
+[node name="trees3" type="Sprite2D" parent="Background"]
+position = Vector2(1160, 352)
+scale = Vector2(1.85547, 2.21875)
+texture = ExtResource("4_yhxw7")
+flip_h = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Background"]
+position = Vector2(-40, -552)
+scale = Vector2(1, 1.78049)
+color = Color(0.360855, 0.269653, 0.0356174, 1)
+polygon = PackedVector2Array(768, 856, -56, 808, -16, 552, 1544, 584, 1048, 880)
+
+[node name="decoration" type="Sprite2D" parent="Background"]
+position = Vector2(976, 488)
+scale = Vector2(3, 3.589)
+texture = ExtResource("5_trj04")
+flip_h = true
+
+[node name="decoration2" type="Sprite2D" parent="Background"]
+position = Vector2(808, 584)
+scale = Vector2(3, 3.589)
+texture = ExtResource("5_trj04")
+flip_h = true
+
+[node name="decoration3" type="Sprite2D" parent="Background"]
+position = Vector2(72, 488)
+scale = Vector2(3, 3.589)
+texture = ExtResource("5_trj04")
+flip_h = true
+
+[node name="decoration4" type="Sprite2D" parent="Background"]
+position = Vector2(448, 560)
+scale = Vector2(3, 3.589)
+texture = ExtResource("5_trj04")
+flip_h = true
+
+[node name="decoration5" type="Sprite2D" parent="Background"]
+position = Vector2(160, 568)
+scale = Vector2(3, 3.589)
+texture = ExtResource("6_yhxw7")
+flip_h = true
+
+[node name="decoration6" type="Sprite2D" parent="Background"]
+position = Vector2(232, 408)
+scale = Vector2(3, 3.589)
+texture = ExtResource("7_trj04")
+flip_h = true
+
+[node name="decoration7" type="Sprite2D" parent="Background"]
+position = Vector2(1104, 440)
+scale = Vector2(3, 3.589)
+texture = ExtResource("8_16hvj")
+flip_h = true
+hframes = 6
+frame = 5
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+offset_left = 96.0
+offset_top = 32.0
+offset_right = 1088.0
+offset_bottom = 115.0
+theme_override_colors/font_color = Color(0.460126, 0.292397, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Sliney and the six kingdoms"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title2" type="Label" parent="."]
+layout_mode = 2
+offset_left = 174.0
+offset_top = 537.0
+offset_right = 932.0
+offset_bottom = 620.0
+theme_override_colors/font_color = Color(0.87697, 0.789966, 0.878758, 1)
+theme_override_font_sizes/font_size = 40
+text = "RogerPhyDev 2025"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_erv1k")
+theme_override_constants/separation = 30
+
+[node name="StartGame" type="Button" parent="MainMenu"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_trj04")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_vr1f0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_erv1k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
+action_mode = 0
+text = "Iniciar aventura"
+
+[node name="SelectLevel" type="Button" parent="MainMenu"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_erv1k")
+theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
+action_mode = 0
+text = "Seleccionar nivel
+"
+
+[node name="Exit" type="Button" parent="MainMenu"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_erv1k")
+theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
+action_mode = 0
+text = "Salir
+"
+
+[connection signal="pressed" from="MainMenu/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="MainMenu/SelectLevel" to="." method="_on_select_level_pressed"]
+[connection signal="pressed" from="MainMenu/Exit" to="." method="_on_exit_pressed"]

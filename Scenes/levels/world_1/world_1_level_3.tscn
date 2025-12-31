@@ -1,0 +1,697 @@
+[gd_scene load_steps=36 format=3 uid="uid://bvg2dho8638ua"]
+
+[ext_resource type="Texture2D" uid="uid://bk3228hcid3l5" path="res://Assets/Tilesets/tileset_forest.png" id="1_ggjxy"]
+[ext_resource type="PackedScene" uid="uid://biq2ohctus88u" path="res://Scenes/player.tscn" id="2_53yht"]
+[ext_resource type="Texture2D" uid="uid://dy3ibfosu8v6" path="res://Assets/Deco/water_b_5 frames.png" id="2_o6v0k"]
+[ext_resource type="Texture2D" uid="uid://d4bixbrryntv0" path="res://Assets/Objects/coin_gold.png" id="3_qk7o1"]
+[ext_resource type="Texture2D" uid="uid://dtobb0akqn624" path="res://Assets/Backgrounds/mountains_b.png" id="3_qp666"]
+[ext_resource type="Script" uid="uid://da5m75pj453h4" path="res://Scripts/ui.gd" id="4_jjm63"]
+[ext_resource type="Texture2D" uid="uid://cg764uiabvlq" path="res://Assets/Backgrounds/trees.png" id="4_wo3yh"]
+[ext_resource type="Texture2D" uid="uid://d3sv3im4vm3d5" path="res://Assets/Deco/water_a_8frames.png" id="5_edk30"]
+[ext_resource type="Texture2D" uid="uid://b2ug3ea1oofx2" path="res://Assets/Deco/sun.png" id="7_wo3yh"]
+[ext_resource type="Texture2D" uid="uid://dl75rsniaox40" path="res://Assets/Objects/sign_arrow.png" id="8_edk30"]
+[ext_resource type="Texture2D" uid="uid://dbbea0b3hjxjs" path="res://Assets/Deco/tree.png" id="9_aky6j"]
+[ext_resource type="Texture2D" uid="uid://c4n53rjwptjn6" path="res://Assets/Deco/tree_trunk.png" id="10_ku5as"]
+[ext_resource type="PackedScene" uid="uid://dme5bjcso6b0n" path="res://Scenes/coin.tscn" id="11_jnc1k"]
+[ext_resource type="Texture2D" uid="uid://c0hjb8povdcib" path="res://Assets/Enemies/slime_red.png" id="14_cpiv8"]
+[ext_resource type="Script" uid="uid://bmgfdcevh30jk" path="res://Scripts/respawn_area.gd" id="15_aky6j"]
+[ext_resource type="Texture2D" uid="uid://cypwd8e3vfykh" path="res://Assets/UI/hearts.png" id="15_tcgm1"]
+[ext_resource type="AudioStream" uid="uid://blltqsdvlk152" path="res://MusicAndSounds/SFX/menu.ogg" id="17_f2qdw"]
+[ext_resource type="AudioStream" uid="uid://b7rfuk3hk60ik" path="res://MusicAndSounds/SFX/level.ogg" id="18_p2d8c"]
+[ext_resource type="AudioStream" uid="uid://dti5u1kgvyj4t" path="res://MusicAndSounds/SFX/level_success.ogg" id="19_inoyo"]
+[ext_resource type="AudioStream" uid="uid://cch2jmqa5bwda" path="res://MusicAndSounds/SFX/level_loose.ogg" id="20_f4f25"]
+[ext_resource type="AudioStream" uid="uid://lw6x2vve5sob" path="res://MusicAndSounds/SFX/menu_movement.ogg" id="21_xckvn"]
+[ext_resource type="AudioStream" uid="uid://5pp6t33a1oun" path="res://MusicAndSounds/SFX/menu_select.ogg" id="22_fl5p6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_53yht"]
+texture = ExtResource("1_ggjxy")
+2:0/0 = 0
+3:0/0 = 0
+5:0/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:3/0 = 0
+8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:3/0 = 0
+9:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:3/0 = 0
+10:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_qk7o1"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_53yht")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ku5as"]
+size = Vector2(1179, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dneju"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4y5rw"]
+bg_color = Color(0.298039, 0.639216, 0.827451, 0.647059)
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g40m3"]
+bg_color = Color(0.298039, 0.639216, 0.827451, 0.647059)
+corner_radius_bottom_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i773c"]
+bg_color = Color(0.820726, 0.853618, 0.532607, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.318946, 0.492231, 0.98558, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_ksxi1"]
+default_font_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_74qju"]
+bg_color = Color(0.419608, 0.247059, 0.901961, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xgka"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7ytw"]
+bg_color = Color(0.419608, 0.247059, 0.901961, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1l5d"]
+bg_color = Color(0.218609, 0.0877106, 0.517929, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4k6w"]
+bg_color = Color(0.6, 0.6, 0.8, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="world_1_level_3" type="Node2D"]
+
+[node name="Backgrounds" type="Node2D" parent="."]
+
+[node name="Sky" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(299.501, -264.25)
+scale = Vector2(14.5625, 57.0938)
+texture = ExtResource("2_o6v0k")
+
+[node name="Mountains" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(295.5, -58.7496)
+scale = Vector2(4.55078, 1.44531)
+texture = ExtResource("3_qp666")
+
+[node name="Trees" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(297, 22.7504)
+scale = Vector2(4.54687, 1)
+texture = ExtResource("4_wo3yh")
+
+[node name="Water" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(299.75, 107.75)
+scale = Vector2(4.54883, 1.9375)
+texture = ExtResource("5_edk30")
+
+[node name="Tilemaps" type="Node2D" parent="."]
+
+[node name="World1TileSet" type="TileMap" parent="Tilemaps"]
+tile_set = SubResource("TileSet_qk7o1")
+format = 2
+layer_0/tile_data = PackedInt32Array(65533, 196608, 1, 65534, 196608, 1, 65535, 196608, 1, 0, 196608, 1, 1, 196608, 1, 2, 196608, 1, 65532, 131072, 1, 131068, 65536, 3, 196604, 65536, 3, 262140, 65536, 3, 327676, 65536, 3, 3, 327680, 1, -4, 131072, 0, -2, 196608, 0, -65533, 327680, 0, 65539, 393216, 3, 131075, 393216, 3, 196611, 393216, 3, 262147, 393216, 3, 131069, 262144, 3, 131070, 262144, 3, 131071, 262144, 3, 65536, 262144, 3, 65537, 262144, 3, 65538, 262144, 3, 131074, 196608, 3, 131073, 262144, 3, 131072, 327680, 3, 196607, 262144, 3, 196606, 262144, 2, 196605, 262144, 3, 262141, 262144, 3, 262142, 262144, 3, 262143, 262144, 3, 196608, 262144, 3, 196609, 262144, 3, 196610, 262144, 3, 262146, 262144, 3, 262145, 262144, 3, 262144, 262144, 3, 327679, 262144, 3, 327678, 262144, 3, 327677, 262144, 3, -131067, 524288, 3, -131066, 655360, 3, -131064, 524288, 3, -131063, 655360, 3, -196602, 327680, 0, -196599, 196608, 0, 262155, 65536, 3, 196619, 65536, 3, 131083, 65536, 3, 65547, 65536, 3, 11, 65536, 3, -65525, 65536, 3, -131061, 65536, 3, -196597, 65536, 2, -196596, 196608, 1, -196595, 196608, 1, -196594, 196608, 1, -196593, 196608, 1, -196592, 393216, 2, -131056, 393216, 3, -65520, 393216, 3, 16, 393216, 3, 65552, 393216, 3, 131088, 393216, 3, 196624, 393216, 3, 262160, 393216, 3, -131060, 327680, 3, -131059, 262144, 3, -131058, 262144, 3, -65521, 262144, 3, -65522, 262144, 3, -131057, 262144, 2, -65523, 262144, 3, -65524, 262144, 3, 13, 262144, 2, 12, 262144, 3, 14, 262144, 3, 15, 262144, 3, 65551, 262144, 3, 131087, 262144, 2, 131086, 262144, 3, 131085, 262144, 3, 65549, 262144, 3, 65548, 262144, 3, 131084, 262144, 3, 65550, 262144, 3, 196622, 262144, 3, 196621, 262144, 3, 196620, 262144, 3, 262156, 262144, 3, 262157, 262144, 3, 262158, 262144, 3, 262159, 262144, 3, 196623, 262144, 3, -262126, 524288, 3, -262125, 524288, 3, -327659, 524288, 3, -458721, 65536, 3, -393185, 65536, 3, -327649, 65536, 3, -262113, 65536, 3, -196577, 65536, 3, -131041, 65536, 3, -65505, 65536, 3, 31, 65536, 3, 65567, 65536, 3, 131103, 65536, 3, 196639, 65536, 3, 262175, 65536, 3, -524256, 262144, 1, -524255, 262144, 1, -524257, 131072, 1, -524254, 131072, 2, -589790, 131072, 1, -589789, 196608, 1, -589788, 196608, 1, -589787, 196608, 1, -589786, 393216, 2, -524250, 393216, 3, -458714, 393216, 3, -393178, 393216, 3, -327642, 393216, 3, -262106, 393216, 3, -196570, 393216, 3, -131034, 393216, 3, -65498, 393216, 3, 38, 393216, 3, 65574, 393216, 3, 131110, 393216, 3, 196646, 393216, 3, 262182, 393216, 3, -524253, 262144, 2, -262110, 262144, 2, -131039, 262144, 2, -327643, 262144, 2, -458716, 262144, 2, -393183, 262144, 2, -327645, 262144, 2, -458720, 262144, 3, -393184, 327680, 3, -327648, 262144, 3, -262112, 262144, 3, -196576, 262144, 3, -131040, 262144, 3, -65504, 262144, 3, 32, 262144, 3, 65568, 262144, 3, 131104, 262144, 3, 196640, 262144, 3, 262176, 262144, 3, 262177, 262144, 3, 262178, 262144, 3, 262179, 262144, 3, 262180, 262144, 3, 262181, 262144, 3, 196645, 262144, 3, 131109, 262144, 3, 65573, 262144, 3, 37, 262144, 3, -65499, 262144, 3, -131035, 262144, 3, -131036, 262144, 3, -131037, 262144, 3, -131038, 262144, 3, -65502, 262144, 3, -65503, 262144, 3, -65501, 262144, 3, -65500, 262144, 3, 36, 262144, 3, 35, 262144, 3, 34, 262144, 3, 33, 262144, 3, 65569, 262144, 3, 65570, 262144, 3, 65571, 262144, 3, 65572, 262144, 3, 131108, 262144, 3, 131107, 262144, 3, 131106, 262144, 3, 131105, 262144, 3, 196641, 262144, 3, 196642, 262144, 3, 196643, 262144, 3, 196644, 262144, 3, -327647, 262144, 3, -327646, 262144, 3, -393182, 262144, 3, -458718, 262144, 3, -458719, 327680, 3, -458717, 262144, 3, -393181, 262144, 3, -393180, 262144, 3, -458715, 262144, 3, -524251, 196608, 3, -524252, 262144, 3, -393179, 262144, 3, -327644, 262144, 3, -262108, 262144, 3, -262107, 262144, 3, -262109, 262144, 3, -196573, 262144, 3, -196572, 262144, 3, -196571, 262144, 3, -196574, 262144, 3, -196575, 262144, 3, -262111, 327680, 3, -262132, 131072, 0, -655325, 327680, 0, -589792, 196608, 0, -393195, 196608, 0, -458729, 524288, 1, -589799, 524288, 1, -720869, 524288, 1, -524265, 196608, 0, -655335, 196608, 0, -786405, 196608, 0)
+layer_1/name = "Layer1"
+
+[node name="Deco" type="Node2D" parent="."]
+
+[node name="Sun" type="Sprite2D" parent="Deco"]
+position = Vector2(221, -105)
+texture = ExtResource("7_wo3yh")
+hframes = 6
+frame = 4
+
+[node name="tree" type="Sprite2D" parent="Deco"]
+position = Vector2(0, -24)
+texture = ExtResource("9_aky6j")
+
+[node name="tree2" type="Sprite2D" parent="Deco"]
+position = Vector2(223, -72)
+texture = ExtResource("9_aky6j")
+
+[node name="tree3" type="Sprite2D" parent="Deco"]
+position = Vector2(604, -168)
+texture = ExtResource("9_aky6j")
+
+[node name="trunk" type="Sprite2D" parent="Deco"]
+position = Vector2(520, -136)
+texture = ExtResource("10_ku5as")
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="SignArrow" type="Sprite2D" parent="Objects"]
+position = Vector2(23, -16)
+texture = ExtResource("8_edk30")
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("11_jnc1k")]
+position = Vector2(40, -10)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("11_jnc1k")]
+position = Vector2(95, -40)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("11_jnc1k")]
+position = Vector2(145, -40)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("11_jnc1k")]
+position = Vector2(200, -60)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("11_jnc1k")]
+position = Vector2(250, -60)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("11_jnc1k")]
+position = Vector2(305, -75)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("11_jnc1k")]
+position = Vector2(345, -90)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("11_jnc1k")]
+position = Vector2(376, -125)
+
+[node name="Coin9" parent="Coins" instance=ExtResource("11_jnc1k")]
+position = Vector2(408, -155)
+
+[node name="Coin10" parent="Coins" instance=ExtResource("11_jnc1k")]
+position = Vector2(440, -190)
+
+[node name="Coin11" parent="Coins" instance=ExtResource("11_jnc1k")]
+position = Vector2(490, -190)
+
+[node name="Coin12" parent="Coins" instance=ExtResource("11_jnc1k")]
+position = Vector2(575, -155)
+
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="Areas" type="Node2D" parent="."]
+
+[node name="RespawnArea" type="Area2D" parent="Areas"]
+position = Vector2(9, 31)
+script = ExtResource("15_aky6j")
+
+[node name="RectanguleOfRespawn" type="CollisionShape2D" parent="Areas/RespawnArea"]
+position = Vector2(324, -2)
+shape = SubResource("RectangleShape2D_ku5as")
+
+[node name="Enviroment" type="Node2D" parent="."]
+
+[node name="lifes" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_53yht")]
+position = Vector2(0, -5)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4, 4)
+
+[node name="PlayerUI" type="Control" parent="Player/Camera2D"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = -144.0
+offset_top = -81.0
+offset_right = 144.0
+offset_bottom = 80.0
+script = ExtResource("4_jjm63")
+
+[node name="PlayingInterface" type="Panel" parent="Player/Camera2D/PlayerUI"]
+layout_mode = 0
+offset_right = 288.0
+offset_bottom = 163.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dneju")
+
+[node name="Score" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface"]
+layout_mode = 0
+offset_left = 81.0
+offset_right = 188.0
+offset_bottom = 30.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4y5rw")
+
+[node name="count" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 3.0
+offset_right = 82.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0.776447, 0.183654, 0, 1)
+theme_override_font_sizes/font_size = 15
+text = "/"
+uppercase = true
+
+[node name="coinIcon" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score"]
+position = Vector2(21, 14)
+scale = Vector2(2, 2)
+texture = ExtResource("3_qk7o1")
+hframes = 8
+
+[node name="coinsNumber" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = -3.0
+offset_right = 64.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.776471, 0.184314, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "00"
+
+[node name="target" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = -3.0
+offset_right = 101.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.776471, 0.184314, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "00"
+
+[node name="Lifes" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface"]
+layout_mode = 0
+offset_right = 71.0
+offset_bottom = 30.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g40m3")
+
+[node name="Simbol" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Lifes"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 3.0
+offset_right = 53.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0.776447, 0.183654, 0, 1)
+theme_override_font_sizes/font_size = 15
+text = "X"
+uppercase = true
+
+[node name="coinIcon" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Lifes"]
+position = Vector2(20, 9)
+scale = Vector2(2, 2)
+texture = ExtResource("14_cpiv8")
+flip_h = true
+hframes = 5
+vframes = 2
+frame = 3
+
+[node name="LifesNumber" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Lifes"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = -3.0
+offset_right = 76.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.776471, 0.184314, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "5"
+
+[node name="Damage" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface"]
+layout_mode = 0
+offset_left = 197.0
+offset_right = 288.0
+offset_bottom = 30.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4y5rw")
+
+[node name="heartIcon" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Damage"]
+position = Vector2(20, 14)
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("15_tcgm1")
+hframes = 4
+frame = 1
+
+[node name="heartIcon2" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Damage"]
+position = Vector2(45, 14)
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("15_tcgm1")
+hframes = 4
+frame = 1
+
+[node name="heartIcon3" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Damage"]
+position = Vector2(70, 14)
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("15_tcgm1")
+hframes = 4
+frame = 1
+
+[node name="PauseMenu" type="Panel" parent="Player/Camera2D/PlayerUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.5
+offset_top = -81.0
+offset_right = 144.5
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Player/Camera2D/PlayerUI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.5
+offset_top = -66.0
+offset_right = 59.5
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i773c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -37.5
+offset_right = 49.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ksxi1")
+theme_override_constants/separation = 5
+
+[node name="Message" type="Label" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.317647, 0.494118, 0.984314, 1)
+theme_override_font_sizes/font_size = 20
+text = "Pausa"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Continue" type="Button" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_74qju")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3xgka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o7ytw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h1l5d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4k6w")
+action_mode = 0
+text = "Continuar"
+
+[node name="MainMenu" type="Button" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_74qju")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3xgka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o7ytw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h1l5d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4k6w")
+action_mode = 0
+text = "Menú"
+
+[node name="Exit" type="Button" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_74qju")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3xgka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o7ytw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h1l5d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4k6w")
+action_mode = 0
+text = "Salir"
+
+[node name="WinMenu" type="Panel" parent="Player/Camera2D/PlayerUI"]
+visible = false
+layout_mode = 0
+offset_right = 289.0
+offset_bottom = 162.0
+
+[node name="Panel" type="Panel" parent="Player/Camera2D/PlayerUI/WinMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -67.0
+offset_right = 111.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i773c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/PlayerUI/WinMenu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -37.5
+offset_right = 49.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ksxi1")
+theme_override_constants/separation = 5
+
+[node name="Message" type="Label" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.317647, 0.494118, 0.984314, 1)
+theme_override_font_sizes/font_size = 20
+text = "Nivel superado!"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="NextLevel" type="Button" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_74qju")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3xgka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o7ytw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h1l5d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4k6w")
+action_mode = 0
+text = "Siguiente nivel"
+
+[node name="RepeatLevel" type="Button" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_74qju")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3xgka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o7ytw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h1l5d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4k6w")
+action_mode = 0
+text = "Repetir nivel"
+
+[node name="MainMenu" type="Button" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_74qju")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3xgka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o7ytw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h1l5d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4k6w")
+action_mode = 0
+text = "Menú principal"
+
+[node name="Exit" type="Button" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_74qju")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3xgka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o7ytw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h1l5d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4k6w")
+action_mode = 0
+text = "Salir"
+
+[node name="LooseMenu" type="Panel" parent="Player/Camera2D/PlayerUI"]
+visible = false
+layout_mode = 0
+offset_right = 289.0
+offset_bottom = 162.0
+
+[node name="Panel" type="Panel" parent="Player/Camera2D/PlayerUI/LooseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -67.0
+offset_right = 111.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i773c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -37.5
+offset_right = 49.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ksxi1")
+theme_override_constants/separation = 5
+
+[node name="Message" type="Label" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.317647, 0.494118, 0.984314, 1)
+theme_override_font_sizes/font_size = 20
+text = "Perdiste!!!"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="ResetRun" type="Button" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_74qju")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3xgka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o7ytw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h1l5d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4k6w")
+action_mode = 0
+text = "Volver a intentar"
+
+[node name="MainMenu" type="Button" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_74qju")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3xgka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o7ytw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h1l5d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4k6w")
+action_mode = 0
+text = "Menú principal"
+
+[node name="Exit" type="Button" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_74qju")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3xgka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o7ytw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h1l5d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4k6w")
+action_mode = 0
+text = "Salir"
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
+stream = ExtResource("17_f2qdw")
+
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
+stream = ExtResource("18_p2d8c")
+
+[node name="LevelSuccess" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
+stream = ExtResource("19_inoyo")
+
+[node name="LevelFailed" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
+stream = ExtResource("20_f4f25")
+
+[node name="MenuMovement" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
+stream = ExtResource("21_xckvn")
+
+[node name="MenuSelect" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
+stream = ExtResource("22_fl5p6")
+
+[connection signal="body_entered" from="Areas/RespawnArea" to="Areas/RespawnArea" method="_on_body_entered"]
+[connection signal="pressed" from="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer/Continue" to="Player/Camera2D/PlayerUI" method="_on_continue_pressed"]
+[connection signal="pressed" from="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer/MainMenu" to="Player/Camera2D/PlayerUI" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer/Exit" to="Player/Camera2D/PlayerUI" method="_on_exit_pressed"]
+[connection signal="pressed" from="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel" to="Player/Camera2D/PlayerUI" method="_on_next_level_pressed"]
+[connection signal="pressed" from="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel" to="Player/Camera2D/PlayerUI" method="_on_repeat_level_pressed"]
+[connection signal="pressed" from="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/MainMenu" to="Player/Camera2D/PlayerUI" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/Exit" to="Player/Camera2D/PlayerUI" method="_on_exit_pressed"]
+[connection signal="pressed" from="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer/ResetRun" to="Player/Camera2D/PlayerUI" method="_on_reset_run_pressed"]
+[connection signal="pressed" from="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer/MainMenu" to="Player/Camera2D/PlayerUI" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer/Exit" to="Player/Camera2D/PlayerUI" method="_on_exit_pressed"]

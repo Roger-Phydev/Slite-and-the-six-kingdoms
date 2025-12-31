@@ -1,0 +1,116 @@
+[gd_scene load_steps=12 format=3 uid="uid://bfkp1tvriil8l"]
+
+[ext_resource type="Texture2D" uid="uid://btb22kwngxcht" path="res://Assets/Enemies/fireball.png" id="1_or0w1"]
+[ext_resource type="Script" uid="uid://c15k3trmmcl6f" path="res://Scripts/enemy_proyectile.gd" id="1_tyhj0"]
+[ext_resource type="AudioStream" uid="uid://bihnelsim6qo1" path="res://MusicAndSounds/SFX/fireball.ogg" id="3_c3efa"]
+[ext_resource type="AudioStream" uid="uid://e6k1kerygjae" path="res://MusicAndSounds/SFX/fire.ogg" id="4_7oq4x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyhj0"]
+size = Vector2(7, 7)
+
+[sub_resource type="Animation" id="Animation_c3efa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_4jul8"]
+resource_name = "move"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7oq4x"]
+_data = {
+&"RESET": SubResource("Animation_c3efa"),
+&"move": SubResource("Animation_4jul8")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4jul8"]
+radius = 172.743
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c3efa"]
+radius = 97.0824
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7oq4x"]
+radius = 39.0128
+
+[node name="EnemyFireBall" type="CharacterBody2D"]
+script = ExtResource("1_tyhj0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, 0)
+texture = ExtResource("1_or0w1")
+flip_h = true
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_tyhj0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-3, -4, -6, -2, -6, 3, -2, 5, 2, 5, 4, 4, 5, 3, 6, 2, 9, 1, 8, -1, 6, -2, 5, -3, 3, -4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+&"": SubResource("AnimationLibrary_7oq4x")
+}
+
+[node name="WallDetection" type="RayCast2D" parent="."]
+target_position = Vector2(-6, 0)
+collision_mask = 5
+
+[node name="Flush" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_c3efa")
+
+[node name="LowVolumeSound" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowVolumeSound"]
+shape = SubResource("CircleShape2D_4jul8")
+
+[node name="MediumVolumeSound" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MediumVolumeSound"]
+shape = SubResource("CircleShape2D_c3efa")
+
+[node name="FullVolumeSound" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FullVolumeSound"]
+shape = SubResource("CircleShape2D_7oq4x")
+
+[node name="Moving" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7oq4x")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="LowVolumeSound" to="." method="_on_low_volume_sound_body_entered"]
+[connection signal="body_exited" from="LowVolumeSound" to="." method="_on_low_volume_sound_body_exited"]
+[connection signal="body_entered" from="MediumVolumeSound" to="." method="_on_medium_volume_sound_body_entered"]
+[connection signal="body_exited" from="MediumVolumeSound" to="." method="_on_medium_volume_sound_body_exited"]
+[connection signal="body_entered" from="FullVolumeSound" to="." method="_on_full_volume_sound_body_entered"]
+[connection signal="body_exited" from="FullVolumeSound" to="." method="_on_full_volume_sound_body_exited"]

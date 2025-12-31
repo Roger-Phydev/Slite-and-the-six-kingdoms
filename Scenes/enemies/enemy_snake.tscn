@@ -1,0 +1,116 @@
+[gd_scene load_steps=12 format=3 uid="uid://rc6fa428du0t"]
+
+[ext_resource type="Texture2D" uid="uid://bhbii5y2ws6gs" path="res://Assets/Enemies/snake.png" id="1_kpfjr"]
+[ext_resource type="Script" uid="uid://dq26ih45xt2qg" path="res://Scripts/enemy_snake.gd" id="1_yu0wn"]
+[ext_resource type="AudioStream" uid="uid://cy2sikds5pp44" path="res://MusicAndSounds/SFX/snake.ogg" id="3_ur5ln"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yu0wn"]
+size = Vector2(20, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ur5ln"]
+size = Vector2(22, 16)
+
+[sub_resource type="Animation" id="Animation_ur5ln"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_yu0wn"]
+resource_name = "creep"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ur340"]
+_data = {
+&"RESET": SubResource("Animation_ur5ln"),
+&"creep": SubResource("Animation_yu0wn")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ur5ln"]
+radius = 172.743
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ur340"]
+radius = 97.0824
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_okra7"]
+radius = 39.0128
+
+[node name="EnemySnake" type="CharacterBody2D"]
+script = ExtResource("1_yu0wn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -9)
+texture = ExtResource("1_kpfjr")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_yu0wn")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_ur5ln")
+
+[node name="WallDetection" type="RayCast2D" parent="."]
+rotation = 1.5708
+target_position = Vector2(5.42999e-05, 15)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ur340")
+}
+
+[node name="Moving" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ur5ln")
+
+[node name="LowVolumeSound" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowVolumeSound"]
+shape = SubResource("CircleShape2D_ur5ln")
+
+[node name="MediumVolumeSound" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MediumVolumeSound"]
+shape = SubResource("CircleShape2D_ur340")
+
+[node name="FullVolumeSound" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FullVolumeSound"]
+shape = SubResource("CircleShape2D_okra7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="LowVolumeSound" to="." method="_on_low_volume_sound_body_entered"]
+[connection signal="body_exited" from="LowVolumeSound" to="." method="_on_low_volume_sound_body_exited"]
+[connection signal="body_entered" from="MediumVolumeSound" to="." method="_on_medium_volume_sound_body_entered"]
+[connection signal="body_exited" from="MediumVolumeSound" to="." method="_on_medium_volume_sound_body_exited"]
+[connection signal="body_entered" from="FullVolumeSound" to="." method="_on_full_volume_sound_body_entered"]
+[connection signal="body_exited" from="FullVolumeSound" to="." method="_on_full_volume_sound_body_exited"]

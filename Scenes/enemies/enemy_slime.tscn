@@ -1,0 +1,157 @@
+[gd_scene load_steps=13 format=3 uid="uid://bk2ua3yl8snwk"]
+
+[ext_resource type="Script" uid="uid://bs4nfcbasgii2" path="res://Scripts/enemy_walking.gd" id="1_eruci"]
+[ext_resource type="Texture2D" uid="uid://yfsdgdhpsps0" path="res://Assets/Enemies/slime_blue.png" id="2_pgho7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
+size = Vector2(12, 9)
+
+[sub_resource type="Animation" id="Animation_vgqql"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6t5aa"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.533333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_cvnsp"]
+resource_name = "jump"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 2]
+}
+
+[sub_resource type="Animation" id="Animation_fkybt"]
+resource_name = "walk"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x3wgy"]
+_data = {
+&"RESET": SubResource("Animation_vgqql"),
+&"idle": SubResource("Animation_6t5aa"),
+&"jump": SubResource("Animation_cvnsp"),
+&"walk": SubResource("Animation_fkybt")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1f0kj"]
+size = Vector2(17, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6vs72"]
+radius = 172.743
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u24v6"]
+radius = 97.0824
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ujbpm"]
+radius = 39.0128
+
+[node name="EnemySlime" type="CharacterBody2D"]
+script = ExtResource("1_eruci")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_cvnsp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -3)
+texture = ExtResource("2_pgho7")
+hframes = 5
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_x3wgy")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_1f0kj")
+
+[node name="FloorDetection" type="RayCast2D" parent="."]
+position = Vector2(-9, -10)
+target_position = Vector2(0, 28)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="WallDetection" type="RayCast2D" parent="."]
+rotation = 1.5708
+target_position = Vector2(6.11959e-07, 14)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="Moving" type="AudioStreamPlayer2D" parent="."]
+
+[node name="LowVolumeSound" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowVolumeSound"]
+shape = SubResource("CircleShape2D_6vs72")
+
+[node name="MediumVolumeSound" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MediumVolumeSound"]
+shape = SubResource("CircleShape2D_u24v6")
+
+[node name="FullVolumeSound" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FullVolumeSound"]
+shape = SubResource("CircleShape2D_ujbpm")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="LowVolumeSound" to="." method="_on_low_volume_sound_body_entered"]
+[connection signal="body_exited" from="LowVolumeSound" to="." method="_on_low_volume_sound_body_exited"]
+[connection signal="body_entered" from="MediumVolumeSound" to="." method="_on_medium_volume_sound_body_entered"]
+[connection signal="body_exited" from="MediumVolumeSound" to="." method="_on_medium_volume_sound_body_exited"]
+[connection signal="body_entered" from="FullVolumeSound" to="." method="_on_full_volume_sound_body_entered"]
+[connection signal="body_exited" from="FullVolumeSound" to="." method="_on_full_volume_sound_body_exited"]
