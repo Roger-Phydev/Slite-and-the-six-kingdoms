@@ -10,10 +10,11 @@ var world = 1; #world number
 var level = 1; #level number
 var success = false; #win variable
 var loose = false; #loose variable
-var hero_mode = false; #a variable that sets when its playing with finite lifes
-var lifes = 5; # lives in case of hero mode
+var hero_mode = true; #a variable that sets when its playing with finite lifes
+var lifes = 1; # lives in case of hero mode
 var hits = 3; # number of hits that remains to loose a life
 var reload = false;
+var reload_lifes = 0;
 
 var respawn_position = Vector2(0,0);
 #array propierties
@@ -35,10 +36,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if coins[world-1][level-1] and coinsCount == coins[world-1][level-1]: #if we reach the max count of coin for the level
-		coinsCount = 0; # restart coins count for the next level
 		success = true; #it indicates that the level is complete
-		#set_next_world_and_level(); # set the next world and level
-		#start_world_level_scene(world,level); #initializes the next level
 
 ######################################################################
 # methods:

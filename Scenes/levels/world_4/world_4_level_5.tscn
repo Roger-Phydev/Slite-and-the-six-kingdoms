@@ -408,20 +408,20 @@ sources/2 = SubResource("TileSetAtlasSource_y3ei7")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62iv7"]
 size = Vector2(261.5, 20)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5238"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6cu8"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5gve"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjg5u"]
 bg_color = Color(0.298039, 0.639216, 0.827451, 0.647059)
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pa3lj"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6a65"]
 bg_color = Color(0.298039, 0.639216, 0.827451, 0.647059)
 corner_radius_bottom_right = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3221m"]
-bg_color = Color(0.820726, 0.853618, 0.532607, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r43u3"]
+bg_color = Color(0.13725491, 0.78039217, 0.47058824, 1)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
@@ -432,54 +432,58 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="Theme" id="Theme_jcdef"]
+[sub_resource type="Theme" id="Theme_ctpr0"]
 default_font_size = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7d3ui"]
-bg_color = Color(0.419608, 0.247059, 0.901961, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8yqjj"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1f0h7"]
-bg_color = Color(0.419608, 0.247059, 0.901961, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ncp4f"]
-bg_color = Color(0.218609, 0.0877106, 0.517929, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37tm1"]
-bg_color = Color(0.6, 0.6, 0.8, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2e3lp"]
+bg_color = Color(0.29803923, 0.83137256, 0.75686276, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.31764707, 0.49411765, 0.9843137, 1)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvmb5"]
+bg_color = Color(0.078431375, 0.627451, 0.72156864, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.31764707, 0.49411765, 0.9843137, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2pcem"]
+bg_color = Color(0.078431375, 0.627451, 0.72156864, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_34ws5"]
+bg_color = Color(0.078431375, 0.627451, 0.72156864, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.92941177, 0.6901961, 0.54901963, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dbx6"]
 
 [node name="world_4_level_5" type="Node2D"]
 
@@ -506,7 +510,7 @@ texture = ExtResource("14_of8yr")
 flip_v = true
 
 [node name="Sky2" type="Polygon2D" parent="Backgrounds"]
-position = Vector2(1536, -488)
+position = Vector2(1536, -476.00003)
 scale = Vector2(7.29311, 3.64891)
 color = Color(0.192157, 0.596078, 0.94902, 1)
 polygon = PackedVector2Array(-241, -128, 369, -130, 371, 281, -240, 283)
@@ -630,6 +634,36 @@ texture = ExtResource("12_6dbx6")
 [node name="Wall2" type="Sprite2D" parent="Backgrounds"]
 position = Vector2(2048, -48)
 texture = ExtResource("12_6dbx6")
+
+[node name="Background" type="Polygon2D" parent="Backgrounds"]
+position = Vector2(-3807, 506)
+scale = Vector2(7.75, 4.232143)
+color = Color(0.21960784, 0.19607843, 0.3647059, 1)
+polygon = PackedVector2Array(584, -88, 624, -88, 624, -32, 584, -32, 584, -60.51622)
+
+[node name="Background2" type="Polygon2D" parent="Backgrounds"]
+position = Vector2(-3235, 657)
+scale = Vector2(7.75, 4.232143)
+color = Color(0.21960784, 0.19607843, 0.3647059, 1)
+polygon = PackedVector2Array(584, -88, 624, -88, 624, -32, 584, -32, 584, -60.51622)
+
+[node name="Background3" type="Polygon2D" parent="Backgrounds"]
+position = Vector2(-2960, 468)
+scale = Vector2(7.75, 4.232143)
+color = Color(0.21960784, 0.19607843, 0.3647059, 1)
+polygon = PackedVector2Array(584, -88, 624, -88, 624, -32, 584, -32, 584, -60.51622)
+
+[node name="Background4" type="Polygon2D" parent="Backgrounds"]
+position = Vector2(-3202, 453.00003)
+scale = Vector2(7.75, 4.232143)
+color = Color(0.21960784, 0.19607843, 0.3647059, 1)
+polygon = PackedVector2Array(584, -88, 624, -88, 624, -32, 584, -32, 584, -60.51622)
+
+[node name="Background5" type="Polygon2D" parent="Backgrounds"]
+position = Vector2(-2876, 391.00003)
+scale = Vector2(7.75, 4.232143)
+color = Color(0.21960784, 0.19607843, 0.3647059, 1)
+polygon = PackedVector2Array(584, -88, 624, -88, 624, -32, 584, -32, 584, -60.51622)
 
 [node name="Tilemaps" type="Node2D" parent="."]
 
@@ -924,14 +958,14 @@ script = ExtResource("35_34ws5")
 layout_mode = 0
 offset_right = 288.0
 offset_bottom = 163.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_h5238")
+theme_override_styles/panel = SubResource("StyleBoxFlat_k6cu8")
 
 [node name="Score" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface"]
 layout_mode = 0
 offset_left = 81.0
 offset_right = 188.0
 offset_bottom = 30.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_p5gve")
+theme_override_styles/panel = SubResource("StyleBoxFlat_pjg5u")
 
 [node name="count" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score"]
 layout_mode = 0
@@ -974,7 +1008,7 @@ text = "00"
 layout_mode = 0
 offset_right = 71.0
 offset_bottom = 30.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_pa3lj")
+theme_override_styles/panel = SubResource("StyleBoxFlat_l6a65")
 
 [node name="Simbol" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Lifes"]
 layout_mode = 0
@@ -1011,7 +1045,7 @@ layout_mode = 0
 offset_left = 197.0
 offset_right = 288.0
 offset_bottom = 30.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_p5gve")
+theme_override_styles/panel = SubResource("StyleBoxFlat_pjg5u")
 
 [node name="heartIcon" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Damage"]
 position = Vector2(20, 14)
@@ -1056,13 +1090,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -59.5
-offset_top = -66.0
-offset_right = 59.5
-offset_bottom = 66.0
+offset_left = -80.25
+offset_top = -79.75
+offset_right = 80.25
+offset_bottom = 77.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_3221m")
+theme_override_styles/panel = SubResource("StyleBoxFlat_r43u3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel"]
 layout_mode = 1
@@ -1077,7 +1111,7 @@ offset_right = 49.0
 offset_bottom = 37.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_jcdef")
+theme = SubResource("Theme_ctpr0")
 theme_override_constants/separation = 5
 
 [node name="Message" type="Label" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer"]
@@ -1092,11 +1126,10 @@ uppercase = true
 layout_mode = 2
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_font_sizes/font_size = 12
-theme_override_styles/focus = SubResource("StyleBoxFlat_7d3ui")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8yqjj")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1f0h7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ncp4f")
-theme_override_styles/normal = SubResource("StyleBoxFlat_37tm1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2e3lp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bvmb5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2pcem")
+theme_override_styles/focus = SubResource("StyleBoxFlat_34ws5")
 action_mode = 0
 text = "Continuar"
 
@@ -1104,23 +1137,35 @@ text = "Continuar"
 layout_mode = 2
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_font_sizes/font_size = 12
-theme_override_styles/focus = SubResource("StyleBoxFlat_7d3ui")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8yqjj")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1f0h7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ncp4f")
-theme_override_styles/normal = SubResource("StyleBoxFlat_37tm1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2e3lp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bvmb5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2pcem")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_6dbx6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_34ws5")
 action_mode = 0
 text = "Menú"
+
+[node name="ResetLevel" type="Button" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_2e3lp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bvmb5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2pcem")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_6dbx6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_34ws5")
+action_mode = 0
+text = "Reiniciar nivel"
 
 [node name="Exit" type="Button" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_font_sizes/font_size = 12
-theme_override_styles/focus = SubResource("StyleBoxFlat_7d3ui")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8yqjj")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1f0h7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ncp4f")
-theme_override_styles/normal = SubResource("StyleBoxFlat_37tm1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2e3lp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bvmb5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2pcem")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_6dbx6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_34ws5")
 action_mode = 0
 text = "Salir"
 
@@ -1143,7 +1188,7 @@ offset_right = 111.0
 offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_3221m")
+theme_override_styles/panel = SubResource("StyleBoxFlat_r43u3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/PlayerUI/WinMenu/Panel"]
 layout_mode = 1
@@ -1158,7 +1203,7 @@ offset_right = 49.0
 offset_bottom = 37.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_jcdef")
+theme = SubResource("Theme_ctpr0")
 theme_override_constants/separation = 5
 
 [node name="Message" type="Label" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer"]
@@ -1176,11 +1221,11 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_font_sizes/font_size = 12
-theme_override_styles/focus = SubResource("StyleBoxFlat_7d3ui")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8yqjj")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1f0h7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ncp4f")
-theme_override_styles/normal = SubResource("StyleBoxFlat_37tm1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2e3lp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bvmb5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2pcem")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_6dbx6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_34ws5")
 action_mode = 0
 text = "Siguiente nivel"
 
@@ -1188,11 +1233,11 @@ text = "Siguiente nivel"
 layout_mode = 2
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_font_sizes/font_size = 12
-theme_override_styles/focus = SubResource("StyleBoxFlat_7d3ui")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8yqjj")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1f0h7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ncp4f")
-theme_override_styles/normal = SubResource("StyleBoxFlat_37tm1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2e3lp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bvmb5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2pcem")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_6dbx6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_34ws5")
 action_mode = 0
 text = "Repetir nivel"
 
@@ -1200,11 +1245,11 @@ text = "Repetir nivel"
 layout_mode = 2
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_font_sizes/font_size = 12
-theme_override_styles/focus = SubResource("StyleBoxFlat_7d3ui")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8yqjj")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1f0h7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ncp4f")
-theme_override_styles/normal = SubResource("StyleBoxFlat_37tm1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2e3lp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bvmb5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2pcem")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_6dbx6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_34ws5")
 action_mode = 0
 text = "Menú principal"
 
@@ -1212,11 +1257,11 @@ text = "Menú principal"
 layout_mode = 2
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_font_sizes/font_size = 12
-theme_override_styles/focus = SubResource("StyleBoxFlat_7d3ui")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8yqjj")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1f0h7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ncp4f")
-theme_override_styles/normal = SubResource("StyleBoxFlat_37tm1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2e3lp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bvmb5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2pcem")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_6dbx6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_34ws5")
 action_mode = 0
 text = "Salir"
 
@@ -1239,7 +1284,7 @@ offset_right = 111.0
 offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_3221m")
+theme_override_styles/panel = SubResource("StyleBoxFlat_r43u3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel"]
 layout_mode = 1
@@ -1254,7 +1299,7 @@ offset_right = 49.0
 offset_bottom = 37.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_jcdef")
+theme = SubResource("Theme_ctpr0")
 theme_override_constants/separation = 5
 
 [node name="Message" type="Label" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer"]
@@ -1269,11 +1314,11 @@ uppercase = true
 layout_mode = 2
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_font_sizes/font_size = 12
-theme_override_styles/focus = SubResource("StyleBoxFlat_7d3ui")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8yqjj")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1f0h7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ncp4f")
-theme_override_styles/normal = SubResource("StyleBoxFlat_37tm1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2e3lp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bvmb5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2pcem")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_6dbx6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_34ws5")
 action_mode = 0
 text = "Volver a intentar"
 
@@ -1281,11 +1326,11 @@ text = "Volver a intentar"
 layout_mode = 2
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_font_sizes/font_size = 12
-theme_override_styles/focus = SubResource("StyleBoxFlat_7d3ui")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8yqjj")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1f0h7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ncp4f")
-theme_override_styles/normal = SubResource("StyleBoxFlat_37tm1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2e3lp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bvmb5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2pcem")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_6dbx6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_34ws5")
 action_mode = 0
 text = "Menú principal"
 
@@ -1293,11 +1338,11 @@ text = "Menú principal"
 layout_mode = 2
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_font_sizes/font_size = 12
-theme_override_styles/focus = SubResource("StyleBoxFlat_7d3ui")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8yqjj")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1f0h7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ncp4f")
-theme_override_styles/normal = SubResource("StyleBoxFlat_37tm1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2e3lp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bvmb5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2pcem")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_6dbx6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_34ws5")
 action_mode = 0
 text = "Salir"
 
@@ -1320,13 +1365,14 @@ stream = ExtResource("43_mvcvj")
 stream = ExtResource("44_f2hry")
 
 [connection signal="body_entered" from="Areas/PlayerRespawnArea2" to="Areas/PlayerRespawnArea2" method="_on_body_entered"]
-[connection signal="pressed" from="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer/Continue" to="Player/Camera2D/PlayerUI" method="_on_continue_pressed"]
-[connection signal="pressed" from="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer/MainMenu" to="Player/Camera2D/PlayerUI" method="_on_main_menu_pressed"]
-[connection signal="pressed" from="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer/Exit" to="Player/Camera2D/PlayerUI" method="_on_exit_pressed"]
-[connection signal="pressed" from="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel" to="Player/Camera2D/PlayerUI" method="_on_next_level_pressed"]
-[connection signal="pressed" from="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel" to="Player/Camera2D/PlayerUI" method="_on_repeat_level_pressed"]
-[connection signal="pressed" from="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/MainMenu" to="Player/Camera2D/PlayerUI" method="_on_main_menu_pressed"]
-[connection signal="pressed" from="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/Exit" to="Player/Camera2D/PlayerUI" method="_on_exit_pressed"]
-[connection signal="pressed" from="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer/ResetRun" to="Player/Camera2D/PlayerUI" method="_on_reset_run_pressed"]
-[connection signal="pressed" from="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer/MainMenu" to="Player/Camera2D/PlayerUI" method="_on_main_menu_pressed"]
-[connection signal="pressed" from="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer/Exit" to="Player/Camera2D/PlayerUI" method="_on_exit_pressed"]
+[connection signal="button_up" from="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer/Continue" to="Player/Camera2D/PlayerUI" method="_on_continue_button_up"]
+[connection signal="button_up" from="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer/MainMenu" to="Player/Camera2D/PlayerUI" method="_on_main_menu_button_up"]
+[connection signal="button_up" from="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer/ResetLevel" to="Player/Camera2D/PlayerUI" method="_on_reset_level_button_up"]
+[connection signal="button_up" from="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer/Exit" to="Player/Camera2D/PlayerUI" method="_on_exit_button_up"]
+[connection signal="button_up" from="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel" to="Player/Camera2D/PlayerUI" method="_on_next_level_button_up"]
+[connection signal="button_up" from="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel" to="Player/Camera2D/PlayerUI" method="_on_repeat_level_button_up"]
+[connection signal="button_up" from="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/MainMenu" to="Player/Camera2D/PlayerUI" method="_on_main_menu_button_up"]
+[connection signal="button_up" from="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/Exit" to="Player/Camera2D/PlayerUI" method="_on_exit_button_up"]
+[connection signal="button_up" from="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer/ResetRun" to="Player/Camera2D/PlayerUI" method="_on_reset_run_button_up"]
+[connection signal="button_up" from="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer/MainMenu" to="Player/Camera2D/PlayerUI" method="_on_main_menu_button_up"]
+[connection signal="button_up" from="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer/Exit" to="Player/Camera2D/PlayerUI" method="_on_exit_button_up"]
