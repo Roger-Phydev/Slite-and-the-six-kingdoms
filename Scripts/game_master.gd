@@ -11,10 +11,11 @@ var level = 1; #level number
 var success = false; #win variable
 var loose = false; #loose variable
 var hero_mode = false; #a variable that sets when its playing with finite lifes
-var lifes = 1; # lives in case of hero mode
+var lifes = 5; # lives in case of hero mode
 var hits = 3; # number of hits that remains to loose a life
 var reload = false;
 var reload_lifes = 0;
+var credits_from_menu = false;
 
 var respawn_position = Vector2(0,0);
 #array propierties
@@ -31,7 +32,7 @@ var coins = [ #coin for every world and course
 # Basic operation
 ##################################################
 func _ready() -> void:
-	print("world: "+str(world)+"    level: "+str(level));
+	pass;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -58,8 +59,7 @@ func set_next_world_and_level(): # this function calculates next level and world
 		world += 1; #increments the world
 		level = 1; #and set the level in 1
 	else: #otherwise
-		level += 1; #but increments the level
-
+		level += 1; #increments the level
 func start_next_level():
 	set_next_world_and_level();
 	coinsCount = 0; #resets coins number
@@ -70,7 +70,8 @@ func start_next_level():
 	else:
 		world = 1;
 		level = 1; #sets the initial values of the world and level
-		start_menu("main"); #returns to the main menu
+		credits_from_menu = false;
+		get_tree().change_scene_to_file("res://Scenes/credits.tscn"); #go to credits
 
 func reload_level():
 	coinsCount = 0; #resets couins count

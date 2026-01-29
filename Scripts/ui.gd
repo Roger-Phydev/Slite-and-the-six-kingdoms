@@ -12,13 +12,15 @@ extends Control
 @onready var win_menu = $WinMenu; #selects the win menu
 @onready var loose_menu = $LooseMenu; #selects the loose menu
 @onready var resume_time = 0.0;
-@onready var buttons_list = [""]; #list of buttons
-@onready var buttons_cursor = -1; #the buttons cursor
-
+@onready var menu_cursor = Vector2(0,0);
+@onready var previous_cursor_x = 0;
+@onready var menu_options = [];
+@onready var menu_focus = false;
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("world: ",GameMaster.world," level: ",GameMaster.level);
 	# getting and setting the coins number for the actual level
 	if GameMaster.coins[GameMaster.world-1][GameMaster.level-1] < 10: #9 or less coins
 			target_coins.text = "0" + str(GameMaster.coins[GameMaster.world-1][GameMaster.level-1]);
@@ -33,6 +35,12 @@ func _ready() -> void:
 	$LevelMusic.play();
 	$MenuMovement.volume_db = 20;
 	$MenuSelect.volume_db = 20;
+	menu_options = [
+				[$PauseMenu/Panel/VBoxContainer/Continue],
+				[$PauseMenu/Panel/VBoxContainer/MainMenu],
+				[$PauseMenu/Panel/VBoxContainer/ResetLevel],
+				[$PauseMenu/Panel/VBoxContainer/Exit]
+			];
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -65,12 +73,16 @@ func _process(delta: float) -> void:
 			resume_time = $LevelMusic.get_playback_position();
 			$LevelMusic.stop();
 			$MenuMusic.play();
+			menu_cursor = Vector2(0,0);
+			menu_options = [
+				[$PauseMenu/Panel/VBoxContainer/Continue],
+				[$PauseMenu/Panel/VBoxContainer/MainMenu],
+				[$PauseMenu/Panel/VBoxContainer/ResetLevel],
+				[$PauseMenu/Panel/VBoxContainer/Exit]
+			];
 		else: #when returns to game
 			$LevelMusic.play(resume_time);
 			$MenuMusic.stop();
-			buttons_cursor = -1; #resets the cursor
-		# buttons for controls:
-		buttons_list = [$PauseMenu/Panel/VBoxContainer/Continue,$PauseMenu/Panel/VBoxContainer/MainMenu,$PauseMenu/Panel/VBoxContainer/ResetLevel,$PauseMenu/Panel/VBoxContainer/Exit];
 	####################################
 	# Displaying the win menu:
 	####################################
@@ -81,8 +93,13 @@ func _process(delta: float) -> void:
 		$LevelMusic.stop();
 		$LevelSuccess.play(0.0);
 		GameMaster.success = false;
-		buttons_cursor = -1;
-		buttons_list = [$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel,$WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel,$WinMenu/Panel/VBoxContainer/MainMenu,$WinMenu/Panel/VBoxContainer/Exit];
+		menu_cursor = Vector2(0,0);
+		menu_options = [
+			[$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel,$WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel],
+			[$WinMenu/Panel/VBoxContainer/MainMenu],
+			[$WinMenu/Panel/VBoxContainer/Exit]
+		];
+		
 	#####################################
 	# Displaying the loose menu
 	#####################################
@@ -93,52 +110,21 @@ func _process(delta: float) -> void:
 		$LevelMusic.stop();
 		$LevelFailed.play();
 		GameMaster.loose = false;
-		buttons_cursor = -1;
-		buttons_list = [$LooseMenu/Panel/VBoxContainer/ResetRun,$LooseMenu/Panel/VBoxContainer/MainMenu,$LooseMenu/Panel/VBoxContainer/Exit];
+		menu_cursor = Vector2(0,0);
+		menu_options = [
+			[$LooseMenu/Panel/VBoxContainer/ResetRun],
+			[$LooseMenu/Panel/VBoxContainer/MainMenu],
+			[$LooseMenu/Panel/VBoxContainer/Exit]
+		];
 	######################################
 	# Navigation for the menus
 	######################################
 	if get_tree().paused:
+		if Input.is_action_just_released("Up") or Input.is_action_just_released("Down"):
+			menu_focus = true;
 		# When is paused checks what input is released and then acts depending on the input
-		if Input.is_action_just_released("Up"):
-			if buttons_cursor == -1: #this action applies for all the first time
-				buttons_cursor = 0; #sets the button_cursor on 0
-			else: #in other case, this decrements the index inside the buttons arrays
-				buttons_cursor = (buttons_cursor + len(buttons_list) - 1)%len(buttons_list)
-			$MenuMovement.play(); #plays the movement music
-			buttons_list[buttons_cursor].grab_focus(); #grabs the focus to the button
-		elif Input.is_action_just_released("Down"):
-			if buttons_cursor == -1:
-				buttons_cursor = 0;
-			else: #in this case, increments the index inside the buttons array
-				buttons_cursor = (buttons_cursor + 1)%len(buttons_list)
-			$MenuMovement.play(); #plays the movement music
-			buttons_list[buttons_cursor].grab_focus(); #grabs the focus to the button
-		elif Input.is_action_just_released("right"):
-			if buttons_cursor == -1: # in this case just acts when begins the actions
-				buttons_cursor = 0;#initializes the button
-				$MenuMovement.play(); #plays the movement music
-				buttons_list[buttons_cursor].grab_focus(); #grabs the focus to the button
-			elif buttons_cursor == 0 and len(buttons_list) == 4:#this acts in the only case when we have 2 buttons one beside another
-				buttons_cursor = 1;
-				$MenuMovement.play();
-				buttons_list[buttons_cursor].grab_focus();
-		elif Input.is_action_just_released("left"):
-			if buttons_cursor == -1: # in this case just acts when begins the actions
-				$MenuMovement.play(); #plays the movement music
-				buttons_cursor = 0;#initializes the button
-				buttons_list[buttons_cursor].grab_focus(); #grabs the focus to the button
-			elif buttons_cursor == 1 and len(buttons_list) == 4:#this acts in the only case when we have 2 buttons one beside another
-				buttons_cursor = 0;
-				$MenuMovement.play();
-				buttons_list[buttons_cursor].grab_focus();
-		elif Input.is_action_just_released("Select"):
-			if buttons_cursor == -1: # when begins the actions
-				buttons_cursor = 0;#initializes the button
-				$MenuMovement.play(); #plays the movement music
-				buttons_list[buttons_cursor].grab_focus(); #grabs the focus to the button
-			else:
-				buttons_list[buttons_cursor].emit_signal("button_up");#presses the actual button
+		if menu_focus:
+			menu_movement(menu_options);
 ##########################################
 # updating hearts function
 ##########################################
@@ -155,8 +141,46 @@ func updating_hearts(number: int):
 		first_heart.frame = 1;
 		second_heart.frame = 3;
 		third_heart.frame = 3;
-
-
+###########################################
+# Menu movement:
+func menu_movement(options):
+	#gets dimension of the options
+	var height = len(options);
+	var width = len(options[menu_cursor.y]);
+	##### cursor's changes
+	if Input.is_action_just_released("Up"): #up movement
+		#decreses y valor and remains 0 if it's smaller than 0
+		$MenuMovement.play();
+		menu_cursor.y = menu_cursor.y-1 if menu_cursor.y-1>0 else 0;
+		
+		if len(options[menu_cursor.y]) <= len(options[menu_cursor.y+1]):#if the next state has less width resets
+			#sets the x in the range except when is bigger than the width
+			previous_cursor_x = menu_cursor.x; #updates previous 
+			menu_cursor.x = len(options[menu_cursor.y])-1 if menu_cursor.x >= len(options[menu_cursor.y]) else menu_cursor.x;
+		else: #in other case, resets
+			menu_cursor.x = previous_cursor_x;
+	elif Input.is_action_just_released("Down"): #down movement
+		# increases y valor and remains height - 1 if it's greather than height
+		$MenuMovement.play();
+		menu_cursor.y = menu_cursor.y+1 if menu_cursor.y+1 < height else height-1;
+		if len(options[menu_cursor.y]) <= len(options[menu_cursor.y-1]):#if the next state has less width resets
+			#sets the x in the range except when is bigger than the width
+			previous_cursor_x = menu_cursor.x;
+			menu_cursor.x = len(options[menu_cursor.y])-1 if menu_cursor.x >= len(options[menu_cursor.y]) else menu_cursor.x;
+		else:
+			menu_cursor.x = previous_cursor_x;
+	elif Input.is_action_just_released("right"): #right movement
+		# increases x valor and remains width - 1 if it's greather than width
+		$MenuMovement.play();
+		menu_cursor.x = menu_cursor.x+1 if menu_cursor.x+1 < width else width-1;
+	elif Input.is_action_just_released("left"):
+		#decreses x valor and remains 0 if it's smaller than 0
+		$MenuMovement.play();
+		menu_cursor.x = menu_cursor.x-1 if menu_cursor.x-1>0 else 0;
+	######## focus the new element
+	options[menu_cursor.y][menu_cursor.x].grab_focus();
+	if Input.is_action_just_pressed("jump"):
+		options[menu_cursor.y][menu_cursor.x].emit_signal("button_up");
 ###########################################
 # Menu buttons events:
 
@@ -183,7 +207,7 @@ func _on_main_menu_button_up() -> void:
 func _on_reset_level_button_up() -> void:
 	GameMaster.lifes = GameMaster.reload_lifes; #resets lifes quantities
 	get_tree().paused = false;
-	buttons_cursor = -1;
+	menu_cursor = Vector2(0,0);
 	GameMaster.reload_level();
 
 # exit

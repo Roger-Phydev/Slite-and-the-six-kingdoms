@@ -677,6 +677,12 @@ scale = Vector2(0.534421, 2.9909835)
 color = Color(0.28627452, 0.22745098, 0.23137255, 1)
 polygon = PackedVector2Array(208, 168, 440, 168, 439.99997, 211.35976, 440, 256, 208, 256)
 
+[node name="background3" type="Polygon2D" parent="Backgrounds/set2"]
+position = Vector2(2935.9998, 104.00001)
+scale = Vector2(0.65879524, 0.7444858)
+color = Color(0.28627452, 0.22745098, 0.23137255, 1)
+polygon = PackedVector2Array(208, 168, 440, 168, 439.99997, 211.35976, 440, 256, 324.69446, 256, 208, 256)
+
 [node name="set3" type="Node2D" parent="Backgrounds"]
 
 [node name="Polygon2D" type="Polygon2D" parent="Backgrounds/set3"]
@@ -719,6 +725,12 @@ scale = Vector2(2.00781, 1)
 texture = ExtResource("2_laf3w")
 
 [node name="Background" type="Polygon2D" parent="Backgrounds/set4"]
+color = Color(0.49019608, 0.39607844, 0.3647059, 1)
+polygon = PackedVector2Array(136, 720, 192, 720, 192, 968, 136, 968)
+
+[node name="Background2" type="Polygon2D" parent="Backgrounds/set4"]
+position = Vector2(1224, 759.99994)
+scale = Vector2(3.5714285, 0.19354838)
 color = Color(0.49019608, 0.39607844, 0.3647059, 1)
 polygon = PackedVector2Array(136, 720, 192, 720, 192, 968, 136, 968)
 
@@ -858,7 +870,7 @@ flip_v = true
 position = Vector2(-819.7016, 2324.0522)
 scale = Vector2(0.25342017, 0.3777598)
 color = Color(0.228673, 0.196362, 0.318986, 1)
-polygon = PackedVector2Array(-636.486, -362.80237, 709.1052, -357.54456, 662.1146, -196.96088, 696.51013, -196.96088, 702, 420, -631, 434)
+polygon = PackedVector2Array(-648.3242, -370.74414, 740.67334, -370.74414, 662.1146, -196.96088, 696.51013, -196.96088, 702, 420, -631, 434)
 
 [node name="set6" type="Node2D" parent="Backgrounds"]
 

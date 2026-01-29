@@ -1,0 +1,1595 @@
+[gd_scene load_steps=24 format=3 uid="uid://dd1iabuxv2nhg"]
+
+[ext_resource type="Script" uid="uid://6d16ljsv865y" path="res://Scripts/credits.gd" id="1_gryuy"]
+[ext_resource type="Texture2D" uid="uid://dh2cj8x53uk3x" path="res://Assets/FX/shine.png" id="2_ccovl"]
+[ext_resource type="Texture2D" uid="uid://cimwrr6cc8vau" path="res://Assets/Backgrounds/mountains_a.png" id="2_xelri"]
+[ext_resource type="Texture2D" uid="uid://dtobb0akqn624" path="res://Assets/Backgrounds/mountains_b.png" id="3_uah1q"]
+[ext_resource type="Texture2D" uid="uid://cg764uiabvlq" path="res://Assets/Backgrounds/trees.png" id="4_7emq5"]
+[ext_resource type="Texture2D" uid="uid://b2ug3ea1oofx2" path="res://Assets/Deco/sun.png" id="5_1wbrc"]
+[ext_resource type="Texture2D" uid="uid://cjpmfu8ep7e46" path="res://Assets/Deco/clouds.png" id="6_j6nef"]
+[ext_resource type="Texture2D" uid="uid://baddtq1he1i2f" path="res://Assets/Enemies/bat.png" id="6_uah1q"]
+[ext_resource type="Texture2D" uid="uid://cr6tnlvt4xyki" path="res://Assets/Enemies/bird.png" id="7_7emq5"]
+[ext_resource type="AudioStream" uid="uid://duuxofabmifqc" path="res://MusicAndSounds/SFX/credits.ogg" id="8_803yc"]
+
+[sub_resource type="Animation" id="Animation_ae0tj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_fdv4u"]
+resource_name = "shine"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 5, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rlyo5"]
+_data = {
+&"RESET": SubResource("Animation_ae0tj"),
+&"shine": SubResource("Animation_fdv4u")
+}
+
+[sub_resource type="Animation" id="Animation_xelri"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_1bamb"]
+resource_name = "shine"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0625, 0.125, 0.1875, 0.25, 0.3125, 0.375, 0.4375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 3, 2, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uah1q"]
+_data = {
+&"RESET": SubResource("Animation_xelri"),
+&"shine": SubResource("Animation_1bamb")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xelri"]
+bg_color = Color(0.32156864, 0.32156864, 0.32156864, 0.32156864)
+
+[sub_resource type="Animation" id="Animation_803yc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_7emq5"]
+resource_name = "fly"
+length = 0.875
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7, 6, 5, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1wbrc"]
+_data = {
+&"RESET": SubResource("Animation_803yc"),
+&"fly": SubResource("Animation_7emq5")
+}
+
+[sub_resource type="Animation" id="Animation_j6nef"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_1wbrc"]
+resource_name = "fly"
+length = 0.625
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 3, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fdv4u"]
+_data = {
+&"RESET": SubResource("Animation_j6nef"),
+&"fly": SubResource("Animation_1wbrc")
+}
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gryuy")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sky" type="Node2D" parent="Background"]
+
+[node name="Sky" type="Polygon2D" parent="Background/Sky"]
+position = Vector2(0, -6.211765)
+scale = Vector2(1, 0.6117647)
+color = Color(0.21568628, 0.5019608, 0.7372549, 1)
+polygon = PackedVector2Array(-16, -16, 1168, -16, 1168, 664, -16, 664)
+
+[node name="Sun" type="Sprite2D" parent="Background"]
+position = Vector2(576, 350)
+scale = Vector2(4, 4)
+texture = ExtResource("5_1wbrc")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Sun"]
+libraries = {
+&"": SubResource("AnimationLibrary_rlyo5")
+}
+
+[node name="Mountains" type="Node2D" parent="Background"]
+
+[node name="Mountains1" type="Sprite2D" parent="Background/Mountains"]
+position = Vector2(128, 312)
+texture = ExtResource("2_xelri")
+
+[node name="Mountains2" type="Sprite2D" parent="Background/Mountains"]
+position = Vector2(384, 312)
+texture = ExtResource("2_xelri")
+
+[node name="Mountains3" type="Sprite2D" parent="Background/Mountains"]
+position = Vector2(640, 312)
+texture = ExtResource("2_xelri")
+
+[node name="Mountains4" type="Sprite2D" parent="Background/Mountains"]
+position = Vector2(896, 312)
+texture = ExtResource("2_xelri")
+
+[node name="Mountains5" type="Sprite2D" parent="Background/Mountains"]
+position = Vector2(1152, 312)
+texture = ExtResource("2_xelri")
+
+[node name="Mountains6" type="Sprite2D" parent="Background/Mountains"]
+position = Vector2(640, 544)
+scale = Vector2(5, 3.375)
+texture = ExtResource("2_xelri")
+flip_v = true
+
+[node name="Mountains2" type="Node2D" parent="Background"]
+
+[node name="Mountains2" type="Sprite2D" parent="Background/Mountains2"]
+position = Vector2(128, 432)
+texture = ExtResource("3_uah1q")
+
+[node name="Mountains3" type="Sprite2D" parent="Background/Mountains2"]
+position = Vector2(384, 432)
+texture = ExtResource("3_uah1q")
+
+[node name="Mountains4" type="Sprite2D" parent="Background/Mountains2"]
+position = Vector2(640, 432)
+texture = ExtResource("3_uah1q")
+
+[node name="Mountains5" type="Sprite2D" parent="Background/Mountains2"]
+position = Vector2(896, 432)
+texture = ExtResource("3_uah1q")
+
+[node name="Mountains6" type="Sprite2D" parent="Background/Mountains2"]
+position = Vector2(1152, 432)
+texture = ExtResource("3_uah1q")
+
+[node name="Mountains7" type="Sprite2D" parent="Background/Mountains2"]
+position = Vector2(640, 988)
+scale = Vector2(5, 7.6875)
+texture = ExtResource("3_uah1q")
+flip_v = true
+
+[node name="Woods" type="Node2D" parent="Background"]
+
+[node name="Trees" type="Sprite2D" parent="Background/Woods"]
+position = Vector2(128, 584)
+texture = ExtResource("4_7emq5")
+
+[node name="Trees2" type="Sprite2D" parent="Background/Woods"]
+position = Vector2(384, 584)
+texture = ExtResource("4_7emq5")
+
+[node name="Trees3" type="Sprite2D" parent="Background/Woods"]
+position = Vector2(640, 584)
+texture = ExtResource("4_7emq5")
+
+[node name="Trees4" type="Sprite2D" parent="Background/Woods"]
+position = Vector2(896, 584)
+texture = ExtResource("4_7emq5")
+
+[node name="Trees5" type="Sprite2D" parent="Background/Woods"]
+position = Vector2(1152, 584)
+texture = ExtResource("4_7emq5")
+
+[node name="Shines" type="Node2D" parent="Background"]
+
+[node name="Shine" type="Sprite2D" parent="Background/Shines"]
+visible = false
+position = Vector2(120, 72)
+scale = Vector2(3, 3)
+texture = ExtResource("2_ccovl")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Shines/Shine"]
+libraries = {
+&"": SubResource("AnimationLibrary_uah1q")
+}
+
+[node name="Shine2" type="Sprite2D" parent="Background/Shines"]
+visible = false
+position = Vector2(520, 224)
+scale = Vector2(2, 2)
+texture = ExtResource("2_ccovl")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Shines/Shine2"]
+libraries = {
+&"": SubResource("AnimationLibrary_uah1q")
+}
+
+[node name="Shine3" type="Sprite2D" parent="Background/Shines"]
+visible = false
+position = Vector2(592, 88)
+texture = ExtResource("2_ccovl")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Shines/Shine3"]
+libraries = {
+&"": SubResource("AnimationLibrary_uah1q")
+}
+
+[node name="Shine4" type="Sprite2D" parent="Background/Shines"]
+visible = false
+position = Vector2(160, 256)
+texture = ExtResource("2_ccovl")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Shines/Shine4"]
+libraries = {
+&"": SubResource("AnimationLibrary_uah1q")
+}
+
+[node name="Shine5" type="Sprite2D" parent="Background/Shines"]
+visible = false
+position = Vector2(256, 136)
+scale = Vector2(2, 2)
+texture = ExtResource("2_ccovl")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Shines/Shine5"]
+libraries = {
+&"": SubResource("AnimationLibrary_uah1q")
+}
+
+[node name="Shine6" type="Sprite2D" parent="Background/Shines"]
+visible = false
+position = Vector2(416, 120)
+texture = ExtResource("2_ccovl")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Shines/Shine6"]
+libraries = {
+&"": SubResource("AnimationLibrary_uah1q")
+}
+
+[node name="Shine7" type="Sprite2D" parent="Background/Shines"]
+visible = false
+position = Vector2(648, 200)
+scale = Vector2(3, 3)
+texture = ExtResource("2_ccovl")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Shines/Shine7"]
+libraries = {
+&"": SubResource("AnimationLibrary_uah1q")
+}
+
+[node name="Shine8" type="Sprite2D" parent="Background/Shines"]
+visible = false
+position = Vector2(768, 80)
+texture = ExtResource("2_ccovl")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Shines/Shine8"]
+libraries = {
+&"": SubResource("AnimationLibrary_uah1q")
+}
+
+[node name="Shine9" type="Sprite2D" parent="Background/Shines"]
+visible = false
+position = Vector2(808, 184)
+scale = Vector2(2, 2)
+texture = ExtResource("2_ccovl")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Shines/Shine9"]
+libraries = {
+&"": SubResource("AnimationLibrary_uah1q")
+}
+
+[node name="Shine10" type="Sprite2D" parent="Background/Shines"]
+visible = false
+position = Vector2(912, 80)
+texture = ExtResource("2_ccovl")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Shines/Shine10"]
+libraries = {
+&"": SubResource("AnimationLibrary_uah1q")
+}
+
+[node name="Shine11" type="Sprite2D" parent="Background/Shines"]
+visible = false
+position = Vector2(920, 200)
+scale = Vector2(3, 3)
+texture = ExtResource("2_ccovl")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Shines/Shine11"]
+libraries = {
+&"": SubResource("AnimationLibrary_uah1q")
+}
+
+[node name="Shine12" type="Sprite2D" parent="Background/Shines"]
+visible = false
+position = Vector2(944, 128)
+texture = ExtResource("2_ccovl")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Shines/Shine12"]
+libraries = {
+&"": SubResource("AnimationLibrary_uah1q")
+}
+
+[node name="Shine13" type="Sprite2D" parent="Background/Shines"]
+visible = false
+position = Vector2(960, 128)
+scale = Vector2(2, 2)
+texture = ExtResource("2_ccovl")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Shines/Shine13"]
+libraries = {
+&"": SubResource("AnimationLibrary_uah1q")
+}
+
+[node name="Shine14" type="Sprite2D" parent="Background/Shines"]
+visible = false
+position = Vector2(976, 128)
+texture = ExtResource("2_ccovl")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Shines/Shine14"]
+libraries = {
+&"": SubResource("AnimationLibrary_uah1q")
+}
+
+[node name="Shine15" type="Sprite2D" parent="Background/Shines"]
+visible = false
+position = Vector2(992, 80)
+texture = ExtResource("2_ccovl")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Shines/Shine15"]
+libraries = {
+&"": SubResource("AnimationLibrary_uah1q")
+}
+
+[node name="Shine16" type="Sprite2D" parent="Background/Shines"]
+visible = false
+position = Vector2(1000, 200)
+texture = ExtResource("2_ccovl")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Shines/Shine16"]
+libraries = {
+&"": SubResource("AnimationLibrary_uah1q")
+}
+
+[node name="Content" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 7796.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xelri")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Content"]
+layout_mode = 0
+offset_left = 104.0
+offset_right = 1056.0
+offset_bottom = 1624.0
+theme_override_constants/separation = 2
+
+[node name="Start" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 60
+text = "Slite, Salvaste los 6 reinos"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Space" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Start2" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 80
+text = "muchas gracias"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Space2" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Credits" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Ahora agradezcamos a los que construyeron el reino que salvaste"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Space3" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space4" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_font_sizes/font_size = 40
+text = "Assets de sprites"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_font_sizes/font_size = 25
+text = "(Los que crearon el cómo se ve el reino, incluyendo a Slite)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space5" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Info" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Rocky Roads
+https://essssam.itch.io/rocky-roads"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space6" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space7" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title2" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_font_sizes/font_size = 40
+text = "Assets de música y sonidos"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle2" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_font_sizes/font_size = 25
+text = "(Los que le dieron sonido al mundo)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space8" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Info2" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Las mil y un almas caritativas de pixabay
+
+Siento no haber anotado sus nombres
+Pero de corazón un sincero agradecimiento a todos
+visita el sitio por favor
+https://pixabay.com/es/music/"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space9" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space10" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title3" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_font_sizes/font_size = 40
+text = "Iniciador"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle3" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_font_sizes/font_size = 25
+text = "(El que originó que pudiera crearse el mundo)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space11" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Info3" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Luis Canary
+Gracias a sus videos, pude crear esta pequeña obra
+Visita su canal de YT:
+https://www.youtube.com/@LuisCanary"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space12" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space13" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title4" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_font_sizes/font_size = 40
+text = "Diseño de niveles"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle4" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_font_sizes/font_size = 25
+text = "(El que creo cada paisaje que recorriste)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space14" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Info4" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Brian Parra"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space15" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space16" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title5" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_font_sizes/font_size = 40
+text = "Diseño de mecánicas"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle5" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_font_sizes/font_size = 25
+text = "(Los que dictaron qué podías hacer)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space17" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Info5" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Rogelio Parra"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space18" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space19" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title6" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_font_sizes/font_size = 40
+text = "Programación"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle6" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_font_sizes/font_size = 25
+text = "(Los que hicieron funcionar las cosas)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space20" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Info6" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Roger Parra"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space21" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space22" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title7" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_font_sizes/font_size = 40
+text = "Director creativo y ejecutivo"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle7" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_font_sizes/font_size = 25
+text = "(El que hizo posible todo lo anterior)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space23" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Info7" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Roger Phy Dev"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space24" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title8" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_font_sizes/font_size = 40
+text = "Agradecimientos especiales"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle8" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_font_sizes/font_size = 25
+text = "(Personas que ayudaron sin saber que lo hacían)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space25" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Info8" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Luis Canary 
+Gracias por los tutoriales
+
+José Luis Parra Hernández
+Gracias por ser el mejor hermano del mundo
+
+Carlos Montalvo
+Por tu apoyo incondicional, gracias, viejo
+
+Eber Pineda Roldán
+Gracias por tu apoyo desde la infancia
+
+Isis López Hernández
+Gracias por siempre creer en mí
+
+Equipo \"Dragon\"
+Por haberse vuelto una segunda familia para mí
+Los quiero un chingo, cabrones
+Ian Sánchez
+Gracias por las enseñanzas y confianza
+Fer Zavala
+Gracias por el aprendizaje, risas y calidez
+Ángel Tena
+Gracias por capacitarme y tenerme paciencia
+Valeria Olvera
+Gracias por las risas, tu comprensión y calidez
+Leonardo Mendieta
+Gracias por ser tan buen amigo
+Jhonathan Santos
+Sigue esforzándote, pronto tendrás tu primer juego también"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FirstChange" type="Node2D" parent="Content/VBoxContainer"]
+
+[node name="Space26" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title9" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_font_sizes/font_size = 40
+text = "El mayor agradecimiento"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle9" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_font_sizes/font_size = 25
+text = "(La persona más importante)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space27" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title10" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_font_sizes/font_size = 40
+text = "María del Socorro Hernández Benítez"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Space28" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Info9" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Mamita querida, no tiene mucho que partiste, y ya no pudiste ver esto, pero con gran alegría y esmero te puedo decir: 
+Lo logré!!!
+Ojalá hubieras estado para verlo, pero supongo que siempre estarás en mi corazón asi que en cierto modo, no lo viste, pero fuiste parte de su creación... Gracias por todo
+Espero que donde sea que estés, tengas una sonrisa en el rostro
+TE AMO"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Space29" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space30" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title11" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_font_sizes/font_size = 40
+text = "Y claro, gracias a quien Slite salvo el mundo"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle10" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_font_sizes/font_size = 25
+text = "(Pst... creo que te hablan!)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space31" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Info10" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "
+Claro que me refiero a tí...
+Gracias por haber jugado mi primer juego
+Por ser testigo de, quizá, el primer paso de muchos"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Space32" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space33" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space34" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space35" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space36" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space37" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space38" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space39" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space40" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space41" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space42" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space43" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space44" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space45" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title12" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_font_sizes/font_size = 40
+text = "Gracias por Jugar!!!"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle11" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_font_sizes/font_size = 25
+text = "Salta para volver al menú !!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CreditsMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_803yc")
+
+[node name="elements" type="Node2D" parent="."]
+
+[node name="Clouds1" type="Node2D" parent="elements"]
+position = Vector2(1152, 0)
+
+[node name="Cloud1" type="Sprite2D" parent="elements/Clouds1"]
+position = Vector2(160, 232)
+texture = ExtResource("6_j6nef")
+vframes = 3
+
+[node name="Cloud2" type="Sprite2D" parent="elements/Clouds1"]
+position = Vector2(96, 152)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 1
+
+[node name="Cloud3" type="Sprite2D" parent="elements/Clouds1"]
+position = Vector2(264, 200)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 2
+
+[node name="Cloud4" type="Sprite2D" parent="elements/Clouds1"]
+position = Vector2(224, 96)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 1
+
+[node name="Cloud12" type="Sprite2D" parent="elements/Clouds1"]
+position = Vector2(1080, 120)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 1
+
+[node name="Cloud11" type="Sprite2D" parent="elements/Clouds1"]
+position = Vector2(936, 152)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 1
+
+[node name="Cloud13" type="Sprite2D" parent="elements/Clouds1"]
+position = Vector2(1048, 288)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 1
+
+[node name="Cloud5" type="Sprite2D" parent="elements/Clouds1"]
+position = Vector2(504, 208)
+texture = ExtResource("6_j6nef")
+vframes = 3
+
+[node name="Cloud6" type="Sprite2D" parent="elements/Clouds1"]
+position = Vector2(576, 80)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 2
+
+[node name="Cloud10" type="Sprite2D" parent="elements/Clouds1"]
+position = Vector2(736, 112)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 2
+
+[node name="Cloud7" type="Sprite2D" parent="elements/Clouds1"]
+position = Vector2(376, 104)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 2
+
+[node name="Cloud9" type="Sprite2D" parent="elements/Clouds1"]
+position = Vector2(504, 152)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 2
+
+[node name="Cloud8" type="Sprite2D" parent="elements/Clouds1"]
+position = Vector2(696, 240)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 1
+
+[node name="Bats" type="Node2D" parent="elements"]
+visible = false
+
+[node name="Bat" type="Sprite2D" parent="elements/Bats"]
+position = Vector2(-96, 64)
+texture = ExtResource("6_uah1q")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Bats/Bat"]
+libraries = {
+&"": SubResource("AnimationLibrary_1wbrc")
+}
+
+[node name="Bat2" type="Sprite2D" parent="elements/Bats"]
+position = Vector2(-112, 128)
+texture = ExtResource("6_uah1q")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Bats/Bat2"]
+libraries = {
+&"": SubResource("AnimationLibrary_1wbrc")
+}
+
+[node name="Bat3" type="Sprite2D" parent="elements/Bats"]
+position = Vector2(-56, 152)
+texture = ExtResource("6_uah1q")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Bats/Bat3"]
+libraries = {
+&"": SubResource("AnimationLibrary_1wbrc")
+}
+
+[node name="Bat4" type="Sprite2D" parent="elements/Bats"]
+position = Vector2(-176, 192)
+texture = ExtResource("6_uah1q")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Bats/Bat4"]
+libraries = {
+&"": SubResource("AnimationLibrary_1wbrc")
+}
+
+[node name="Bat5" type="Sprite2D" parent="elements/Bats"]
+position = Vector2(-184, 96)
+texture = ExtResource("6_uah1q")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Bats/Bat5"]
+libraries = {
+&"": SubResource("AnimationLibrary_1wbrc")
+}
+
+[node name="Bat6" type="Sprite2D" parent="elements/Bats"]
+position = Vector2(-248, 144)
+texture = ExtResource("6_uah1q")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Bats/Bat6"]
+libraries = {
+&"": SubResource("AnimationLibrary_1wbrc")
+}
+
+[node name="Bat7" type="Sprite2D" parent="elements/Bats"]
+position = Vector2(-288, 208)
+texture = ExtResource("6_uah1q")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Bats/Bat7"]
+libraries = {
+&"": SubResource("AnimationLibrary_1wbrc")
+}
+
+[node name="Bat8" type="Sprite2D" parent="elements/Bats"]
+position = Vector2(-216, 248)
+texture = ExtResource("6_uah1q")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Bats/Bat8"]
+libraries = {
+&"": SubResource("AnimationLibrary_1wbrc")
+}
+
+[node name="Bat9" type="Sprite2D" parent="elements/Bats"]
+position = Vector2(-96, 232)
+texture = ExtResource("6_uah1q")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Bats/Bat9"]
+libraries = {
+&"": SubResource("AnimationLibrary_1wbrc")
+}
+
+[node name="Bat10" type="Sprite2D" parent="elements/Bats"]
+position = Vector2(-64, 320)
+texture = ExtResource("6_uah1q")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Bats/Bat10"]
+libraries = {
+&"": SubResource("AnimationLibrary_1wbrc")
+}
+
+[node name="Bat11" type="Sprite2D" parent="elements/Bats"]
+position = Vector2(-152, 272)
+texture = ExtResource("6_uah1q")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Bats/Bat11"]
+libraries = {
+&"": SubResource("AnimationLibrary_1wbrc")
+}
+
+[node name="Bat12" type="Sprite2D" parent="elements/Bats"]
+position = Vector2(-232, 304)
+texture = ExtResource("6_uah1q")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Bats/Bat12"]
+libraries = {
+&"": SubResource("AnimationLibrary_1wbrc")
+}
+
+[node name="Bat13" type="Sprite2D" parent="elements/Bats"]
+position = Vector2(-312, 312)
+texture = ExtResource("6_uah1q")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Bats/Bat13"]
+libraries = {
+&"": SubResource("AnimationLibrary_1wbrc")
+}
+
+[node name="Bat14" type="Sprite2D" parent="elements/Bats"]
+position = Vector2(-360, 224)
+texture = ExtResource("6_uah1q")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Bats/Bat14"]
+libraries = {
+&"": SubResource("AnimationLibrary_1wbrc")
+}
+
+[node name="Bat15" type="Sprite2D" parent="elements/Bats"]
+position = Vector2(-312, 152)
+texture = ExtResource("6_uah1q")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Bats/Bat15"]
+libraries = {
+&"": SubResource("AnimationLibrary_1wbrc")
+}
+
+[node name="Bat16" type="Sprite2D" parent="elements/Bats"]
+position = Vector2(-256, 80)
+texture = ExtResource("6_uah1q")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Bats/Bat16"]
+libraries = {
+&"": SubResource("AnimationLibrary_1wbrc")
+}
+
+[node name="Bat17" type="Sprite2D" parent="elements/Bats"]
+position = Vector2(-368, 80)
+texture = ExtResource("6_uah1q")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Bats/Bat17"]
+libraries = {
+&"": SubResource("AnimationLibrary_1wbrc")
+}
+
+[node name="Birds" type="Node2D" parent="elements"]
+
+[node name="Bird" type="Sprite2D" parent="elements/Birds"]
+position = Vector2(1184, 64)
+texture = ExtResource("7_7emq5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Birds/Bird"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdv4u")
+}
+
+[node name="Bird2" type="Sprite2D" parent="elements/Birds"]
+position = Vector2(1208, 48)
+texture = ExtResource("7_7emq5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Birds/Bird2"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdv4u")
+}
+
+[node name="Bird3" type="Sprite2D" parent="elements/Birds"]
+position = Vector2(1232, 32)
+texture = ExtResource("7_7emq5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Birds/Bird3"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdv4u")
+}
+
+[node name="Bird4" type="Sprite2D" parent="elements/Birds"]
+position = Vector2(1208, 80)
+texture = ExtResource("7_7emq5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Birds/Bird4"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdv4u")
+}
+
+[node name="Bird5" type="Sprite2D" parent="elements/Birds"]
+position = Vector2(1232, 96)
+texture = ExtResource("7_7emq5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Birds/Bird5"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdv4u")
+}
+
+[node name="Bird6" type="Sprite2D" parent="elements/Birds"]
+position = Vector2(1280, 256)
+texture = ExtResource("7_7emq5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Birds/Bird6"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdv4u")
+}
+
+[node name="Bird7" type="Sprite2D" parent="elements/Birds"]
+position = Vector2(1304, 240)
+texture = ExtResource("7_7emq5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Birds/Bird7"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdv4u")
+}
+
+[node name="Bird8" type="Sprite2D" parent="elements/Birds"]
+position = Vector2(1328, 224)
+texture = ExtResource("7_7emq5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Birds/Bird8"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdv4u")
+}
+
+[node name="Bird9" type="Sprite2D" parent="elements/Birds"]
+position = Vector2(1352, 208)
+texture = ExtResource("7_7emq5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Birds/Bird9"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdv4u")
+}
+
+[node name="Bird10" type="Sprite2D" parent="elements/Birds"]
+position = Vector2(1304, 272)
+texture = ExtResource("7_7emq5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Birds/Bird10"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdv4u")
+}
+
+[node name="Bird11" type="Sprite2D" parent="elements/Birds"]
+position = Vector2(1328, 288)
+texture = ExtResource("7_7emq5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Birds/Bird11"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdv4u")
+}
+
+[node name="Bird12" type="Sprite2D" parent="elements/Birds"]
+position = Vector2(1352, 304)
+texture = ExtResource("7_7emq5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Birds/Bird12"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdv4u")
+}
+
+[node name="Bird13" type="Sprite2D" parent="elements/Birds"]
+position = Vector2(1376, 128)
+texture = ExtResource("7_7emq5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Birds/Bird13"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdv4u")
+}
+
+[node name="Bird14" type="Sprite2D" parent="elements/Birds"]
+position = Vector2(1408, 112)
+texture = ExtResource("7_7emq5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Birds/Bird14"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdv4u")
+}
+
+[node name="Bird15" type="Sprite2D" parent="elements/Birds"]
+position = Vector2(1440, 96)
+texture = ExtResource("7_7emq5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Birds/Bird15"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdv4u")
+}
+
+[node name="Bird16" type="Sprite2D" parent="elements/Birds"]
+position = Vector2(1472, 80)
+texture = ExtResource("7_7emq5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Birds/Bird16"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdv4u")
+}
+
+[node name="Bird17" type="Sprite2D" parent="elements/Birds"]
+position = Vector2(1504, 64)
+texture = ExtResource("7_7emq5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Birds/Bird17"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdv4u")
+}
+
+[node name="Bird18" type="Sprite2D" parent="elements/Birds"]
+position = Vector2(1408, 144)
+texture = ExtResource("7_7emq5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Birds/Bird18"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdv4u")
+}
+
+[node name="Bird19" type="Sprite2D" parent="elements/Birds"]
+position = Vector2(1440, 160)
+texture = ExtResource("7_7emq5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Birds/Bird19"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdv4u")
+}
+
+[node name="Bird20" type="Sprite2D" parent="elements/Birds"]
+position = Vector2(1472, 176)
+texture = ExtResource("7_7emq5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Birds/Bird20"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdv4u")
+}
+
+[node name="Bird21" type="Sprite2D" parent="elements/Birds"]
+position = Vector2(1504, 192)
+texture = ExtResource("7_7emq5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elements/Birds/Bird21"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdv4u")
+}
+
+[node name="Clouds2" type="Node2D" parent="elements"]
+position = Vector2(2304, 0)
+
+[node name="Cloud1" type="Sprite2D" parent="elements/Clouds2"]
+position = Vector2(112, 128)
+texture = ExtResource("6_j6nef")
+vframes = 3
+
+[node name="Cloud2" type="Sprite2D" parent="elements/Clouds2"]
+position = Vector2(248, 144)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 1
+
+[node name="Cloud3" type="Sprite2D" parent="elements/Clouds2"]
+position = Vector2(184, 232)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 2
+
+[node name="Cloud4" type="Sprite2D" parent="elements/Clouds2"]
+position = Vector2(368, 96)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 1
+
+[node name="Cloud12" type="Sprite2D" parent="elements/Clouds2"]
+position = Vector2(1072, 136)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 1
+
+[node name="Cloud11" type="Sprite2D" parent="elements/Clouds2"]
+position = Vector2(928, 216)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 1
+
+[node name="Cloud13" type="Sprite2D" parent="elements/Clouds2"]
+position = Vector2(848, 152)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 1
+
+[node name="Cloud5" type="Sprite2D" parent="elements/Clouds2"]
+position = Vector2(592, 256)
+texture = ExtResource("6_j6nef")
+vframes = 3
+
+[node name="Cloud6" type="Sprite2D" parent="elements/Clouds2"]
+position = Vector2(688, 128)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 2
+
+[node name="Cloud10" type="Sprite2D" parent="elements/Clouds2"]
+position = Vector2(1008, 200)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 2
+
+[node name="Cloud7" type="Sprite2D" parent="elements/Clouds2"]
+position = Vector2(408, 192)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 2
+
+[node name="Cloud9" type="Sprite2D" parent="elements/Clouds2"]
+position = Vector2(528, 120)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 2
+
+[node name="Cloud8" type="Sprite2D" parent="elements/Clouds2"]
+position = Vector2(696, 240)
+texture = ExtResource("6_j6nef")
+vframes = 3
+frame = 1

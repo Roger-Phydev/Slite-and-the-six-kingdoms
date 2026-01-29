@@ -794,19 +794,19 @@ position = Vector2(-29, 136)
 position = Vector2(900, 301)
 
 [node name="EnemyBird4" parent="Enemies" instance=ExtResource("31_8fryb")]
-position = Vector2(900, 375)
+position = Vector2(1000, 375)
 
 [node name="EnemyBird2" parent="Enemies" instance=ExtResource("31_8fryb")]
 position = Vector2(700, 301)
 
 [node name="EnemyBird5" parent="Enemies" instance=ExtResource("31_8fryb")]
-position = Vector2(700, 375)
+position = Vector2(800, 375)
 
 [node name="EnemyBird3" parent="Enemies" instance=ExtResource("31_8fryb")]
 position = Vector2(500, 301)
 
 [node name="EnemyBird6" parent="Enemies" instance=ExtResource("31_8fryb")]
-position = Vector2(500, 375)
+position = Vector2(600, 375)
 
 [node name="Enviroment" type="Node2D" parent="."]
 
