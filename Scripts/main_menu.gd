@@ -10,6 +10,7 @@ var previous_cursor_x = 0; #saves the previus state en case of y movement
 var actual_menu = "initial";
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	rgb_color_change();
 	####### Basic configuration
 	GameMaster.coinsCount = 0;
 	GameMaster.hits = 3;
@@ -24,7 +25,6 @@ func _ready() -> void:
 	$"Variable presentation/Slite/AnimationPlayer".play("idle");
 	############# disableding buttons without use
 	$InitialOptions/Continue.disabled = true;
-	$InitialOptions/Tutorial.disabled = true;
 	############# setting menu_options
 	menu_options = [
 		[$InitialOptions/Continue],
@@ -174,6 +174,8 @@ func _on_start_game_button_down() -> void:
 	else:
 		GameMaster.world = 1;
 		GameMaster.level = 1;
+		GameMaster.hero_mode = false;
+		GameMaster.coinsCount = 0;
 		#intializes game:
 		$MenuSelect.play(); #plays this sound
 		GameMaster.start_world_level_scene(GameMaster.world,GameMaster.level);
@@ -183,11 +185,13 @@ func _on_tutorial_button_down() -> void:
 		$MenuDisabled.play(); #plays this sound
 	else:
 		$MenuSelect.play(); #plays this sound
+		get_tree().change_scene_to_file("res://Scenes/initial_scene.tscn");
 ## ToWorldMenu:
 func _on_to_world_menu_button_down() -> void:
 	if $InitialOptions/ToWorldMenu.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
+		GameMaster.hero_mode = false;
 		change_menu("initial","world");
 		actual_menu = "world";
 		$MenuSelect.play(); #plays this sound
@@ -350,3 +354,16 @@ func _on_world_menu_button_down() -> void:
 		actual_menu = "world";
 		toogle_variable_presentation(1);
 		$MenuSelect.play(); #plays this sound
+## Change RGB color to fonts
+func rgb_color_change():
+	var c1 = $Me.get_theme_color("font_color");
+	var c2 = $Me2.get_theme_color("font_color");
+	var c3 = $Me3.get_theme_color("font_color");
+	var c4 = $Me4.get_theme_color("font_color");
+	if c1[0] < 0.9089:
+		c1[0] += 0.1
+		$Me.add_theme_color_override("font_color",c1);
+	else:
+		c1[0] -= 0.1;
+		$Me.add_theme_color_override("font_color",c1);
+	pass

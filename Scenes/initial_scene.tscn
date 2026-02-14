@@ -1,0 +1,462 @@
+[gd_scene load_steps=10 format=3 uid="uid://did3buj5487ak"]
+
+[ext_resource type="Script" uid="uid://bcdvdo3glrvf" path="res://Scripts/initial_scene.gd" id="1_qubbj"]
+[ext_resource type="Texture2D" uid="uid://b2ug3ea1oofx2" path="res://Assets/Deco/sun.png" id="2_c1jdr"]
+[ext_resource type="Texture2D" uid="uid://cimwrr6cc8vau" path="res://Assets/Backgrounds/mountains_a.png" id="3_apouq"]
+[ext_resource type="Texture2D" uid="uid://dtobb0akqn624" path="res://Assets/Backgrounds/mountains_b.png" id="4_4ewyl"]
+[ext_resource type="Texture2D" uid="uid://cg764uiabvlq" path="res://Assets/Backgrounds/trees.png" id="5_mi6vm"]
+
+[sub_resource type="Animation" id="Animation_ae0tj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_fdv4u"]
+resource_name = "shine"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 5, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rlyo5"]
+_data = {
+&"RESET": SubResource("Animation_ae0tj"),
+&"shine": SubResource("Animation_fdv4u")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d371c"]
+bg_color = Color(0, 0, 0, 0.453)
+
+[node name="InitialScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qubbj")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sky" type="Node2D" parent="Background"]
+
+[node name="Sky" type="Polygon2D" parent="Background/Sky"]
+position = Vector2(0, -6.211765)
+scale = Vector2(1, 0.6117647)
+color = Color(0.21568628, 0.5019608, 0.7372549, 1)
+polygon = PackedVector2Array(-16, -16, 1168, -16, 1168, 664, -16, 664)
+
+[node name="Sun" type="Sprite2D" parent="Background"]
+position = Vector2(576, 75)
+scale = Vector2(4, 4)
+texture = ExtResource("2_c1jdr")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Sun"]
+libraries = {
+&"": SubResource("AnimationLibrary_rlyo5")
+}
+
+[node name="Mountains" type="Node2D" parent="Background"]
+
+[node name="Mountains1" type="Sprite2D" parent="Background/Mountains"]
+position = Vector2(128, 312)
+texture = ExtResource("3_apouq")
+
+[node name="Mountains2" type="Sprite2D" parent="Background/Mountains"]
+position = Vector2(384, 312)
+texture = ExtResource("3_apouq")
+
+[node name="Mountains3" type="Sprite2D" parent="Background/Mountains"]
+position = Vector2(640, 312)
+texture = ExtResource("3_apouq")
+
+[node name="Mountains4" type="Sprite2D" parent="Background/Mountains"]
+position = Vector2(896, 312)
+texture = ExtResource("3_apouq")
+
+[node name="Mountains5" type="Sprite2D" parent="Background/Mountains"]
+position = Vector2(1152, 312)
+texture = ExtResource("3_apouq")
+
+[node name="Mountains6" type="Sprite2D" parent="Background/Mountains"]
+position = Vector2(640, 544)
+scale = Vector2(5, 3.375)
+texture = ExtResource("3_apouq")
+flip_v = true
+
+[node name="Mountains2" type="Node2D" parent="Background"]
+
+[node name="Mountains2" type="Sprite2D" parent="Background/Mountains2"]
+position = Vector2(128, 432)
+texture = ExtResource("4_4ewyl")
+
+[node name="Mountains3" type="Sprite2D" parent="Background/Mountains2"]
+position = Vector2(384, 432)
+texture = ExtResource("4_4ewyl")
+
+[node name="Mountains4" type="Sprite2D" parent="Background/Mountains2"]
+position = Vector2(640, 432)
+texture = ExtResource("4_4ewyl")
+
+[node name="Mountains5" type="Sprite2D" parent="Background/Mountains2"]
+position = Vector2(896, 432)
+texture = ExtResource("4_4ewyl")
+
+[node name="Mountains6" type="Sprite2D" parent="Background/Mountains2"]
+position = Vector2(1152, 432)
+texture = ExtResource("4_4ewyl")
+
+[node name="Mountains7" type="Sprite2D" parent="Background/Mountains2"]
+position = Vector2(640, 988)
+scale = Vector2(5, 7.6875)
+texture = ExtResource("4_4ewyl")
+flip_v = true
+
+[node name="Woods" type="Node2D" parent="Background"]
+
+[node name="Trees" type="Sprite2D" parent="Background/Woods"]
+position = Vector2(128, 584)
+texture = ExtResource("5_mi6vm")
+
+[node name="Trees2" type="Sprite2D" parent="Background/Woods"]
+position = Vector2(384, 584)
+texture = ExtResource("5_mi6vm")
+
+[node name="Trees3" type="Sprite2D" parent="Background/Woods"]
+position = Vector2(640, 584)
+texture = ExtResource("5_mi6vm")
+
+[node name="Trees4" type="Sprite2D" parent="Background/Woods"]
+position = Vector2(896, 584)
+texture = ExtResource("5_mi6vm")
+
+[node name="Trees5" type="Sprite2D" parent="Background/Woods"]
+position = Vector2(1152, 584)
+texture = ExtResource("5_mi6vm")
+
+[node name="Screen" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d371c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.5
+offset_top = -14.0
+offset_right = 172.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Text" type="Label" parent="Screen/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Hubo alguna vez un mundo pacífico, lleno de ilusión y felicidad."
+horizontal_alignment = 1
+
+[node name="Text2" type="Label" parent="Screen/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "En ese reino sin nombre había equilibrio gracias a cierto elemento raro y mágico de color dorado"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Screen2" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1152.0
+offset_right = 1152.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d371c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -128.0
+offset_right = 500.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Text" type="Label" parent="Screen2/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "En algún momento, la codicia dominó, y una raza forjó monedas con el preciado metal."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Text2" type="Label" parent="Screen2/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Pensaron en usarlas como medallas sin conocer las consecuencias"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Text3" type="Label" parent="Screen2/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "En cuanto las medallas fueron separadas unas de las otras, comenzó el cataclismo"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Screen3" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1152.0
+offset_right = 1152.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d371c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -128.0
+offset_right = 500.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Text" type="Label" parent="Screen3/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Todo poseedor de alguna de estas medallas era brutalmente atacado por cualquier otro ser viviente del mundo."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Text2" type="Label" parent="Screen3/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Pero un héroe ahora olvidado apareció, y logró reunir todas las medallas dispersas por todo el reino."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Text3" type="Label" parent="Screen3/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Depositó todas las medallas dentro de un cofre especial que misteriosamente y sin explicación, apareció frente a él al reunir todas las medallas"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Screen4" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1152.0
+offset_right = 1152.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d371c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -128.0
+offset_right = 500.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Text" type="Label" parent="Screen4/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "El tiempo continuo y un día sin previo aviso, un volcán erupcionó violentamente."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Text2" type="Label" parent="Screen4/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "El golpe de una roca dio con el cofre legado por el héroe y aunque no destruyó ninguna medalla, las dispersó por todo el reino"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Text3" type="Label" parent="Screen4/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "El descontrol de la fauna comenzó, y ahora sin la raza antigua que forjó las monedas, el destino del mundo pendía de un hilo"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Screen5" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1152.0
+offset_right = 1152.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d371c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -128.0
+offset_right = 500.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Text" type="Label" parent="Screen5/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Hasta que de repente, un slime cambio de color y dejó de ser victima del hechizo."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Text2" type="Label" parent="Screen5/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Y así comenzó esta historia, la historia de Slite el segundo héroe de este mundo"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Screen6" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1152.0
+offset_right = 1152.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d371c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -128.0
+offset_right = 500.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Text" type="Label" parent="Screen6/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Vamos Slite, no te rindas, muchas situaciones difíciles vendrán, pero debes llegar hasta el final."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Text2" type="Label" parent="Screen6/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Y así, con miedo, dudas, pero también una gran determinación, Slite comenzó su maravillosa aventura para salvar todos los reinos"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Begin" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -542.0
+offset_right = 542.0
+offset_bottom = 261.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Presiona 
+menú (xbox)     start(Ps)
+backspace(PC)    +(Nswitch)  
+para comenzar!"
+horizontal_alignment = 1
+
+[node name="Bg" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2304.0
+offset_right = 2304.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d371c")

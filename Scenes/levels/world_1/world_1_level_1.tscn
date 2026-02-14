@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://cn86wkxi3gjcn"]
+[gd_scene load_steps=35 format=4 uid="uid://cn86wkxi3gjcn"]
 
 [ext_resource type="Texture2D" uid="uid://dy3ibfosu8v6" path="res://Assets/Deco/water_b_5 frames.png" id="2_duteu"]
 [ext_resource type="Texture2D" uid="uid://dtobb0akqn624" path="res://Assets/Backgrounds/mountains_b.png" id="3_c13sr"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dbbea0b3hjxjs" path="res://Assets/Deco/tree.png" id="7_4p2rf"]
 [ext_resource type="PackedScene" uid="uid://dme5bjcso6b0n" path="res://Scenes/enviromental/coin.tscn" id="8_t2nw1"]
 [ext_resource type="Texture2D" uid="uid://b2ug3ea1oofx2" path="res://Assets/Deco/sun.png" id="9_bjtbw"]
-[ext_resource type="Texture2D" uid="uid://1kakplppaq0v" path="res://Assets/Objects/sign.png" id="10_3qf4q"]
 [ext_resource type="Texture2D" uid="uid://dl75rsniaox40" path="res://Assets/Objects/sign_arrow.png" id="11_ek84b"]
 [ext_resource type="PackedScene" uid="uid://biq2ohctus88u" path="res://Scenes/player.tscn" id="12_fhr3e"]
 [ext_resource type="Script" uid="uid://da5m75pj453h4" path="res://Scripts/ui.gd" id="13_mby28"]
@@ -23,7 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://lw6x2vve5sob" path="res://MusicAndSounds/SFX/menu_movement.ogg" id="20_fhr3e"]
 [ext_resource type="AudioStream" uid="uid://5pp6t33a1oun" path="res://MusicAndSounds/SFX/menu_select.ogg" id="21_mby28"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_26yhd"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m46lr"]
 texture = ExtResource("6_x51wo")
 2:0/0 = 0
 3:0/0 = 0
@@ -72,7 +71,7 @@ texture = ExtResource("6_x51wo")
 
 [sub_resource type="TileSet" id="TileSet_p3ir5"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_26yhd")
+sources/0 = SubResource("TileSetAtlasSource_m46lr")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qx82g"]
 size = Vector2(923, 64)
@@ -206,10 +205,6 @@ hframes = 6
 frame = 4
 
 [node name="Objects" type="Node2D" parent="."]
-
-[node name="Sign" type="Sprite2D" parent="Objects"]
-position = Vector2(69, 31)
-texture = ExtResource("10_3qf4q")
 
 [node name="SignArrow" type="Sprite2D" parent="Objects"]
 position = Vector2(-182, 0)

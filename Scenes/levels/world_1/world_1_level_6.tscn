@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dpgnt7ikd15aj"]
+[gd_scene load_steps=39 format=3 uid="uid://dpgnt7ikd15aj"]
 
 [ext_resource type="PackedScene" uid="uid://biq2ohctus88u" path="res://Scenes/player.tscn" id="1_ukv64"]
 [ext_resource type="Script" uid="uid://da5m75pj453h4" path="res://Scripts/ui.gd" id="2_28kl1"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://dr7qacmv3jkrq" path="res://Assets/Objects/crate.png" id="14_15ra7"]
 [ext_resource type="Script" uid="uid://bmgfdcevh30jk" path="res://Scripts/respawn_area.gd" id="16_e4i6e"]
 [ext_resource type="Texture2D" uid="uid://c0hjb8povdcib" path="res://Assets/Enemies/slime_red.png" id="16_eu05w"]
-[ext_resource type="Texture2D" uid="uid://1kakplppaq0v" path="res://Assets/Objects/sign.png" id="16_t7w2b"]
 [ext_resource type="Texture2D" uid="uid://cypwd8e3vfykh" path="res://Assets/UI/hearts.png" id="17_nenxo"]
 [ext_resource type="AudioStream" uid="uid://blltqsdvlk152" path="res://MusicAndSounds/SFX/menu.ogg" id="19_hcs3r"]
 [ext_resource type="AudioStream" uid="uid://b7rfuk3hk60ik" path="res://MusicAndSounds/SFX/level.ogg" id="20_fj07h"]
@@ -347,10 +346,6 @@ hframes = 5
 position = Vector2(902, 503)
 texture = ExtResource("14_15ra7")
 hframes = 5
-
-[node name="Sign" type="Sprite2D" parent="Objects"]
-position = Vector2(1246, 176)
-texture = ExtResource("16_t7w2b")
 
 [node name="Coins" type="Node2D" parent="."]
 

@@ -16,6 +16,7 @@ var hits = 3; # number of hits that remains to loose a life
 var reload = false;
 var reload_lifes = 0;
 var credits_from_menu = false;
+var tutorial_pause = false; #variable to control tutorial pause
 
 var respawn_position = Vector2(0,0);
 #array propierties
@@ -26,6 +27,7 @@ var coins = [ #coin for every world and course
 [10,14,20,20,28,12], #world4
 [4,6,7,7,5,5], #world5
 [20,20,20,20,20,30], #world 6
+[6] # tutorial
 ]
 
 ##################################################
@@ -73,6 +75,16 @@ func start_next_level():
 		credits_from_menu = false;
 		get_tree().change_scene_to_file("res://Scenes/credits.tscn"); #go to credits
 
+func start_first_level():
+	world = 1;
+	level = 1;
+	coinsCount = 0;
+	success = false;
+	loose = false;
+	lifes = 5;
+	hits = 3;
+	start_world_level_scene(world,level);
+
 func reload_level():
 	coinsCount = 0; #resets couins count
 	success = false;
@@ -80,3 +92,9 @@ func reload_level():
 
 func exit():
 	get_tree().quit(); #exits the game
+func start_tutorial():
+	world = 0;
+	level = 0;
+	coinsCount = 0;
+	hero_mode = false;
+	get_tree().change_scene_to_file("res://Scenes/tutorial.tscn");
