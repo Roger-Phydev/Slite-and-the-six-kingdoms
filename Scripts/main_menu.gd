@@ -10,7 +10,7 @@ var previous_cursor_x = 0; #saves the previus state en case of y movement
 var actual_menu = "initial";
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	rgb_color_change();
+	set_level_indicator(0);
 	####### Basic configuration
 	GameMaster.coinsCount = 0;
 	GameMaster.hits = 3;
@@ -22,18 +22,50 @@ func _ready() -> void:
 	$Background/Sun/AnimationPlayer.play("shine"); #sun
 	for bird in $elements/Birds.get_children(): #birds
 		bird.get_children()[0].play("fly");
-	$"Variable presentation/Slite/AnimationPlayer".play("idle");
+	$"Variable presentation/Slite/AnimationPlayer".play("idle"); #slite
+	$"Variable presentation/Chest/AnimationPlayer".play("idle_close"); #chest
+	#coins for level indicator:
+	$"Variable presentation/LevelIndicator/Coin1/AnimationPlayer".play("spin");
+	$"Variable presentation/LevelIndicator/Coin2/AnimationPlayer".play("spin");
+	$"Variable presentation/LevelIndicator/Coin3/AnimationPlayer".play("spin");
+	$"Variable presentation/LevelIndicator/Coin4/AnimationPlayer".play("spin");
+	$"Variable presentation/LevelIndicator/Coin5/AnimationPlayer".play("spin");
+	$"Variable presentation/LevelIndicator/Coin6/AnimationPlayer".play("spin");
+	$"Variable presentation/WorldBackgrounds/World6/Ckeckpoint/AnimationPlayer".play("move");
+	$"Variable presentation/WorldBackgrounds/World6/Ckeckpoint2/AnimationPlayer".play("move");
 	############# disableding buttons without use
-	$InitialOptions/Continue.disabled = true;
+	$MenuBg/InitialOptions/Continue.disabled = true;
 	############# setting menu_options
 	menu_options = [
-		[$InitialOptions/Continue],
-		[$InitialOptions/StartGame],
-		[$InitialOptions/Tutorial],
-		[$InitialOptions/ToWorldMenu],
-		[$InitialOptions/Credits],
-		[$InitialOptions/Exit]
+		[$MenuBg/InitialOptions/Continue],
+		[$MenuBg/InitialOptions/StartGame],
+		[$MenuBg/InitialOptions/HBoxContainer/Tutorial,$MenuBg/InitialOptions/HBoxContainer/FirstScene],
+		[$MenuBg/InitialOptions/HBoxContainer2/ToWorldMenu,$MenuBg/InitialOptions/HBoxContainer2/Credits],
+		[$MenuBg/InitialOptions/Exit]
 	];
+	############# Setting mouse actions to display info
+	$MenuBg/InitialOptions/Continue.mouse_entered.connect(continue_info);
+	$MenuBg/InitialOptions/StartGame.mouse_entered.connect(start_info);
+	$MenuBg/InitialOptions/HBoxContainer/Tutorial.mouse_entered.connect(tutorial_info);
+	$MenuBg/InitialOptions/HBoxContainer/FirstScene.mouse_entered.connect(first_scene_info);
+	$MenuBg/InitialOptions/HBoxContainer2/ToWorldMenu.mouse_entered.connect(to_world_initial_info);
+	$MenuBg/InitialOptions/HBoxContainer2/Credits.mouse_entered.connect(credits_info);
+	$MenuBg/InitialOptions/Exit.mouse_entered.connect(exit_info);
+	$MenuBg/WorldMenu/Worlds1/World1.mouse_entered.connect(world_1_info);
+	$MenuBg/WorldMenu/Worlds1/World2.mouse_entered.connect(world_2_info);
+	$MenuBg/WorldMenu/Worlds1/World3.mouse_entered.connect(world_3_info);
+	$MenuBg/WorldMenu/Worlds2/World4.mouse_entered.connect(world_4_info);
+	$MenuBg/WorldMenu/Worlds2/World5.mouse_entered.connect(world_5_info);
+	$MenuBg/WorldMenu/Worlds2/World6.mouse_entered.connect(world_6_info);
+	$MenuBg/WorldMenu/ToInitialOptions.mouse_entered.connect(to_world_info);
+	$MenuBg/LevelMenu/Levels1/Level1.mouse_entered.connect(level_1_info);
+	$MenuBg/LevelMenu/Levels1/Level2.mouse_entered.connect(level_2_info);
+	$MenuBg/LevelMenu/Levels1/Level3.mouse_entered.connect(level_3_info);
+	$MenuBg/LevelMenu/Levels2/Level4.mouse_entered.connect(level_4_info);
+	$MenuBg/LevelMenu/Levels2/Level5.mouse_entered.connect(level_5_info);
+	$MenuBg/LevelMenu/Levels2/Level6.mouse_entered.connect(level_6_info);
+	$MenuBg/LevelMenu/HBoxContainer/MainMenu.mouse_entered.connect(to_initial_options_info);
+	$MenuBg/LevelMenu/HBoxContainer/WorldMenu.mouse_entered.connect(to_world_info);
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	##################################
@@ -64,9 +96,18 @@ func _process(delta: float) -> void:
 		if actual_menu == "world":
 			change_menu("world","initial");
 			actual_menu = "initial";
+			$MenuSelect.play(); #plays this sound
 		elif actual_menu == "level":
 			change_menu("level","world");
 			actual_menu = "world";
+			toogle_variable_presentation(1);
+			$"Variable presentation/Chest/AnimationPlayer".play("close");
+			$MenuSelect.play(); #plays this sound
+			set_level_indicator(0);
+			await get_tree().create_timer(0.5).timeout;
+			$"Variable presentation/Chest/AnimationPlayer".play("idle_close");
+		else:
+			$MenuDisabled.play();
 ###################################
 # Functions
 ###################################
@@ -74,36 +115,35 @@ func _process(delta: float) -> void:
 func change_menu(menu_from:String,menu_to:String):
 	# hides the previous menu
 	if menu_from == "initial":
-		$InitialOptions.visible = false;
+		$MenuBg/InitialOptions.visible = false;
 	elif menu_from == "world":
-		$WorldMenu.visible = false;
+		$MenuBg/WorldMenu.visible = false;
 	elif menu_from == "level":
-		$LevelMenu.visible = false;
+		$MenuBg/LevelMenu.visible = false;
 	# shows the next menu and sets the options
 	if menu_to == "initial":
 		menu_options = [
-			[$InitialOptions/Continue],
-			[$InitialOptions/StartGame],
-			[$InitialOptions/Tutorial],
-			[$InitialOptions/ToWorldMenu],
-			[$InitialOptions/Credits],
-			[$InitialOptions/Exit]
+			[$MenuBg/InitialOptions/Continue],
+			[$MenuBg/InitialOptions/StartGame],
+			[$MenuBg/InitialOptions/HBoxContainer/Tutorial,$MenuBg/InitialOptions/HBoxContainer/FirstScene],
+			[$MenuBg/InitialOptions/HBoxContainer2/ToWorldMenu,$MenuBg/InitialOptions/HBoxContainer2/Credits],
+			[$MenuBg/InitialOptions/Exit]
 		];
-		$InitialOptions.visible = true;
+		$MenuBg/InitialOptions.visible = true;
 	elif menu_to == "world":
 		menu_options = [
-			[$WorldMenu/Worlds1/World1,$WorldMenu/Worlds1/World2,$WorldMenu/Worlds1/World3],
-			[$WorldMenu/Worlds2/World4,$WorldMenu/Worlds2/World5,$WorldMenu/Worlds2/World6],
-			[$WorldMenu/ToInitialOptions]
+			[$MenuBg/WorldMenu/Worlds1/World1,$MenuBg/WorldMenu/Worlds1/World2,$MenuBg/WorldMenu/Worlds1/World3],
+			[$MenuBg/WorldMenu/Worlds2/World4,$MenuBg/WorldMenu/Worlds2/World5,$MenuBg/WorldMenu/Worlds2/World6],
+			[$MenuBg/WorldMenu/ToInitialOptions]
 		];
-		$WorldMenu.visible = true;
+		$MenuBg/WorldMenu.visible = true;
 	elif menu_to == "level":
 		menu_options = [
-			[$LevelMenu/Levels1/Level1,$LevelMenu/Levels1/Level2,$LevelMenu/Levels1/Level3],
-			[$LevelMenu/Levels2/Level4,$LevelMenu/Levels2/Level5,$LevelMenu/Levels2/Level6],
-			[$LevelMenu/HBoxContainer/MainMenu,$LevelMenu/HBoxContainer/WorldMenu]
+			[$MenuBg/LevelMenu/Levels1/Level1,$MenuBg/LevelMenu/Levels1/Level2,$MenuBg/LevelMenu/Levels1/Level3],
+			[$MenuBg/LevelMenu/Levels2/Level4,$MenuBg/LevelMenu/Levels2/Level5,$MenuBg/LevelMenu/Levels2/Level6],
+			[$MenuBg/LevelMenu/HBoxContainer/MainMenu,$MenuBg/LevelMenu/HBoxContainer/WorldMenu]
 		];
-		$LevelMenu.visible = true;
+		$MenuBg/LevelMenu.visible = true;
 	menu_cursor = Vector2(0,0); #resetea el cursor del menú
 # Changing secondary visuals:
 func toogle_variable_presentation(world:int):
@@ -112,6 +152,37 @@ func toogle_variable_presentation(world:int):
 		bg.visible = false;
 	#then makes visible the world set in input
 	$"Variable presentation/WorldBackgrounds".get_children()[world-1].visible = true;
+func set_level_indicator(l:int):
+	var coins = $"Variable presentation/LevelIndicator".get_children();
+	for i in range(6):
+		coins[i].visible = i<l; #only makes visible the first l elements
+	if l == 1:
+		$"Variable presentation/LevelIndicator/Coin1".position = Vector2i(-184,256);
+	elif l == 2:
+		$"Variable presentation/LevelIndicator/Coin1".position = Vector2(-192,264);
+		$"Variable presentation/LevelIndicator/Coin2".position = Vector2(-168,240);
+	elif l == 3:
+		$"Variable presentation/LevelIndicator/Coin1".position = Vector2(-208,264);
+		$"Variable presentation/LevelIndicator/Coin2".position = Vector2(-192,232);
+		$"Variable presentation/LevelIndicator/Coin3".position = Vector2(-176,264);
+	elif l == 4:
+		$"Variable presentation/LevelIndicator/Coin1".position = Vector2(-208,264);
+		$"Variable presentation/LevelIndicator/Coin2".position = Vector2(-208,232);
+		$"Variable presentation/LevelIndicator/Coin3".position = Vector2(-176,232);
+		$"Variable presentation/LevelIndicator/Coin4".position = Vector2(-176,264);
+	elif l == 5:
+		$"Variable presentation/LevelIndicator/Coin1".position = Vector2(-208,264);
+		$"Variable presentation/LevelIndicator/Coin2".position = Vector2(-216,232);
+		$"Variable presentation/LevelIndicator/Coin3".position = Vector2(-188,208);
+		$"Variable presentation/LevelIndicator/Coin4".position = Vector2(-160,232);
+		$"Variable presentation/LevelIndicator/Coin5".position = Vector2(-168,264);
+	elif l == 6:
+		$"Variable presentation/LevelIndicator/Coin1".position = Vector2(-208,264);
+		$"Variable presentation/LevelIndicator/Coin2".position = Vector2(-216,232);
+		$"Variable presentation/LevelIndicator/Coin3".position = Vector2(-188,208);
+		$"Variable presentation/LevelIndicator/Coin4".position = Vector2(-160,232);
+		$"Variable presentation/LevelIndicator/Coin5".position = Vector2(-168,264);
+		$"Variable presentation/LevelIndicator/Coin6".position = Vector2(-188,240);
 # turning off/on success or hero mode
 func set_progress_elements(type:String,on:bool=true):
 	if type == "success":
@@ -155,21 +226,21 @@ func menu_movement(options):
 		menu_cursor.x = menu_cursor.x-1 if menu_cursor.x-1>0 else 0;
 	######## focus the new element
 	options[menu_cursor.y][menu_cursor.x].grab_focus();
+	options[menu_cursor.y][menu_cursor.x].emit_signal("mouse_entered");
 	if Input.is_action_just_pressed("jump") or Input.is_action_just_pressed("start"):
-		print("apretado A");
 		options[menu_cursor.y][menu_cursor.x].emit_signal("button_down");
 
 ############ Menu buttons signals
 ########### Initial options
 ## Continue:
 func _on_continue_button_down() -> void:
-	if $InitialOptions/Continue.disabled: #if it's disabled
+	if $MenuBg/InitialOptions/Continue.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
 		$MenuSelect.play(); #plays this sound
 ## Start:
 func _on_start_game_button_down() -> void:
-	if $InitialOptions/StartGame.disabled: #if it's disabled
+	if $MenuBg/InitialOptions/StartGame.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
 		GameMaster.world = 1;
@@ -181,23 +252,31 @@ func _on_start_game_button_down() -> void:
 		GameMaster.start_world_level_scene(GameMaster.world,GameMaster.level);
 ## Tutorial:
 func _on_tutorial_button_down() -> void:
-	if $InitialOptions/Tutorial.disabled: #if it's disabled
+	if $MenuBg/InitialOptions/HBoxContainer/Tutorial.disabled: #if it's disabled
+		$MenuDisabled.play(); #plays this sound
+	else:
+		$MenuSelect.play(); #plays this sound
+		get_tree().change_scene_to_file("res://Scenes/tutorial.tscn");
+## First Scene:
+func _on_first_scene_button_down() -> void:
+	if $MenuBg/InitialOptions/HBoxContainer/FirstScene.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
 		$MenuSelect.play(); #plays this sound
 		get_tree().change_scene_to_file("res://Scenes/initial_scene.tscn");
 ## ToWorldMenu:
 func _on_to_world_menu_button_down() -> void:
-	if $InitialOptions/ToWorldMenu.disabled: #if it's disabled
+	if $MenuBg/InitialOptions/HBoxContainer2/ToWorldMenu.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
 		GameMaster.hero_mode = false;
 		change_menu("initial","world");
 		actual_menu = "world";
+		$Info/OptionInfo.add_theme_font_size_override("font_size",60);
 		$MenuSelect.play(); #plays this sound
 ## Credits:
 func _on_credits_button_down() -> void:
-	if $InitialOptions/Credits.disabled: #if it's disabled
+	if $MenuBg/InitialOptions/HBoxContainer2/Credits.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
 		$MenuSelect.play(); #plays this sound.
@@ -205,7 +284,7 @@ func _on_credits_button_down() -> void:
 		get_tree().change_scene_to_file("res://Scenes/credits.tscn"); #starts the credits
 ## Exit:
 func _on_exit_button_down() -> void:
-	if $InitialOptions/Exit.disabled: #if it's disabled
+	if $MenuBg/InitialOptions/Exit.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
 		$MenuSelect.play(); #plays this sound
@@ -213,78 +292,104 @@ func _on_exit_button_down() -> void:
 ############# World Menu
 ## World1:
 func _on_world_1_button_down() -> void:
-	if $WorldMenu/Worlds1/World1.disabled: #if it's disabled
+	if $MenuBg/WorldMenu/Worlds1/World1.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
 		$MenuSelect.play(); #plays this sound
 		GameMaster.world = 1;
 		change_menu("world","level");
+		$"Variable presentation/Chest/AnimationPlayer".play("open");
 		actual_menu = "level";
 		toogle_variable_presentation(1);
+		set_level_indicator(1);
+		await get_tree().create_timer(0.5).timeout;
+		$"Variable presentation/Chest/AnimationPlayer".play("idle_open");
 ## World 2:
 func _on_world_2_button_down() -> void:
-	if $WorldMenu/Worlds1/World2.disabled: #if it's disabled
+	if $MenuBg/WorldMenu/Worlds1/World2.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
 		$MenuSelect.play(); #plays this sound
 		GameMaster.world = 2;
 		change_menu("world","level");
+		$"Variable presentation/Chest/AnimationPlayer".play("open");
 		actual_menu = "level";
 		toogle_variable_presentation(2);
+		set_level_indicator(1);
+		await get_tree().create_timer(0.5).timeout;
+		$"Variable presentation/Chest/AnimationPlayer".play("idle_open");
 ## World 3:
 func _on_world_3_button_down() -> void:
-	if $WorldMenu/Worlds1/World3.disabled: #if it's disabled
+	if $MenuBg/WorldMenu/Worlds1/World3.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
 		$MenuSelect.play(); #plays this sound
 		GameMaster.world = 3;
 		change_menu("world","level");
+		$"Variable presentation/Chest/AnimationPlayer".play("open");
 		actual_menu = "level";
 		toogle_variable_presentation(3);
+		set_level_indicator(1);
+		await get_tree().create_timer(0.5).timeout;
+		$"Variable presentation/Chest/AnimationPlayer".play("idle_open");
 ## World 4:
 func _on_world_4_button_down() -> void:
-	if $WorldMenu/Worlds2/World4.disabled: #if it's disabled
+	if $MenuBg/WorldMenu/Worlds2/World4.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
 		$MenuSelect.play(); #plays this sound
 		GameMaster.world = 4;
 		change_menu("world","level");
+		$"Variable presentation/Chest/AnimationPlayer".play("open");
 		actual_menu = "level";
 		toogle_variable_presentation(4);
+		set_level_indicator(1);
+		await get_tree().create_timer(0.5).timeout;
+		$"Variable presentation/Chest/AnimationPlayer".play("idle_open");
 ## World 5:
 func _on_world_5_button_down() -> void:
-	if $WorldMenu/Worlds2/World5.disabled: #if it's disabled
+	if $MenuBg/WorldMenu/Worlds2/World5.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
 		$MenuSelect.play(); #plays this sound
 		GameMaster.world = 5;
 		change_menu("world","level");
 		actual_menu = "level";
+		$"Variable presentation/Chest/AnimationPlayer".play("open");
 		toogle_variable_presentation(5);
+		set_level_indicator(1);
+		await get_tree().create_timer(0.5).timeout;
+		$"Variable presentation/Chest/AnimationPlayer".play("idle_open");
 ## World 6:
 func _on_world_6_button_down() -> void:
-	if $WorldMenu/Worlds2/World6.disabled: #if it's disabled
+	if $MenuBg/WorldMenu/Worlds2/World6.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
 		$MenuSelect.play(); #plays this sound
 		GameMaster.world = 6;
 		change_menu("world","level");
+		$"Variable presentation/Chest/AnimationPlayer".play("open");
 		actual_menu = "level";
 		toogle_variable_presentation(6);
+		set_level_indicator(1);
+		await get_tree().create_timer(0.5).timeout;
+		$"Variable presentation/Chest/AnimationPlayer".play("idle_open");
 ## Initial menu:
 func _on_to_initial_options_button_down() -> void:
-	if $WorldMenu/ToInitialOptions.disabled: #if it's disabled
+	if $MenuBg/WorldMenu/ToInitialOptions.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
 		change_menu("world","initial");
 		actual_menu = "initial";
 		toogle_variable_presentation(1);
+		set_level_indicator(0);
 		$MenuSelect.play(); #plays this sound
+		$Info/OptionInfo.add_theme_font_size_override("font_size",40);
 		
 ################## Level Menu
 ## Level 1:
 func _on_level_1_button_down() -> void:
-	if $LevelMenu/Levels1/Level1.disabled: #if it's disabled
+	if $MenuBg/LevelMenu/Levels1/Level1.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
 		#sets basic configuration
@@ -293,7 +398,7 @@ func _on_level_1_button_down() -> void:
 		GameMaster.start_world_level_scene(GameMaster.world,GameMaster.level);
 ## Level 2:
 func _on_level_2_button_down() -> void:
-	if $LevelMenu/Levels1/Level2.disabled: #if it's disabled
+	if $MenuBg/LevelMenu/Levels1/Level2.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
 		#sets basic configuration
@@ -302,7 +407,7 @@ func _on_level_2_button_down() -> void:
 		GameMaster.start_world_level_scene(GameMaster.world,GameMaster.level);
 ## Level 3:
 func _on_level_3_button_down() -> void:
-	if $LevelMenu/Levels1/Level3.disabled: #if it's disabled
+	if $MenuBg/LevelMenu/Levels1/Level3.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
 		#sets basic configuration
@@ -311,7 +416,7 @@ func _on_level_3_button_down() -> void:
 		GameMaster.start_world_level_scene(GameMaster.world,GameMaster.level);
 ## Level 4:
 func _on_level_4_button_down() -> void:
-	if $LevelMenu/Levels2/Level4.disabled: #if it's disabled
+	if $MenuBg/LevelMenu/Levels2/Level4.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
 		#sets basic configuration
@@ -320,7 +425,7 @@ func _on_level_4_button_down() -> void:
 		GameMaster.start_world_level_scene(GameMaster.world,GameMaster.level);
 ## Level 5:
 func _on_level_5_button_down() -> void:
-	if $LevelMenu/Levels2/Level5.disabled: #if it's disabled
+	if $MenuBg/LevelMenu/Levels2/Level5.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
 		#sets basic configuration
@@ -329,7 +434,7 @@ func _on_level_5_button_down() -> void:
 		GameMaster.start_world_level_scene(GameMaster.world,GameMaster.level);
 ## Level 6:
 func _on_level_6_button_down() -> void:
-	if $LevelMenu/Levels2/Level6.disabled: #if it's disabled
+	if $MenuBg/LevelMenu/Levels2/Level6.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
 		#sets basic configuration
@@ -338,32 +443,97 @@ func _on_level_6_button_down() -> void:
 		GameMaster.start_world_level_scene(GameMaster.world,GameMaster.level);
 ## Initial options:
 func _on_main_menu_button_down() -> void:
-	if $LevelMenu/HBoxContainer/MainMenu.disabled: #if it's disabled
+	if $MenuBg/LevelMenu/HBoxContainer/MainMenu.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
 		change_menu("level","initial")
 		actual_menu = "initial";
 		toogle_variable_presentation(1);
+		$Info/OptionInfo.add_theme_font_size_override("font_size",40);
+		$"Variable presentation/Chest/AnimationPlayer".play("close");
 		$MenuSelect.play(); #plays this sound
+		set_level_indicator(0);
+		await get_tree().create_timer(0.5).timeout;
+		$"Variable presentation/Chest/AnimationPlayer".play("idle_close");
 ## World menu:
 func _on_world_menu_button_down() -> void:
-	if $LevelMenu/HBoxContainer/WorldMenu.disabled: #if it's disabled
+	if $MenuBg/LevelMenu/HBoxContainer/WorldMenu.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
 	else:
 		change_menu("level","world");
 		actual_menu = "world";
 		toogle_variable_presentation(1);
+		$"Variable presentation/Chest/AnimationPlayer".play("close");
 		$MenuSelect.play(); #plays this sound
-## Change RGB color to fonts
-func rgb_color_change():
-	var c1 = $Me.get_theme_color("font_color");
-	var c2 = $Me2.get_theme_color("font_color");
-	var c3 = $Me3.get_theme_color("font_color");
-	var c4 = $Me4.get_theme_color("font_color");
-	if c1[0] < 0.9089:
-		c1[0] += 0.1
-		$Me.add_theme_color_override("font_color",c1);
-	else:
-		c1[0] -= 0.1;
-		$Me.add_theme_color_override("font_color",c1);
-	pass
+		set_level_indicator(0);
+		await get_tree().create_timer(0.5).timeout;
+		$"Variable presentation/Chest/AnimationPlayer".play("idle_close");
+## Signal control for info data
+func continue_info():
+	$"Variable presentation/Chest/AnimationPlayer".play("idle_close");
+	$Info/OptionInfo.add_theme_font_size_override("font_size",40);
+	$Info/OptionInfo.text = "Continua tu partida donde la dejaste, aún en desarrollo";
+func start_info():
+	$Info/OptionInfo.add_theme_font_size_override("font_size",40);
+	$Info/OptionInfo.text = "Inicia la aventura desde el principio";
+func tutorial_info():
+	$Info/OptionInfo.add_theme_font_size_override("font_size",40);
+	$Info/OptionInfo.text = "Juega el tutorial para aprender los controles y a lo que te enfrentarás";
+func first_scene_info():
+	$Info/OptionInfo.add_theme_font_size_override("font_size",40);
+	$Info/OptionInfo.text = "Ponte en contexto con una breve narrativa de la historia hasta ahora";
+func to_world_initial_info():
+	$Info/OptionInfo.add_theme_font_size_override("font_size",40);
+	$Info/OptionInfo.text = "Selecciona un nivel para jugar";
+func credits_info():
+	$Info/OptionInfo.add_theme_font_size_override("font_size",40);
+	$Info/OptionInfo.text = "Mira la escena de créditos, agradeciendo a los que hicieron posible esto";
+func exit_info():
+	$Info/OptionInfo.add_theme_font_size_override("font_size",40);
+	$Info/OptionInfo.text = "Al seleccionar esto, saldrás del juego";
+func world_1_info():
+	$Info/OptionInfo.text = "Reino del Bosque";
+	toogle_variable_presentation(1);
+func world_2_info():
+	$Info/OptionInfo.text = "Reino de la Tierra";
+	toogle_variable_presentation(2);
+func world_3_info():
+	$Info/OptionInfo.text = "Reino de las Arenas";
+	toogle_variable_presentation(3);
+func world_4_info():
+	$Info/OptionInfo.text = "Reino del Mar";
+	toogle_variable_presentation(4);
+func world_5_info():
+	$Info/OptionInfo.text = "Reino del Hielo";
+	toogle_variable_presentation(5);
+func world_6_info():
+	$Info/OptionInfo.text = "Reino del Fuego";
+	toogle_variable_presentation(6);
+func to_initial_options_info():
+	$Info/OptionInfo.text = "Vuelve al menú inicial";
+func level_1_info():
+	var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
+	$Info/OptionInfo.text = "Jugar nivel 1 del "+worlds[GameMaster.world-1];
+	set_level_indicator(1);
+func level_2_info():
+	var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
+	$Info/OptionInfo.text = "Jugar nivel 2 del "+worlds[GameMaster.world-1];
+	set_level_indicator(2);
+func level_3_info():
+	var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
+	$Info/OptionInfo.text = "Jugar nivel 3 del "+worlds[GameMaster.world-1];
+	set_level_indicator(3);
+func level_4_info():
+	var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
+	$Info/OptionInfo.text = "Jugar nivel 4 del "+worlds[GameMaster.world-1];
+	set_level_indicator(4);
+func level_5_info():
+	var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
+	$Info/OptionInfo.text = "Jugar nivel 5 del "+worlds[GameMaster.world-1];
+	set_level_indicator(5);
+func level_6_info():
+	var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
+	$Info/OptionInfo.text = "Jugar nivel 6 del "+worlds[GameMaster.world-1];
+	set_level_indicator(6);
+func to_world_info():
+	$Info/OptionInfo.text = "Vuelve a la selección de mundo";

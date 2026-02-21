@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 		skip = true;
 	if skip:
 		if Input.is_action_just_pressed("start"):
-			GameMaster.start_tutorial();
+			GameMaster.start_menu("main");
 
 ######################
 # functions:
