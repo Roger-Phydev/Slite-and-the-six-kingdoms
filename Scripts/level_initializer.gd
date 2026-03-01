@@ -10,6 +10,7 @@ func _ready() -> void:
 	#GameMaster.level = level; #sets the level in the gamemaster
 	GameMaster.world = 2;
 	GameMaster.level = 1;
+	GameMaster.hero_mode = true;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

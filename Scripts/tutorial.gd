@@ -149,3 +149,11 @@ Con control muevete con las flechas o el stick izquierdo
 En PC puedes usar el mouse para seleccionar una opción""";
 func exit_menu_info():
 	$Player/Camera2D/PlayerUI/PlayingInterface/TutorialInfo/Info.text = "Listo, vamos a continuar";
+
+
+func _on_continue_button_down() -> void:
+	pass # Replace with function body.
+
+
+func _on_continue_button_up() -> void:
+	pass # Replace with function body.

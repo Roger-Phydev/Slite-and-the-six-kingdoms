@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 func check_hits_and_lifes(lifes:int,hits:int):
 	if (lifes != 0 or not GameMaster.hero_mode) and hits == 0: #if there's no more hits, but there are lifes or it's not hero mode
 		GameMaster.hits = 3; #resets number of hits
-		GameMaster.lifes -= 1 if GameMaster.world == 0 else 0; #reduces by one the number of lifes except for the tutorial
+		GameMaster.lifes -= 1 if GameMaster.world != 0 else 0; #reduces by one the number of lifes except for the tutorial
 		GameMaster.reload = true; #sets reload sound
 		respawn();
 	if lifes == 0 and GameMaster.hero_mode: # if there are no lifes and its hero mode

@@ -50,10 +50,19 @@ func _process(delta: float) -> void:
 	elif seconds > 5: #after a second
 		$Content.position.y -= delta*velocity; #moves the credits
 	#changes the velocity in function of position
-	if $Content.position.y < -6912: #the final section
+	if $Content.position.y < -11456: #the final section
 		velocity = 0;
 		skip = true;
-	elif $Content.position.y < -5120: #most important part
+	elif $Content.position.y < -8800: # my cat section
+		velocity = 0;
+		activate_birds();
+		$elements/Birds.position.x -= delta*birds_speed;
+		initial_timer = seconds if initial_timer==0 else initial_timer; #sets the timer only it wasn't initiated
+		if seconds-initial_timer>10: #waits for aprox 10 s
+			velocity = 100; #changes then the velocity
+	elif $Content.position.y < -8700: # my cat section
+		initial_timer = 0;
+	elif $Content.position.y < -7090: #most important part
 		velocity = 0;
 		#activation of birds
 		activate_birds();
@@ -63,10 +72,10 @@ func _process(delta: float) -> void:
 			velocity = 100; #changes then the velocity
 			$Background/Sun/AnimationPlayer.play("shine");
 			sun_animation = true;
-		gradient_on_sky_color(-5120,-6912,[0.5201, 0.4712, 0.4437, 1.0],[0.2157, 0.502, 0.7373, 1.0]);
+		gradient_on_sky_color(-7090,-8800,[0.5201, 0.4712, 0.4437, 1.0],[0.2157, 0.502, 0.7373, 1.0]);
 		
 		# (0.2157, 0.502, 0.7373, 1.0)
-	elif $Content.position.y < -3300: #When reaches people, then slow down scrolling
+	elif $Content.position.y < -3968: #When reaches people, then slow down scrolling
 		velocity = 100;
 		#bats animation
 		activate_bats();
@@ -92,7 +101,7 @@ func _process(delta: float) -> void:
 			deactivate_shine(7);
 			deactivate_shine(11);
 			deactivate_shine(15);
-		gradient_on_sky_color(-3300,-5120,[0.5216, 0.4824, 0.8235, 1.0],[0.5201, 0.4712, 0.4437, 1.0]);
+		gradient_on_sky_color(-3300,-7090,[0.5216, 0.4824, 0.8235, 1.0],[0.5201, 0.4712, 0.4437, 1.0]);
 	else:
 		gradient_on_sky_color(0,-3300,[0.0,0.0,0.0,1.0],[0.5216, 0.4824, 0.8235, 1.0])
 	if skip: #when skip is allowed

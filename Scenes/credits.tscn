@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dd1iabuxv2nhg"]
+[gd_scene load_steps=25 format=3 uid="uid://dd1iabuxv2nhg"]
 
 [ext_resource type="Script" uid="uid://6d16ljsv865y" path="res://Scripts/credits.gd" id="1_gryuy"]
 [ext_resource type="Texture2D" uid="uid://dh2cj8x53uk3x" path="res://Assets/FX/shine.png" id="2_ccovl"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cjpmfu8ep7e46" path="res://Assets/Deco/clouds.png" id="6_j6nef"]
 [ext_resource type="Texture2D" uid="uid://baddtq1he1i2f" path="res://Assets/Enemies/bat.png" id="6_uah1q"]
 [ext_resource type="Texture2D" uid="uid://cr6tnlvt4xyki" path="res://Assets/Enemies/bird.png" id="7_7emq5"]
+[ext_resource type="FontFile" uid="uid://clnvskupki8ak" path="res://Assets/Fonts/menu_text/Playball-Regular.ttf" id="7_fdv4u"]
 [ext_resource type="AudioStream" uid="uid://duuxofabmifqc" path="res://MusicAndSounds/SFX/credits.ogg" id="8_803yc"]
 
 [sub_resource type="Animation" id="Animation_ae0tj"]
@@ -86,9 +87,6 @@ _data = {
 &"shine": SubResource("Animation_1bamb")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xelri"]
-bg_color = Color(0.32156864, 0.32156864, 0.32156864, 0.32156864)
-
 [sub_resource type="Animation" id="Animation_803yc"]
 length = 0.001
 tracks/0/type = "value"
@@ -164,6 +162,9 @@ _data = {
 &"RESET": SubResource("Animation_j6nef"),
 &"fly": SubResource("Animation_1wbrc")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xelri"]
+bg_color = Color(0.32156864, 0.32156864, 0.32156864, 0.32156864)
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -457,563 +458,6 @@ hframes = 5
 libraries = {
 &"": SubResource("AnimationLibrary_uah1q")
 }
-
-[node name="Content" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 7796.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_xelri")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Content"]
-layout_mode = 0
-offset_left = 104.0
-offset_right = 1056.0
-offset_bottom = 1624.0
-theme_override_constants/separation = 2
-
-[node name="Start" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 60
-text = "Slite, Salvaste los 6 reinos"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Space" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Start2" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 80
-text = "muchas gracias"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Space2" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Credits" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Ahora agradezcamos a los que construyeron el reino que salvaste"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Space3" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Space4" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Title" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
-theme_override_constants/line_spacing = 5
-theme_override_font_sizes/font_size = 40
-text = "Assets de sprites"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Subtitle" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
-theme_override_font_sizes/font_size = 25
-text = "(Los que crearon el cómo se ve el reino, incluyendo a Slite)"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Space5" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Info" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Rocky Roads
-https://essssam.itch.io/rocky-roads"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Space6" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Space7" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Title2" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
-theme_override_constants/line_spacing = 5
-theme_override_font_sizes/font_size = 40
-text = "Assets de música y sonidos"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Subtitle2" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
-theme_override_font_sizes/font_size = 25
-text = "(Los que le dieron sonido al mundo)"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Space8" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Info2" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Las mil y un almas caritativas de pixabay
-
-Siento no haber anotado sus nombres
-Pero de corazón un sincero agradecimiento a todos
-visita el sitio por favor
-https://pixabay.com/es/music/"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Space9" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Space10" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Title3" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
-theme_override_constants/line_spacing = 5
-theme_override_font_sizes/font_size = 40
-text = "Iniciador"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Subtitle3" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
-theme_override_font_sizes/font_size = 25
-text = "(El que originó que pudiera crearse el mundo)"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Space11" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Info3" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Luis Canary
-Gracias a sus videos, pude crear esta pequeña obra
-Visita su canal de YT:
-https://www.youtube.com/@LuisCanary"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Space12" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Space13" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Title4" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
-theme_override_constants/line_spacing = 5
-theme_override_font_sizes/font_size = 40
-text = "Diseño de niveles"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Subtitle4" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
-theme_override_font_sizes/font_size = 25
-text = "(El que creo cada paisaje que recorriste)"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Space14" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Info4" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Brian Parra"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Space15" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Space16" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Title5" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
-theme_override_constants/line_spacing = 5
-theme_override_font_sizes/font_size = 40
-text = "Diseño de mecánicas"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Subtitle5" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
-theme_override_font_sizes/font_size = 25
-text = "(Los que dictaron qué podías hacer)"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Space17" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Info5" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Rogelio Parra"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Space18" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Space19" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Title6" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
-theme_override_constants/line_spacing = 5
-theme_override_font_sizes/font_size = 40
-text = "Programación"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Subtitle6" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
-theme_override_font_sizes/font_size = 25
-text = "(Los que hicieron funcionar las cosas)"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Space20" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Info6" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Roger Parra"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Space21" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Space22" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Title7" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
-theme_override_constants/line_spacing = 5
-theme_override_font_sizes/font_size = 40
-text = "Director creativo y ejecutivo"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Subtitle7" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
-theme_override_font_sizes/font_size = 25
-text = "(El que hizo posible todo lo anterior)"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Space23" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Info7" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Roger Phy Dev"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Space24" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Title8" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
-theme_override_constants/line_spacing = 5
-theme_override_font_sizes/font_size = 40
-text = "Agradecimientos especiales"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Subtitle8" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
-theme_override_font_sizes/font_size = 25
-text = "(Personas que ayudaron sin saber que lo hacían)"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Space25" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Info8" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Luis Canary 
-Gracias por los tutoriales
-
-José Luis Parra Hernández
-Gracias por ser el mejor hermano del mundo
-
-Carlos Montalvo
-Por tu apoyo incondicional, gracias, viejo
-
-Eber Pineda Roldán
-Gracias por tu apoyo desde la infancia
-
-Isis López Hernández
-Gracias por siempre creer en mí
-
-Equipo \"Dragon\"
-Por haberse vuelto una segunda familia para mí
-Los quiero un chingo, cabrones
-Ian Sánchez
-Gracias por las enseñanzas y confianza
-Fer Zavala
-Gracias por el aprendizaje, risas y calidez
-Ángel Tena
-Gracias por capacitarme y tenerme paciencia
-Valeria Olvera
-Gracias por las risas, tu comprensión y calidez
-Leonardo Mendieta
-Gracias por ser tan buen amigo
-Jhonathan Santos
-Sigue esforzándote, pronto tendrás tu primer juego también"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="FirstChange" type="Node2D" parent="Content/VBoxContainer"]
-
-[node name="Space26" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Title9" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
-theme_override_constants/line_spacing = 5
-theme_override_font_sizes/font_size = 40
-text = "El mayor agradecimiento"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Subtitle9" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
-theme_override_font_sizes/font_size = 25
-text = "(La persona más importante)"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Space27" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Title10" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
-theme_override_constants/line_spacing = 5
-theme_override_font_sizes/font_size = 40
-text = "María del Socorro Hernández Benítez"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Space28" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Info9" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Mamita querida, no tiene mucho que partiste, y ya no pudiste ver esto, pero con gran alegría y esmero te puedo decir: 
-Lo logré!!!
-Ojalá hubieras estado para verlo, pero supongo que siempre estarás en mi corazón asi que en cierto modo, no lo viste, pero fuiste parte de su creación... Gracias por todo
-Espero que donde sea que estés, tengas una sonrisa en el rostro
-TE AMO"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Space29" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Space30" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Title11" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
-theme_override_constants/line_spacing = 5
-theme_override_font_sizes/font_size = 40
-text = "Y claro, gracias a quien Slite salvo el mundo"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Subtitle10" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
-theme_override_font_sizes/font_size = 25
-text = "(Pst... creo que te hablan!)"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Space31" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Info10" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "
-Claro que me refiero a tí...
-Gracias por haber jugado mi primer juego
-Por ser testigo de, quizá, el primer paso de muchos"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Space32" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Space33" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Space34" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Space35" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Space36" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Space37" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Space38" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Space39" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Space40" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Space41" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Space42" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Space43" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Space44" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Space45" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-
-[node name="Title12" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
-theme_override_constants/line_spacing = 5
-theme_override_font_sizes/font_size = 40
-text = "Gracias por Jugar!!!"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Subtitle11" type="Label" parent="Content/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
-theme_override_font_sizes/font_size = 25
-text = "Salta para volver al menú !!!"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="CreditsMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_803yc")
 
 [node name="elements" type="Node2D" parent="."]
 
@@ -1593,3 +1037,712 @@ position = Vector2(696, 240)
 texture = ExtResource("6_j6nef")
 vframes = 3
 frame = 1
+
+[node name="Content" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 12692.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xelri")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Content"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -537.5
+offset_right = 537.5
+offset_bottom = 11342.0
+grow_horizontal = 2
+theme_override_constants/separation = 2
+
+[node name="Start" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 80
+text = "Slite, Salvaste los 6 reinos"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Space" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Start2" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 100
+text = "muchas gracias"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Space2" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Credits" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 60
+text = "Ahora agradezcamos a los que construyeron el reino que salvaste"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Space3" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space4" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 60
+text = "Assets de sprites"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 40
+text = "(Los que crearon el cómo se ve el reino, incluyendo a Slite)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space5" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Info" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 50
+text = "Rocky Roads
+https://essssam.itch.io/rocky-roads"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space6" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space7" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title2" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 60
+text = "Assets de música y sonidos"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle2" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 40
+text = "(Los que le dieron sonido al mundo)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space8" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Info2" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 50
+text = "Las mil y un almas caritativas de pixabay
+
+Siento no haber anotado sus nombres
+Pero de corazón un sincero agradecimiento a todos
+visita el sitio por favor
+https://pixabay.com/es/music/"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space9" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space10" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title3" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 60
+text = "Iniciador"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle3" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 40
+text = "(El que originó que pudiera crearse el mundo)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space11" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Info3" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 50
+text = "Luis Canary
+Gracias a sus videos, pude crear esta pequeña obra
+Visita su canal de YT:
+https://www.youtube.com/@LuisCanary"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space12" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space13" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title4" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 60
+text = "Diseño de niveles"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle4" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 40
+text = "(El que creo cada paisaje que recorriste)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space14" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Info4" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 50
+text = "Brian Parra"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space15" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space16" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title5" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 60
+text = "Diseño de mecánicas"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle5" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 40
+text = "(Los que dictaron qué podías hacer)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space17" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Info5" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 50
+text = "Rogelio Parra"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space18" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space19" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title6" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 60
+text = "Programación"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle6" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 40
+text = "(Los que hicieron funcionar las cosas)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space20" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Info6" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 50
+text = "Roger Parra"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space21" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space22" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title7" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 60
+text = "Director creativo y ejecutivo"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle7" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 40
+text = "(El que hizo posible todo lo anterior)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space23" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Info7" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 50
+text = "Roger Phy Dev"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space24" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title8" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 60
+text = "Agradecimientos especiales"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle8" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 40
+text = "(Personas que ayudaron sin saber que lo hacían)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space25" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Info8" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 50
+text = "Luis Canary 
+Gracias por los tutoriales
+
+José Luis Parra Hernández
+Gracias por ser el mejor hermano del mundo
+
+Carlos Montalvo
+Por tu apoyo incondicional, gracias, viejo
+
+Eber Pineda Roldán
+Gracias por la amistad tan longeva
+
+Isis López Hernández
+Gracias por tus palabras de aliento y acompañamiento
+
+Personas geniales del trabajo:
+Por haberse vuelto una segunda familia para mí
+Los quiero un chingo, cabrones
+
+Ian Sánchez
+Gracias por las enseñanzas y comprensión
+
+Fer Zavala
+Gracias por el aprendizaje, risas y calidez
+
+Ángel Tena
+Gracias por tenerme paciencia
+
+Valeria Olvera
+Gracias por las risas, buena vibra y calidez
+
+Leonardo Mendieta
+Gracias por convertirte en más que un amigo, un hermano
+
+Alberto Linares
+Gracias por los momentos tan divertidos y profundos
+
+Fernando Galindo
+Gracias por la buena vibra y amistad"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FirstChange" type="Node2D" parent="Content/VBoxContainer"]
+
+[node name="Space26" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title9" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 60
+text = "El mayor agradecimiento"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle9" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 40
+text = "(La persona más importante)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space27" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title10" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 60
+text = "María del Socorro 
+Hernández Benítez"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Space28" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Info9" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 50
+text = "Mamita querida, no tiene mucho que partiste, y ya no pudiste ver esto, pero con gran alegría y esmero te puedo decir: 
+Lo logré!!!
+Ojalá hubieras estado para verlo, pero supongo que siempre estarás en mi corazón asi que en cierto modo, no lo viste, pero fuiste parte de su creación... Gracias por todo
+Espero que donde sea que estés, tengas una sonrisa en el rostro
+TE AMO"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Space29" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space30" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space46" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space47" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space48" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space49" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space50" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space51" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title13" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 60
+text = "Gracias a alguien también muy especial"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle12" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 40
+text = "(Soporte emocional)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space52" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title14" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 60
+text = "Pelusa, la mejor gata del mundo"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Info11" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 50
+text = "
+Gracias por estar en noches duras, y difíciles
+Gracias por decidir haberte quedado
+Quizá no sepas leer, pero no hace falta para que puedas sentir lo mucho que te quiero ni yo para saber lo mucho que me quieres, así que esta dedicatoria va por tí
+(traducción a felino)
+miau miau miau miau, miau miauuuuu
+miau miauuu raúl
+miaru miaru, miaru miaru miaru miaru wiwiwiii, wiwi wiiiii, uyaya"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Space53" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space54" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space55" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space56" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space57" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space58" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space59" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title11" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 60
+text = "Y claro, gracias a quien salvo el mundo"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle10" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 40
+text = "(Pst... creo que te hablan!)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space31" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Info10" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 50
+text = "
+Claro que me refiero a tí...
+Gracias por haber jugado mi primer juego
+Por ser testigo de, quizá, el primer paso de muchos"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Space32" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space33" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space34" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space35" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space36" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space37" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space38" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space39" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space40" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space41" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space42" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space43" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space44" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space45" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title12" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 80
+text = "Gracias por Jugar!!!"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle11" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 60
+text = "Salta para volver al menú"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CreditsMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_803yc")
