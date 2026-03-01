@@ -19,6 +19,12 @@ func _ready() -> void:
 	$MainMenuMusic.play(); #begins the music as far as is ready
 	$MenuMovement.volume_db = 20;
 	####### Animations
+	#menu
+	$Roger/AnimationPlayer.play("blinkandwaving"); #my name animation
+	$Info/AnimationPlayer.play("waving"); #info about menu animation
+	$MenuBg/AnimationPlayer.play("waving"); #menu movement animation
+	$Title/AnimationPlayer.play("blink"); #title
+	############	
 	$Background/Sun/AnimationPlayer.play("shine"); #sun
 	for bird in $elements/Birds.get_children(): #birds
 		bird.get_children()[0].play("fly");

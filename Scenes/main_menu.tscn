@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://ydoepnhhdtm5"]
+[gd_scene load_steps=91 format=3 uid="uid://ydoepnhhdtm5"]
 
 [ext_resource type="Script" uid="uid://bfhbubxw0jia8" path="res://Scripts/main_menu.gd" id="1_trj04"]
 [ext_resource type="Texture2D" uid="uid://cimwrr6cc8vau" path="res://Assets/Backgrounds/mountains_a.png" id="2_opfnp"]
@@ -9,7 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://bk3228hcid3l5" path="res://Assets/Tilesets/tileset_forest.png" id="7_8dnnj"]
 [ext_resource type="Texture2D" uid="uid://dbbea0b3hjxjs" path="res://Assets/Deco/tree.png" id="7_trj04"]
 [ext_resource type="Texture2D" uid="uid://b13cen750jrvl" path="res://Assets/Tilesets/tileset_dirt.png" id="8_m3bi6"]
+[ext_resource type="FontFile" uid="uid://cgokjb4jlcs8d" path="res://Assets/Fonts/Title/Antique Quest St.ttf" id="8_xcoo4"]
+[ext_resource type="FontFile" uid="uid://b5hrxvo7w1b0p" path="res://Assets/Fonts/Me/SnackerComic_PerosnalUseOnly.ttf" id="9_6vfk8"]
 [ext_resource type="Texture2D" uid="uid://4l0n8m8cqxj5" path="res://Assets/Tilesets/tileset_desert.png" id="9_wyh8j"]
+[ext_resource type="FontFile" uid="uid://d17vjf7qh1jbv" path="res://Assets/Fonts/Me/planetbe.ttf" id="10_1xund"]
 [ext_resource type="Texture2D" uid="uid://bl1422atd5tgs" path="res://Assets/Tilesets/tileset_lava.png" id="10_ujyyl"]
 [ext_resource type="Texture2D" uid="uid://k5ejt826f7fu" path="res://Assets/Tilesets/tileset_snow.png" id="11_mkpwh"]
 [ext_resource type="Texture2D" uid="uid://dt3i53gcg5d6q" path="res://Assets/Tilesets/tileset_water.png" id="12_4nkqq"]
@@ -30,6 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://c5imtbgolnwcn" path="res://MusicAndSounds/Sounds/confirmation_001.ogg" id="27_tt8ml"]
 [ext_resource type="AudioStream" uid="uid://bd3wske3uv2nb" path="res://MusicAndSounds/Sounds/error_007.ogg" id="28_fmarx"]
 [ext_resource type="Texture2D" uid="uid://dq0aypoiolg5l" path="res://Assets/Objects/coin_small_gold.png" id="29_fmarx"]
+[ext_resource type="FontFile" uid="uid://clnvskupki8ak" path="res://Assets/Fonts/menu_text/Playball-Regular.ttf" id="30_1xund"]
 
 [sub_resource type="Animation" id="Animation_ae0tj"]
 length = 0.001
@@ -104,6 +108,485 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_j6nef"),
 &"fly": SubResource("Animation_1wbrc")
+}
+
+[sub_resource type="Animation" id="Animation_3l6me"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(104, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(10, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_ujm45"]
+resource_name = "blink"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1),
+"points": PackedFloat32Array(104, -0.25, 0, 0.25, 0, 104, 0, 0, 0, 0, 104, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1),
+"points": PackedFloat32Array(16, -0.25, 0, 0.25, 0, 10, 0, 0, 0, 0, 16, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y17f6"]
+_data = {
+&"RESET": SubResource("Animation_3l6me"),
+&"blink": SubResource("Animation_ujm45")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hovqx"]
+bg_color = Color(0.6156863, 0.5529412, 0.81960785, 0.52156866)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.15019923, 0.36750215, 0.96005315, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="Animation" id="Animation_4v5qc"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(240, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(578, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Me:theme_override_colors/font_color:r")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.23137255, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Me:theme_override_colors/font_color:g")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.40784314, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Me:theme_override_colors/font_color:b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.7058824, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Me:theme_override_colors/font_color:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Me3:theme_override_colors/font_color:r")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.23137255, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Me3:theme_override_colors/font_color:g")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.40784314, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Me3:theme_override_colors/font_color:b")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.7058824, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Me3:theme_override_colors/font_color:a")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Me4:theme_override_colors/font_color:r")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.23137255, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Me4:theme_override_colors/font_color:g")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.40784314, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Me4:theme_override_colors/font_color:b")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.7058824, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Me4:theme_override_colors/font_color:a")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Me2:theme_override_colors/font_color:r")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.23137255, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Me2:theme_override_colors/font_color:g")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.40784314, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Me2:theme_override_colors/font_color:b")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.7058824, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/17/type = "bezier"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Me2:theme_override_colors/font_color:a")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_pavwk"]
+resource_name = "blinkandwaving"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1, 1, 1),
+"points": PackedFloat32Array(240, -0.25, 0, 0.25, 0, 240, 0, 0, 0, 0, 240, 0, 0, 0, 0, 240, 0, 0, 0, 0, 240, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1, 1, 1),
+"points": PackedFloat32Array(584, -0.25, 0, 0.25, 0, 578, 0, 0, 0, 0, 584, 0, 0, 0, 0, 578, 0, 0, 0, 0, 584, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Me:theme_override_colors/font_color:r")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1, 1, 1),
+"points": PackedFloat32Array(0.078431375, -0.25, 0, 0.25, 0, 0.23137255, 0, 0, 0, 0, 0.23137255, 0, 0, 0, 0, 0.23137255, 0, 0, 0, 0, 0.078431375, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1.03, 1.5, 2)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Me:theme_override_colors/font_color:g")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1, 1, 1),
+"points": PackedFloat32Array(0.2627451, -0.25, 0, 0.25, 0, 0.40784314, 0, 0, 0, 0, 0.40784314, 0, 0, 0, 0, 0.40784314, 0, 0, 0, 0, 0.2627451, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1.03, 1.5, 2)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Me:theme_override_colors/font_color:b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1, 1, 1),
+"points": PackedFloat32Array(0.45882353, -0.25, 0, 0.25, 0, 0.7058824, 0, 0, 0, 0, 0.7058824, 0, 0, 0, 0, 0.7058824, 0, 0, 0, 0, 0.45882353, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1.03, 1.5, 2)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Me:theme_override_colors/font_color:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1, 1, 1),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1.03, 1.5, 2)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Me2:theme_override_colors/font_color:r")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1, 1, 1),
+"points": PackedFloat32Array(0.23137255, -0.25, 0, 0.25, 0, 0.078431375, 0, 0, 0, 0, 0.23137255, 0, 0, 0, 0, 0.23137255, 0, 0, 0, 0, 0.23137255, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1.03, 1.5, 2)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Me2:theme_override_colors/font_color:g")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1, 1, 1),
+"points": PackedFloat32Array(0.40784314, -0.25, 0, 0.25, 0, 0.2627451, 0, 0, 0, 0, 0.40784314, 0, 0, 0, 0, 0.40784314, 0, 0, 0, 0, 0.40784314, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1.03, 1.5, 2)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Me2:theme_override_colors/font_color:b")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1, 1, 1),
+"points": PackedFloat32Array(0.7058824, -0.25, 0, 0.25, 0, 0.45882353, 0, 0, 0, 0, 0.7058824, 0, 0, 0, 0, 0.7058824, 0, 0, 0, 0, 0.7058824, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1.03, 1.5, 2)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Me2:theme_override_colors/font_color:a")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1, 1, 1),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1.03, 1.5, 2)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Me3:theme_override_colors/font_color:r")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1, 1, 1),
+"points": PackedFloat32Array(0.23137255, -0.25, 0, 0.25, 0, 0.23137255, 0, 0, 0, 0, 0.078431375, 0, 0, 0, 0, 0.23137255, 0, 0, 0, 0, 0.23137255, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Me3:theme_override_colors/font_color:g")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1, 1, 1),
+"points": PackedFloat32Array(0.40784314, -0.25, 0, 0.25, 0, 0.40784314, 0, 0, 0, 0, 0.2627451, 0, 0, 0, 0, 0.40784314, 0, 0, 0, 0, 0.40784314, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Me3:theme_override_colors/font_color:b")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1, 1, 1),
+"points": PackedFloat32Array(0.7058824, -0.25, 0, 0.25, 0, 0.7058824, 0, 0, 0, 0, 0.45882353, 0, 0, 0, 0, 0.7058824, 0, 0, 0, 0, 0.7058824, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Me3:theme_override_colors/font_color:a")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1, 1, 1),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Me4:theme_override_colors/font_color:r")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1, 1, 1),
+"points": PackedFloat32Array(0.23137255, -0.25, 0, 0.25, 0, 0.23137255, 0, 0, 0, 0, 0.23137255, 0, 0, 0, 0, 0.078431375, 0, 0, 0, 0, 0.23137255, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1.03, 1.5, 2)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Me4:theme_override_colors/font_color:g")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1, 1, 1),
+"points": PackedFloat32Array(0.40784314, -0.25, 0, 0.25, 0, 0.40784314, 0, 0, 0, 0, 0.40784314, 0, 0, 0, 0, 0.2627451, 0, 0, 0, 0, 0.40784314, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1.03, 1.5, 2)
+}
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Me4:theme_override_colors/font_color:b")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1, 1, 1),
+"points": PackedFloat32Array(0.7058824, -0.25, 0, 0.25, 0, 0.7058824, 0, 0, 0, 0, 0.7058824, 0, 0, 0, 0, 0.45882353, 0, 0, 0, 0, 0.7058824, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1.03, 1.5, 2)
+}
+tracks/17/type = "bezier"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Me4:theme_override_colors/font_color:a")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1, 1, 1),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1.03, 1.5, 2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w71i6"]
+_data = {
+&"RESET": SubResource("Animation_4v5qc"),
+&"blinkandwaving": SubResource("Animation_pavwk")
 }
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jr6u5"]
@@ -549,6 +1032,21 @@ _data = {
 &"expands": SubResource("Animation_msuys")
 }
 
+[sub_resource type="Animation" id="Animation_y82t1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_1xund"]
 resource_name = "spin"
 length = 0.75
@@ -564,21 +1062,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
-}
-
-[sub_resource type="Animation" id="Animation_y82t1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bmhhk"]
@@ -653,22 +1136,6 @@ tracks/1/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_ko05x"]
-resource_name = "open"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
 [sub_resource type="Animation" id="Animation_bmhhk"]
 resource_name = "close"
 length = 0.5
@@ -731,6 +1198,22 @@ tracks/0/keys = {
 "values": [3, 2]
 }
 
+[sub_resource type="Animation" id="Animation_ko05x"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_43km2"]
 _data = {
 &"RESET": SubResource("Animation_pddej"),
@@ -748,6 +1231,63 @@ border_width_right = 10
 border_color = Color(0.18749183, 0.64479154, 0.44321638, 1)
 corner_radius_top_left = 40
 corner_radius_top_right = 40
+
+[sub_resource type="Animation" id="Animation_uu0lx"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(216, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(122, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_dp8uv"]
+resource_name = "waving"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(216, -0.25, 0, 0.25, 0, 216, -0.083333336, 0, 0, 0, 216, -0.083333336, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(128, -0.25, 0, 0.25, 0, 122, -0.083333336, 1, 0, 0, 128, -0.083333336, -1, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujm45"]
+_data = {
+&"RESET": SubResource("Animation_uu0lx"),
+&"waving": SubResource("Animation_dp8uv")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tt8ml"]
 bg_color = Color(0, 0, 0, 0.5921569)
@@ -801,6 +1341,63 @@ border_width_left = 25
 border_width_right = 25
 border_color = Color(0.25547937, 0.13960665, 0.5274745, 1)
 border_blend = true
+
+[sub_resource type="Animation" id="Animation_vj5y7"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(192, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(304, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_aj2v6"]
+resource_name = "waving"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(192, -0.25, 0, 0.25, 0, 192, -0.083333336, 0, 0, 0, 192, -0.083333336, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(304, -0.25, 0, 0.25, 0, 298, -0.083333336, 1, 0, 0, 304, -0.083333336, -1, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3l6me"]
+_data = {
+&"RESET": SubResource("Animation_vj5y7"),
+&"waving": SubResource("Animation_aj2v6")
+}
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -1124,64 +1721,98 @@ vframes = 3
 frame = 1
 
 [node name="Title" type="Label" parent="."]
-layout_mode = 0
-offset_left = 104.0
-offset_top = 16.0
-offset_right = 1096.0
-offset_bottom = 126.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -472.0
+offset_top = 10.0
+offset_right = 572.0
+offset_bottom = 120.0
+grow_horizontal = 2
 theme_override_colors/font_color = Color(0.45882353, 0.10980392, 0, 1)
+theme_override_fonts/font = ExtResource("8_xcoo4")
 theme_override_font_sizes/font_size = 80
 text = "Slite y Los Seis Reinos"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Me" type="Label" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Title"]
+libraries = {
+&"": SubResource("AnimationLibrary_y17f6")
+}
+
+[node name="Roger" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -336.0
+offset_top = -70.0
+offset_right = 336.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hovqx")
+
+[node name="Me" type="Label" parent="Roger"]
 layout_mode = 0
-offset_left = 344.0
-offset_top = 568.0
-offset_right = 464.0
-offset_bottom = 651.0
-theme_override_colors/font_color = Color(0.9089168, 0.44403386, 0.25130048, 1)
-theme_override_font_sizes/font_size = 40
+offset_left = 74.0
+offset_top = -8.0
+offset_right = 194.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0.23137255, 0.40784314, 0.7058824, 1)
+theme_override_fonts/font = ExtResource("9_6vfk8")
+theme_override_font_sizes/font_size = 60
 text = "Roger"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Me2" type="Label" parent="."]
+[node name="Me2" type="Label" parent="Roger"]
 layout_mode = 0
-offset_left = 520.0
-offset_top = 568.0
-offset_right = 608.0
-offset_bottom = 651.0
-theme_override_colors/font_color = Color(0.45554852, 0.18263277, 0.061177872, 1)
-theme_override_font_sizes/font_size = 40
+offset_left = 246.0
+offset_top = -6.0
+offset_right = 334.0
+offset_bottom = 77.0
+theme_override_colors/font_color = Color(0.23137255, 0.40784314, 0.7058824, 1)
+theme_override_fonts/font = ExtResource("9_6vfk8")
+theme_override_font_sizes/font_size = 60
 text = "Phy"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Me3" type="Label" parent="."]
+[node name="Me3" type="Label" parent="Roger"]
 layout_mode = 0
-offset_left = 648.0
-offset_top = 568.0
-offset_right = 744.0
-offset_bottom = 651.0
-theme_override_colors/font_color = Color(0.19401982, 0.6502849, 0.8137175, 1)
-theme_override_font_sizes/font_size = 40
+offset_left = 371.0
+offset_top = -7.0
+offset_right = 467.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(0.23137255, 0.40784314, 0.7058824, 1)
+theme_override_fonts/font = ExtResource("9_6vfk8")
+theme_override_font_sizes/font_size = 60
 text = "Dev"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Me4" type="Label" parent="."]
+[node name="Me4" type="Label" parent="Roger"]
 layout_mode = 0
-offset_left = 792.0
-offset_top = 568.0
-offset_right = 920.0
-offset_bottom = 651.0
-theme_override_colors/font_color = Color(0.38451618, 0.68297786, 0.27951685, 1)
+offset_left = 487.0
+offset_top = -10.0
+offset_right = 615.0
+offset_bottom = 73.0
+theme_override_colors/font_color = Color(0.23137255, 0.40784314, 0.7058824, 1)
+theme_override_fonts/font = ExtResource("10_1xund")
 theme_override_font_sizes/font_size = 40
 text = "2026"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Roger"]
+libraries = {
+&"": SubResource("AnimationLibrary_w71i6")
+}
 
 [node name="Variable presentation" type="Node2D" parent="."]
 
@@ -1625,9 +2256,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -360.0
-offset_top = -196.0
+offset_top = -202.0
 offset_right = 360.0
-offset_bottom = -20.0
+offset_bottom = -25.995056
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fmarx")
@@ -1646,7 +2277,8 @@ offset_bottom = 88.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.98768264, 0.2794311, 0, 1)
-theme_override_font_sizes/font_size = 22
+theme_override_fonts/font = ExtResource("30_1xund")
+theme_override_font_sizes/font_size = 25
 text = "Muevete por las opciones con las flechas, el stick o el mouse
 Selecciona una opción con:
 A (Xbox)      X(Ps)
@@ -1654,6 +2286,11 @@ B (NSwitch)     Click izq(PC)"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Info"]
+libraries = {
+&"": SubResource("AnimationLibrary_ujm45")
+}
 
 [node name="MenuBg" type="Panel" parent="."]
 layout_mode = 1
@@ -1665,7 +2302,7 @@ anchor_bottom = 0.5
 offset_left = -384.0
 offset_top = -20.0
 offset_right = 384.0
-offset_bottom = 260.0
+offset_bottom = 259.99854
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tt8ml")
@@ -1696,6 +2333,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -1714,6 +2352,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -1736,6 +2375,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -1755,6 +2395,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -1779,6 +2420,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -1798,6 +2440,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -1816,6 +2459,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -1858,6 +2502,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -1876,6 +2521,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -1894,6 +2540,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -1918,6 +2565,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -1936,6 +2584,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -1954,6 +2603,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -1973,6 +2623,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -2017,6 +2668,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -2036,6 +2688,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -2055,6 +2708,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -2079,6 +2733,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -2097,6 +2752,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -2115,6 +2771,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -2140,6 +2797,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -2159,6 +2817,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_1xund")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_16hvj")
@@ -2168,6 +2827,11 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_6dk6o")
 theme_override_styles/focus = SubResource("StyleBoxFlat_trj04")
 action_mode = 0
 text = " Menú de mundo "
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MenuBg"]
+libraries = {
+&"": SubResource("AnimationLibrary_3l6me")
+}
 
 [node name="MainMenuMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("23_jr6u5")
