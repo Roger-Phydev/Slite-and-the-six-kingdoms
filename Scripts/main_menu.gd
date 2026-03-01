@@ -87,7 +87,7 @@ func _process(delta: float) -> void:
 	else:
 		$elements/Clouds2.position.x = 1152;
 	# birds movement
-	if $elements/Birds.position.x > -2304:
+	if $elements/Birds.position.x > -2600:
 		$elements/Birds.position.x -= delta*birds_speed;
 	else:
 		$elements/Birds.position.x = 0

@@ -1195,6 +1195,58 @@ theme_override_font_sizes/font_size = 50
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 
+[node name="Space60" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space61" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Title15" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 60
+text = "Assets de fuentes"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Subtitle13" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29803923, 0.6392157, 0.827451, 1)
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 40
+text = "(Los que le dieron estilo a las letras)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Space62" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Info12" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_fdv4u")
+theme_override_font_sizes/font_size = 50
+text = "Los héroes de 1001 free fonts
+de verdad muchas gracias
+
+visita el sitio en https://www.1001freefonts.com/
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space63" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Space64" type="Label" parent="Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
 [node name="Title3" type="Label" parent="Content/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7764706, 0.18431373, 0, 1)
