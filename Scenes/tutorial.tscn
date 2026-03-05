@@ -17,10 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://dme5bjcso6b0n" path="res://Scenes/enviromental/coin.tscn" id="9_pkgwa"]
 [ext_resource type="Texture2D" uid="uid://cypwd8e3vfykh" path="res://Assets/UI/hearts.png" id="10_a2i7a"]
 [ext_resource type="Texture2D" uid="uid://dt3i53gcg5d6q" path="res://Assets/Tilesets/tileset_water.png" id="10_cv7sw"]
-[ext_resource type="AudioStream" uid="uid://blltqsdvlk152" path="res://MusicAndSounds/SFX/menu.ogg" id="11_0upaw"]
-[ext_resource type="AudioStream" uid="uid://b7rfuk3hk60ik" path="res://MusicAndSounds/SFX/level.ogg" id="12_1l0bo"]
-[ext_resource type="AudioStream" uid="uid://dti5u1kgvyj4t" path="res://MusicAndSounds/SFX/level_success.ogg" id="13_q25lh"]
-[ext_resource type="AudioStream" uid="uid://cch2jmqa5bwda" path="res://MusicAndSounds/SFX/level_loose.ogg" id="14_nsxev"]
 [ext_resource type="Texture2D" uid="uid://dl75rsniaox40" path="res://Assets/Objects/sign_arrow.png" id="15_1yfkk"]
 [ext_resource type="AudioStream" uid="uid://lw6x2vve5sob" path="res://MusicAndSounds/SFX/menu_movement.ogg" id="15_dhbxl"]
 [ext_resource type="AudioStream" uid="uid://5pp6t33a1oun" path="res://MusicAndSounds/SFX/menu_select.ogg" id="16_b5uxt"]
@@ -38,6 +34,10 @@
 [ext_resource type="FontFile" uid="uid://d17vjf7qh1jbv" path="res://Assets/Fonts/Me/planetbe.ttf" id="29_enkcc"]
 [ext_resource type="FontFile" uid="uid://clnvskupki8ak" path="res://Assets/Fonts/menu_text/Playball-Regular.ttf" id="31_cv7sw"]
 [ext_resource type="FontFile" uid="uid://c24jqdbskikfa" path="res://Assets/Fonts/text game/junegull.ttf" id="32_gyc06"]
+[ext_resource type="AudioStream" uid="uid://chmwu7wqg7v1u" path="res://MusicAndSounds/Music/ebunny-medieval-castle-loop-366828(menu).mp3" id="33_gyc06"]
+[ext_resource type="AudioStream" uid="uid://tk1aorb1fpex" path="res://MusicAndSounds/Music/ebunny-dragon-hunters-loop-366794(tutorial).mp3" id="34_gyc06"]
+[ext_resource type="AudioStream" uid="uid://da7uea7ysvw6w" path="res://MusicAndSounds/Music/ebunny-tavern-dance-loop-368862(win).mp3" id="35_0uns8"]
+[ext_resource type="AudioStream" uid="uid://bln1ld8ds33me" path="res://MusicAndSounds/Music/maciejm1992-your-adventure-has-come-to-an-end-477982(fail-level).mp3" id="36_d0bl5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gyc06"]
 texture = ExtResource("5_radxo")
@@ -1645,16 +1645,16 @@ action_mode = 0
 text = "Salir"
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
-stream = ExtResource("11_0upaw")
+stream = ExtResource("33_gyc06")
 
 [node name="LevelMusic" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
-stream = ExtResource("12_1l0bo")
+stream = ExtResource("34_gyc06")
 
 [node name="LevelSuccess" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
-stream = ExtResource("13_q25lh")
+stream = ExtResource("35_0uns8")
 
 [node name="LevelFailed" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
-stream = ExtResource("14_nsxev")
+stream = ExtResource("36_d0bl5")
 
 [node name="MenuMovement" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
 stream = ExtResource("15_dhbxl")

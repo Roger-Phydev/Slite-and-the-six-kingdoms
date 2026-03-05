@@ -25,7 +25,6 @@ var appear_hits_arrow = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GameMaster.tutorial_pause = true;
 	# getting and setting the coins number for the actual level
 	if GameMaster.coins[GameMaster.world-1][GameMaster.level-1] < 10: #9 or less coins
 			target_coins.text = "0" + str(GameMaster.coins[GameMaster.world-1][GameMaster.level-1]);

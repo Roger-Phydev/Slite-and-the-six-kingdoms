@@ -20,13 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://k5ejt826f7fu" path="res://Assets/Tilesets/tileset_snow.png" id="15_6bfml"]
 [ext_resource type="Texture2D" uid="uid://dt3i53gcg5d6q" path="res://Assets/Tilesets/tileset_water.png" id="16_0g4ye"]
 [ext_resource type="PackedScene" uid="uid://bk7jcuqx6es1g" path="res://Scenes/enemies/enemy_penguin.tscn" id="16_bbo1y"]
-[ext_resource type="AudioStream" uid="uid://blltqsdvlk152" path="res://MusicAndSounds/SFX/menu.ogg" id="16_jhmbd"]
 [ext_resource type="Script" uid="uid://bmgfdcevh30jk" path="res://Scripts/respawn_area.gd" id="17_dhrl2"]
-[ext_resource type="AudioStream" uid="uid://b7rfuk3hk60ik" path="res://MusicAndSounds/SFX/level.ogg" id="17_ftqh6"]
-[ext_resource type="AudioStream" uid="uid://dti5u1kgvyj4t" path="res://MusicAndSounds/SFX/level_success.ogg" id="18_2uyjv"]
 [ext_resource type="PackedScene" uid="uid://bqk1km17ylalt" path="res://Scenes/enemies/enemy_crab.tscn" id="18_i0miu"]
 [ext_resource type="PackedScene" uid="uid://dffkdp32b8itq" path="res://Scenes/enemies/enemy_bear_brown.tscn" id="19_6bfml"]
-[ext_resource type="AudioStream" uid="uid://cch2jmqa5bwda" path="res://MusicAndSounds/SFX/level_loose.ogg" id="19_u0lyl"]
 [ext_resource type="PackedScene" uid="uid://bcqr8cnm5ayxw" path="res://Scenes/enemies/enemy_white_bear.tscn" id="20_0g4ye"]
 [ext_resource type="AudioStream" uid="uid://lw6x2vve5sob" path="res://MusicAndSounds/SFX/menu_movement.ogg" id="20_5e0p3"]
 [ext_resource type="PackedScene" uid="uid://ctqh5ee4gec12" path="res://Scenes/enemies/enemy_bat.tscn" id="21_soh27"]
@@ -47,6 +43,10 @@
 [ext_resource type="PackedScene" uid="uid://dm010xkxnaw8m" path="res://Scenes/enviromental/bounce_pad.tscn" id="37_vvdtb"]
 [ext_resource type="Script" uid="uid://dijl687ymyqpk" path="res://Scripts/portal.gd" id="40_ftqh6"]
 [ext_resource type="FontFile" uid="uid://c24jqdbskikfa" path="res://Assets/Fonts/text game/junegull.ttf" id="41_u0lyl"]
+[ext_resource type="AudioStream" uid="uid://chmwu7wqg7v1u" path="res://MusicAndSounds/Music/ebunny-medieval-castle-loop-366828(menu).mp3" id="42_u0lyl"]
+[ext_resource type="AudioStream" uid="uid://sj8ffbq0il0c" path="res://MusicAndSounds/Music/ebunny-heavy-celtic-knight-loop-370971(world6).mp3" id="43_u0lyl"]
+[ext_resource type="AudioStream" uid="uid://da7uea7ysvw6w" path="res://MusicAndSounds/Music/ebunny-tavern-dance-loop-368862(win).mp3" id="44_yxs10"]
+[ext_resource type="AudioStream" uid="uid://bln1ld8ds33me" path="res://MusicAndSounds/Music/maciejm1992-your-adventure-has-come-to-an-end-477982(fail-level).mp3" id="45_fl1vo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_soh27"]
 texture = ExtResource("11_040rt")
@@ -1094,16 +1094,16 @@ action_mode = 0
 text = "Salir"
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
-stream = ExtResource("16_jhmbd")
+stream = ExtResource("42_u0lyl")
 
 [node name="LevelMusic" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
-stream = ExtResource("17_ftqh6")
+stream = ExtResource("43_u0lyl")
 
 [node name="LevelSuccess" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
-stream = ExtResource("18_2uyjv")
+stream = ExtResource("44_yxs10")
 
 [node name="LevelFailed" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
-stream = ExtResource("19_u0lyl")
+stream = ExtResource("45_fl1vo")
 
 [node name="MenuMovement" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
 stream = ExtResource("20_5e0p3")

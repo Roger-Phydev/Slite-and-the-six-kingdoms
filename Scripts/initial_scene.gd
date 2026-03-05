@@ -5,6 +5,7 @@ var skip = false; #allows skip this scene
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Background/Sun/AnimationPlayer.play("shine");
+	$InitialMusic.play();
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

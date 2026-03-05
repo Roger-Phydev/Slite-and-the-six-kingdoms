@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://did3buj5487ak"]
+[gd_scene load_steps=12 format=3 uid="uid://did3buj5487ak"]
 
 [ext_resource type="Script" uid="uid://bcdvdo3glrvf" path="res://Scripts/initial_scene.gd" id="1_qubbj"]
 [ext_resource type="Texture2D" uid="uid://b2ug3ea1oofx2" path="res://Assets/Deco/sun.png" id="2_c1jdr"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dtobb0akqn624" path="res://Assets/Backgrounds/mountains_b.png" id="4_4ewyl"]
 [ext_resource type="Texture2D" uid="uid://cg764uiabvlq" path="res://Assets/Backgrounds/trees.png" id="5_mi6vm"]
 [ext_resource type="FontFile" uid="uid://clnvskupki8ak" path="res://Assets/Fonts/menu_text/Playball-Regular.ttf" id="6_c1jdr"]
+[ext_resource type="AudioStream" uid="uid://buuxfxv30unrm" path="res://MusicAndSounds/Music/charles_michel-inmenso-charles-michel-1771(initial-scene).mp3" id="7_apouq"]
 
 [sub_resource type="Animation" id="Animation_ae0tj"]
 length = 0.001
@@ -436,7 +437,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("6_c1jdr")
 theme_override_font_sizes/font_size = 40
 text = "Una voz interior le decía 
-\" vamos Slite, no te rindas, muchas situaciones difíciles vendrán, pero debes llegar hasta el final \""
+\"vamos Slite, no te rindas, muchas situaciones difíciles vendrán, pero debes llegar hasta el final \""
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -478,3 +479,6 @@ offset_right = 2304.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_d371c")
+
+[node name="InitialMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_apouq")

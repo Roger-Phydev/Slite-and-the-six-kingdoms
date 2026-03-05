@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://baddtq1he1i2f" path="res://Assets/Enemies/bat.png" id="6_uah1q"]
 [ext_resource type="Texture2D" uid="uid://cr6tnlvt4xyki" path="res://Assets/Enemies/bird.png" id="7_7emq5"]
 [ext_resource type="FontFile" uid="uid://clnvskupki8ak" path="res://Assets/Fonts/menu_text/Playball-Regular.ttf" id="7_fdv4u"]
-[ext_resource type="AudioStream" uid="uid://duuxofabmifqc" path="res://MusicAndSounds/SFX/credits.ogg" id="8_803yc"]
+[ext_resource type="AudioStream" uid="uid://d0mdg2dr5qss6" path="res://MusicAndSounds/Music/idoberg-calming-melody-loop-291840(credits).mp3" id="11_fdv4u"]
 
 [sub_resource type="Animation" id="Animation_ae0tj"]
 length = 0.001
@@ -1048,7 +1048,7 @@ anchor_bottom = 0.5
 offset_left = -576.0
 offset_top = -324.0
 offset_right = 576.0
-offset_bottom = 12692.0
+offset_bottom = 14484.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xelri")
@@ -1183,7 +1183,12 @@ text = "Las mil y un almas caritativas de pixabay
 Siento no haber anotado sus nombres
 Pero de corazón un sincero agradecimiento a todos
 visita el sitio por favor
-https://pixabay.com/es/music/"
+https://pixabay.com/es/music/
+menciones especiales:
+ebunny
+idoberg
+charles michel
+maciejm1992"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1797,4 +1802,4 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="CreditsMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_803yc")
+stream = ExtResource("11_fdv4u")

@@ -262,7 +262,7 @@ func _on_tutorial_button_down() -> void:
 		$MenuDisabled.play(); #plays this sound
 	else:
 		$MenuSelect.play(); #plays this sound
-		get_tree().change_scene_to_file("res://Scenes/tutorial.tscn");
+		GameMaster.start_tutorial();
 ## First Scene:
 func _on_first_scene_button_down() -> void:
 	if $MenuBg/InitialOptions/HBoxContainer/FirstScene.disabled: #if it's disabled

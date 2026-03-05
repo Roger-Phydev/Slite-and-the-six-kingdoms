@@ -28,15 +28,15 @@
 [ext_resource type="PackedScene" uid="uid://bjalxi1om0jvj" path="res://Scenes/enemies/enemy_bird.tscn" id="31_fa5oe"]
 [ext_resource type="PackedScene" uid="uid://dm010xkxnaw8m" path="res://Scenes/enviromental/bounce_pad.tscn" id="33_igc63"]
 [ext_resource type="FontFile" uid="uid://c24jqdbskikfa" path="res://Assets/Fonts/text game/junegull.ttf" id="33_y1x64"]
+[ext_resource type="AudioStream" uid="uid://chmwu7wqg7v1u" path="res://MusicAndSounds/Music/ebunny-medieval-castle-loop-366828(menu).mp3" id="34_12bp8"]
 [ext_resource type="PackedScene" uid="uid://biq2ohctus88u" path="res://Scenes/player.tscn" id="34_rhlq3"]
 [ext_resource type="Script" uid="uid://da5m75pj453h4" path="res://Scripts/ui.gd" id="35_kwlvt"]
+[ext_resource type="AudioStream" uid="uid://ck3bln8scb5re" path="res://MusicAndSounds/Music/ebunny-naughty-princess-loop-366826(level1-5).mp3" id="35_y1x64"]
 [ext_resource type="Texture2D" uid="uid://d4bixbrryntv0" path="res://Assets/Objects/coin_gold.png" id="36_prdmw"]
+[ext_resource type="AudioStream" uid="uid://da7uea7ysvw6w" path="res://MusicAndSounds/Music/ebunny-tavern-dance-loop-368862(win).mp3" id="36_sxfvf"]
 [ext_resource type="Texture2D" uid="uid://c0hjb8povdcib" path="res://Assets/Enemies/slime_red.png" id="37_gtvak"]
+[ext_resource type="AudioStream" uid="uid://bln1ld8ds33me" path="res://MusicAndSounds/Music/maciejm1992-your-adventure-has-come-to-an-end-477982(fail-level).mp3" id="37_k7c50"]
 [ext_resource type="Texture2D" uid="uid://cypwd8e3vfykh" path="res://Assets/UI/hearts.png" id="38_ciq82"]
-[ext_resource type="AudioStream" uid="uid://blltqsdvlk152" path="res://MusicAndSounds/SFX/menu.ogg" id="39_r6njo"]
-[ext_resource type="AudioStream" uid="uid://b7rfuk3hk60ik" path="res://MusicAndSounds/SFX/level.ogg" id="40_fwt65"]
-[ext_resource type="AudioStream" uid="uid://dti5u1kgvyj4t" path="res://MusicAndSounds/SFX/level_success.ogg" id="41_8r2vr"]
-[ext_resource type="AudioStream" uid="uid://cch2jmqa5bwda" path="res://MusicAndSounds/SFX/level_loose.ogg" id="42_qsyxq"]
 [ext_resource type="AudioStream" uid="uid://lw6x2vve5sob" path="res://MusicAndSounds/SFX/menu_movement.ogg" id="43_pw3cx"]
 [ext_resource type="AudioStream" uid="uid://5pp6t33a1oun" path="res://MusicAndSounds/SFX/menu_select.ogg" id="44_7p3tx"]
 
@@ -417,19 +417,19 @@ size = Vector2(59.5, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lc8w"]
 size = Vector2(204.5, 14)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxfvf"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rhil"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7c50"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwlvt"]
 bg_color = Color(0.298039, 0.639216, 0.827451, 0.647059)
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rhil"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prdmw"]
 bg_color = Color(0.298039, 0.639216, 0.827451, 0.647059)
 corner_radius_bottom_right = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwlvt"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtvak"]
 bg_color = Color(0.13725491, 0.78039217, 0.47058824, 1)
 border_width_left = 4
 border_width_top = 4
@@ -441,10 +441,10 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="Theme" id="Theme_prdmw"]
+[sub_resource type="Theme" id="Theme_ciq82"]
 default_font_size = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtvak"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6njo"]
 bg_color = Color(0.29803923, 0.83137256, 0.75686276, 1)
 border_width_left = 2
 border_width_top = 2
@@ -456,7 +456,7 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ciq82"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwt65"]
 bg_color = Color(0.078431375, 0.627451, 0.72156864, 1)
 border_width_left = 2
 border_width_top = 2
@@ -468,7 +468,7 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6njo"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8r2vr"]
 bg_color = Color(0.078431375, 0.627451, 0.72156864, 1)
 border_width_left = 2
 border_width_top = 2
@@ -480,7 +480,7 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwt65"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qsyxq"]
 bg_color = Color(0.078431375, 0.627451, 0.72156864, 1)
 border_width_left = 2
 border_width_top = 2
@@ -492,7 +492,7 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8r2vr"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pw3cx"]
 
 [node name="world_4_level_3" type="Node2D"]
 
@@ -899,14 +899,14 @@ script = ExtResource("35_kwlvt")
 layout_mode = 0
 offset_right = 288.0
 offset_bottom = 163.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_sxfvf")
+theme_override_styles/panel = SubResource("StyleBoxFlat_0rhil")
 
 [node name="Score" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface"]
 layout_mode = 0
 offset_left = 81.0
 offset_right = 188.0
 offset_bottom = 30.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_k7c50")
+theme_override_styles/panel = SubResource("StyleBoxFlat_kwlvt")
 
 [node name="count" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score"]
 layout_mode = 0
@@ -952,7 +952,7 @@ text = "00"
 layout_mode = 0
 offset_right = 71.0
 offset_bottom = 30.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_0rhil")
+theme_override_styles/panel = SubResource("StyleBoxFlat_prdmw")
 
 [node name="Simbol" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Lifes"]
 layout_mode = 0
@@ -991,7 +991,7 @@ layout_mode = 0
 offset_left = 197.0
 offset_right = 288.0
 offset_bottom = 30.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_k7c50")
+theme_override_styles/panel = SubResource("StyleBoxFlat_kwlvt")
 
 [node name="heartIcon" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Damage"]
 position = Vector2(20, 14)
@@ -1042,7 +1042,7 @@ offset_right = 80.25
 offset_bottom = 77.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_kwlvt")
+theme_override_styles/panel = SubResource("StyleBoxFlat_gtvak")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel"]
 custom_minimum_size = Vector2(140, 0)
@@ -1058,7 +1058,7 @@ offset_right = 49.0
 offset_bottom = 37.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_prdmw")
+theme = SubResource("Theme_ciq82")
 theme_override_constants/separation = 5
 
 [node name="Message" type="Label" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer"]
@@ -1077,10 +1077,10 @@ theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("33_y1x64")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_gtvak")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ciq82")
-theme_override_styles/hover = SubResource("StyleBoxFlat_r6njo")
-theme_override_styles/focus = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r6njo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8r2vr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qsyxq")
 action_mode = 0
 text = "Continuar"
 
@@ -1091,11 +1091,11 @@ theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("33_y1x64")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_gtvak")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ciq82")
-theme_override_styles/hover = SubResource("StyleBoxFlat_r6njo")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8r2vr")
-theme_override_styles/focus = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r6njo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8r2vr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_pw3cx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qsyxq")
 action_mode = 0
 text = "Menú"
 
@@ -1106,11 +1106,11 @@ theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("33_y1x64")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_gtvak")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ciq82")
-theme_override_styles/hover = SubResource("StyleBoxFlat_r6njo")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8r2vr")
-theme_override_styles/focus = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r6njo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8r2vr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_pw3cx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qsyxq")
 action_mode = 0
 text = "Reiniciar nivel"
 
@@ -1121,11 +1121,11 @@ theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("33_y1x64")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_gtvak")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ciq82")
-theme_override_styles/hover = SubResource("StyleBoxFlat_r6njo")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8r2vr")
-theme_override_styles/focus = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r6njo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8r2vr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_pw3cx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qsyxq")
 action_mode = 0
 text = "Salir"
 
@@ -1157,7 +1157,7 @@ offset_right = 135.0
 offset_bottom = 71.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_kwlvt")
+theme_override_styles/panel = SubResource("StyleBoxFlat_gtvak")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/PlayerUI/WinMenu/Panel"]
 custom_minimum_size = Vector2(160, 0)
@@ -1173,7 +1173,7 @@ offset_right = 49.0
 offset_bottom = 37.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_prdmw")
+theme = SubResource("Theme_ciq82")
 theme_override_constants/separation = 5
 
 [node name="Message" type="Label" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer"]
@@ -1197,11 +1197,11 @@ theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("33_y1x64")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_gtvak")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ciq82")
-theme_override_styles/hover = SubResource("StyleBoxFlat_r6njo")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8r2vr")
-theme_override_styles/focus = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r6njo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8r2vr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_pw3cx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qsyxq")
 action_mode = 0
 text = "   Siguiente nivel   "
 
@@ -1212,11 +1212,11 @@ theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("33_y1x64")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_gtvak")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ciq82")
-theme_override_styles/hover = SubResource("StyleBoxFlat_r6njo")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8r2vr")
-theme_override_styles/focus = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r6njo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8r2vr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_pw3cx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qsyxq")
 action_mode = 0
 text = "   Repetir nivel   "
 
@@ -1227,11 +1227,11 @@ theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("33_y1x64")
 theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_gtvak")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ciq82")
-theme_override_styles/hover = SubResource("StyleBoxFlat_r6njo")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8r2vr")
-theme_override_styles/focus = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r6njo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8r2vr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_pw3cx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qsyxq")
 action_mode = 0
 text = "Menú principal"
 
@@ -1242,11 +1242,11 @@ theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("33_y1x64")
 theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_gtvak")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ciq82")
-theme_override_styles/hover = SubResource("StyleBoxFlat_r6njo")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8r2vr")
-theme_override_styles/focus = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r6njo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8r2vr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_pw3cx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qsyxq")
 action_mode = 0
 text = "Salir"
 
@@ -1269,7 +1269,7 @@ offset_right = 135.0
 offset_bottom = 71.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_kwlvt")
+theme_override_styles/panel = SubResource("StyleBoxFlat_gtvak")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel"]
 layout_mode = 1
@@ -1284,7 +1284,7 @@ offset_right = 49.0
 offset_bottom = 37.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_prdmw")
+theme = SubResource("Theme_ciq82")
 theme_override_constants/separation = 5
 
 [node name="Message" type="Label" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer"]
@@ -1303,11 +1303,11 @@ theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("33_y1x64")
 theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_gtvak")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ciq82")
-theme_override_styles/hover = SubResource("StyleBoxFlat_r6njo")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8r2vr")
-theme_override_styles/focus = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r6njo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8r2vr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_pw3cx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qsyxq")
 action_mode = 0
 text = "Volver a intentar"
 
@@ -1318,11 +1318,11 @@ theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("33_y1x64")
 theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_gtvak")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ciq82")
-theme_override_styles/hover = SubResource("StyleBoxFlat_r6njo")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8r2vr")
-theme_override_styles/focus = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r6njo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8r2vr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_pw3cx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qsyxq")
 action_mode = 0
 text = "Menú principal"
 
@@ -1333,25 +1333,25 @@ theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("33_y1x64")
 theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_gtvak")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ciq82")
-theme_override_styles/hover = SubResource("StyleBoxFlat_r6njo")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8r2vr")
-theme_override_styles/focus = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r6njo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fwt65")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8r2vr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_pw3cx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qsyxq")
 action_mode = 0
 text = "Salir"
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
-stream = ExtResource("39_r6njo")
+stream = ExtResource("34_12bp8")
 
 [node name="LevelMusic" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
-stream = ExtResource("40_fwt65")
+stream = ExtResource("35_y1x64")
 
 [node name="LevelSuccess" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
-stream = ExtResource("41_8r2vr")
+stream = ExtResource("36_sxfvf")
 
 [node name="LevelFailed" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
-stream = ExtResource("42_qsyxq")
+stream = ExtResource("37_k7c50")
 
 [node name="MenuMovement" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
 stream = ExtResource("43_pw3cx")

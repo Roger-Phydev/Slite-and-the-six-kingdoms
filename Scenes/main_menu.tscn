@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://ydoepnhhdtm5"]
+[gd_scene load_steps=92 format=3 uid="uid://ydoepnhhdtm5"]
 
 [ext_resource type="Script" uid="uid://bfhbubxw0jia8" path="res://Scripts/main_menu.gd" id="1_trj04"]
 [ext_resource type="Texture2D" uid="uid://cimwrr6cc8vau" path="res://Assets/Backgrounds/mountains_a.png" id="2_opfnp"]
@@ -34,6 +34,7 @@
 [ext_resource type="AudioStream" uid="uid://bd3wske3uv2nb" path="res://MusicAndSounds/Sounds/error_007.ogg" id="28_fmarx"]
 [ext_resource type="Texture2D" uid="uid://dq0aypoiolg5l" path="res://Assets/Objects/coin_small_gold.png" id="29_fmarx"]
 [ext_resource type="FontFile" uid="uid://clnvskupki8ak" path="res://Assets/Fonts/menu_text/Playball-Regular.ttf" id="30_1xund"]
+[ext_resource type="FontFile" uid="uid://c24jqdbskikfa" path="res://Assets/Fonts/text game/junegull.ttf" id="35_msuys"]
 
 [sub_resource type="Animation" id="Animation_ae0tj"]
 length = 0.001
@@ -2837,6 +2838,28 @@ stream = ExtResource("27_tt8ml")
 
 [node name="MenuDisabled" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("28_fmarx")
+
+[node name="Version" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 336.0
+offset_right = 146.0
+offset_bottom = 366.0
+theme_override_fonts/font = ExtResource("35_msuys")
+theme_override_font_sizes/font_size = 30
+text = "Versión"
+horizontal_alignment = 1
+
+[node name="Version2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 992.0
+offset_top = 328.0
+offset_right = 1130.0
+offset_bottom = 358.0
+theme_override_fonts/font = ExtResource("35_msuys")
+theme_override_font_sizes/font_size = 30
+text = "1.1"
+horizontal_alignment = 1
 
 [connection signal="button_down" from="MenuBg/InitialOptions/Continue" to="." method="_on_continue_button_down"]
 [connection signal="button_down" from="MenuBg/InitialOptions/StartGame" to="." method="_on_start_game_button_down"]
