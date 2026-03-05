@@ -8,6 +8,7 @@ var menu_options = []; #the options of menus
 var menu_cursor = Vector2(0,0); #the cursor on menus
 var previous_cursor_x = 0; #saves the previus state en case of y movement 
 var actual_menu = "initial";
+var selection_enabled = true;
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_level_indicator(0);
@@ -110,7 +111,9 @@ func _process(delta: float) -> void:
 			$"Variable presentation/Chest/AnimationPlayer".play("close");
 			$MenuSelect.play(); #plays this sound
 			set_level_indicator(0);
+			selection_enabled = false;
 			await get_tree().create_timer(0.5).timeout;
+			selection_enabled = true;
 			$"Variable presentation/Chest/AnimationPlayer".play("idle_close");
 		else:
 			$MenuDisabled.play();
@@ -280,6 +283,10 @@ func _on_to_world_menu_button_down() -> void:
 		actual_menu = "world";
 		$Info/OptionInfo.add_theme_font_size_override("font_size",60);
 		$MenuSelect.play(); #plays this sound
+		selection_enabled = false;
+		$Info/OptionInfo.text = "Selecciona una opción";
+		await get_tree().create_timer(0.5).timeout;
+		selection_enabled = true;
 ## Credits:
 func _on_credits_button_down() -> void:
 	if $MenuBg/InitialOptions/HBoxContainer2/Credits.disabled: #if it's disabled
@@ -307,8 +314,10 @@ func _on_world_1_button_down() -> void:
 		$"Variable presentation/Chest/AnimationPlayer".play("open");
 		actual_menu = "level";
 		toogle_variable_presentation(1);
-		set_level_indicator(1);
+		selection_enabled = false;
+		$Info/OptionInfo.text = "Selecciona una opción";
 		await get_tree().create_timer(0.5).timeout;
+		selection_enabled = true;
 		$"Variable presentation/Chest/AnimationPlayer".play("idle_open");
 ## World 2:
 func _on_world_2_button_down() -> void:
@@ -321,8 +330,10 @@ func _on_world_2_button_down() -> void:
 		$"Variable presentation/Chest/AnimationPlayer".play("open");
 		actual_menu = "level";
 		toogle_variable_presentation(2);
-		set_level_indicator(1);
+		selection_enabled = false;
+		$Info/OptionInfo.text = "Selecciona una opción";
 		await get_tree().create_timer(0.5).timeout;
+		selection_enabled = true;
 		$"Variable presentation/Chest/AnimationPlayer".play("idle_open");
 ## World 3:
 func _on_world_3_button_down() -> void:
@@ -335,8 +346,10 @@ func _on_world_3_button_down() -> void:
 		$"Variable presentation/Chest/AnimationPlayer".play("open");
 		actual_menu = "level";
 		toogle_variable_presentation(3);
-		set_level_indicator(1);
+		selection_enabled = false;
+		$Info/OptionInfo.text = "Selecciona una opción";
 		await get_tree().create_timer(0.5).timeout;
+		selection_enabled = true;
 		$"Variable presentation/Chest/AnimationPlayer".play("idle_open");
 ## World 4:
 func _on_world_4_button_down() -> void:
@@ -349,8 +362,10 @@ func _on_world_4_button_down() -> void:
 		$"Variable presentation/Chest/AnimationPlayer".play("open");
 		actual_menu = "level";
 		toogle_variable_presentation(4);
-		set_level_indicator(1);
+		selection_enabled = false;
+		$Info/OptionInfo.text = "Selecciona una opción";
 		await get_tree().create_timer(0.5).timeout;
+		selection_enabled = true;
 		$"Variable presentation/Chest/AnimationPlayer".play("idle_open");
 ## World 5:
 func _on_world_5_button_down() -> void:
@@ -363,8 +378,10 @@ func _on_world_5_button_down() -> void:
 		actual_menu = "level";
 		$"Variable presentation/Chest/AnimationPlayer".play("open");
 		toogle_variable_presentation(5);
-		set_level_indicator(1);
+		selection_enabled = false;
+		$Info/OptionInfo.text = "Selecciona una opción";
 		await get_tree().create_timer(0.5).timeout;
+		selection_enabled = true;
 		$"Variable presentation/Chest/AnimationPlayer".play("idle_open");
 ## World 6:
 func _on_world_6_button_down() -> void:
@@ -377,8 +394,10 @@ func _on_world_6_button_down() -> void:
 		$"Variable presentation/Chest/AnimationPlayer".play("open");
 		actual_menu = "level";
 		toogle_variable_presentation(6);
-		set_level_indicator(1);
+		selection_enabled = false;
+		$Info/OptionInfo.text = "Selecciona una opción";
 		await get_tree().create_timer(0.5).timeout;
+		selection_enabled = true;
 		$"Variable presentation/Chest/AnimationPlayer".play("idle_open");
 ## Initial menu:
 func _on_to_initial_options_button_down() -> void:
@@ -391,6 +410,7 @@ func _on_to_initial_options_button_down() -> void:
 		set_level_indicator(0);
 		$MenuSelect.play(); #plays this sound
 		$Info/OptionInfo.add_theme_font_size_override("font_size",40);
+		$Info/OptionInfo.text = "Selecciona una opción";
 		
 ################## Level Menu
 ## Level 1:
@@ -459,7 +479,10 @@ func _on_main_menu_button_down() -> void:
 		$"Variable presentation/Chest/AnimationPlayer".play("close");
 		$MenuSelect.play(); #plays this sound
 		set_level_indicator(0);
+		$Info/OptionInfo.text = "Selecciona una opción";
+		selection_enabled = false;
 		await get_tree().create_timer(0.5).timeout;
+		selection_enabled = true;
 		$"Variable presentation/Chest/AnimationPlayer".play("idle_close");
 ## World menu:
 func _on_world_menu_button_down() -> void:
@@ -472,7 +495,10 @@ func _on_world_menu_button_down() -> void:
 		$"Variable presentation/Chest/AnimationPlayer".play("close");
 		$MenuSelect.play(); #plays this sound
 		set_level_indicator(0);
+		$Info/OptionInfo.text = "Selecciona una opción";
+		selection_enabled = false;
 		await get_tree().create_timer(0.5).timeout;
+		selection_enabled = true;
 		$"Variable presentation/Chest/AnimationPlayer".play("idle_close");
 ## Signal control for info data
 func continue_info():
@@ -498,48 +524,62 @@ func exit_info():
 	$Info/OptionInfo.add_theme_font_size_override("font_size",40);
 	$Info/OptionInfo.text = "Al seleccionar esto, saldrás del juego";
 func world_1_info():
-	$Info/OptionInfo.text = "Reino del Bosque";
-	toogle_variable_presentation(1);
+	if selection_enabled:
+		$Info/OptionInfo.text = "Reino del Bosque";
+		toogle_variable_presentation(1);
 func world_2_info():
-	$Info/OptionInfo.text = "Reino de la Tierra";
-	toogle_variable_presentation(2);
+	if selection_enabled:
+		$Info/OptionInfo.text = "Reino de la Tierra";
+		toogle_variable_presentation(2);
 func world_3_info():
-	$Info/OptionInfo.text = "Reino de las Arenas";
-	toogle_variable_presentation(3);
+	if selection_enabled:
+		$Info/OptionInfo.text = "Reino de las Arenas";
+		toogle_variable_presentation(3);
 func world_4_info():
-	$Info/OptionInfo.text = "Reino del Mar";
-	toogle_variable_presentation(4);
+	if selection_enabled:
+		$Info/OptionInfo.text = "Reino del Mar";
+		toogle_variable_presentation(4);
 func world_5_info():
-	$Info/OptionInfo.text = "Reino del Hielo";
-	toogle_variable_presentation(5);
+	if selection_enabled:
+		$Info/OptionInfo.text = "Reino del Hielo";
+		toogle_variable_presentation(5);
 func world_6_info():
-	$Info/OptionInfo.text = "Reino del Fuego";
-	toogle_variable_presentation(6);
+	if selection_enabled:
+		$Info/OptionInfo.text = "Reino del Fuego";
+		toogle_variable_presentation(6);
 func to_initial_options_info():
-	$Info/OptionInfo.text = "Vuelve al menú inicial";
+	if selection_enabled:
+		$Info/OptionInfo.text = "Vuelve al menú inicial";
 func level_1_info():
-	var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
-	$Info/OptionInfo.text = "Jugar nivel 1 del "+worlds[GameMaster.world-1];
-	set_level_indicator(1);
+	if selection_enabled:
+		var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
+		$Info/OptionInfo.text = "Jugar nivel 1 del "+worlds[GameMaster.world-1];
+		set_level_indicator(1);
 func level_2_info():
-	var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
-	$Info/OptionInfo.text = "Jugar nivel 2 del "+worlds[GameMaster.world-1];
-	set_level_indicator(2);
+	if selection_enabled:
+		var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
+		$Info/OptionInfo.text = "Jugar nivel 2 del "+worlds[GameMaster.world-1];
+		set_level_indicator(2);
 func level_3_info():
-	var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
-	$Info/OptionInfo.text = "Jugar nivel 3 del "+worlds[GameMaster.world-1];
-	set_level_indicator(3);
+	if selection_enabled:
+		var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
+		$Info/OptionInfo.text = "Jugar nivel 3 del "+worlds[GameMaster.world-1];
+		set_level_indicator(3);
 func level_4_info():
-	var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
-	$Info/OptionInfo.text = "Jugar nivel 4 del "+worlds[GameMaster.world-1];
-	set_level_indicator(4);
+	if selection_enabled:
+		var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
+		$Info/OptionInfo.text = "Jugar nivel 4 del "+worlds[GameMaster.world-1];
+		set_level_indicator(4);
 func level_5_info():
-	var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
-	$Info/OptionInfo.text = "Jugar nivel 5 del "+worlds[GameMaster.world-1];
-	set_level_indicator(5);
+	if selection_enabled:
+		var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
+		$Info/OptionInfo.text = "Jugar nivel 5 del "+worlds[GameMaster.world-1];
+		set_level_indicator(5);
 func level_6_info():
-	var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
-	$Info/OptionInfo.text = "Jugar nivel 6 del "+worlds[GameMaster.world-1];
-	set_level_indicator(6);
+	if selection_enabled:
+		var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
+		$Info/OptionInfo.text = "Jugar nivel 6 del "+worlds[GameMaster.world-1];
+		set_level_indicator(6);
 func to_world_info():
-	$Info/OptionInfo.text = "Vuelve a la selección de mundo";
+	if selection_enabled:
+		$Info/OptionInfo.text = "Vuelve a la selección de mundo";
