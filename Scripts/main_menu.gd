@@ -9,8 +9,17 @@ var menu_cursor = Vector2(0,0); #the cursor on menus
 var previous_cursor_x = 0; #saves the previus state en case of y movement 
 var actual_menu = "initial";
 var selection_enabled = true;
+const reset_save_combination = ["right","right","left","left","cancel","cancel"];
+const unlock_all_levels_combination = ["right","left","right","left","start","start"];
+const unlock_all_combination = ["left","right","left","right","start","start"];
+var input_sequence = [];
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	for i in range(1,7):
+		for j in range(1,7):
+			print(i," - ",j);
+	
+	OS.shell_open(ProjectSettings.globalize_path("user://"));
 	set_level_indicator(0);
 	####### Basic configuration
 	GameMaster.coinsCount = 0;
@@ -583,3 +592,11 @@ func level_6_info():
 func to_world_info():
 	if selection_enabled:
 		$Info/OptionInfo.text = "Vuelve a la selección de mundo";
+# input reception and lecture:
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		print(event.as_text_keycode());
+		#input_sequence.append(event.as_text_key_label().to_lower());
+		#if len(input_sequence) > 6:
+		#	input_sequence.pop_front();
+		#print(input_sequence);

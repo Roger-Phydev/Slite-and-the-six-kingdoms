@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://cobwrerfwr3i3"]
+[gd_scene load_steps=86 format=4 uid="uid://cobwrerfwr3i3"]
 
 [ext_resource type="Texture2D" uid="uid://dy3ibfosu8v6" path="res://Assets/Deco/water_b_5 frames.png" id="1_jb51l"]
 [ext_resource type="Script" uid="uid://cxhrrkdersu7x" path="res://Scripts/tutorial.gd" id="1_mi3ry"]
@@ -38,6 +38,8 @@
 [ext_resource type="AudioStream" uid="uid://tk1aorb1fpex" path="res://MusicAndSounds/Music/ebunny-dragon-hunters-loop-366794(tutorial).mp3" id="34_gyc06"]
 [ext_resource type="AudioStream" uid="uid://da7uea7ysvw6w" path="res://MusicAndSounds/Music/ebunny-tavern-dance-loop-368862(win).mp3" id="35_0uns8"]
 [ext_resource type="AudioStream" uid="uid://bln1ld8ds33me" path="res://MusicAndSounds/Music/maciejm1992-your-adventure-has-come-to-an-end-477982(fail-level).mp3" id="36_d0bl5"]
+[ext_resource type="Texture2D" uid="uid://cpcc6yi746ehf" path="res://Assets/Objects/coin_silver.png" id="39_d0bl5"]
+[ext_resource type="Texture2D" uid="uid://3yworssts83b" path="res://Assets/FX/coin_collect.png" id="40_boubs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gyc06"]
 texture = ExtResource("5_radxo")
@@ -681,6 +683,155 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
+
+[sub_resource type="Animation" id="Animation_oeyex"]
+resource_name = "saving"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shine:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Coin:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Info:theme_override_colors/font_color:r")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(0.2750469, -0.25, 0, 0.25, 0, 0.49968165, -0.07777778, -0.037439123, 0, 0, 0.27450982, -0.083333336, 0.03752864, 0, 0),
+"times": PackedFloat32Array(0.033333335, 0.5, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Info:theme_override_colors/font_color:g")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(0.47809267, -0.25, 0, 0.25, 0, 0.658125, -0.07777778, -0.030005386, 0, 0, 0.47843137, -0.083333336, 0.029948935, 0, 0),
+"times": PackedFloat32Array(0.033333335, 0.5, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Info:theme_override_colors/font_color:b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(0.9153928, -0.25, 0, 0.25, 0, 0.97207385, -0.07777778, -0.00944684, 0, 0, 0.9137255, -0.083333336, 0.009724727, 0, 0),
+"times": PackedFloat32Array(0.033333335, 0.5, 1)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Info:theme_override_colors/font_color:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.07777778, 0, 0, 0, 1, -0.083333336, 0, 0, 0),
+"times": PackedFloat32Array(0.033333335, 0.5, 1)
+}
+
+[sub_resource type="Animation" id="Animation_nej7e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shine:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Coin:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Info:theme_override_colors/font_color:r")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.2750469, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Info:theme_override_colors/font_color:g")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.47809267, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Info:theme_override_colors/font_color:b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.9153928, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Info:theme_override_colors/font_color:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5v6cf"]
+_data = {
+&"RESET": SubResource("Animation_nej7e"),
+&"saving": SubResource("Animation_oeyex")
+}
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_mi3ry")
@@ -1661,6 +1812,33 @@ stream = ExtResource("15_dhbxl")
 
 [node name="MenuSelect" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
 stream = ExtResource("16_b5uxt")
+
+[node name="Save" type="Node2D" parent="Player/Camera2D/PlayerUI"]
+visible = false
+
+[node name="Coin" type="Sprite2D" parent="Player/Camera2D/PlayerUI/Save"]
+position = Vector2(253, 134)
+texture = ExtResource("39_d0bl5")
+hframes = 8
+
+[node name="Shine" type="Sprite2D" parent="Player/Camera2D/PlayerUI/Save"]
+position = Vector2(252, 134)
+texture = ExtResource("40_boubs")
+hframes = 8
+
+[node name="Info" type="Label" parent="Player/Camera2D/PlayerUI/Save"]
+offset_left = 216.0
+offset_top = 139.0
+offset_right = 288.0
+offset_bottom = 162.0
+theme_override_colors/font_color = Color(0.2750469, 0.47809267, 0.9153928, 1)
+theme_override_fonts/font = ExtResource("31_cv7sw")
+text = "Guardando"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Camera2D/PlayerUI/Save"]
+libraries = {
+&"": SubResource("AnimationLibrary_5v6cf")
+}
 
 [connection signal="body_entered" from="Areas/PlayerRespawnArea" to="Areas/PlayerRespawnArea" method="_on_body_entered"]
 [connection signal="body_entered" from="Areas/Portal(2104,-37)" to="Areas/Portal(2104,-37)" method="_on_body_entered"]

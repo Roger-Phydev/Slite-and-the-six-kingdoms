@@ -27,6 +27,7 @@ func _process(delta: float) -> void:
 		$Begin.visible = true;
 		animate_text(time);
 		skip = true;
+		SaveManager.completed_initial_scene();
 	if skip:
 		if Input.is_action_just_pressed("start"):
 			GameMaster.start_menu("main");

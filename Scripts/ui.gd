@@ -16,11 +16,12 @@ extends Control
 @onready var previous_cursor_x = 0;
 @onready var menu_options = [];
 @onready var menu_focus = false;
+@onready var button_enabled = false;
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("world: ",GameMaster.world," level: ",GameMaster.level);
+	GameMaster.hero_mode = true;
 	# getting and setting the coins number for the actual level
 	if GameMaster.coins[GameMaster.world-1][GameMaster.level-1] < 10: #9 or less coins
 			target_coins.text = "0" + str(GameMaster.coins[GameMaster.world-1][GameMaster.level-1]);
@@ -70,6 +71,7 @@ func _process(delta: float) -> void:
 		playing_interface.visible = not get_tree().paused; #toogles score visibility
 		#toogles music:
 		if get_tree().paused: #when changes to stopped
+			button_enabled = true;
 			resume_time = $LevelMusic.get_playback_position();
 			$LevelMusic.stop();
 			$MenuMusic.play();
@@ -81,6 +83,7 @@ func _process(delta: float) -> void:
 				[$PauseMenu/Panel/VBoxContainer/Exit]
 			];
 		else: #when returns to game
+			button_enabled = false;
 			$LevelMusic.play(resume_time);
 			$MenuMusic.stop();
 	####################################
@@ -90,9 +93,32 @@ func _process(delta: float) -> void:
 		get_tree().paused = true;
 		win_menu.visible = true;
 		playing_interface.visible = false; #stop showing the score panel
-		$LevelMusic.stop();
-		$LevelSuccess.play(0.0);
 		GameMaster.success = false;
+		$LevelMusic.stop();
+		if not GameMaster.hero_mode: #if its not hero mode
+			SaveManager.complete_level(GameMaster.world,GameMaster.level); #saves the completed level
+			$LevelSuccess.play(0.0);
+			$Save.visible = true;
+			$Save/AnimationPlayer.play("saving");
+			await get_tree().create_timer(1.0).timeout;
+			button_enabled = true;
+			$Save.visible = false;
+			$Save/AnimationPlayer.stop();
+		else:
+			$LevelSuccessHero.play(0.0);
+			button_enabled = true;
+		if GameMaster.world == 6 and GameMaster.level == 6: #if its the last one
+			if GameMaster.hero_mode: #if it hero mode
+				SaveManager.completed_hero_mode_game(); #set this as true
+			else: #sets this as true
+				SaveManager.completed_normal_game();
+			button_enabled = false;
+			$Save.visible = true;
+			$Save/AnimationPlayer.play("saving");
+			await get_tree().create_timer(1.0).timeout;
+			$Save.visible = false;
+			$Save/AnimationPlayer.stop();
+			button_enabled = true;
 		menu_cursor = Vector2(0,0);
 		menu_options = [
 			[$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel,$WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel],
@@ -191,28 +217,32 @@ func menu_movement(options):
 
 # continue:
 func _on_continue_button_up() -> void:
-	get_tree().paused = false; #set pause as false
-	pause_menu.visible = false; #hide the menu
-	playing_interface.visible = true; #shows the score panel
-	$MenuMusic.stop();
-	$LevelMusic.play(resume_time);
+	if button_enabled:
+		get_tree().paused = false; #set pause as false
+		pause_menu.visible = false; #hide the menu
+		playing_interface.visible = true; #shows the score panel
+		$MenuMusic.stop();
+		$LevelMusic.play(resume_time);
 
 #main menu
 func _on_main_menu_button_up() -> void:
-	GameMaster.coinsCount = 0; # resets coins counter
-	get_tree().paused = false;
-	GameMaster.start_menu("main"); #starts the main menu
+	if button_enabled:
+		GameMaster.coinsCount = 0; # resets coins counter
+		get_tree().paused = false;
+		GameMaster.start_menu("main"); #starts the main menu
 
 #reset level
 func _on_reset_level_button_up() -> void:
-	GameMaster.lifes = GameMaster.reload_lifes; #resets lifes quantities
-	get_tree().paused = false;
-	menu_cursor = Vector2(0,0);
-	GameMaster.reload_level();
+	if button_enabled:
+		GameMaster.lifes = GameMaster.reload_lifes; #resets lifes quantities
+		get_tree().paused = false;
+		menu_cursor = Vector2(0,0);
+		GameMaster.reload_level();
 
 # exit
 func _on_exit_button_up() -> void:
-	GameMaster.exit(); #exits the game
+	if button_enabled:
+		GameMaster.exit(); #exits the game
 	
 ############################################
 # Win menu:
@@ -220,25 +250,19 @@ func _on_exit_button_up() -> void:
 
 # next level
 func _on_next_level_button_up() -> void:
-	get_tree().paused = false;
-	GameMaster.start_next_level(); #starts the next level
+	if button_enabled:
+		get_tree().paused = false;
+		GameMaster.start_next_level(); #starts the next level
 
 # repeat level
 func _on_repeat_level_button_up() -> void:
-	get_tree().paused = false;
-	GameMaster.reload_level(); #reloads the level
-	$MenuMusic.stop();
-	$LevelMusic.play();
+	if button_enabled:
+		get_tree().paused = false;
+		GameMaster.reload_level(); #reloads the level
+		$MenuMusic.stop();
+		$LevelMusic.play();
 
 # Reset run in case of hero_mode
 func _on_reset_run_button_up() -> void:
-	#if wanted to try again, resets variables
-	GameMaster.loose = false;
-	GameMaster.lifes = 5;
-	GameMaster.hits = 3;
-	GameMaster.hero_mode = true;
-	GameMaster.world = 1;
-	GameMaster.level = 1;
-	get_tree().paused = false;
-	GameMaster.coinsCount = 0;
-	GameMaster.start_world_level_scene(1,1); #and starts scene 1-1
+	if button_enabled:
+		GameMaster.start_hero_mode();

@@ -21,6 +21,7 @@ extends Control
 @onready var hits_arrow = $PlayingInterface/HitsArrow; #arrow that points at the hits marker
 var appear_coins_arrow = false;
 var appear_hits_arrow = false;
+var buttons_enabled = false;
 
 
 # Called when the node enters the scene tree for the first time.
@@ -78,6 +79,7 @@ func _process(delta: float) -> void:
 			resume_time = $LevelMusic.get_playback_position();
 			$LevelMusic.stop();
 			$MenuMusic.play();
+			buttons_enabled = true;
 			menu_cursor = Vector2(0,0);
 			menu_options = [
 				[$PauseMenu/Panel/VBoxContainer/Continue],
@@ -86,6 +88,7 @@ func _process(delta: float) -> void:
 				[$PauseMenu/Panel/VBoxContainer/Exit]
 			];
 		else: #when returns to game
+			buttons_enabled = false;
 			emit_signal("hidden");
 			$LevelMusic.play(resume_time);
 			$MenuMusic.stop();
@@ -96,9 +99,16 @@ func _process(delta: float) -> void:
 		get_tree().paused = true;
 		win_menu.visible = true;
 		playing_interface.visible = false; #stop showing the score panel
+		SaveManager.completed_tutorial();
 		$LevelMusic.stop();
 		$LevelSuccess.play(0.0);
 		GameMaster.success = false;
+		$Save.visible = true;
+		$Save/AnimationPlayer.play("saving");
+		await get_tree().create_timer(1.0).timeout;
+		$Save.visible = false;
+		$Save/AnimationPlayer.pause();
+		buttons_enabled = true;
 		menu_cursor = Vector2(0,0);
 		menu_options = [
 			[$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel,$WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel],
@@ -199,29 +209,33 @@ func menu_movement(options):
 
 # continue:
 func _on_continue_button_up() -> void:
-	emit_signal("hidden");
-	get_tree().paused = false; #set pause as false
-	pause_menu.visible = false; #hide the menu
-	playing_interface.visible = true; #shows the score panel
-	$MenuMusic.stop();
-	$LevelMusic.play(resume_time);
+	if buttons_enabled:
+		emit_signal("hidden");
+		get_tree().paused = false; #set pause as false
+		pause_menu.visible = false; #hide the menu
+		playing_interface.visible = true; #shows the score panel
+		$MenuMusic.stop();
+		$LevelMusic.play(resume_time);
 
 #main menu
 func _on_main_menu_button_up() -> void:
-	GameMaster.coinsCount = 0; # resets coins counter
-	get_tree().paused = false;
-	GameMaster.start_menu("main"); #starts the main menu
+	if buttons_enabled:
+		GameMaster.coinsCount = 0; # resets coins counter
+		get_tree().paused = false;
+		GameMaster.start_menu("main"); #starts the main menu
 
 #reset level
 func _on_reset_level_button_up() -> void:
-	GameMaster.lifes = GameMaster.reload_lifes; #resets lifes quantities
-	get_tree().paused = false;
-	menu_cursor = Vector2(0,0);
-	GameMaster.reload_level();
+	if buttons_enabled:
+		GameMaster.lifes = GameMaster.reload_lifes; #resets lifes quantities
+		get_tree().paused = false;
+		menu_cursor = Vector2(0,0);
+		GameMaster.reload_level();
 
 # exit
 func _on_exit_button_up() -> void:
-	GameMaster.exit(); #exits the game
+	if buttons_enabled:
+		GameMaster.exit(); #exits the game
 	
 ############################################
 # Win menu:
@@ -229,32 +243,31 @@ func _on_exit_button_up() -> void:
 
 # next level
 func _on_next_level_button_up() -> void:
-	get_tree().paused = false;
-	GameMaster.coinsCount = 0;
-	GameMaster.hero_mode = false;
-	GameMaster.level = 1;
-	GameMaster.world = 1;
-	GameMaster.start_world_level_scene(GameMaster.world,GameMaster.level); #starts the next level
+	if buttons_enabled:
+		get_tree().paused = false;
+		GameMaster.start_first_level();
 
 # repeat level
 func _on_repeat_level_button_up() -> void:
-	get_tree().paused = false;
-	GameMaster.reload_level(); #reloads the level
-	$MenuMusic.stop();
-	$LevelMusic.play();
+	if buttons_enabled:
+		get_tree().paused = false;
+		GameMaster.reload_level(); #reloads the level
+		$MenuMusic.stop();
+		$LevelMusic.play();
 
 # Reset run in case of hero_mode
 func _on_reset_run_button_up() -> void:
-	#if wanted to try again, resets variables
-	GameMaster.loose = false;
-	GameMaster.lifes = 5;
-	GameMaster.hits = 3;
-	GameMaster.hero_mode = true;
-	GameMaster.world = 1;
-	GameMaster.level = 1;
-	get_tree().paused = false;
-	GameMaster.coinsCount = 0;
-	GameMaster.start_world_level_scene(1,1); #and starts scene 1-1
+	if buttons_enabled:
+		#if wanted to try again, resets variables
+		GameMaster.loose = false;
+		GameMaster.lifes = 5;
+		GameMaster.hits = 3;
+		GameMaster.hero_mode = true;
+		GameMaster.world = 1;
+		GameMaster.level = 1;
+		get_tree().paused = false;
+		GameMaster.coinsCount = 0;
+		GameMaster.start_world_level_scene(1,1); #and starts scene 1-1
 ###########################################
 # Tutorial functions
 ###########################################

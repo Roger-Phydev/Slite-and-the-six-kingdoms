@@ -75,6 +75,17 @@ func start_next_level():
 		credits_from_menu = false;
 		get_tree().change_scene_to_file("res://Scenes/credits.tscn"); #go to credits
 
+func start_hero_mode():
+	hero_mode = true;
+	world = 1;
+	level = 1;
+	coinsCount = 0;
+	success = false;
+	loose = false;
+	lifes = 5;
+	hits = 3;
+	start_world_level_scene(world,level); 
+
 func start_first_level():
 	world = 1;
 	level = 1;

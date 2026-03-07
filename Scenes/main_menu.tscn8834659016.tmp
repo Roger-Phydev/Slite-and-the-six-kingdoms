@@ -2840,7 +2840,6 @@ stream = ExtResource("27_tt8ml")
 stream = ExtResource("28_fmarx")
 
 [node name="Version" type="Label" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 8.0
 offset_top = 336.0
