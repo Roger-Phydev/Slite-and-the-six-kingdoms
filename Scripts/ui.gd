@@ -17,6 +17,7 @@ extends Control
 @onready var menu_options = [];
 @onready var menu_focus = false;
 @onready var button_enabled = false;
+var pause = true;
 
 
 # Called when the node enters the scene tree for the first time.
@@ -33,7 +34,10 @@ func _ready() -> void:
 	else: #in case or not hero mode
 		$PlayingInterface/Lifes.visible = false;# don't display the lifes panel
 		$PlayingInterface/Score.position.x = 0; #sets the coin counter left of the screen
-	$LevelMusic.play();
+	if GameMaster.hero_mode:
+		$LevelMusicHero.play();
+	else:
+		$LevelMusic.play();
 	$MenuMovement.volume_db = 20;
 	$MenuSelect.volume_db = 20;
 	menu_options = [
@@ -65,15 +69,19 @@ func _process(delta: float) -> void:
 	updating_hearts(GameMaster.hits);
 	# Pausing and displaying the pause menu:
 	####################################
-	if Input.is_action_just_pressed("start"): #if start is pressed
+	if Input.is_action_just_pressed("start") and pause: #if start is pressed
 		get_tree().paused = not get_tree().paused; #change paused state
 		pause_menu.visible = get_tree().paused; #set the value to visible property of the menu
 		playing_interface.visible = not get_tree().paused; #toogles score visibility
 		#toogles music:
 		if get_tree().paused: #when changes to stopped
 			button_enabled = true;
-			resume_time = $LevelMusic.get_playback_position();
-			$LevelMusic.stop();
+			if GameMaster.hero_mode:
+				resume_time = $LevelMusicHero.get_playback_position();
+				$LevelMusicHero.stop();
+			else:
+				resume_time = $LevelMusic.get_playback_position();
+				$LevelMusic.stop();
 			$MenuMusic.play();
 			menu_cursor = Vector2(0,0);
 			menu_options = [
@@ -84,47 +92,75 @@ func _process(delta: float) -> void:
 			];
 		else: #when returns to game
 			button_enabled = false;
-			$LevelMusic.play(resume_time);
+			if GameMaster.hero_mode:
+				$LevelMusicHero.play(resume_time);
+			else:
+				$LevelMusic.play(resume_time);
 			$MenuMusic.stop();
 	####################################
 	# Displaying the win menu:
 	####################################
 	if GameMaster.success:
+		pause = false;
 		get_tree().paused = true;
-		win_menu.visible = true;
-		playing_interface.visible = false; #stop showing the score panel
+		$PlayingInterface.visible = false; #stop showing the score panel
 		GameMaster.success = false;
-		$LevelMusic.stop();
-		if not GameMaster.hero_mode: #if its not hero mode
-			SaveManager.complete_level(GameMaster.world,GameMaster.level); #saves the completed level
-			$LevelSuccess.play(0.0);
-			$Save.visible = true;
-			$Save/AnimationPlayer.play("saving");
-			await get_tree().create_timer(1.0).timeout;
-			button_enabled = true;
-			$Save.visible = false;
-			$Save/AnimationPlayer.stop();
-		else:
-			$LevelSuccessHero.play(0.0);
-			button_enabled = true;
 		if GameMaster.world == 6 and GameMaster.level == 6: #if its the last one
+			menu_cursor = Vector2(0,0);
+			menu_options = [
+				[$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel]
+			];			
+			$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel.text = "Ver créditos"
+			$WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel.visible = false;
+			$WinMenu/Panel/VBoxContainer/MainMenu.visible = false;
+			$WinMenu/Panel/VBoxContainer/Exit.visible = false;
 			if GameMaster.hero_mode: #if it hero mode
+				$LevelMusicHero.stop();
+				$LevelSuccessHero.play(0.0);
 				SaveManager.completed_hero_mode_game(); #set this as true
+				$WinMenu/Panel/VBoxContainer/Message.text = "Felicidades!!!\nEres un héroe!";
 			else: #sets this as true
+				$LevelMusic.stop();
+				$LevelSuccess.play(0.0);
 				SaveManager.completed_normal_game();
+				$WinMenu/Panel/VBoxContainer/Message.text = "Lo lograste!!!\nSiempre lo supe!";
 			button_enabled = false;
 			$Save.visible = true;
 			$Save/AnimationPlayer.play("saving");
 			await get_tree().create_timer(1.0).timeout;
 			$Save.visible = false;
 			$Save/AnimationPlayer.stop();
+			$WinMenu.visible = true; 	
 			button_enabled = true;
-		menu_cursor = Vector2(0,0);
-		menu_options = [
-			[$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel,$WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel],
-			[$WinMenu/Panel/VBoxContainer/MainMenu],
-			[$WinMenu/Panel/VBoxContainer/Exit]
-		];
+		else:
+			if not GameMaster.hero_mode: #if its not hero mode
+				SaveManager.complete_level(GameMaster.world,GameMaster.level); #saves the completed level
+				$LevelMusic.stop();
+				$LevelSuccess.play(0.0);
+				$Save.visible = true;
+				$WinMenu.visible = true;
+				$Save/AnimationPlayer.play("saving");
+				await get_tree().create_timer(1.0).timeout;
+				button_enabled = true;
+				$Save.visible = false;
+				$Save/AnimationPlayer.stop();
+				menu_cursor = Vector2(0,0);
+				menu_options = [
+					[$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel,$WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel],
+					[$WinMenu/Panel/VBoxContainer/MainMenu],
+					[$WinMenu/Panel/VBoxContainer/Exit]
+				];
+			else:
+				$WinMenu.visible = true;
+				$LevelMusicHero.stop();
+				$LevelSuccessHero.play(0.0);
+				button_enabled = true;
+				menu_options = [
+					[$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel],
+					[$WinMenu/Panel/VBoxContainer/MainMenu],
+					[$WinMenu/Panel/VBoxContainer/Exit]
+				];
+				$WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel.visible = false;
 		
 	#####################################
 	# Displaying the loose menu

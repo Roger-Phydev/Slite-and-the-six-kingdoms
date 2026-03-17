@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://did3buj5487ak"]
+[gd_scene format=3 uid="uid://did3buj5487ak"]
 
 [ext_resource type="Script" uid="uid://bcdvdo3glrvf" path="res://Scripts/initial_scene.gd" id="1_qubbj"]
 [ext_resource type="Texture2D" uid="uid://b2ug3ea1oofx2" path="res://Assets/Deco/sun.png" id="2_c1jdr"]
@@ -48,7 +48,7 @@ _data = {
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d371c"]
 bg_color = Color(0, 0, 0, 0.453)
 
-[node name="InitialScene" type="Control"]
+[node name="InitialScene" type="Control" unique_id=1300303975]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,106 +57,104 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qubbj")
 
-[node name="Background" type="Node2D" parent="."]
+[node name="Background" type="Node2D" parent="." unique_id=80811393]
 
-[node name="Sky" type="Node2D" parent="Background"]
+[node name="Sky" type="Node2D" parent="Background" unique_id=877019882]
 
-[node name="Sky" type="Polygon2D" parent="Background/Sky"]
+[node name="Sky" type="Polygon2D" parent="Background/Sky" unique_id=135241457]
 position = Vector2(0, -6.211765)
 scale = Vector2(1, 0.6117647)
 color = Color(0.21568628, 0.5019608, 0.7372549, 1)
 polygon = PackedVector2Array(-16, -16, 1168, -16, 1168, 664, -16, 664)
 
-[node name="Sun" type="Sprite2D" parent="Background"]
+[node name="Sun" type="Sprite2D" parent="Background" unique_id=1585223029]
 position = Vector2(576, 75)
 scale = Vector2(4, 4)
 texture = ExtResource("2_c1jdr")
 hframes = 6
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Sun"]
-libraries = {
-&"": SubResource("AnimationLibrary_rlyo5")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Sun" unique_id=2075212767]
+libraries/ = SubResource("AnimationLibrary_rlyo5")
 
-[node name="Mountains" type="Node2D" parent="Background"]
+[node name="Mountains" type="Node2D" parent="Background" unique_id=634508997]
 
-[node name="Mountains1" type="Sprite2D" parent="Background/Mountains"]
+[node name="Mountains1" type="Sprite2D" parent="Background/Mountains" unique_id=134223602]
 position = Vector2(128, 312)
 texture = ExtResource("3_apouq")
 
-[node name="Mountains2" type="Sprite2D" parent="Background/Mountains"]
+[node name="Mountains2" type="Sprite2D" parent="Background/Mountains" unique_id=1559245248]
 position = Vector2(384, 312)
 texture = ExtResource("3_apouq")
 
-[node name="Mountains3" type="Sprite2D" parent="Background/Mountains"]
+[node name="Mountains3" type="Sprite2D" parent="Background/Mountains" unique_id=1176726307]
 position = Vector2(640, 312)
 texture = ExtResource("3_apouq")
 
-[node name="Mountains4" type="Sprite2D" parent="Background/Mountains"]
+[node name="Mountains4" type="Sprite2D" parent="Background/Mountains" unique_id=1904493464]
 position = Vector2(896, 312)
 texture = ExtResource("3_apouq")
 
-[node name="Mountains5" type="Sprite2D" parent="Background/Mountains"]
+[node name="Mountains5" type="Sprite2D" parent="Background/Mountains" unique_id=678211773]
 position = Vector2(1152, 312)
 texture = ExtResource("3_apouq")
 
-[node name="Mountains6" type="Sprite2D" parent="Background/Mountains"]
+[node name="Mountains6" type="Sprite2D" parent="Background/Mountains" unique_id=515123823]
 position = Vector2(640, 544)
 scale = Vector2(5, 3.375)
 texture = ExtResource("3_apouq")
 flip_v = true
 
-[node name="Mountains2" type="Node2D" parent="Background"]
+[node name="Mountains2" type="Node2D" parent="Background" unique_id=646256772]
 
-[node name="Mountains2" type="Sprite2D" parent="Background/Mountains2"]
+[node name="Mountains2" type="Sprite2D" parent="Background/Mountains2" unique_id=2008812847]
 position = Vector2(128, 432)
 texture = ExtResource("4_4ewyl")
 
-[node name="Mountains3" type="Sprite2D" parent="Background/Mountains2"]
+[node name="Mountains3" type="Sprite2D" parent="Background/Mountains2" unique_id=567745648]
 position = Vector2(384, 432)
 texture = ExtResource("4_4ewyl")
 
-[node name="Mountains4" type="Sprite2D" parent="Background/Mountains2"]
+[node name="Mountains4" type="Sprite2D" parent="Background/Mountains2" unique_id=648966463]
 position = Vector2(640, 432)
 texture = ExtResource("4_4ewyl")
 
-[node name="Mountains5" type="Sprite2D" parent="Background/Mountains2"]
+[node name="Mountains5" type="Sprite2D" parent="Background/Mountains2" unique_id=1896610965]
 position = Vector2(896, 432)
 texture = ExtResource("4_4ewyl")
 
-[node name="Mountains6" type="Sprite2D" parent="Background/Mountains2"]
+[node name="Mountains6" type="Sprite2D" parent="Background/Mountains2" unique_id=1761007841]
 position = Vector2(1152, 432)
 texture = ExtResource("4_4ewyl")
 
-[node name="Mountains7" type="Sprite2D" parent="Background/Mountains2"]
+[node name="Mountains7" type="Sprite2D" parent="Background/Mountains2" unique_id=359368928]
 position = Vector2(640, 988)
 scale = Vector2(5, 7.6875)
 texture = ExtResource("4_4ewyl")
 flip_v = true
 
-[node name="Woods" type="Node2D" parent="Background"]
+[node name="Woods" type="Node2D" parent="Background" unique_id=1297175512]
 
-[node name="Trees" type="Sprite2D" parent="Background/Woods"]
+[node name="Trees" type="Sprite2D" parent="Background/Woods" unique_id=366873557]
 position = Vector2(128, 584)
 texture = ExtResource("5_mi6vm")
 
-[node name="Trees2" type="Sprite2D" parent="Background/Woods"]
+[node name="Trees2" type="Sprite2D" parent="Background/Woods" unique_id=161970933]
 position = Vector2(384, 584)
 texture = ExtResource("5_mi6vm")
 
-[node name="Trees3" type="Sprite2D" parent="Background/Woods"]
+[node name="Trees3" type="Sprite2D" parent="Background/Woods" unique_id=1496206797]
 position = Vector2(640, 584)
 texture = ExtResource("5_mi6vm")
 
-[node name="Trees4" type="Sprite2D" parent="Background/Woods"]
+[node name="Trees4" type="Sprite2D" parent="Background/Woods" unique_id=1301040515]
 position = Vector2(896, 584)
 texture = ExtResource("5_mi6vm")
 
-[node name="Trees5" type="Sprite2D" parent="Background/Woods"]
+[node name="Trees5" type="Sprite2D" parent="Background/Woods" unique_id=33901305]
 position = Vector2(1152, 584)
 texture = ExtResource("5_mi6vm")
 
-[node name="Screen" type="Panel" parent="."]
+[node name="Screen" type="Panel" parent="." unique_id=2001653048]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -165,7 +163,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_d371c")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Screen"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen" unique_id=1227585248]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -180,7 +178,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="Text" type="Label" parent="Screen/VBoxContainer"]
+[node name="Text" type="Label" parent="Screen/VBoxContainer" unique_id=1654782589]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_c1jdr")
@@ -188,7 +186,7 @@ theme_override_font_sizes/font_size = 40
 text = "Hubo alguna vez un mundo pacífico, lleno de ilusión y felicidad."
 horizontal_alignment = 1
 
-[node name="Text2" type="Label" parent="Screen/VBoxContainer"]
+[node name="Text2" type="Label" parent="Screen/VBoxContainer" unique_id=503237068]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_c1jdr")
@@ -197,7 +195,7 @@ text = "En ese reino sin nombre había equilibrio gracias a cierto elemento raro
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Screen2" type="Panel" parent="."]
+[node name="Screen2" type="Panel" parent="." unique_id=727997939]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -209,7 +207,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_d371c")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Screen2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen2" unique_id=355282256]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -224,7 +222,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="Text" type="Label" parent="Screen2/VBoxContainer"]
+[node name="Text" type="Label" parent="Screen2/VBoxContainer" unique_id=1758916766]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_c1jdr")
@@ -233,7 +231,7 @@ text = "En algún momento, la codicia dominó, y una raza forjó monedas con el 
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Text2" type="Label" parent="Screen2/VBoxContainer"]
+[node name="Text2" type="Label" parent="Screen2/VBoxContainer" unique_id=1802364163]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_c1jdr")
@@ -242,7 +240,7 @@ text = "Pensaron en usarlas como medallas sin conocer las consecuencias"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Text3" type="Label" parent="Screen2/VBoxContainer"]
+[node name="Text3" type="Label" parent="Screen2/VBoxContainer" unique_id=1600121347]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_c1jdr")
@@ -251,7 +249,7 @@ text = "En cuanto las medallas fueron separadas unas de las otras, comenzó el c
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Screen3" type="Panel" parent="."]
+[node name="Screen3" type="Panel" parent="." unique_id=1931523711]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -263,7 +261,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_d371c")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Screen3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen3" unique_id=1875404413]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -278,7 +276,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="Text" type="Label" parent="Screen3/VBoxContainer"]
+[node name="Text" type="Label" parent="Screen3/VBoxContainer" unique_id=1037916951]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_c1jdr")
@@ -287,7 +285,7 @@ text = "Todo poseedor de alguna de estas medallas era brutalmente atacado por cu
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Text2" type="Label" parent="Screen3/VBoxContainer"]
+[node name="Text2" type="Label" parent="Screen3/VBoxContainer" unique_id=1251358302]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_c1jdr")
@@ -296,7 +294,7 @@ text = "Pero un héroe ahora olvidado apareció, y logró reunir todas las medal
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Text3" type="Label" parent="Screen3/VBoxContainer"]
+[node name="Text3" type="Label" parent="Screen3/VBoxContainer" unique_id=156344236]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_c1jdr")
@@ -305,7 +303,7 @@ text = "Depositó todas las medallas dentro de un cofre especial que misteriosam
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Screen4" type="Panel" parent="."]
+[node name="Screen4" type="Panel" parent="." unique_id=1897535353]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -317,7 +315,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_d371c")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Screen4"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen4" unique_id=1340951283]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -332,7 +330,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="Text" type="Label" parent="Screen4/VBoxContainer"]
+[node name="Text" type="Label" parent="Screen4/VBoxContainer" unique_id=993786633]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_c1jdr")
@@ -341,7 +339,7 @@ text = "El tiempo continuo y un día sin previo aviso, un volcán erupcionó vio
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Text2" type="Label" parent="Screen4/VBoxContainer"]
+[node name="Text2" type="Label" parent="Screen4/VBoxContainer" unique_id=1774961502]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_c1jdr")
@@ -350,7 +348,7 @@ text = "El golpe de una roca dio con el cofre legado por el héroe y aunque no d
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Text3" type="Label" parent="Screen4/VBoxContainer"]
+[node name="Text3" type="Label" parent="Screen4/VBoxContainer" unique_id=1538416585]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_c1jdr")
@@ -359,7 +357,7 @@ text = "El descontrol de la fauna comenzó, y ahora sin la raza antigua que forj
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Screen5" type="Panel" parent="."]
+[node name="Screen5" type="Panel" parent="." unique_id=1732615358]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -371,7 +369,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_d371c")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Screen5"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen5" unique_id=1839090651]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -386,7 +384,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="Text" type="Label" parent="Screen5/VBoxContainer"]
+[node name="Text" type="Label" parent="Screen5/VBoxContainer" unique_id=1362738630]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_c1jdr")
@@ -395,7 +393,7 @@ text = "Hasta que de repente, un slime cambio de color y dejó de ser victima de
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Text2" type="Label" parent="Screen5/VBoxContainer"]
+[node name="Text2" type="Label" parent="Screen5/VBoxContainer" unique_id=714420941]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_c1jdr")
@@ -404,7 +402,7 @@ text = "Y así comenzó esta historia, la historia de Slite, el segundo héroe d
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Screen6" type="Panel" parent="."]
+[node name="Screen6" type="Panel" parent="." unique_id=690227795]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -416,7 +414,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_d371c")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Screen6"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen6" unique_id=636207082]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -431,7 +429,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="Text" type="Label" parent="Screen6/VBoxContainer"]
+[node name="Text" type="Label" parent="Screen6/VBoxContainer" unique_id=1906393060]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_c1jdr")
@@ -441,7 +439,7 @@ text = "Una voz interior le decía
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Text2" type="Label" parent="Screen6/VBoxContainer"]
+[node name="Text2" type="Label" parent="Screen6/VBoxContainer" unique_id=944343167]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_c1jdr")
@@ -450,7 +448,7 @@ text = "Y así, con miedo, dudas, pero también una gran determinación, Slite c
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Begin" type="Label" parent="."]
+[node name="Begin" type="Label" parent="." unique_id=1880558099]
 visible = false
 layout_mode = 1
 anchors_preset = 5
@@ -465,11 +463,11 @@ theme_override_fonts/font = ExtResource("6_c1jdr")
 theme_override_font_sizes/font_size = 40
 text = "Presiona 
 menú (xbox)     start(Ps)
-backspace(PC)    +(Nswitch)  
+Enter/tab(PC)    +(Nswitch)  
 para comenzar!"
 horizontal_alignment = 1
 
-[node name="Bg" type="Panel" parent="."]
+[node name="Bg" type="Panel" parent="." unique_id=431118357]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -480,5 +478,5 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_d371c")
 
-[node name="InitialMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="InitialMusic" type="AudioStreamPlayer2D" parent="." unique_id=95218520]
 stream = ExtResource("7_apouq")

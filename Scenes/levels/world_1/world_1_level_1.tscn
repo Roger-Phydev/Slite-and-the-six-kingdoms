@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://cn86wkxi3gjcn"]
+[gd_scene format=4 uid="uid://cn86wkxi3gjcn"]
 
 [ext_resource type="Texture2D" uid="uid://dy3ibfosu8v6" path="res://Assets/Deco/water_b_5 frames.png" id="2_duteu"]
 [ext_resource type="Texture2D" uid="uid://dtobb0akqn624" path="res://Assets/Backgrounds/mountains_b.png" id="3_c13sr"]
@@ -18,7 +18,8 @@
 [ext_resource type="Script" uid="uid://bmgfdcevh30jk" path="res://Scripts/respawn_area.gd" id="16_e7ttq"]
 [ext_resource type="FontFile" uid="uid://c24jqdbskikfa" path="res://Assets/Fonts/text game/junegull.ttf" id="17_c702c"]
 [ext_resource type="AudioStream" uid="uid://chmwu7wqg7v1u" path="res://MusicAndSounds/Music/ebunny-medieval-castle-loop-366828(menu).mp3" id="18_qtgdo"]
-[ext_resource type="AudioStream" uid="uid://sj8ffbq0il0c" path="res://MusicAndSounds/Music/ebunny-heavy-celtic-knight-loop-370971(world6).mp3" id="19_teeky"]
+[ext_resource type="AudioStream" uid="uid://ck3bln8scb5re" path="res://MusicAndSounds/Music/ebunny-naughty-princess-loop-366826(lworlds1-5).mp3" id="19_deyav"]
+[ext_resource type="AudioStream" uid="uid://bkshjv4xho7ce" path="res://MusicAndSounds/Music/emmraan-levels-hero.mp3" id="20_3jks5"]
 [ext_resource type="AudioStream" uid="uid://da7uea7ysvw6w" path="res://MusicAndSounds/Music/ebunny-tavern-dance-loop-368862(win).mp3" id="20_8gmak"]
 [ext_resource type="AudioStream" uid="uid://lw6x2vve5sob" path="res://MusicAndSounds/SFX/menu_movement.ogg" id="20_fhr3e"]
 [ext_resource type="AudioStream" uid="uid://depvx7kmjerjg" path="res://MusicAndSounds/Music/ebunny-true-fantasy-story-loop-370030(win-hero-mode).mp3" id="21_deyav"]
@@ -82,19 +83,19 @@ sources/0 = SubResource("TileSetAtlasSource_m46lr")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qx82g"]
 size = Vector2(923, 64)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0gq42"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rowtl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjsq8"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0gq42"]
 bg_color = Color(0.298039, 0.639216, 0.827451, 0.647059)
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4deo"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjsq8"]
 bg_color = Color(0.298039, 0.639216, 0.827451, 0.647059)
 corner_radius_bottom_right = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jpcbq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4deo"]
 bg_color = Color(0.13725491, 0.78039217, 0.47058824, 1)
 border_width_left = 4
 border_width_top = 4
@@ -106,11 +107,23 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="Theme" id="Theme_5xmx3"]
+[sub_resource type="Theme" id="Theme_jpcbq"]
 default_font_size = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_po3i5"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xmx3"]
 bg_color = Color(0.29803923, 0.83137256, 0.75686276, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.31764707, 0.49411765, 0.9843137, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_po3i5"]
+bg_color = Color(0.078431375, 0.627451, 0.72156864, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -127,7 +140,7 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.31764707, 0.49411765, 0.9843137, 1)
+border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
@@ -139,25 +152,84 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gkkkr"]
-bg_color = Color(0.078431375, 0.627451, 0.72156864, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
 border_color = Color(0.92941177, 0.6901961, 0.54901963, 1)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3irw1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gkkkr"]
+
+[sub_resource type="Animation" id="Animation_nej7e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shine:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Coin:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Info:theme_override_colors/font_color:r")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.2750469, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Info:theme_override_colors/font_color:g")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.47809267, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Info:theme_override_colors/font_color:b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.9153928, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Info:theme_override_colors/font_color:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_oeyex"]
 resource_name = "saving"
@@ -231,202 +303,131 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0.033333335, 0.5, 1)
 }
 
-[sub_resource type="Animation" id="Animation_nej7e"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Shine:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Coin:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Info:theme_override_colors/font_color:r")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.2750469, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Info:theme_override_colors/font_color:g")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.47809267, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Info:theme_override_colors/font_color:b")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.9153928, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Info:theme_override_colors/font_color:a")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5v6cf"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3irw1"]
 _data = {
 &"RESET": SubResource("Animation_nej7e"),
 &"saving": SubResource("Animation_oeyex")
 }
 
-[node name="world_1_level_1" type="Node2D"]
+[node name="world_1_level_1" type="Node2D" unique_id=193960133]
 
-[node name="Backgrounds" type="Node2D" parent="."]
+[node name="Backgrounds" type="Node2D" parent="." unique_id=1590713694]
 
-[node name="Sky" type="Sprite2D" parent="Backgrounds"]
+[node name="Sky" type="Sprite2D" parent="Backgrounds" unique_id=1123686593]
 position = Vector2(-18.75, -144)
 scale = Vector2(11.5062, 39.3438)
 texture = ExtResource("2_duteu")
 
-[node name="Mountains" type="Sprite2D" parent="Backgrounds"]
+[node name="Mountains" type="Sprite2D" parent="Backgrounds" unique_id=1854659587]
 position = Vector2(-21, -80.5)
 scale = Vector2(3.60938, 1.44531)
 texture = ExtResource("3_c13sr")
 
-[node name="Trees" type="Sprite2D" parent="Backgrounds"]
+[node name="Trees" type="Sprite2D" parent="Backgrounds" unique_id=806896987]
 position = Vector2(-19.5, 1)
 scale = Vector2(3.60547, 1)
 texture = ExtResource("4_36ly2")
 
-[node name="Water" type="Sprite2D" parent="Backgrounds"]
+[node name="Water" type="Sprite2D" parent="Backgrounds" unique_id=1542611830]
 position = Vector2(-18, 86)
 scale = Vector2(3.59766, 1.9375)
 texture = ExtResource("5_bwqwf")
 
-[node name="Tilemaps" type="Node2D" parent="."]
+[node name="Tilemaps" type="Node2D" parent="." unique_id=1856838855]
 
-[node name="World1TileSet" type="TileMap" parent="Tilemaps"]
+[node name="World1TileSet" type="TileMap" parent="Tilemaps" unique_id=1405400461]
 tile_set = SubResource("TileSet_p3ir5")
 format = 2
 
-[node name="Layer1" type="TileMapLayer" parent="Tilemaps/World1TileSet"]
+[node name="Layer1" type="TileMapLayer" parent="Tilemaps/World1TileSet" unique_id=1995478150]
 use_parent_material = true
 tile_map_data = PackedByteArray("AADz/wEAAAAJAAMAAAD2/wMAAAABAAIAAAD2/wQAAAABAAMAAAD2/wUAAAABAAMAAAD2/wYAAAABAAMAAAD2/wcAAAABAAMAAAD2/wgAAAABAAMAAAD3/wMAAAACAAIAAAD3/wIAAAACAAEAAAD3/wEAAAACAAAAAAD4/wIAAAAEAAEAAAD5/wIAAAADAAEAAAD6/wIAAAADAAEAAAD8/wIAAAADAAEAAAD7/wIAAAADAAEAAAD9/wIAAAAFAAEAAAD7/wEAAAAFAAAAAAD8/wEAAAAFAAAAAAD5/wEAAAADAAAAAAD9/wMAAAAFAAIAAAD+/wMAAAAGAAIAAAD+/wQAAAAGAAMAAAD+/wUAAAAGAAMAAAD+/wYAAAAGAAMAAAD+/wcAAAAGAAMAAAD+/wgAAAAGAAMAAAD4/wMAAAAEAAIAAAD5/wMAAAAEAAMAAAD6/wMAAAAEAAMAAAD3/wQAAAAEAAIAAAD4/wQAAAAEAAMAAAD5/wQAAAACAAMAAAD6/wQAAAAEAAMAAAD7/wQAAAAEAAMAAAD8/wQAAAAEAAMAAAD9/wQAAAAFAAMAAAD8/wMAAAAEAAMAAAD7/wMAAAADAAMAAAD7/wUAAAAFAAMAAAD8/wUAAAAEAAMAAAD8/wYAAAAEAAMAAAD7/wYAAAAEAAMAAAD6/wUAAAAEAAIAAAD5/wUAAAAEAAMAAAD4/wUAAAADAAMAAAD4/wYAAAAEAAMAAAD3/wYAAAAEAAMAAAD3/wUAAAAEAAMAAAD3/wcAAAAEAAMAAAD5/wYAAAAFAAMAAAD5/wcAAAAEAAIAAAD6/wcAAAAEAAIAAAD4/wcAAAAEAAIAAAD6/wYAAAAEAAMAAAD7/wcAAAAEAAIAAAD8/wcAAAADAAMAAAD9/wYAAAAEAAMAAAD9/wUAAAAEAAMAAAD9/wcAAAACAAMAAAABAAcAAAABAAMAAAABAAYAAAABAAMAAAABAAUAAAABAAMAAAABAAQAAAABAAMAAAABAAMAAAABAAIAAAABAAgAAAABAAMAAAACAAMAAAADAAEAAAADAAMAAAADAAEAAAAEAAMAAAADAAEAAAAFAAMAAAAGAAIAAAAFAAQAAAAGAAMAAAAFAAUAAAAGAAMAAAAFAAYAAAAGAAMAAAAFAAcAAAAGAAMAAAAFAAgAAAAGAAMAAAADAAQAAAADAAIAAAADAAUAAAAEAAIAAAADAAYAAAAEAAIAAAADAAcAAAAEAAIAAAAEAAQAAAAFAAMAAAAEAAUAAAAFAAMAAAAEAAYAAAAFAAMAAAAEAAcAAAAFAAMAAAACAAQAAAACAAMAAAACAAUAAAACAAMAAAACAAYAAAACAAMAAAACAAcAAAACAAMAAAAIAAYAAAABAAMAAAAIAAUAAAABAAMAAAAIAAQAAAABAAMAAAAIAAMAAAABAAMAAAAIAAIAAAABAAMAAAAIAAEAAAABAAIAAAAJAAEAAAACAAIAAAAJAAAAAAACAAEAAAAKAAAAAAACAAIAAAAKAP//AAACAAEAAAALAP//AAACAAIAAAALAP7/AAACAAEAAAAMAP7/AAADAAEAAAANAP7/AAAEAAEAAAAOAP7/AAADAAEAAAALAAAAAAACAAMAAAAMAP//AAADAAMAAAAKAAEAAAAEAAIAAAAKAAIAAAAEAAIAAAAKAAMAAAAEAAMAAAAJAAMAAAAEAAIAAAAJAAIAAAAEAAIAAAAJAAQAAAAEAAMAAAALAAMAAAAEAAMAAAALAAIAAAAEAAMAAAALAAEAAAAEAAMAAAAMAAEAAAAEAAMAAAAMAAAAAAAEAAMAAAANAAAAAAAEAAMAAAANAP//AAAEAAMAAAAOAP//AAAEAAMAAAANAAEAAAAEAAMAAAANAAIAAAAEAAMAAAANAAMAAAAEAAMAAAANAAQAAAAEAAMAAAAOAAMAAAAEAAMAAAAOAAIAAAAEAAMAAAAOAAEAAAAEAAMAAAAOAAAAAAAEAAMAAAANAAUAAAAEAAMAAAANAAYAAAAEAAMAAAAOAAYAAAAEAAMAAAAOAAUAAAAEAAMAAAAOAAQAAAAEAAMAAAAMAAMAAAAEAAMAAAAMAAIAAAAEAAMAAAAMAAQAAAAEAAMAAAAMAAUAAAAEAAMAAAAMAAYAAAAEAAMAAAALAAQAAAAEAAMAAAALAAUAAAAEAAMAAAAKAAYAAAAEAAMAAAAKAAUAAAAEAAMAAAAKAAQAAAAEAAMAAAAJAAUAAAAEAAMAAAAJAAYAAAAEAAMAAAALAAYAAAAEAAMAAAAJAAcAAAAEAAMAAAAKAAcAAAAEAAMAAAALAAcAAAAEAAMAAAAMAAcAAAAEAAMAAAANAAcAAAAEAAMAAAAOAAcAAAAEAAMAAAAPAAcAAAAEAAMAAAAIAAcAAAABAAMAAAAIAAgAAAABAAMAAAAJAAgAAAAEAAMAAAAKAAgAAAAEAAMAAAALAAgAAAAEAAMAAAAMAAgAAAAEAAMAAAANAAgAAAAEAAMAAAAOAAgAAAAEAAMAAAAPAAgAAAAEAAMAAAAPAP//AAAEAAMAAAAPAAAAAAAEAAMAAAAPAAEAAAAEAAMAAAAPAAYAAAAEAAMAAAAPAAUAAAAEAAMAAAAPAAQAAAAEAAMAAAAPAAMAAAAEAAMAAAAPAAIAAAAEAAMAAAAPAP7/AAAEAAEAAAAKAP7/AAACAAAAAAALAP3/AAACAAAAAAADAAIAAAACAAAAAAANAP3/AAAFAAAAAAD2/wkAAAABAAMAAAD2/woAAAABAAMAAAD2/wsAAAABAAMAAAD+/wkAAAAGAAMAAAD+/woAAAAGAAMAAAD+/wsAAAAGAAMAAAD+/wwAAAAGAAMAAAD2/wwAAAABAAMAAAD2/w0AAAABAAMAAAD+/w0AAAAGAAMAAAD3/wgAAAAEAAMAAAD4/wgAAAAEAAIAAAD5/wgAAAADAAMAAAD6/wgAAAADAAMAAAD7/wgAAAADAAMAAAD8/wgAAAADAAMAAAD9/wgAAAADAAMAAAD9/wkAAAAEAAIAAAD8/woAAAAEAAMAAAD8/wsAAAAEAAMAAAD8/wwAAAAEAAIAAAD7/woAAAAEAAIAAAD7/wkAAAAEAAMAAAD8/wkAAAAEAAMAAAD9/woAAAAEAAIAAAD9/wsAAAAEAAIAAAD9/wwAAAAEAAMAAAD8/w0AAAAEAAMAAAD7/w0AAAAEAAMAAAD9/w0AAAAEAAMAAAD6/w0AAAAEAAMAAAD6/wwAAAAEAAMAAAD6/wsAAAAEAAMAAAD7/wsAAAAEAAMAAAD7/wwAAAAEAAMAAAD6/woAAAAEAAMAAAD6/wkAAAAEAAMAAAD5/wkAAAAEAAMAAAD5/woAAAAEAAMAAAD4/wsAAAAEAAMAAAD4/woAAAAEAAIAAAD5/wsAAAAEAAMAAAD4/wwAAAAEAAMAAAD5/wwAAAAEAAIAAAD5/w0AAAAEAAMAAAD4/w0AAAAEAAMAAAD3/w0AAAAEAAMAAAD3/wwAAAAEAAIAAAD3/wsAAAAEAAMAAAD3/woAAAAEAAIAAAD3/wkAAAAEAAMAAAD4/wkAAAAEAAMAAAABAAkAAAABAAMAAAABAAoAAAABAAMAAAABAAsAAAABAAMAAAABAAwAAAABAAMAAAABAA0AAAABAAMAAAAFAAkAAAAGAAMAAAAFAAoAAAAGAAMAAAAFAAsAAAAGAAMAAAAFAAwAAAAGAAMAAAAFAA0AAAAGAAMAAAACAAgAAAAEAAMAAAADAAgAAAADAAMAAAADAAkAAAAEAAMAAAADAAoAAAAEAAMAAAAEAAkAAAADAAMAAAAEAAgAAAAEAAMAAAAEAAoAAAAEAAMAAAAEAAsAAAAEAAMAAAAEAAwAAAADAAMAAAAEAA0AAAAEAAMAAAADAA0AAAAEAAMAAAADAAwAAAAEAAMAAAADAAsAAAADAAMAAAACAAwAAAAEAAMAAAACAAsAAAADAAMAAAACAAoAAAAEAAMAAAACAAkAAAAEAAMAAAACAA0AAAAEAAMAAAAIAAkAAAABAAMAAAAIAAoAAAABAAMAAAAIAAsAAAABAAMAAAAIAAwAAAABAAMAAAAIAA0AAAABAAMAAAAJAAkAAAAEAAMAAAAKAAkAAAAEAAMAAAALAAkAAAAEAAMAAAAMAAkAAAAEAAMAAAANAAkAAAAEAAMAAAAOAAkAAAAEAAMAAAAPAAkAAAAEAAMAAAAQAAgAAAAEAAMAAAAQAAcAAAAEAAMAAAAQAAYAAAAEAAMAAAAQAAUAAAAEAAMAAAAQAAQAAAAEAAMAAAAQAAMAAAAEAAMAAAAQAAIAAAAEAAMAAAAQAAEAAAAEAAMAAAAQAAAAAAAEAAMAAAAQAP//AAAFAAIAAAAQAP7/AAAFAAEAAAARAP//AAAGAAIAAAARAAAAAAAGAAMAAAARAAEAAAAGAAMAAAARAAIAAAAGAAMAAAARAAMAAAAGAAMAAAARAAQAAAAGAAMAAAARAAUAAAAGAAMAAAARAAYAAAAGAAMAAAARAAcAAAAGAAMAAAARAAgAAAAGAAMAAAARAAkAAAAGAAMAAAARAAoAAAAGAAMAAAARAAsAAAAGAAMAAAAQAAwAAAAEAAMAAAAQAA0AAAAEAAMAAAAPAA0AAAAEAAMAAAARAA0AAAAGAAMAAAARAAwAAAAGAAMAAAAOAA0AAAAEAAMAAAANAA0AAAAEAAMAAAAMAA0AAAAEAAMAAAALAA0AAAAEAAMAAAAKAA0AAAAEAAMAAAAJAA0AAAAEAAMAAAAJAAwAAAAEAAMAAAAJAAsAAAAEAAMAAAAJAAoAAAAEAAMAAAAKAAoAAAAEAAMAAAALAAoAAAAEAAMAAAAKAAsAAAAEAAMAAAAMAAoAAAAEAAMAAAANAAoAAAAEAAMAAAANAAsAAAAEAAMAAAAMAAsAAAAEAAMAAAALAAwAAAAEAAMAAAAOAAoAAAAEAAMAAAAQAAkAAAAEAAMAAAAQAAoAAAAEAAMAAAAPAAoAAAAEAAMAAAAOAAsAAAAEAAMAAAANAAwAAAAEAAMAAAAPAAsAAAAEAAMAAAAQAAsAAAAEAAMAAAAPAAwAAAAEAAMAAAAOAAwAAAAEAAMAAAAMAAwAAAAEAAMAAAALAAsAAAAEAAMAAAAKAAwAAAAEAAMAAAAQAP3/AAAFAAAAAADy/wEAAAAJAAMAAAD0/wEAAAAJAAMAAADx/wEAAAAIAAMAAAD1/wEAAAAKAAMAAAA=")
 tile_set = SubResource("TileSet_p3ir5")
 
-[node name="Deco" type="Node2D" parent="."]
+[node name="Deco" type="Node2D" parent="." unique_id=378501191]
 
-[node name="tree" type="Sprite2D" parent="Deco"]
+[node name="tree" type="Sprite2D" parent="Deco" unique_id=472838864]
 position = Vector2(-91, 8)
 texture = ExtResource("7_4p2rf")
 
-[node name="tree2" type="Sprite2D" parent="Deco"]
+[node name="tree2" type="Sprite2D" parent="Deco" unique_id=999004008]
 position = Vector2(230, -56)
 texture = ExtResource("7_4p2rf")
 
-[node name="Sun" type="Sprite2D" parent="Deco"]
+[node name="Sun" type="Sprite2D" parent="Deco" unique_id=385319132]
 position = Vector2(-82, -109)
 texture = ExtResource("9_bjtbw")
 hframes = 6
 frame = 4
 
-[node name="Objects" type="Node2D" parent="."]
+[node name="Objects" type="Node2D" parent="." unique_id=1928697290]
 
-[node name="SignArrow" type="Sprite2D" parent="Objects"]
+[node name="SignArrow" type="Sprite2D" parent="Objects" unique_id=155765181]
 position = Vector2(-182, 0)
 texture = ExtResource("11_ek84b")
 
-[node name="Coins" type="Node2D" parent="."]
+[node name="Coins" type="Node2D" parent="." unique_id=1104248964]
 
-[node name="Coin" parent="Coins" instance=ExtResource("8_t2nw1")]
+[node name="Coin" parent="Coins" unique_id=985976714 instance=ExtResource("8_t2nw1")]
 position = Vector2(-169, 6)
 
-[node name="Coin2" parent="Coins" instance=ExtResource("8_t2nw1")]
+[node name="Coin2" parent="Coins" unique_id=1840395245 instance=ExtResource("8_t2nw1")]
 position = Vector2(-44, 24)
 
-[node name="Coin3" parent="Coins" instance=ExtResource("8_t2nw1")]
+[node name="Coin3" parent="Coins" unique_id=758868096 instance=ExtResource("8_t2nw1")]
 position = Vector2(-133, 24)
 
-[node name="Coin4" parent="Coins" instance=ExtResource("8_t2nw1")]
+[node name="Coin4" parent="Coins" unique_id=25117219 instance=ExtResource("8_t2nw1")]
 position = Vector2(-234, 6)
 
-[node name="Coin5" parent="Coins" instance=ExtResource("8_t2nw1")]
+[node name="Coin5" parent="Coins" unique_id=2145746748 instance=ExtResource("8_t2nw1")]
 position = Vector2(-63, 24)
 
-[node name="Coin6" parent="Coins" instance=ExtResource("8_t2nw1")]
+[node name="Coin6" parent="Coins" unique_id=409978638 instance=ExtResource("8_t2nw1")]
 position = Vector2(88, 39)
 
-[node name="Coin7" parent="Coins" instance=ExtResource("8_t2nw1")]
+[node name="Coin7" parent="Coins" unique_id=973210142 instance=ExtResource("8_t2nw1")]
 position = Vector2(135, 7)
 
-[node name="Coin8" parent="Coins" instance=ExtResource("8_t2nw1")]
+[node name="Coin8" parent="Coins" unique_id=930224827 instance=ExtResource("8_t2nw1")]
 position = Vector2(152, -10)
 
-[node name="Coin9" parent="Coins" instance=ExtResource("8_t2nw1")]
+[node name="Coin9" parent="Coins" unique_id=763786449 instance=ExtResource("8_t2nw1")]
 position = Vector2(168, -26)
 
-[node name="Coin10" parent="Coins" instance=ExtResource("8_t2nw1")]
+[node name="Coin10" parent="Coins" unique_id=1720882311 instance=ExtResource("8_t2nw1")]
 position = Vector2(204, -41)
 
-[node name="Coin11" parent="Coins" instance=ExtResource("8_t2nw1")]
+[node name="Coin11" parent="Coins" unique_id=252889313 instance=ExtResource("8_t2nw1")]
 position = Vector2(-115, 24)
 
-[node name="Coin12" parent="Coins" instance=ExtResource("8_t2nw1")]
+[node name="Coin12" parent="Coins" unique_id=627805498 instance=ExtResource("8_t2nw1")]
 position = Vector2(24, 39)
 
-[node name="Checkpoints" type="Node2D" parent="."]
+[node name="Checkpoints" type="Node2D" parent="." unique_id=1606166308]
 
-[node name="Areas" type="Node2D" parent="."]
+[node name="Areas" type="Node2D" parent="." unique_id=1285988714]
 
-[node name="PlayerRespawnArea" type="Area2D" parent="Areas"]
+[node name="PlayerRespawnArea" type="Area2D" parent="Areas" unique_id=1205666573]
 script = ExtResource("16_e7ttq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/PlayerRespawnArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/PlayerRespawnArea" unique_id=1349143430]
 position = Vector2(-17.5, 97)
 shape = SubResource("RectangleShape2D_qx82g")
 
-[node name="Enviroment" type="Node2D" parent="."]
+[node name="Enviroment" type="Node2D" parent="." unique_id=1348285035]
 
-[node name="lifes" type="Node2D" parent="."]
+[node name="lifes" type="Node2D" parent="." unique_id=6259229]
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Enemies" type="Node2D" parent="." unique_id=1151116341]
 
-[node name="Player" parent="." instance=ExtResource("12_fhr3e")]
+[node name="Player" parent="." unique_id=949805786 instance=ExtResource("12_fhr3e")]
 position = Vector2(-198, 11)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1786562037]
 zoom = Vector2(4, 4)
 
-[node name="PlayerUI" type="Control" parent="Player/Camera2D"]
+[node name="PlayerUI" type="Control" parent="Player/Camera2D" unique_id=76307720]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 0
@@ -436,20 +437,20 @@ offset_right = 144.0
 offset_bottom = 80.0
 script = ExtResource("13_mby28")
 
-[node name="PlayingInterface" type="Panel" parent="Player/Camera2D/PlayerUI"]
+[node name="PlayingInterface" type="Panel" parent="Player/Camera2D/PlayerUI" unique_id=1520996199]
 layout_mode = 0
 offset_right = 288.0
 offset_bottom = 163.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_0gq42")
+theme_override_styles/panel = SubResource("StyleBoxFlat_rowtl")
 
-[node name="Score" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface"]
+[node name="Score" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface" unique_id=48182339]
 layout_mode = 0
 offset_left = 81.0
 offset_right = 188.0
 offset_bottom = 30.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_qjsq8")
+theme_override_styles/panel = SubResource("StyleBoxFlat_0gq42")
 
-[node name="count" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score"]
+[node name="count" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score" unique_id=2092394353]
 layout_mode = 0
 offset_left = 63.0
 offset_top = 1.0
@@ -461,13 +462,13 @@ theme_override_font_sizes/font_size = 20
 text = "/"
 uppercase = true
 
-[node name="coinIcon" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score"]
+[node name="coinIcon" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score" unique_id=1429511929]
 position = Vector2(21, 14)
 scale = Vector2(2, 2)
 texture = ExtResource("14_svpep")
 hframes = 8
 
-[node name="coinsNumber" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score"]
+[node name="coinsNumber" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score" unique_id=1756709299]
 layout_mode = 0
 offset_left = 36.0
 offset_top = -1.0
@@ -478,7 +479,7 @@ theme_override_fonts/font = ExtResource("13_qtgdo")
 theme_override_font_sizes/font_size = 20
 text = "00"
 
-[node name="target" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score"]
+[node name="target" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score" unique_id=97692178]
 layout_mode = 0
 offset_left = 76.0
 offset_top = -1.0
@@ -489,13 +490,13 @@ theme_override_fonts/font = ExtResource("13_qtgdo")
 theme_override_font_sizes/font_size = 20
 text = "00"
 
-[node name="Lifes" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface"]
+[node name="Lifes" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface" unique_id=2008606219]
 layout_mode = 0
 offset_right = 71.0
 offset_bottom = 30.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_i4deo")
+theme_override_styles/panel = SubResource("StyleBoxFlat_qjsq8")
 
-[node name="Simbol" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Lifes"]
+[node name="Simbol" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Lifes" unique_id=1187730574]
 layout_mode = 0
 offset_left = 36.0
 offset_top = 3.0
@@ -507,7 +508,7 @@ theme_override_font_sizes/font_size = 15
 text = "X"
 uppercase = true
 
-[node name="coinIcon" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Lifes"]
+[node name="coinIcon" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Lifes" unique_id=1103503564]
 position = Vector2(20, 9)
 scale = Vector2(2, 2)
 texture = ExtResource("14_duteu")
@@ -516,7 +517,7 @@ hframes = 5
 vframes = 2
 frame = 3
 
-[node name="LifesNumber" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Lifes"]
+[node name="LifesNumber" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Lifes" unique_id=1944664172]
 layout_mode = 0
 offset_left = 50.0
 offset_top = -5.0
@@ -527,35 +528,35 @@ theme_override_fonts/font = ExtResource("13_qtgdo")
 theme_override_font_sizes/font_size = 25
 text = "5"
 
-[node name="Damage" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface"]
+[node name="Damage" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface" unique_id=124118843]
 layout_mode = 0
 offset_left = 197.0
 offset_right = 288.0
 offset_bottom = 30.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_qjsq8")
+theme_override_styles/panel = SubResource("StyleBoxFlat_0gq42")
 
-[node name="heartIcon" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Damage"]
+[node name="heartIcon" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Damage" unique_id=1401037717]
 position = Vector2(20, 14)
 scale = Vector2(1.625, 1.625)
 texture = ExtResource("15_c13sr")
 hframes = 4
 frame = 1
 
-[node name="heartIcon2" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Damage"]
+[node name="heartIcon2" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Damage" unique_id=2137168664]
 position = Vector2(45, 14)
 scale = Vector2(1.625, 1.625)
 texture = ExtResource("15_c13sr")
 hframes = 4
 frame = 1
 
-[node name="heartIcon3" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Damage"]
+[node name="heartIcon3" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Damage" unique_id=21615858]
 position = Vector2(70, 14)
 scale = Vector2(1.625, 1.625)
 texture = ExtResource("15_c13sr")
 hframes = 4
 frame = 1
 
-[node name="PauseMenu" type="Panel" parent="Player/Camera2D/PlayerUI"]
+[node name="PauseMenu" type="Panel" parent="Player/Camera2D/PlayerUI" unique_id=771992427]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -570,7 +571,7 @@ offset_bottom = 81.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="Player/Camera2D/PlayerUI/PauseMenu"]
+[node name="Panel" type="Panel" parent="Player/Camera2D/PlayerUI/PauseMenu" unique_id=1517301180]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -583,9 +584,9 @@ offset_right = 80.25
 offset_bottom = 77.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jpcbq")
+theme_override_styles/panel = SubResource("StyleBoxFlat_i4deo")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel" unique_id=222637425]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -599,10 +600,10 @@ offset_right = 49.0
 offset_bottom = 37.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_5xmx3")
+theme = SubResource("Theme_jpcbq")
 theme_override_constants/separation = 5
 
-[node name="Message" type="Label" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer"]
+[node name="Message" type="Label" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer" unique_id=238258760]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.317647, 0.494118, 0.984314, 1)
 theme_override_fonts/font = ExtResource("17_c702c")
@@ -611,66 +612,66 @@ text = "Pausa"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="Continue" type="Button" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer"]
+[node name="Continue" type="Button" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer" unique_id=1280692170]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("17_c702c")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_po3i5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_i1p1b")
-theme_override_styles/hover = SubResource("StyleBoxFlat_e78sj")
-theme_override_styles/focus = SubResource("StyleBoxFlat_gkkkr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5xmx3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_po3i5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i1p1b")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e78sj")
 action_mode = 0
 text = "Continuar"
 
-[node name="MainMenu" type="Button" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer"]
+[node name="MainMenu" type="Button" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer" unique_id=223954761]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("17_c702c")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_po3i5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_i1p1b")
-theme_override_styles/hover = SubResource("StyleBoxFlat_e78sj")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3irw1")
-theme_override_styles/focus = SubResource("StyleBoxFlat_gkkkr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5xmx3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_po3i5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i1p1b")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_gkkkr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e78sj")
 action_mode = 0
 text = "Menú"
 
-[node name="ResetLevel" type="Button" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer"]
+[node name="ResetLevel" type="Button" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer" unique_id=731120103]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("17_c702c")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_po3i5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_i1p1b")
-theme_override_styles/hover = SubResource("StyleBoxFlat_e78sj")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3irw1")
-theme_override_styles/focus = SubResource("StyleBoxFlat_gkkkr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5xmx3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_po3i5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i1p1b")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_gkkkr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e78sj")
 action_mode = 0
 text = "Reiniciar nivel"
 
-[node name="Exit" type="Button" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer"]
+[node name="Exit" type="Button" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer" unique_id=1998970596]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("17_c702c")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_po3i5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_i1p1b")
-theme_override_styles/hover = SubResource("StyleBoxFlat_e78sj")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3irw1")
-theme_override_styles/focus = SubResource("StyleBoxFlat_gkkkr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5xmx3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_po3i5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i1p1b")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_gkkkr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e78sj")
 action_mode = 0
 text = "Salir"
 
-[node name="WinMenu" type="Panel" parent="Player/Camera2D/PlayerUI"]
+[node name="WinMenu" type="Panel" parent="Player/Camera2D/PlayerUI" unique_id=1219168195]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -685,7 +686,7 @@ offset_bottom = 81.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="Player/Camera2D/PlayerUI/WinMenu"]
+[node name="Panel" type="Panel" parent="Player/Camera2D/PlayerUI/WinMenu" unique_id=376201626]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -698,9 +699,9 @@ offset_right = 135.0
 offset_bottom = 71.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jpcbq")
+theme_override_styles/panel = SubResource("StyleBoxFlat_i4deo")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/PlayerUI/WinMenu/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/PlayerUI/WinMenu/Panel" unique_id=1460353831]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -714,10 +715,10 @@ offset_right = 49.0
 offset_bottom = 37.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_5xmx3")
+theme = SubResource("Theme_jpcbq")
 theme_override_constants/separation = 5
 
-[node name="Message" type="Label" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer"]
+[node name="Message" type="Label" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer" unique_id=1395044084]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.317647, 0.494118, 0.984314, 1)
 theme_override_fonts/font = ExtResource("17_c702c")
@@ -726,78 +727,79 @@ text = "Nivel superado!"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer" unique_id=1026403915]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="NextLevel" type="Button" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/HBoxContainer"]
+[node name="NextLevel" type="Button" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/HBoxContainer" unique_id=310655245]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("17_c702c")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_po3i5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_i1p1b")
-theme_override_styles/hover = SubResource("StyleBoxFlat_e78sj")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3irw1")
-theme_override_styles/focus = SubResource("StyleBoxFlat_gkkkr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5xmx3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_po3i5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i1p1b")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_gkkkr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e78sj")
 action_mode = 0
 text = "   Siguiente nivel   "
 
-[node name="RepeatLevel" type="Button" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/HBoxContainer"]
+[node name="RepeatLevel" type="Button" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/HBoxContainer" unique_id=1428569689]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("17_c702c")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_po3i5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_i1p1b")
-theme_override_styles/hover = SubResource("StyleBoxFlat_e78sj")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3irw1")
-theme_override_styles/focus = SubResource("StyleBoxFlat_gkkkr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5xmx3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_po3i5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i1p1b")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_gkkkr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e78sj")
 action_mode = 0
 text = "   Repetir nivel   "
 
-[node name="MainMenu" type="Button" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer"]
+[node name="MainMenu" type="Button" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer" unique_id=1483021543]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("17_c702c")
 theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_po3i5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_i1p1b")
-theme_override_styles/hover = SubResource("StyleBoxFlat_e78sj")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3irw1")
-theme_override_styles/focus = SubResource("StyleBoxFlat_gkkkr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5xmx3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_po3i5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i1p1b")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_gkkkr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e78sj")
 action_mode = 0
 text = "Menú principal"
 
-[node name="Exit" type="Button" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer"]
+[node name="Exit" type="Button" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer" unique_id=1338170460]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("17_c702c")
 theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_po3i5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_i1p1b")
-theme_override_styles/hover = SubResource("StyleBoxFlat_e78sj")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3irw1")
-theme_override_styles/focus = SubResource("StyleBoxFlat_gkkkr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5xmx3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_po3i5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i1p1b")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_gkkkr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e78sj")
 action_mode = 0
 text = "Salir"
 
-[node name="LooseMenu" type="Panel" parent="Player/Camera2D/PlayerUI"]
+[node name="LooseMenu" type="Panel" parent="Player/Camera2D/PlayerUI" unique_id=1573959653]
 visible = false
 layout_mode = 0
 offset_right = 290.0
 offset_bottom = 162.0
 
-[node name="Panel" type="Panel" parent="Player/Camera2D/PlayerUI/LooseMenu"]
+[node name="Panel" type="Panel" parent="Player/Camera2D/PlayerUI/LooseMenu" unique_id=1419042643]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -810,9 +812,9 @@ offset_right = 135.0
 offset_bottom = 71.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jpcbq")
+theme_override_styles/panel = SubResource("StyleBoxFlat_i4deo")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel" unique_id=293279852]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -825,10 +827,10 @@ offset_right = 49.0
 offset_bottom = 37.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_5xmx3")
+theme = SubResource("Theme_jpcbq")
 theme_override_constants/separation = 5
 
-[node name="Message" type="Label" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer"]
+[node name="Message" type="Label" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer" unique_id=109325893]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.317647, 0.494118, 0.984314, 1)
 theme_override_fonts/font = ExtResource("17_c702c")
@@ -837,86 +839,89 @@ text = "Perdiste!!!"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="ResetRun" type="Button" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer"]
+[node name="ResetRun" type="Button" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer" unique_id=2082656895]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("17_c702c")
 theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_po3i5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_i1p1b")
-theme_override_styles/hover = SubResource("StyleBoxFlat_e78sj")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3irw1")
-theme_override_styles/focus = SubResource("StyleBoxFlat_gkkkr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5xmx3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_po3i5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i1p1b")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_gkkkr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e78sj")
 action_mode = 0
 text = "Volver a intentar"
 
-[node name="MainMenu" type="Button" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer"]
+[node name="MainMenu" type="Button" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer" unique_id=1037965358]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("17_c702c")
 theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_po3i5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_i1p1b")
-theme_override_styles/hover = SubResource("StyleBoxFlat_e78sj")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3irw1")
-theme_override_styles/focus = SubResource("StyleBoxFlat_gkkkr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5xmx3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_po3i5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i1p1b")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_gkkkr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e78sj")
 action_mode = 0
 text = "Menú principal"
 
-[node name="Exit" type="Button" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer"]
+[node name="Exit" type="Button" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer" unique_id=124176235]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
 theme_override_fonts/font = ExtResource("17_c702c")
 theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_po3i5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_i1p1b")
-theme_override_styles/hover = SubResource("StyleBoxFlat_e78sj")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3irw1")
-theme_override_styles/focus = SubResource("StyleBoxFlat_gkkkr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5xmx3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_po3i5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i1p1b")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_gkkkr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e78sj")
 action_mode = 0
 text = "Salir"
 
-[node name="MenuMusic" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI" unique_id=609559001]
 stream = ExtResource("18_qtgdo")
 
-[node name="LevelMusic" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
-stream = ExtResource("19_teeky")
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI" unique_id=711997260]
+stream = ExtResource("19_deyav")
 
-[node name="LevelSuccess" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
+[node name="LevelMusicHero" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI" unique_id=1679320263]
+stream = ExtResource("20_3jks5")
+
+[node name="LevelSuccess" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI" unique_id=1634175437]
 stream = ExtResource("20_8gmak")
 
-[node name="LevelSuccessHero" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
+[node name="LevelSuccessHero" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI" unique_id=1480496082]
 stream = ExtResource("21_deyav")
 
-[node name="LevelFailed" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
+[node name="LevelFailed" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI" unique_id=472950688]
 stream = ExtResource("21_teeky")
 
-[node name="MenuMovement" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
+[node name="MenuMovement" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI" unique_id=1090012881]
 stream = ExtResource("20_fhr3e")
 
-[node name="MenuSelect" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
+[node name="MenuSelect" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI" unique_id=1323928209]
 stream = ExtResource("21_mby28")
 
-[node name="Save" type="Node2D" parent="Player/Camera2D/PlayerUI"]
+[node name="Save" type="Node2D" parent="Player/Camera2D/PlayerUI" unique_id=939307604]
 visible = false
 
-[node name="Coin" type="Sprite2D" parent="Player/Camera2D/PlayerUI/Save"]
+[node name="Coin" type="Sprite2D" parent="Player/Camera2D/PlayerUI/Save" unique_id=1330107360]
 position = Vector2(253, 134)
 texture = ExtResource("24_deyav")
 hframes = 8
 
-[node name="Shine" type="Sprite2D" parent="Player/Camera2D/PlayerUI/Save"]
+[node name="Shine" type="Sprite2D" parent="Player/Camera2D/PlayerUI/Save" unique_id=907148710]
 position = Vector2(252, 134)
 texture = ExtResource("25_3jks5")
 hframes = 8
 
-[node name="Info" type="Label" parent="Player/Camera2D/PlayerUI/Save"]
+[node name="Info" type="Label" parent="Player/Camera2D/PlayerUI/Save" unique_id=856589763]
 offset_left = 216.0
 offset_top = 139.0
 offset_right = 288.0
@@ -925,10 +930,8 @@ theme_override_colors/font_color = Color(0.2750469, 0.47809267, 0.9153928, 1)
 theme_override_fonts/font = ExtResource("26_rowtl")
 text = "Guardando"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Camera2D/PlayerUI/Save"]
-libraries = {
-&"": SubResource("AnimationLibrary_5v6cf")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Camera2D/PlayerUI/Save" unique_id=914424942]
+libraries/ = SubResource("AnimationLibrary_3irw1")
 
 [connection signal="body_entered" from="Areas/PlayerRespawnArea" to="Areas/PlayerRespawnArea" method="_on_body_entered"]
 [connection signal="button_up" from="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer/Continue" to="Player/Camera2D/PlayerUI" method="_on_continue_button_up"]

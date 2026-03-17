@@ -127,6 +127,7 @@ func load_game(): #load method, charges or creates the save file
 		save_data = JSON.parse_string(content)
 	else:
 		save_game();
+	return save_data;
 
 func complete_level(world:int, level:int): #complete level method, sets true the level-world value of levels
 	var w = "world"+str(world);
@@ -263,9 +264,9 @@ func unlock_all(): #unlocks all levels and modes
 				"level5":true,
 				"level6":true
 			},
-		},
-		"normal_mode_completed":true,
-		"hero_mode_completed":true
+	},
+	"normal_mode_completed":true,
+	"hero_mode_completed":true
 	};
 	save_game();
 
@@ -280,3 +281,15 @@ func is_world_available(world:int): #indicates if a world is available to play
 	for i in levels.keys(): # moves on the levels by key
 		res = levels[i] or res; #aplies an or to the res, then if at least one is true it become true
 	return res;
+func get_latest_world_level():
+	for w in range(1,7): # go from 1 to 6
+		for l in range(1,7): # go from 1 to 6
+			var world = "world"+str(w); #creates strings for world and level
+			var level = "level"+str(l);
+			if not save_data["level_completed"][world][level]: #when reaches an false value
+					return [w,l] #returns its world level
+	return [6,6] #in the case the for ends, returns 6,6
+func is_normal_game_completed():
+	return save_data["normal_mode_completed"];
+func is_hero_game_completed():
+	return save_data["hero_mode_completed"];

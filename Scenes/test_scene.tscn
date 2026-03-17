@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://dclgn2sonirtu"]
+[gd_scene format=3 uid="uid://dclgn2sonirtu"]
 
 [ext_resource type="Script" uid="uid://dd65doyctgg2d" path="res://Scripts/level_initializer.gd" id="1_h2vbp"]
 [ext_resource type="Texture2D" uid="uid://b13cen750jrvl" path="res://Assets/Tilesets/tileset_dirt.png" id="1_pggu6"]
@@ -505,139 +505,139 @@ corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5s5v"]
 
-[node name="test_level" type="Node2D"]
+[node name="test_level" type="Node2D" unique_id=1584530847]
 script = ExtResource("1_h2vbp")
 
-[node name="LevelTileMap" type="TileMap" parent="."]
+[node name="LevelTileMap" type="TileMap" parent="." unique_id=57746859]
 tile_set = SubResource("TileSet_t5jks")
 format = 2
 layer_0/tile_data = PackedInt32Array(393208, 196609, 1, 393209, 196609, 1, 393210, 196609, 1, 393211, 196609, 1, 393212, 196609, 1, 393213, 196609, 1, 393214, 196609, 1, 393215, 196609, 1, 327680, 196609, 1, 327681, 196609, 1, 327682, 196609, 1, 327683, 196609, 1, 327684, 196609, 1, 327685, 196609, 1, 327686, 196609, 1, 327687, 196609, 1, 327688, 196609, 1, 393207, 327681, 2, 327671, 393217, 3, 262135, 393217, 2, 262134, 262145, 1, 262133, 262145, 1, 262132, 262145, 1, 262131, 262145, 1, 262130, 262145, 1, 262129, 262145, 1, 262128, 262145, 1, 262127, 262145, 1, 262126, 131073, 1, 327662, 131073, 2, 327661, 65537, 2, 393197, 65537, 3, 458733, 65537, 3, 524269, 65537, 3, 327663, 262145, 3, 327664, 262145, 3, 327665, 262145, 3, 327666, 262145, 3, 327667, 262145, 3, 327668, 262145, 3, 327669, 262145, 3, 327670, 262145, 3, 393206, 262145, 3, 393205, 262145, 3, 393204, 262145, 3, 393203, 262145, 3, 393202, 262145, 3, 393201, 262145, 3, 393200, 262145, 3, 393199, 262145, 3, 393198, 262145, 3, 458734, 262145, 3, 524270, 262145, 3, 524271, 262145, 3, 524272, 262145, 3, 524273, 262145, 3, 524274, 262145, 3, 524275, 262145, 3, 524276, 262145, 3, 524277, 262145, 3, 524278, 262145, 3, 524279, 262145, 3, 524280, 262145, 3, 524281, 262145, 3, 524282, 262145, 3, 524283, 262145, 3, 524284, 262145, 3, 458748, 262145, 3, 458747, 262145, 3, 458746, 262145, 3, 458745, 262145, 3, 458744, 262145, 3, 458743, 262145, 3, 458742, 262145, 3, 458741, 262145, 3, 458740, 262145, 3, 458739, 262145, 3, 458738, 262145, 3, 458737, 262145, 3, 458736, 262145, 3, 458735, 262145, 3, 458749, 262145, 3, 458750, 262145, 3, 458751, 262145, 3, 393216, 262145, 3, 393217, 262145, 3, 393218, 262145, 3, 393219, 262145, 3, 393220, 262145, 3, 393221, 262145, 3, 393222, 262145, 3, 393223, 262145, 3, 393224, 262145, 3, 458760, 262145, 3, 458759, 262145, 3, 458758, 262145, 3, 458757, 262145, 3, 458756, 262145, 3, 458755, 262145, 3, 458754, 262145, 3, 458753, 262145, 3, 458752, 262145, 3, 524287, 262145, 3, 524286, 262145, 3, 524285, 262145, 3, 327689, 393217, 2, 393225, 393217, 3, 458761, 393217, 3, 524297, 327681, 2, 524298, 196609, 1, 524299, 196609, 1, 524300, 196609, 1, 524301, 196609, 1, 524302, 196609, 1, 524303, 393217, 2, 720913, 327681, 2, 720914, 196609, 1, 720915, 196609, 1, 720916, 196609, 1, 720917, 196609, 1, 720918, 196609, 1, 720919, 196609, 1, 720920, 262145, 3, 655384, 65537, 3, 589848, 65537, 3, 524312, 65537, 3, 589839, 327681, 2, 589840, 393217, 2, 655376, 327681, 2, 655377, 393217, 2, 131059, 655361, 3, 131058, 589825, 3, 131057, 524289, 3, 196606, 524289, 3, 196607, 589825, 3, 131072, 655361, 3, 458771, 655361, 3, 458770, 524289, 3, 458776, 131073, 1, 458773, 524289, 1, 458777, 196609, 1, 458778, 196609, 1, 458779, 196609, 1, 458780, 196609, 1, 458781, 196609, 1, 458782, 196609, 1, 458783, 196609, 1, 458784, 196609, 1, 458785, 196609, 1, 458786, 196609, 1, -65510, 196609, 1, -65509, 196609, 1, -65508, 196609, 1, -65507, 196609, 1, -65506, 196609, 1, -65505, 196609, 1, -65504, 196609, 1, -65503, 196609, 1, -65502, 196609, 1, -65501, 196609, 1, -65512, 131073, 1, -65511, 196609, 1, 24, 262145, 3, 25, 262145, 3, 26, 262145, 3, 27, 262145, 3, 28, 262145, 3, 29, 262145, 3, 30, 262145, 3, 31, 262145, 3, 32, 262145, 3, 33, 262145, 3, 34, 262145, 3, 35, 262145, 3, 65571, 262145, 3, 131107, 262145, 3, 196642, 262145, 3, 262178, 262145, 3, 262179, 262145, 3, 327715, 262145, 3, 196643, 262145, 3, 393251, 262145, 3, 393250, 262145, 3, 393249, 262145, 3, 393248, 262145, 3, 393247, 262145, 3, 393246, 262145, 3, 393245, 262145, 3, 393244, 262145, 3, 393243, 262145, 3, 393242, 262145, 3, 393241, 262145, 3, 393240, 262145, 3, 327704, 262145, 3, 262168, 262145, 3, 196632, 262145, 3, 131096, 262145, 3, 65560, 262145, 3, 262169, 262145, 3, 327705, 262145, 3, 196633, 262145, 3, 131097, 262145, 3, 65561, 262145, 3, 65562, 262145, 3, 262170, 262145, 3, 131098, 262145, 3, 196634, 262145, 3, 262171, 262145, 3, 262172, 262145, 3, 196637, 262145, 3, 131102, 262145, 3, 65567, 262145, 3, 65568, 262145, 3, 65566, 262145, 3, 131101, 262145, 3, 131100, 262145, 3, 131099, 262145, 3, 65565, 262145, 3, 65564, 262145, 3, 65563, 262145, 3, 131103, 262145, 3, 131104, 262145, 3, 196635, 262145, 3, 196636, 262145, 3, 327707, 262145, 3, 327708, 262145, 3, 327709, 262145, 3, 327710, 262145, 3, 327711, 262145, 3, 327712, 262145, 3, 327713, 262145, 3, 327714, 262145, 3, 327706, 262145, 3, 262173, 262145, 3, 262174, 262145, 3, 196638, 262145, 3, 196639, 262145, 3, 262175, 262145, 3, 262176, 262145, 3, 196641, 262145, 3, 196640, 262145, 3, 131105, 262145, 3, 65569, 262145, 3, 65570, 262145, 3, 131106, 262145, 3, 262177, 262145, 3, 524313, 262145, 3, 524314, 262145, 3, 524315, 262145, 3, 524316, 262145, 3, 524317, 262145, 3, 524318, 262145, 3, 524319, 262145, 3, 524320, 262145, 3, 524321, 262145, 3, 524322, 262145, 3, 589858, 262145, 3, 655394, 262145, 3, 655393, 262145, 3, 655392, 262145, 3, 589856, 262145, 3, 589855, 262145, 3, 589854, 262145, 3, 589853, 262145, 3, 589852, 262145, 3, 589851, 262145, 3, 589850, 262145, 3, 589849, 262145, 3, 655385, 262145, 3, 655386, 262145, 3, 655387, 262145, 3, 655388, 262145, 3, 655389, 262145, 3, 655390, 262145, 3, 655391, 262145, 3, 589857, 262145, 3, 720929, 262145, 3, 786465, 262145, 3, 786466, 262145, 3, 786467, 262145, 3, 720931, 262145, 3, 720930, 262145, 3, 720928, 262145, 3, 720927, 262145, 3, 720926, 262145, 3, 720925, 262145, 3, 786460, 262145, 3, 786461, 262145, 3, 786462, 262145, 3, 786463, 262145, 3, 786468, 262145, 3, 786464, 262145, 3, 720923, 262145, 3, 720924, 262145, 3, 786459, 262145, 3, 786458, 262145, 3, 786457, 262145, 3, 720922, 262145, 3, 720921, 262145, 3, 786456, 262145, 3, 786455, 262145, 3, 786454, 262145, 3, 786453, 262145, 3, 786452, 262145, 3, 786451, 262145, 3, 786450, 262145, 3, 786449, 262145, 3, 786448, 262145, 3, 786447, 262145, 3, 720911, 262145, 3, 720912, 262145, 3, 655375, 262145, 3, 655374, 262145, 3, 589837, 262145, 3, 589836, 262145, 3, 589838, 262145, 3, 589835, 262145, 3, 589834, 262145, 3, 589833, 262145, 3, 589832, 262145, 3, 655369, 262145, 3, 655370, 262145, 3, 655371, 262145, 3, 720907, 262145, 3, 720908, 262145, 3, 720909, 262145, 3, 655373, 262145, 3, 655372, 262145, 3, 786443, 262145, 3, 786444, 262145, 3, 851980, 262145, 3, 851981, 262145, 3, 786445, 262145, 3, 786446, 262145, 3, 851982, 262145, 3, 720910, 262145, 3, 458787, 196609, 1, 458788, 196609, 1, 458789, 196609, 1, 524326, 393217, 3, 589862, 393217, 3, 655398, 327681, 2, 655399, 196609, 1, 655400, 196609, 1, 655401, 196609, 1, 655402, 196609, 1, 655403, 196609, 1, 655404, 131073, 2, 589868, 65537, 3, 524332, 65537, 3, 458797, 196609, 1, 458799, 196609, 1, 458798, 196609, 1, 458800, 196609, 1, 458801, 196609, 1, 524333, 262145, 3, 524334, 262145, 3, 524335, 262145, 3, 524337, 262145, 3, 589873, 262145, 3, 589872, 262145, 3, 589871, 262145, 3, 589870, 262145, 3, 589869, 262145, 3, 655405, 262145, 3, 655406, 262145, 3, 655407, 262145, 3, 655408, 262145, 3, 655409, 262145, 3, 720945, 262145, 3, 720944, 262145, 3, 720943, 262145, 3, 720942, 262145, 3, 720941, 262145, 3, 720940, 262145, 3, 720939, 262145, 3, 720938, 262145, 3, 720937, 262145, 3, 720936, 262145, 3, 655397, 262145, 3, 720933, 262145, 3, 720932, 262145, 3, 720934, 262145, 3, 720935, 262145, 3, 655395, 262145, 3, 589859, 262145, 3, 524323, 262145, 3, 524324, 262145, 3, 589860, 262145, 3, 589861, 262145, 3, 524325, 262145, 3, 655396, 262145, 3, 458802, 327681, 1, 524338, 393217, 3, 589874, 327681, 2, 589875, 196609, 1, 589876, 196609, 1, 589877, 196609, 1, 589878, 196609, 1, 589879, 196609, 1, 589880, 131073, 2, 655410, 262145, 3, 655411, 262145, 3, 655412, 262145, 3, 655413, 262145, 3, 655414, 262145, 3, 655415, 262145, 3, 655416, 262145, 3, 720952, 262145, 3, 720951, 262145, 3, 720950, 262145, 3, 720949, 262145, 3, 720948, 262145, 3, 720947, 262145, 3, 720946, 262145, 3, 524344, 65537, 3, 458808, 131073, 1, 458809, 196609, 1, 458810, 196609, 1, 458811, 196609, 1, 458812, 196609, 1, 458813, 196609, 1, 458814, 327681, 1, 524350, 393217, 3, 589886, 393217, 3, 655422, 393217, 3, 720958, 393217, 3, 524345, 262145, 3, 524346, 262145, 3, 524347, 262145, 3, 524348, 262145, 3, 524349, 262145, 3, 589885, 262145, 3, 589884, 262145, 3, 655420, 262145, 3, 655419, 262145, 3, 655418, 262145, 3, 589882, 262145, 3, 589881, 262145, 3, 655417, 262145, 3, 589883, 262145, 3, 655421, 262145, 3, 720957, 262145, 3, 720956, 262145, 3, 720955, 262145, 3, 720954, 262145, 3, 720953, 262145, 3, 524336, 262145, 3, 458790, 196609, 1, 458791, 196609, 1, 458792, 196609, 1, 458793, 196609, 1, 458794, 196609, 1, 458795, 196609, 1, 458796, 196609, 1)
 
-[node name="DamageElements" type="TileMap" parent="."]
+[node name="DamageElements" type="TileMap" parent="." unique_id=626631027]
 tile_set = SubResource("TileSet_erjec")
 format = 2
 layer_0/tile_data = PackedInt32Array(589863, 0, 1, 524327, 0, 0, 589864, 65536, 1, 524328, 65536, 0, 589865, 0, 1, 589866, 65536, 1, 524329, 0, 0, 524330, 65536, 0, 589867, 0, 1, 524331, 0, 0, 524339, 2, 0, 524340, 65538, 0, 524341, 2, 0, 524342, 65538, 0, 524343, 196610, 0)
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Enemies" type="Node2D" parent="." unique_id=692286662]
 
-[node name="EnemySlime" parent="Enemies" instance=ExtResource("8_c5ax6")]
+[node name="EnemySlime" parent="Enemies" unique_id=217302782 instance=ExtResource("8_c5ax6")]
 position = Vector2(-224, 11)
 
-[node name="EnemyCrab" parent="Enemies" instance=ExtResource("18_i0miu")]
+[node name="EnemyCrab" parent="Enemies" unique_id=713718949 instance=ExtResource("18_i0miu")]
 position = Vector2(87, 69)
 
-[node name="EnemyBearBrown" parent="Enemies" instance=ExtResource("19_6bfml")]
+[node name="EnemyBearBrown" parent="Enemies" unique_id=383525725 instance=ExtResource("19_6bfml")]
 position = Vector2(112, 74)
 
-[node name="EnemyWhiteBear" parent="Enemies" instance=ExtResource("20_0g4ye")]
+[node name="EnemyWhiteBear" parent="Enemies" unique_id=783573968 instance=ExtResource("20_0g4ye")]
 position = Vector2(139, 72)
 
-[node name="EnemyBat" parent="Enemies" instance=ExtResource("21_soh27")]
+[node name="EnemyBat" parent="Enemies" unique_id=10642584 instance=ExtResource("21_soh27")]
 position = Vector2(320, 140)
 
-[node name="EnemyBird" parent="Enemies" instance=ExtResource("22_733rx")]
+[node name="EnemyBird" parent="Enemies" unique_id=1307099449 instance=ExtResource("22_733rx")]
 position = Vector2(264, 45)
 
-[node name="EnemySnake" parent="Enemies" instance=ExtResource("23_kmsc6")]
+[node name="EnemySnake" parent="Enemies" unique_id=1210281433 instance=ExtResource("23_kmsc6")]
 position = Vector2(38, 72)
 
-[node name="EnemyPenguin" parent="Enemies" instance=ExtResource("16_bbo1y")]
+[node name="EnemyPenguin" parent="Enemies" unique_id=1763841843 instance=ExtResource("16_bbo1y")]
 position = Vector2(53, 73)
 
-[node name="EnemyFireBall" parent="Enemies" instance=ExtResource("25_t5jks")]
+[node name="EnemyFireBall" parent="Enemies" unique_id=979698207 instance=ExtResource("25_t5jks")]
 position = Vector2(42, 15)
 
-[node name="EnemySpike" parent="Enemies" instance=ExtResource("26_6lcgy")]
+[node name="EnemySpike" parent="Enemies" unique_id=263813595 instance=ExtResource("26_6lcgy")]
 position = Vector2(229, 97)
 
-[node name="EnemyCactus" parent="Enemies" instance=ExtResource("29_x0by6")]
+[node name="EnemyCactus" parent="Enemies" unique_id=1031111760 instance=ExtResource("29_x0by6")]
 position = Vector2(634, 105)
 
-[node name="Checkpoint" parent="." instance=ExtResource("31_a7gbq")]
+[node name="Checkpoint" parent="." unique_id=859092923 instance=ExtResource("31_a7gbq")]
 position = Vector2(-20, 16)
 
-[node name="Checkpoint1" parent="." instance=ExtResource("31_a7gbq")]
+[node name="Checkpoint1" parent="." unique_id=448862898 instance=ExtResource("31_a7gbq")]
 position = Vector2(571, 96)
 
-[node name="Checkpoint2" parent="." instance=ExtResource("31_a7gbq")]
+[node name="Checkpoint2" parent="." unique_id=1274864609 instance=ExtResource("31_a7gbq")]
 position = Vector2(770, 96)
 
-[node name="Life" parent="." instance=ExtResource("32_js7k4")]
+[node name="Life" parent="." unique_id=333845484 instance=ExtResource("32_js7k4")]
 position = Vector2(451, 100)
 
-[node name="areas" type="Node2D" parent="."]
+[node name="areas" type="Node2D" parent="." unique_id=81113764]
 
-[node name="PlayerRespawnArea" type="Area2D" parent="areas"]
+[node name="PlayerRespawnArea" type="Area2D" parent="areas" unique_id=1065698213]
 script = ExtResource("17_dhrl2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/PlayerRespawnArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/PlayerRespawnArea" unique_id=997511978]
 position = Vector2(663, 152)
 shape = SubResource("RectangleShape2D_i0miu")
 
-[node name="PlayerRespawnArea2" type="Area2D" parent="areas"]
+[node name="PlayerRespawnArea2" type="Area2D" parent="areas" unique_id=1619707901]
 script = ExtResource("17_dhrl2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/PlayerRespawnArea2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/PlayerRespawnArea2" unique_id=1263225007]
 position = Vector2(854, 137)
 shape = SubResource("RectangleShape2D_i0miu")
 
-[node name="EnemiesDeathZone" type="Area2D" parent="areas"]
+[node name="EnemiesDeathZone" type="Area2D" parent="areas" unique_id=1323972391]
 script = ExtResource("29_gfwg5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/EnemiesDeathZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/EnemiesDeathZone" unique_id=455071289]
 position = Vector2(-113, 69)
 shape = SubResource("RectangleShape2D_a7gbq")
 
-[node name="EnemiesRespawn" type="Area2D" parent="areas"]
+[node name="EnemiesRespawn" type="Area2D" parent="areas" unique_id=641428528]
 position = Vector2(-100, 16)
 script = ExtResource("29_nr7vh")
 
-[node name="Coin" parent="areas/EnemiesRespawn" instance=ExtResource("9_tc1nb")]
+[node name="Coin" parent="areas/EnemiesRespawn" unique_id=850715209 instance=ExtResource("9_tc1nb")]
 position = Vector2(503, 80)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/EnemiesRespawn"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/EnemiesRespawn" unique_id=1413937624]
 position = Vector2(-106, 69)
 shape = SubResource("RectangleShape2D_6lcgy")
 
-[node name="Player launching" type="Area2D" parent="areas"]
+[node name="Player launching" type="Area2D" parent="areas" unique_id=973440714]
 position = Vector2(855, 141)
 script = ExtResource("36_q52te")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/Player launching"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/Player launching" unique_id=925497061]
 position = Vector2(-327, 7)
 shape = SubResource("RectangleShape2D_j73q4")
 
-[node name="Portal" type="Area2D" parent="areas"]
+[node name="Portal" type="Area2D" parent="areas" unique_id=1614407208]
 script = ExtResource("40_ftqh6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/Portal"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/Portal" unique_id=511829240]
 position = Vector2(613, -239)
 shape = SubResource("RectangleShape2D_2uyjv")
 
-[node name="Envorment" type="Node2D" parent="."]
+[node name="Envorment" type="Node2D" parent="." unique_id=1554367382]
 
-[node name="Saw" parent="Envorment" instance=ExtResource("5_q6blv")]
+[node name="Saw" parent="Envorment" unique_id=1484907775 instance=ExtResource("5_q6blv")]
 position = Vector2(182, -12)
 
-[node name="spikes" parent="Envorment" instance=ExtResource("7_y2jso")]
+[node name="spikes" parent="Envorment" unique_id=974841011 instance=ExtResource("7_y2jso")]
 position = Vector2(22, 70)
 
-[node name="FireBig" parent="Envorment" instance=ExtResource("24_ajhoy")]
+[node name="FireBig" parent="Envorment" unique_id=313595307 instance=ExtResource("24_ajhoy")]
 position = Vector2(73, -194)
 
-[node name="fire" parent="Envorment" instance=ExtResource("25_68bto")]
+[node name="fire" parent="Envorment" unique_id=1390858216 instance=ExtResource("25_68bto")]
 position = Vector2(141, 75)
 
-[node name="BouncePad" parent="Envorment" instance=ExtResource("37_vvdtb")]
+[node name="BouncePad" parent="Envorment" unique_id=614027817 instance=ExtResource("37_vvdtb")]
 position = Vector2(542, 107)
 
-[node name="Player" parent="." instance=ExtResource("2_q6blv")]
+[node name="Player" parent="." unique_id=509898366 instance=ExtResource("2_q6blv")]
 position = Vector2(500, 107)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1651440980]
 zoom = Vector2(4, 4)
 
-[node name="PlayerUI" type="Control" parent="Player/Camera2D"]
+[node name="PlayerUI" type="Control" parent="Player/Camera2D" unique_id=1893177873]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 0
@@ -647,20 +647,20 @@ offset_right = 144.0
 offset_bottom = 80.0
 script = ExtResource("3_h2vbp")
 
-[node name="PlayingInterface" type="Panel" parent="Player/Camera2D/PlayerUI"]
+[node name="PlayingInterface" type="Panel" parent="Player/Camera2D/PlayerUI" unique_id=280622754]
 layout_mode = 0
 offset_right = 288.0
 offset_bottom = 163.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ftqh6")
 
-[node name="Score" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface"]
+[node name="Score" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface" unique_id=1798018228]
 layout_mode = 0
 offset_left = 81.0
 offset_right = 188.0
 offset_bottom = 30.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_2uyjv")
 
-[node name="count" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score"]
+[node name="count" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score" unique_id=592248785]
 layout_mode = 0
 offset_left = 63.0
 offset_top = 1.0
@@ -672,13 +672,13 @@ theme_override_font_sizes/font_size = 20
 text = "/"
 uppercase = true
 
-[node name="coinIcon" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score"]
+[node name="coinIcon" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score" unique_id=1618509530]
 position = Vector2(21, 14)
 scale = Vector2(2, 2)
 texture = ExtResource("4_y2jso")
 hframes = 8
 
-[node name="coinsNumber" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score"]
+[node name="coinsNumber" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score" unique_id=800716249]
 layout_mode = 0
 offset_left = 36.0
 offset_top = -1.0
@@ -689,7 +689,7 @@ theme_override_fonts/font = ExtResource("37_2uyjv")
 theme_override_font_sizes/font_size = 20
 text = "00"
 
-[node name="target" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score"]
+[node name="target" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Score" unique_id=1456612226]
 layout_mode = 0
 offset_left = 76.0
 offset_top = -1.0
@@ -700,13 +700,13 @@ theme_override_fonts/font = ExtResource("37_2uyjv")
 theme_override_font_sizes/font_size = 20
 text = "00"
 
-[node name="Lifes" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface"]
+[node name="Lifes" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface" unique_id=1083814682]
 layout_mode = 0
 offset_right = 71.0
 offset_bottom = 30.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_u0lyl")
 
-[node name="Simbol" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Lifes"]
+[node name="Simbol" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Lifes" unique_id=677901910]
 layout_mode = 0
 offset_left = 36.0
 offset_top = 3.0
@@ -718,7 +718,7 @@ theme_override_font_sizes/font_size = 15
 text = "X"
 uppercase = true
 
-[node name="coinIcon" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Lifes"]
+[node name="coinIcon" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Lifes" unique_id=894155113]
 position = Vector2(20, 9)
 scale = Vector2(2, 2)
 texture = ExtResource("10_bwjpn")
@@ -727,7 +727,7 @@ hframes = 5
 vframes = 2
 frame = 3
 
-[node name="LifesNumber" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Lifes"]
+[node name="LifesNumber" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/Lifes" unique_id=1823047144]
 layout_mode = 0
 offset_left = 50.0
 offset_top = -5.0
@@ -738,35 +738,35 @@ theme_override_fonts/font = ExtResource("37_2uyjv")
 theme_override_font_sizes/font_size = 25
 text = "5"
 
-[node name="Damage" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface"]
+[node name="Damage" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface" unique_id=2053627539]
 layout_mode = 0
 offset_left = 197.0
 offset_right = 288.0
 offset_bottom = 30.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_2uyjv")
 
-[node name="heartIcon" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Damage"]
+[node name="heartIcon" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Damage" unique_id=1450118660]
 position = Vector2(20, 14)
 scale = Vector2(1.625, 1.625)
 texture = ExtResource("11_ibmi3")
 hframes = 4
 frame = 1
 
-[node name="heartIcon2" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Damage"]
+[node name="heartIcon2" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Damage" unique_id=10255237]
 position = Vector2(45, 14)
 scale = Vector2(1.625, 1.625)
 texture = ExtResource("11_ibmi3")
 hframes = 4
 frame = 1
 
-[node name="heartIcon3" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Damage"]
+[node name="heartIcon3" type="Sprite2D" parent="Player/Camera2D/PlayerUI/PlayingInterface/Damage" unique_id=1209488190]
 position = Vector2(70, 14)
 scale = Vector2(1.625, 1.625)
 texture = ExtResource("11_ibmi3")
 hframes = 4
 frame = 1
 
-[node name="PauseMenu" type="Panel" parent="Player/Camera2D/PlayerUI"]
+[node name="PauseMenu" type="Panel" parent="Player/Camera2D/PlayerUI" unique_id=1189808872]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -781,7 +781,7 @@ offset_bottom = 81.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="Player/Camera2D/PlayerUI/PauseMenu"]
+[node name="Panel" type="Panel" parent="Player/Camera2D/PlayerUI/PauseMenu" unique_id=2078581412]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -796,7 +796,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5e0p3")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel" unique_id=478218395]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -813,7 +813,7 @@ grow_vertical = 2
 theme = SubResource("Theme_yxs10")
 theme_override_constants/separation = 5
 
-[node name="Message" type="Label" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer"]
+[node name="Message" type="Label" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer" unique_id=1751735578]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.317647, 0.494118, 0.984314, 1)
 theme_override_fonts/font = ExtResource("41_u0lyl")
@@ -822,7 +822,7 @@ text = "Pausa"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="Continue" type="Button" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer"]
+[node name="Continue" type="Button" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer" unique_id=1576817582]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
@@ -836,7 +836,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_lsjmf")
 action_mode = 0
 text = "Continuar"
 
-[node name="MainMenu" type="Button" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer"]
+[node name="MainMenu" type="Button" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer" unique_id=1222191113]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
@@ -851,7 +851,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_lsjmf")
 action_mode = 0
 text = "Menú"
 
-[node name="ResetLevel" type="Button" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer"]
+[node name="ResetLevel" type="Button" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer" unique_id=269976235]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
@@ -866,7 +866,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_lsjmf")
 action_mode = 0
 text = "Reiniciar nivel"
 
-[node name="Exit" type="Button" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer"]
+[node name="Exit" type="Button" parent="Player/Camera2D/PlayerUI/PauseMenu/Panel/VBoxContainer" unique_id=413602661]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
@@ -881,8 +881,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_lsjmf")
 action_mode = 0
 text = "Salir"
 
-[node name="WinMenu" type="Panel" parent="Player/Camera2D/PlayerUI"]
-visible = false
+[node name="WinMenu" type="Panel" parent="Player/Camera2D/PlayerUI" unique_id=2009510205]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -896,7 +895,7 @@ offset_bottom = 81.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="Player/Camera2D/PlayerUI/WinMenu"]
+[node name="Panel" type="Panel" parent="Player/Camera2D/PlayerUI/WinMenu" unique_id=811900211]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -911,7 +910,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5e0p3")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/PlayerUI/WinMenu/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/PlayerUI/WinMenu/Panel" unique_id=1716743729]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -928,7 +927,7 @@ grow_vertical = 2
 theme = SubResource("Theme_yxs10")
 theme_override_constants/separation = 5
 
-[node name="Message" type="Label" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer"]
+[node name="Message" type="Label" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer" unique_id=1460351281]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.317647, 0.494118, 0.984314, 1)
 theme_override_fonts/font = ExtResource("41_u0lyl")
@@ -937,13 +936,14 @@ text = "Nivel superado!"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer" unique_id=819636752]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="NextLevel" type="Button" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/HBoxContainer"]
+[node name="NextLevel" type="Button" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/HBoxContainer" unique_id=1474663131]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_disabled_color = Color(0.34902, 0.0980392, 0.894118, 1)
@@ -957,7 +957,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_lsjmf")
 action_mode = 0
 text = "   Siguiente nivel   "
 
-[node name="RepeatLevel" type="Button" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/HBoxContainer"]
+[node name="RepeatLevel" type="Button" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer/HBoxContainer" unique_id=1715930598]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
@@ -972,7 +972,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_lsjmf")
 action_mode = 0
 text = "   Repetir nivel   "
 
-[node name="MainMenu" type="Button" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer"]
+[node name="MainMenu" type="Button" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer" unique_id=348797685]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
@@ -987,7 +987,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_lsjmf")
 action_mode = 0
 text = "Menú principal"
 
-[node name="Exit" type="Button" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer"]
+[node name="Exit" type="Button" parent="Player/Camera2D/PlayerUI/WinMenu/Panel/VBoxContainer" unique_id=1708738278]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
@@ -1002,13 +1002,13 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_lsjmf")
 action_mode = 0
 text = "Salir"
 
-[node name="LooseMenu" type="Panel" parent="Player/Camera2D/PlayerUI"]
+[node name="LooseMenu" type="Panel" parent="Player/Camera2D/PlayerUI" unique_id=140876238]
 visible = false
 layout_mode = 0
 offset_right = 290.0
 offset_bottom = 162.0
 
-[node name="Panel" type="Panel" parent="Player/Camera2D/PlayerUI/LooseMenu"]
+[node name="Panel" type="Panel" parent="Player/Camera2D/PlayerUI/LooseMenu" unique_id=323776430]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1023,7 +1023,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5e0p3")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel" unique_id=26774535]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1039,7 +1039,7 @@ grow_vertical = 2
 theme = SubResource("Theme_yxs10")
 theme_override_constants/separation = 5
 
-[node name="Message" type="Label" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer"]
+[node name="Message" type="Label" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer" unique_id=732538753]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.317647, 0.494118, 0.984314, 1)
 theme_override_fonts/font = ExtResource("41_u0lyl")
@@ -1048,7 +1048,7 @@ text = "Perdiste!!!"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="ResetRun" type="Button" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer"]
+[node name="ResetRun" type="Button" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer" unique_id=2060724138]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
@@ -1063,7 +1063,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_lsjmf")
 action_mode = 0
 text = "Volver a intentar"
 
-[node name="MainMenu" type="Button" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer"]
+[node name="MainMenu" type="Button" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer" unique_id=1753039069]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
@@ -1078,7 +1078,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_lsjmf")
 action_mode = 0
 text = "Menú principal"
 
-[node name="Exit" type="Button" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer"]
+[node name="Exit" type="Button" parent="Player/Camera2D/PlayerUI/LooseMenu/Panel/VBoxContainer" unique_id=460810343]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.28627452, 0.8, 0.8, 1)
 theme_override_colors/font_hover_color = Color(0.28627452, 0.8, 0.8, 1)
@@ -1093,22 +1093,22 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_lsjmf")
 action_mode = 0
 text = "Salir"
 
-[node name="MenuMusic" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI" unique_id=683507837]
 stream = ExtResource("42_u0lyl")
 
-[node name="LevelMusic" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI" unique_id=365039626]
 stream = ExtResource("43_u0lyl")
 
-[node name="LevelSuccess" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
+[node name="LevelSuccess" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI" unique_id=2011779101]
 stream = ExtResource("44_yxs10")
 
-[node name="LevelFailed" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
+[node name="LevelFailed" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI" unique_id=77230105]
 stream = ExtResource("45_fl1vo")
 
-[node name="MenuMovement" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
+[node name="MenuMovement" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI" unique_id=1975319761]
 stream = ExtResource("20_5e0p3")
 
-[node name="MenuSelect" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI"]
+[node name="MenuSelect" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI" unique_id=1730443105]
 stream = ExtResource("21_yxs10")
 
 [connection signal="body_entered" from="areas/PlayerRespawnArea" to="areas/PlayerRespawnArea" method="_on_body_entered"]
