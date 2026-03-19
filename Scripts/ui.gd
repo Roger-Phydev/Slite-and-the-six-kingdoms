@@ -22,7 +22,12 @@ var pause = true;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GameMaster.hero_mode = true;
+	# Level info set:
+	$PlayingInterface/LevelInfo/Info.text = "Mundo "+str(GameMaster.world)+" - Nivel "+str(GameMaster.level);
+	if GameMaster.hero_mode:
+		$PlayingInterface/LevelInfo.size = Vector2(230.0,30.0);
+		$PlayingInterface/LevelInfo.position = Vector2(29,132.0);
+		$PlayingInterface/LevelInfo/Info.text += " (Héroe)"
 	# getting and setting the coins number for the actual level
 	if GameMaster.coins[GameMaster.world-1][GameMaster.level-1] < 10: #9 or less coins
 			target_coins.text = "0" + str(GameMaster.coins[GameMaster.world-1][GameMaster.level-1]);
@@ -169,7 +174,10 @@ func _process(delta: float) -> void:
 		get_tree().paused = true;
 		playing_interface.visible = false;
 		loose_menu.visible = true;
-		$LevelMusic.stop();
+		if GameMaster.hero_mode:
+			$LevelMusicHero.stop();
+		else:
+			$LevelMusic.stop();
 		$LevelFailed.play();
 		GameMaster.loose = false;
 		menu_cursor = Vector2(0,0);
@@ -178,6 +186,7 @@ func _process(delta: float) -> void:
 			[$LooseMenu/Panel/VBoxContainer/MainMenu],
 			[$LooseMenu/Panel/VBoxContainer/Exit]
 		];
+		button_enabled = true;
 	######################################
 	# Navigation for the menus
 	######################################

@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://bmgfdcevh30jk" path="res://Scripts/respawn_area.gd" id="14_5dl71"]
 [ext_resource type="Texture2D" uid="uid://b2ug3ea1oofx2" path="res://Assets/Deco/sun.png" id="14_h60ev"]
 [ext_resource type="FontFile" uid="uid://c24jqdbskikfa" path="res://Assets/Fonts/text game/junegull.ttf" id="17_nd4jj"]
+[ext_resource type="PackedScene" uid="uid://bncc15h4yxs0n" path="res://Scenes/enviromental/life.tscn" id="18_78sw6"]
 [ext_resource type="AudioStream" uid="uid://chmwu7wqg7v1u" path="res://MusicAndSounds/Music/ebunny-medieval-castle-loop-366828(menu).mp3" id="18_ft6eq"]
 [ext_resource type="AudioStream" uid="uid://lw6x2vve5sob" path="res://MusicAndSounds/SFX/menu_movement.ogg" id="18_jg4wk"]
 [ext_resource type="AudioStream" uid="uid://5pp6t33a1oun" path="res://MusicAndSounds/SFX/menu_select.ogg" id="19_gof1d"]
@@ -95,6 +96,11 @@ corner_radius_bottom_left = 10
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inkvu"]
 bg_color = Color(0.298039, 0.639216, 0.827451, 0.647059)
 corner_radius_bottom_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5760e"]
+bg_color = Color(0.298039, 0.639216, 0.827451, 0.647059)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k1xxn"]
 bg_color = Color(0.13725491, 0.78039217, 0.47058824, 1)
@@ -534,6 +540,9 @@ shape = SubResource("RectangleShape2D_pvkea")
 
 [node name="lifes" type="Node2D" parent="." unique_id=1107802816]
 
+[node name="Life" parent="lifes" unique_id=378058841 instance=ExtResource("18_78sw6")]
+position = Vector2(232, 64)
+
 [node name="Enemies" type="Node2D" parent="." unique_id=352988404]
 
 [node name="Player" parent="." unique_id=225419181 instance=ExtResource("1_xrahw")]
@@ -670,6 +679,42 @@ scale = Vector2(1.625, 1.625)
 texture = ExtResource("13_b0bwa")
 hframes = 4
 frame = 1
+
+[node name="LevelInfo" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface" unique_id=1754096868]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -31.0
+offset_right = 90.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5760e")
+
+[node name="Info" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/LevelInfo" unique_id=569860378]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -19.5
+offset_right = 89.0
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.776471, 0.184314, 0, 1)
+theme_override_fonts/font = ExtResource("17_nd4jj")
+theme_override_font_sizes/font_size = 20
+text = "Mundo 6 - nivel 6"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PauseMenu" type="Panel" parent="Player/Camera2D/PlayerUI" unique_id=1685353019]
 visible = false

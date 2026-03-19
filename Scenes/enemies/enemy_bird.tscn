@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjalxi1om0jvj"]
+[gd_scene format=3 uid="uid://bjalxi1om0jvj"]
 
 [ext_resource type="Script" uid="uid://cim5o2s45sta7" path="res://Scripts/enemy_flying.gd" id="1_q7byh"]
 [ext_resource type="Texture2D" uid="uid://cr6tnlvt4xyki" path="res://Assets/Enemies/bird.png" id="2_0lqef"]
@@ -8,7 +8,7 @@
 size = Vector2(19, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cl4ys"]
-size = Vector2(17, 12)
+size = Vector2(15, 10)
 
 [sub_resource type="Animation" id="Animation_0lqef"]
 length = 0.001
@@ -57,54 +57,52 @@ radius = 97.0824
 [sub_resource type="CircleShape2D" id="CircleShape2D_tfrcd"]
 radius = 39.0128
 
-[node name="EnemyBird" type="CharacterBody2D"]
+[node name="EnemyBird" type="CharacterBody2D" unique_id=871712845]
 script = ExtResource("1_q7byh")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1347484955]
 texture = ExtResource("2_0lqef")
 hframes = 4
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1218046328]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1119926007]
 position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_tfrcd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1946884045]
 position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_cl4ys")
 
-[node name="WallDetection" type="RayCast2D" parent="."]
+[node name="WallDetection" type="RayCast2D" parent="." unique_id=576463104]
 position = Vector2(2, 0)
 rotation = 1.5708
 target_position = Vector2(4.70599e-05, 13)
 collision_mask = 4
 collide_with_areas = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_tfrcd")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2085919179]
+libraries/ = SubResource("AnimationLibrary_tfrcd")
 
-[node name="LowVolumeSound" type="Area2D" parent="."]
+[node name="LowVolumeSound" type="Area2D" parent="." unique_id=1216980946]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LowVolumeSound"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowVolumeSound" unique_id=394341460]
 shape = SubResource("CircleShape2D_q7byh")
 
-[node name="MediumVolumeSound" type="Area2D" parent="."]
+[node name="MediumVolumeSound" type="Area2D" parent="." unique_id=505821962]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MediumVolumeSound"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MediumVolumeSound" unique_id=547846604]
 shape = SubResource("CircleShape2D_0lqef")
 
-[node name="FullVolumeSound" type="Area2D" parent="."]
+[node name="FullVolumeSound" type="Area2D" parent="." unique_id=1928436840]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FullVolumeSound"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FullVolumeSound" unique_id=2791188]
 shape = SubResource("CircleShape2D_tfrcd")
 
-[node name="Moving" type="AudioStreamPlayer2D" parent="."]
+[node name="Moving" type="AudioStreamPlayer2D" parent="." unique_id=1154988272]
 stream = ExtResource("3_0lqef")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

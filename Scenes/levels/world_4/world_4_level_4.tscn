@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://b2ug3ea1oofx2" path="res://Assets/Deco/sun.png" id="16_t0nb5"]
 [ext_resource type="Texture2D" uid="uid://cjpmfu8ep7e46" path="res://Assets/Deco/clouds.png" id="17_rqfdi"]
 [ext_resource type="Texture2D" uid="uid://dr7qacmv3jkrq" path="res://Assets/Objects/crate.png" id="18_xms4x"]
+[ext_resource type="PackedScene" uid="uid://bncc15h4yxs0n" path="res://Scenes/enviromental/life.tscn" id="20_pyono"]
 [ext_resource type="Texture2D" uid="uid://dl75rsniaox40" path="res://Assets/Objects/sign_arrow.png" id="21_e2m7f"]
 [ext_resource type="PackedScene" uid="uid://dme5bjcso6b0n" path="res://Scenes/enviromental/coin.tscn" id="22_3mj46"]
 [ext_resource type="PackedScene" uid="uid://bbdfa4fyruco7" path="res://Scenes/enviromental/checkpoint.tscn" id="23_8cska"]
@@ -430,6 +431,11 @@ corner_radius_bottom_left = 10
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhw1v"]
 bg_color = Color(0.298039, 0.639216, 0.827451, 0.647059)
 corner_radius_bottom_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_patyj"]
+bg_color = Color(0.298039, 0.639216, 0.827451, 0.647059)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qbons"]
 bg_color = Color(0.13725491, 0.78039217, 0.47058824, 1)
@@ -947,6 +953,12 @@ position = Vector2(-999, 499)
 
 [node name="lifes" type="Node2D" parent="." unique_id=536731038]
 
+[node name="Life" parent="lifes" unique_id=1529627927 instance=ExtResource("20_pyono")]
+position = Vector2(533, 145)
+
+[node name="Life2" parent="lifes" unique_id=275963574 instance=ExtResource("20_pyono")]
+position = Vector2(-316, 253)
+
 [node name="Checkpoints" type="Node2D" parent="." unique_id=810609775]
 
 [node name="Checkpoint" parent="Checkpoints" unique_id=751514606 instance=ExtResource("23_8cska")]
@@ -1170,6 +1182,42 @@ scale = Vector2(1.625, 1.625)
 texture = ExtResource("38_xhw1v")
 hframes = 4
 frame = 1
+
+[node name="LevelInfo" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface" unique_id=439098646]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -31.0
+offset_right = 90.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_patyj")
+
+[node name="Info" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/LevelInfo" unique_id=164129192]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -19.5
+offset_right = 89.0
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.776471, 0.184314, 0, 1)
+theme_override_fonts/font = ExtResource("33_h3dwl")
+theme_override_font_sizes/font_size = 20
+text = "Mundo 6 - nivel 6"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PauseMenu" type="Panel" parent="Player/Camera2D/PlayerUI" unique_id=903008223]
 visible = false

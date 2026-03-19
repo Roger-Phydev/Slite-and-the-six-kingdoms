@@ -422,6 +422,10 @@ func _on_credits_button_down() -> void:
 			buttons_enabled = false;
 			await get_tree().create_timer(0.5).timeout;
 			buttons_enabled = true;
+			if SaveManager.is_hero_game_completed():
+				GameMaster.hero_mode = true;
+			else:
+				GameMaster.hero_mode = false;
 			get_tree().change_scene_to_file("res://Scenes/credits.tscn"); #starts the credits
 ## Hero mode!:
 func _on_hero_mode_button_down() -> void:

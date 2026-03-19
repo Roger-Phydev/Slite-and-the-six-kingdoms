@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bwcrq8jgpr1ow" path="res://Assets/Deco/rock.png" id="11_oad2q"]
 [ext_resource type="Texture2D" uid="uid://dr7qacmv3jkrq" path="res://Assets/Objects/crate.png" id="14_ydcwl"]
 [ext_resource type="Texture2D" uid="uid://buckkd3ksfbbk" path="res://Assets/Objects/ladder.png" id="15_mga45"]
+[ext_resource type="PackedScene" uid="uid://bncc15h4yxs0n" path="res://Scenes/enviromental/life.tscn" id="16_oo1oo"]
 [ext_resource type="Texture2D" uid="uid://dl75rsniaox40" path="res://Assets/Objects/sign_arrow.png" id="17_wup1e"]
 [ext_resource type="PackedScene" uid="uid://dme5bjcso6b0n" path="res://Scenes/enviromental/coin.tscn" id="18_ks558"]
 [ext_resource type="PackedScene" uid="uid://bbdfa4fyruco7" path="res://Scenes/enviromental/checkpoint.tscn" id="19_nwf6n"]
@@ -425,6 +426,11 @@ corner_radius_bottom_left = 10
 bg_color = Color(0.298039, 0.639216, 0.827451, 0.647059)
 corner_radius_bottom_right = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmjx7"]
+bg_color = Color(0.298039, 0.639216, 0.827451, 0.647059)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8ua8"]
 bg_color = Color(0.13725491, 0.78039217, 0.47058824, 1)
 border_width_left = 4
@@ -746,6 +752,9 @@ position = Vector2(200, 384)
 
 [node name="lifes" type="Node2D" parent="." unique_id=674120869]
 
+[node name="Life" parent="lifes" unique_id=883558291 instance=ExtResource("16_oo1oo")]
+position = Vector2(456, 320)
+
 [node name="Checkpoints" type="Node2D" parent="." unique_id=1564401725]
 
 [node name="Checkpoint" parent="Checkpoints" unique_id=1106643105 instance=ExtResource("19_nwf6n")]
@@ -941,6 +950,42 @@ scale = Vector2(1.625, 1.625)
 texture = ExtResource("30_oo1oo")
 hframes = 4
 frame = 1
+
+[node name="LevelInfo" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface" unique_id=398364368]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -31.0
+offset_right = 90.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rmjx7")
+
+[node name="Info" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/LevelInfo" unique_id=2110289886]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -19.5
+offset_right = 89.0
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.776471, 0.184314, 0, 1)
+theme_override_fonts/font = ExtResource("27_uks0t")
+theme_override_font_sizes/font_size = 20
+text = "Mundo 6 - nivel 6"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PauseMenu" type="Panel" parent="Player/Camera2D/PlayerUI" unique_id=1366631193]
 visible = false

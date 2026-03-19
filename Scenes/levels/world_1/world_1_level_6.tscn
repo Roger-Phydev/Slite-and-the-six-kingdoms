@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://c0hjb8povdcib" path="res://Assets/Enemies/slime_red.png" id="16_eu05w"]
 [ext_resource type="Texture2D" uid="uid://cypwd8e3vfykh" path="res://Assets/UI/hearts.png" id="17_nenxo"]
 [ext_resource type="FontFile" uid="uid://c24jqdbskikfa" path="res://Assets/Fonts/text game/junegull.ttf" id="19_l2fae"]
+[ext_resource type="PackedScene" uid="uid://bncc15h4yxs0n" path="res://Scenes/enviromental/life.tscn" id="20_f7esj"]
 [ext_resource type="AudioStream" uid="uid://chmwu7wqg7v1u" path="res://MusicAndSounds/Music/ebunny-medieval-castle-loop-366828(menu).mp3" id="20_yf6ev"]
 [ext_resource type="AudioStream" uid="uid://ck3bln8scb5re" path="res://MusicAndSounds/Music/ebunny-naughty-princess-loop-366826(lworlds1-5).mp3" id="21_0uxfd"]
 [ext_resource type="AudioStream" uid="uid://da7uea7ysvw6w" path="res://MusicAndSounds/Music/ebunny-tavern-dance-loop-368862(win).mp3" id="22_81cw4"]
@@ -146,6 +147,11 @@ corner_radius_bottom_left = 10
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35ucm"]
 bg_color = Color(0.298039, 0.639216, 0.827451, 0.647059)
 corner_radius_bottom_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gp21m"]
+bg_color = Color(0.298039, 0.639216, 0.827451, 0.647059)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0y67"]
 bg_color = Color(0.13725491, 0.78039217, 0.47058824, 1)
@@ -613,6 +619,9 @@ shape = SubResource("RectangleShape2D_8mddg")
 
 [node name="lifes" type="Node2D" parent="." unique_id=2052012019]
 
+[node name="Life" parent="lifes" unique_id=1538040961 instance=ExtResource("20_f7esj")]
+position = Vector2(1040, 488)
+
 [node name="Enemies" type="Node2D" parent="." unique_id=207249889]
 
 [node name="Player" parent="." unique_id=1351405452 instance=ExtResource("1_ukv64")]
@@ -749,6 +758,42 @@ scale = Vector2(1.625, 1.625)
 texture = ExtResource("17_nenxo")
 hframes = 4
 frame = 1
+
+[node name="LevelInfo" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface" unique_id=2000227632]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -31.0
+offset_right = 90.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gp21m")
+
+[node name="Info" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/LevelInfo" unique_id=1711910200]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -19.5
+offset_right = 89.0
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.776471, 0.184314, 0, 1)
+theme_override_fonts/font = ExtResource("19_l2fae")
+theme_override_font_sizes/font_size = 20
+text = "Mundo 6 - nivel 6"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PauseMenu" type="Panel" parent="Player/Camera2D/PlayerUI" unique_id=821281749]
 visible = false

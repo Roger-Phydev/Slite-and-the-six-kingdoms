@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://biq2ohctus88u"]
+[gd_scene format=3 uid="uid://biq2ohctus88u"]
 
 [ext_resource type="Script" uid="uid://crwurt3jn7f4o" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://c0hjb8povdcib" path="res://Assets/Enemies/slime_red.png" id="1_v0iea"]
@@ -84,32 +84,30 @@ _data = {
 &"walk": SubResource("Animation_fkybt")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=805526293]
 script = ExtResource("1_cvnsp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_cvnsp")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=458082558]
 position = Vector2(0, -3)
 texture = ExtResource("1_v0iea")
 flip_h = true
 hframes = 5
 vframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_x3wgy")
-}
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1614436527]
+shape = SubResource("RectangleShape2D_cvnsp")
 
-[node name="JumpingSound" type="AudioStreamPlayer2D" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=61747496]
+libraries/ = SubResource("AnimationLibrary_x3wgy")
+
+[node name="JumpingSound" type="AudioStreamPlayer2D" parent="." unique_id=542767023]
 stream = ExtResource("4_3smsa")
 
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=1216616398]
 stream = ExtResource("4_x3wgy")
 
-[node name="RespawnSound" type="AudioStreamPlayer2D" parent="."]
+[node name="RespawnSound" type="AudioStreamPlayer2D" parent="." unique_id=1383835380]
 stream = ExtResource("6_f1ek2")
 
-[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+[node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=2031211381]
 stream = ExtResource("7_3smsa")

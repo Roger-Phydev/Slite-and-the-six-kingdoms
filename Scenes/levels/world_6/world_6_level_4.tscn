@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://doolstyl4i2s5" path="res://Assets/Deco/log_wall.png" id="14_v6juj"]
 [ext_resource type="Texture2D" uid="uid://c4n53rjwptjn6" path="res://Assets/Deco/tree_trunk.png" id="16_3oj18"]
 [ext_resource type="Texture2D" uid="uid://b2ug3ea1oofx2" path="res://Assets/Deco/sun.png" id="17_u0xiq"]
+[ext_resource type="PackedScene" uid="uid://bncc15h4yxs0n" path="res://Scenes/enviromental/life.tscn" id="18_a0k53"]
 [ext_resource type="Texture2D" uid="uid://dl75rsniaox40" path="res://Assets/Objects/sign_arrow.png" id="18_rnyqk"]
 [ext_resource type="Texture2D" uid="uid://co0p6o6cauwnj" path="res://Assets/Objects/brick_box.png" id="19_etp4b"]
 [ext_resource type="PackedScene" uid="uid://dme5bjcso6b0n" path="res://Scenes/enviromental/coin.tscn" id="20_l3jvr"]
@@ -491,6 +492,11 @@ corner_radius_bottom_left = 10
 bg_color = Color(0.298039, 0.639216, 0.827451, 0.647059)
 corner_radius_bottom_right = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_36r2s"]
+bg_color = Color(0.298039, 0.639216, 0.827451, 0.647059)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pag1a"]
 bg_color = Color(0.13725491, 0.78039217, 0.47058824, 1)
 border_width_left = 4
@@ -901,6 +907,18 @@ position = Vector2(1960, -88)
 
 [node name="lifes" type="Node2D" parent="." unique_id=609672865]
 
+[node name="Life" parent="lifes" unique_id=1288632232 instance=ExtResource("18_a0k53")]
+position = Vector2(248, -320)
+
+[node name="Life2" parent="lifes" unique_id=557191709 instance=ExtResource("18_a0k53")]
+position = Vector2(758, -215)
+
+[node name="Life3" parent="lifes" unique_id=1265740470 instance=ExtResource("18_a0k53")]
+position = Vector2(896, 102)
+
+[node name="Life4" parent="lifes" unique_id=964771037 instance=ExtResource("18_a0k53")]
+position = Vector2(1200, 165)
+
 [node name="Checkpoints" type="Node2D" parent="." unique_id=509055919]
 
 [node name="Checkpoint" parent="Checkpoints" unique_id=490017326 instance=ExtResource("21_3its1")]
@@ -1195,6 +1213,42 @@ scale = Vector2(1.625, 1.625)
 texture = ExtResource("37_v6juj")
 hframes = 4
 frame = 1
+
+[node name="LevelInfo" type="Panel" parent="Player/Camera2D/PlayerUI/PlayingInterface" unique_id=189780451]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -31.0
+offset_right = 90.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_36r2s")
+
+[node name="Info" type="Label" parent="Player/Camera2D/PlayerUI/PlayingInterface/LevelInfo" unique_id=60566134]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -19.5
+offset_right = 89.0
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.776471, 0.184314, 0, 1)
+theme_override_fonts/font = ExtResource("27_vqmr0")
+theme_override_font_sizes/font_size = 20
+text = "Mundo 6 - nivel 6"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PauseMenu" type="Panel" parent="Player/Camera2D/PlayerUI" unique_id=92755744]
 visible = false

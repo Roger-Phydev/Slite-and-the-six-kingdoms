@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bfkp1tvriil8l"]
+[gd_scene format=3 uid="uid://bfkp1tvriil8l"]
 
 [ext_resource type="Texture2D" uid="uid://btb22kwngxcht" path="res://Assets/Enemies/fireball.png" id="1_or0w1"]
 [ext_resource type="Script" uid="uid://c15k3trmmcl6f" path="res://Scripts/enemy_proyectile.gd" id="1_tyhj0"]
@@ -55,56 +55,53 @@ radius = 97.0824
 [sub_resource type="CircleShape2D" id="CircleShape2D_7oq4x"]
 radius = 39.0128
 
-[node name="EnemyFireBall" type="CharacterBody2D"]
+[node name="EnemyFireBall" type="CharacterBody2D" unique_id=1935183843]
 script = ExtResource("1_tyhj0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1672621260]
 position = Vector2(2, 0)
 texture = ExtResource("1_or0w1")
 flip_h = true
 hframes = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=338261172]
 shape = SubResource("RectangleShape2D_tyhj0")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=425634420]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=991108239]
 polygon = PackedVector2Array(-3, -4, -6, -2, -6, 3, -2, 5, 2, 5, 4, 4, 5, 3, 6, 2, 9, 1, 8, -1, 6, -2, 5, -3, 3, -4)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=136123690]
 root_node = NodePath("../Sprite2D")
-libraries = {
-&"": SubResource("AnimationLibrary_7oq4x")
-}
+libraries/ = SubResource("AnimationLibrary_7oq4x")
 
-[node name="WallDetection" type="RayCast2D" parent="."]
+[node name="WallDetection" type="RayCast2D" parent="." unique_id=1799873239]
 target_position = Vector2(-6, 0)
 collision_mask = 5
 
-[node name="Flush" type="AudioStreamPlayer2D" parent="."]
+[node name="Flush" type="AudioStreamPlayer2D" parent="." unique_id=2101055668]
 stream = ExtResource("3_c3efa")
 
-[node name="LowVolumeSound" type="Area2D" parent="."]
+[node name="LowVolumeSound" type="Area2D" parent="." unique_id=1674728703]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LowVolumeSound"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowVolumeSound" unique_id=1017220293]
 shape = SubResource("CircleShape2D_4jul8")
 
-[node name="MediumVolumeSound" type="Area2D" parent="."]
+[node name="MediumVolumeSound" type="Area2D" parent="." unique_id=1042477840]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MediumVolumeSound"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MediumVolumeSound" unique_id=674697204]
 shape = SubResource("CircleShape2D_c3efa")
 
-[node name="FullVolumeSound" type="Area2D" parent="."]
+[node name="FullVolumeSound" type="Area2D" parent="." unique_id=2096326702]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FullVolumeSound"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FullVolumeSound" unique_id=577842334]
 shape = SubResource("CircleShape2D_7oq4x")
 
-[node name="Moving" type="AudioStreamPlayer2D" parent="."]
+[node name="Moving" type="AudioStreamPlayer2D" parent="." unique_id=1546585686]
 stream = ExtResource("4_7oq4x")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
