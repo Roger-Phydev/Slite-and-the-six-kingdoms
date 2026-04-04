@@ -724,19 +724,19 @@ polygon = PackedVector2Array(-625, -342, 696, -348, 702, 420, -631, 434)
 [node name="background" type="Polygon2D" parent="Backgrounds" unique_id=1915207479]
 position = Vector2(797.89264, -203.27444)
 scale = Vector2(0.9303525, 0.54231477)
-color = Color(0.228673, 0.196362, 0.318986, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(-625, -342, 696, -348, 702, 420, -631, 434)
 
 [node name="background2" type="Polygon2D" parent="Backgrounds" unique_id=1419180118]
 position = Vector2(1040, 180)
 scale = Vector2(0.9303525, 0.54231477)
-color = Color(0.228673, 0.196362, 0.318986, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(-625, -342, 696, -348, 702, 420, -631, 434)
 
 [node name="background3" type="Polygon2D" parent="Backgrounds" unique_id=1332803297]
 position = Vector2(1046, 497)
 scale = Vector2(0.9303525, 0.54231477)
-color = Color(0.228673, 0.196362, 0.318986, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(-625, -342, 696, -348, 702, 420, -631, 434)
 
 [node name="Lava" type="Sprite2D" parent="Backgrounds" unique_id=1740266261]

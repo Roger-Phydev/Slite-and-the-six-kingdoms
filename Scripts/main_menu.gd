@@ -17,7 +17,7 @@ var input_sequence = [];
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	checking_disabled_buttons();
-	OS.shell_open(ProjectSettings.globalize_path("user://"));
+	# OS.shell_open(ProjectSettings.globalize_path("user://"));
 	set_level_indicator(0);
 	####### Basic configuration
 	GameMaster.coinsCount = 0;

@@ -16,6 +16,9 @@ func _process(delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.get_name() == "Player" and not taken: #if the player takes but it hasn't been taken
 		GameMaster.lifes += 1;#increases the lifes
+		if GameMaster.lifes > 9:
+			GameMaster.lifes = 9;
+		GameMaster.hits = 3;
 		$Life.play(); #plays this sound
 		$Sprite2D.visible = false; #disapears images
 		taken = true; #changes the taken variable

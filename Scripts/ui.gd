@@ -22,6 +22,10 @@ var pause = true;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	###################################
+	# Setting mouse focus
+	###################################
+	$PauseMenu/Panel/VBoxContainer/MainMenu.mouse_entered.connect(mouse_focus);
 	# Level info set:
 	$PlayingInterface/LevelInfo/Info.text = "Mundo "+str(GameMaster.world)+" - Nivel "+str(GameMaster.level);
 	if GameMaster.hero_mode:
@@ -89,12 +93,21 @@ func _process(delta: float) -> void:
 				$LevelMusic.stop();
 			$MenuMusic.play();
 			menu_cursor = Vector2(0,0);
-			menu_options = [
-				[$PauseMenu/Panel/VBoxContainer/Continue],
-				[$PauseMenu/Panel/VBoxContainer/MainMenu],
-				[$PauseMenu/Panel/VBoxContainer/ResetLevel],
-				[$PauseMenu/Panel/VBoxContainer/Exit]
-			];
+			if GameMaster.hero_mode:
+				menu_options = [
+					[$PauseMenu/Panel/VBoxContainer/Continue],
+					[$PauseMenu/Panel/VBoxContainer/Exit]
+				];
+				$PauseMenu/Panel/VBoxContainer/ResetLevel.visible = false;
+				$PauseMenu/Panel/VBoxContainer/MainMenu.visible = false;
+			else:
+				menu_options = [
+					[$PauseMenu/Panel/VBoxContainer/Continue],
+					[$PauseMenu/Panel/VBoxContainer/MainMenu],
+					[$PauseMenu/Panel/VBoxContainer/ResetLevel],
+					[$PauseMenu/Panel/VBoxContainer/Exit]
+				];
+			menu_options[0][0].grab_focus();
 		else: #when returns to game
 			button_enabled = false;
 			if GameMaster.hero_mode:
@@ -114,7 +127,8 @@ func _process(delta: float) -> void:
 			menu_cursor = Vector2(0,0);
 			menu_options = [
 				[$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel]
-			];			
+			];
+			menu_options[0][0].grab_focus();
 			$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel.text = "Ver créditos"
 			$WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel.visible = false;
 			$WinMenu/Panel/VBoxContainer/MainMenu.visible = false;
@@ -155,6 +169,7 @@ func _process(delta: float) -> void:
 					[$WinMenu/Panel/VBoxContainer/MainMenu],
 					[$WinMenu/Panel/VBoxContainer/Exit]
 				];
+				menu_options[0][0].grab_focus();
 			else:
 				$WinMenu.visible = true;
 				$LevelMusicHero.stop();
@@ -162,10 +177,11 @@ func _process(delta: float) -> void:
 				button_enabled = true;
 				menu_options = [
 					[$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel],
-					[$WinMenu/Panel/VBoxContainer/MainMenu],
 					[$WinMenu/Panel/VBoxContainer/Exit]
 				];
 				$WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel.visible = false;
+				$WinMenu/Panel/VBoxContainer/MainMenu.visible = false;
+				menu_options[0][0].grab_focus();
 		
 	#####################################
 	# Displaying the loose menu
@@ -186,6 +202,7 @@ func _process(delta: float) -> void:
 			[$LooseMenu/Panel/VBoxContainer/MainMenu],
 			[$LooseMenu/Panel/VBoxContainer/Exit]
 		];
+		menu_options[0][0].grab_focus();
 		button_enabled = true;
 	######################################
 	# Navigation for the menus
@@ -267,7 +284,10 @@ func _on_continue_button_up() -> void:
 		pause_menu.visible = false; #hide the menu
 		playing_interface.visible = true; #shows the score panel
 		$MenuMusic.stop();
-		$LevelMusic.play(resume_time);
+		if GameMaster.hero_mode:
+			$LevelMusicHero.play(resume_time);
+		else:
+			$LevelMusic.play(resume_time);
 
 #main menu
 func _on_main_menu_button_up() -> void:
@@ -310,4 +330,11 @@ func _on_repeat_level_button_up() -> void:
 # Reset run in case of hero_mode
 func _on_reset_run_button_up() -> void:
 	if button_enabled:
+		get_tree().paused = false;
 		GameMaster.start_hero_mode();
+
+
+
+# mouse behavior function
+func mouse_focus():
+	print(self);

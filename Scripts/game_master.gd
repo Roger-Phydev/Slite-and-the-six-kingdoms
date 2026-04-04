@@ -15,6 +15,7 @@ var lifes = 5; # lives in case of hero mode
 var hits = 3; # number of hits that remains to loose a life
 var reload = false;
 var reload_lifes = 0;
+var reload_hits = 0;
 var credits_from_menu = false;
 var tutorial_pause = false; #variable to control tutorial pause
 

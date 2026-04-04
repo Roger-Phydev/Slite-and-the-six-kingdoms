@@ -11,6 +11,7 @@ var respawn_position = Vector2(0,0);
 func _ready() -> void:
 	respawn_position = position; #sets the original position as respawn position by default
 	GameMaster.reload_lifes = GameMaster.lifes; #sets the reload lifes quantity
+	GameMaster.reload_hits = GameMaster.hits;
 
 # normal operation:
 

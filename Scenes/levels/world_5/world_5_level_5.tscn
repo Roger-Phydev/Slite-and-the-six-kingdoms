@@ -790,13 +790,13 @@ texture = ExtResource("2_xyvuv")
 [node name="Background" type="Polygon2D" parent="Backgrounds" unique_id=1471501886]
 position = Vector2(122, 344.00003)
 scale = Vector2(2.7900376, 4.232143)
-color = Color(0.21960784, 0.19607843, 0.3647059, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(584, -88, 624, -88, 624, -32, 584, -32, 584, -60.51622)
 
 [node name="Background2" type="Polygon2D" parent="Backgrounds" unique_id=184074162]
 position = Vector2(356, 222.00003)
 scale = Vector2(2.7900376, 4.232143)
-color = Color(0.21960784, 0.19607843, 0.3647059, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(584, -88, 624, -88, 624, -32, 584, -32, 584, -60.51622)
 
 [node name="Tilemaps" type="Node2D" parent="." unique_id=1473737872]

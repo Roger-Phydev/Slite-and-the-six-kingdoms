@@ -753,79 +753,79 @@ texture = ExtResource("13_3qsu4")
 [node name="background" type="Polygon2D" parent="Backgrounds" unique_id=771256421]
 position = Vector2(816, -58.54078)
 scale = Vector2(0.9303525, 0.19018611)
-color = Color(0.228673, 0.196362, 0.318986, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(-625, -342, 662.1146, -323.153, 662.1146, -196.96088, 696.51013, -196.96088, 702, 420, -631, 434)
 
 [node name="background2" type="Polygon2D" parent="Backgrounds" unique_id=614983169]
 position = Vector2(786.57104, -200.00002)
 scale = Vector2(0.8282464, 0.19018611)
-color = Color(0.228673, 0.196362, 0.318986, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(-625, -342, 701.99994, -336.51245, 702, 420, -631, 434)
 
 [node name="background3" type="Polygon2D" parent="Backgrounds" unique_id=331662412]
 position = Vector2(788.7781, -248)
 scale = Vector2(0.83649844, 0.19018611)
-color = Color(0.228673, 0.196362, 0.318986, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(-625, -342, 696, -348, 702, 420, -631, 434)
 
 [node name="background4" type="Polygon2D" parent="Backgrounds" unique_id=271272054]
 position = Vector2(816.16296, -392)
 scale = Vector2(0.7974887, 0.19018611)
-color = Color(0.228673, 0.196362, 0.318986, 1)
-polygon = PackedVector2Array(-625, -342, 611.71655, -378.57666, 611.71655, -252.38428, 691.9685, -42.06421, 702, 420, -631, 434)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
+polygon = PackedVector2Array(-625, -342, 82.40939, -362.92212, 611.71655, -378.57666, 611.71655, -252.38428, 691.9685, -42.06421, 702, 420, -631, 434)
 
 [node name="background5" type="Polygon2D" parent="Backgrounds" unique_id=1389922120]
 position = Vector2(810.2695, -424)
 scale = Vector2(0.79448795, 0.19018611)
-color = Color(0.228673, 0.196362, 0.318986, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(-625, -342, 621.4449, -336.51245, 621.4449, -126.19214, 701.99994, 84.128174, 702, 420, -631, 434)
 
 [node name="background6" type="Polygon2D" parent="Backgrounds" unique_id=1319092272]
 position = Vector2(805.2522, -544)
 scale = Vector2(0.71046686, 0.19018611)
-color = Color(0.228673, 0.196362, 0.318986, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(-625, -342, 696, -348, 702, 420, -631, 434)
 
 [node name="background7" type="Polygon2D" parent="Backgrounds" unique_id=156767142]
 position = Vector2(829.759, -632)
 scale = Vector2(0.6755571, 0.19018611)
-color = Color(0.228673, 0.196362, 0.318986, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(-625, -342, 696, -348, 702, 42.06421, 702, 420, -631, 434)
 
 [node name="background13" type="Polygon2D" parent="Backgrounds" unique_id=1431657245]
 position = Vector2(917.4599, -672)
 scale = Vector2(0.55381924, 0.19018611)
-color = Color(0.228673, 0.196362, 0.318986, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(-625, -342, 696, -348, 702, 42.06421, 702, 420, -631, 434)
 
 [node name="background8" type="Polygon2D" parent="Backgrounds" unique_id=988994183]
 position = Vector2(846.6591, -776)
 scale = Vector2(0.53752255, 0.19018611)
-color = Color(0.228673, 0.196362, 0.318986, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(-625, -342, 696, -348, 702, 420, -631, 434)
 
 [node name="background9" type="Polygon2D" parent="Backgrounds" unique_id=730782590]
 position = Vector2(893.0027, -904)
 scale = Vector2(0.4715061, 0.19018611)
-color = Color(0.228673, 0.196362, 0.318986, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(-625, -342, 696, -348, 702, 420, -631, 434)
 
 [node name="background10" type="Polygon2D" parent="Backgrounds" unique_id=631955798]
 position = Vector2(957.0507, -1024)
 scale = Vector2(0.35747764, 0.19018611)
-color = Color(0.228673, 0.196362, 0.318986, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(-625, -342, 696, -348, 702, 420, -631, 434)
 
 [node name="background12" type="Polygon2D" parent="Backgrounds" unique_id=46305406]
 position = Vector2(975.99994, -975.99994)
 scale = Vector2(0.35747764, 0.19018611)
-color = Color(0.228673, 0.196362, 0.318986, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(-625, -342, 696, -348, 702, 420, -631, 434)
 
 [node name="background11" type="Polygon2D" parent="Backgrounds" unique_id=690063806]
 position = Vector2(1032.8856, -1136)
 scale = Vector2(0.24945058, 0.19018611)
-color = Color(0.228673, 0.196362, 0.318986, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(-625, -342, 696, -348, 702, 42.063965, 702, 420, -631, 434)
 
 [node name="Clouds" type="Sprite2D" parent="Backgrounds" unique_id=521950445]

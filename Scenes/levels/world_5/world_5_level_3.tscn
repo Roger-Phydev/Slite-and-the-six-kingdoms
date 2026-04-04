@@ -743,7 +743,7 @@ texture = ExtResource("2_0b7h5")
 [node name="Background" type="Polygon2D" parent="Backgrounds" unique_id=202436130]
 position = Vector2(-3105.9863, 107)
 scale = Vector2(7.6650424, 4.232143)
-color = Color(0.21960784, 0.19607843, 0.3647059, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(584, -88, 624, -88, 624, -32, 584, -32, 584, -60.51622)
 
 [node name="Tilemaps" type="Node2D" parent="." unique_id=1728992727]
@@ -947,7 +947,7 @@ position = Vector2(1064, -142)
 position = Vector2(1025, -138)
 
 [node name="Saw18" parent="Enviroment" unique_id=214197251 instance=ExtResource("28_v8437")]
-position = Vector2(1106, -132)
+position = Vector2(1106, -137)
 
 [node name="Saw19" parent="Enviroment" unique_id=1010958257 instance=ExtResource("28_v8437")]
 position = Vector2(1133, -157)

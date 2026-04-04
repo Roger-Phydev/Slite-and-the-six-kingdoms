@@ -730,7 +730,7 @@ polygon = PackedVector2Array(-625, -342, 696, -348, 702, 420, -631, 434)
 [node name="background" type="Polygon2D" parent="Backgrounds" unique_id=1572700726]
 position = Vector2(1157.08, 133.225)
 scale = Vector2(0.461426, 0.4403)
-color = Color(0.228673, 0.196362, 0.318986, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(-625, -342, 696, -348, 702, 420, -631, 434)
 
 [node name="Mountains2" type="Sprite2D" parent="Backgrounds" unique_id=162019319]

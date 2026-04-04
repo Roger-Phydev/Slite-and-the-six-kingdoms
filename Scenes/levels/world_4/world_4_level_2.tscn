@@ -950,7 +950,7 @@ position = Vector2(-106, 171)
 position = Vector2(-46, 235)
 
 [node name="EnemyCrab" parent="Enemies" unique_id=494491361 instance=ExtResource("29_sbt8e")]
-position = Vector2(-234, 216)
+position = Vector2(-264, 216)
 
 [node name="EnemyCrab2" parent="Enemies" unique_id=1462519481 instance=ExtResource("29_sbt8e")]
 position = Vector2(-29, 136)

@@ -660,6 +660,12 @@ position = Vector2(560, -38.5)
 scale = Vector2(7.4707, 2.28906)
 texture = ExtResource("1_w0hg3")
 
+[node name="Desert2" type="Sprite2D" parent="Backgrounds" unique_id=960820531]
+position = Vector2(560, -330.00003)
+scale = Vector2(7.4707, 2.28906)
+texture = ExtResource("1_w0hg3")
+flip_v = true
+
 [node name="DesertNight" type="Sprite2D" parent="Backgrounds" unique_id=1051609755]
 position = Vector2(144, 208)
 texture = ExtResource("2_ucx8r")

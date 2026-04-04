@@ -681,13 +681,13 @@ polygon = PackedVector2Array(584, -88, 624, -88, 624, -32, 584, -32, 584, -60.51
 [node name="Background2" type="Polygon2D" parent="Backgrounds" unique_id=2097638195]
 position = Vector2(-6815.0005, 260)
 scale = Vector2(12.0999975, 4.232143)
-color = Color(0.21960784, 0.19607843, 0.3647059, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(584, -88, 624, -88, 624, -32, 584, -32, 584, -60.51622)
 
 [node name="Background3" type="Polygon2D" parent="Backgrounds" unique_id=1449965295]
 position = Vector2(-6851.0005, 144)
 scale = Vector2(12.0999975, 4.232143)
-color = Color(0.21960784, 0.19607843, 0.3647059, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(584, -88, 624, -88, 624, -32, 584, -32, 584, -60.51622)
 
 [node name="Background4" type="Polygon2D" parent="Backgrounds" unique_id=1180259853]
@@ -699,25 +699,25 @@ polygon = PackedVector2Array(584, -88, 624, -88, 624, -32, 584, -32, 584, -60.51
 [node name="Background5" type="Polygon2D" parent="Backgrounds" unique_id=598361336]
 position = Vector2(-7467.0005, 140)
 scale = Vector2(12.0999975, 4.232143)
-color = Color(0.21960784, 0.19607843, 0.3647059, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(584, -88, 624, -88, 624, -32, 584, -32, 584, -60.51622)
 
 [node name="Background6" type="Polygon2D" parent="Backgrounds" unique_id=1546140765]
 position = Vector2(-7280, -25)
 scale = Vector2(12.0999975, 4.232143)
-color = Color(0.21960784, 0.19607843, 0.3647059, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(584, -88, 624, -88, 624, -32, 584, -32, 584, -60.51622)
 
 [node name="Background7" type="Polygon2D" parent="Backgrounds" unique_id=1998319917]
 position = Vector2(-6904, -50)
 scale = Vector2(12.0999975, 4.232143)
-color = Color(0.21960784, 0.19607843, 0.3647059, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(584, -88, 624, -88, 624, -32, 584, -32, 584, -60.51622)
 
 [node name="Background8" type="Polygon2D" parent="Backgrounds" unique_id=2113337796]
 position = Vector2(-3685, -323)
 scale = Vector2(6.0650463, 4.232143)
-color = Color(0.21960784, 0.19607843, 0.3647059, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(584, -88, 624, -88, 624, -32, 584, -32, 584, -60.51622)
 
 [node name="Tilemaps" type="Node2D" parent="." unique_id=1523524168]

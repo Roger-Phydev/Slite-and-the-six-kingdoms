@@ -797,9 +797,9 @@ position = Vector2(2048, -48)
 texture = ExtResource("12_6dbx6")
 
 [node name="Background" type="Polygon2D" parent="Backgrounds" unique_id=480166311]
-position = Vector2(-3807, 506)
-scale = Vector2(7.75, 4.232143)
-color = Color(0.21960784, 0.19607843, 0.3647059, 1)
+position = Vector2(-6829.1978, 506)
+scale = Vector2(12.924996, 4.232143)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(584, -88, 624, -88, 624, -32, 584, -32, 584, -60.51622)
 
 [node name="Background2" type="Polygon2D" parent="Backgrounds" unique_id=2023240285]
@@ -811,19 +811,19 @@ polygon = PackedVector2Array(584, -88, 624, -88, 624, -32, 584, -32, 584, -60.51
 [node name="Background3" type="Polygon2D" parent="Backgrounds" unique_id=2037641504]
 position = Vector2(-2960, 468)
 scale = Vector2(7.75, 4.232143)
-color = Color(0.21960784, 0.19607843, 0.3647059, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(584, -88, 624, -88, 624, -32, 584, -32, 584, -60.51622)
 
 [node name="Background4" type="Polygon2D" parent="Backgrounds" unique_id=1143804810]
 position = Vector2(-3202, 453.00003)
 scale = Vector2(7.75, 4.232143)
-color = Color(0.21960784, 0.19607843, 0.3647059, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(584, -88, 624, -88, 624, -32, 584, -32, 584, -60.51622)
 
 [node name="Background5" type="Polygon2D" parent="Backgrounds" unique_id=1617415962]
 position = Vector2(-2876, 391.00003)
 scale = Vector2(7.75, 4.232143)
-color = Color(0.21960784, 0.19607843, 0.3647059, 1)
+color = Color(0.22352941, 0.20392157, 0.34117648, 1)
 polygon = PackedVector2Array(584, -88, 624, -88, 624, -32, 584, -32, 584, -60.51622)
 
 [node name="Tilemaps" type="Node2D" parent="." unique_id=1976677402]
