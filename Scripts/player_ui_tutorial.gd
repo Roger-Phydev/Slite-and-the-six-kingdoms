@@ -26,6 +26,18 @@ var buttons_enabled = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#Setting menu buttons to mouse behavior:
+	var buttons = $PauseMenu/Panel/VBoxContainer.get_children()+$LooseMenu/Panel/VBoxContainer.get_children()+$WinMenu/Panel/VBoxContainer.get_children();
+	for element in buttons:
+		if element.get_child_count() != 0:
+			for subelement in element.get_children():
+				print(subelement);
+				if subelement.get_class() == "Button":
+					subelement.mouse_entered.connect(mouse_focus.bind(subelement))
+		else:
+			if element.get_class() == "Button":
+				print(element)
+				element.mouse_entered.connect(mouse_focus.bind(element))
 	# getting and setting the coins number for the actual level
 	if GameMaster.coins[GameMaster.world-1][GameMaster.level-1] < 10: #9 or less coins
 			target_coins.text = "0" + str(GameMaster.coins[GameMaster.world-1][GameMaster.level-1]);
@@ -87,6 +99,7 @@ func _process(delta: float) -> void:
 				[$PauseMenu/Panel/VBoxContainer/ResetLevel],
 				[$PauseMenu/Panel/VBoxContainer/Exit]
 			];
+			menu_options[0][0].grab_focus();
 		else: #when returns to game
 			buttons_enabled = false;
 			emit_signal("hidden");
@@ -105,6 +118,7 @@ func _process(delta: float) -> void:
 		GameMaster.success = false;
 		$Save.visible = true;
 		$Save/AnimationPlayer.play("saving");
+		menu_options[0][0].grab_focus();
 		await get_tree().create_timer(1.0).timeout;
 		$Save.visible = false;
 		$Save/AnimationPlayer.pause();
@@ -209,7 +223,7 @@ func menu_movement(options):
 
 # continue:
 func _on_continue_button_up() -> void:
-	if buttons_enabled:
+	if buttons_enabled and not Input.is_action_just_pressed("start"):
 		emit_signal("hidden");
 		get_tree().paused = false; #set pause as false
 		pause_menu.visible = false; #hide the menu
@@ -219,14 +233,14 @@ func _on_continue_button_up() -> void:
 
 #main menu
 func _on_main_menu_button_up() -> void:
-	if buttons_enabled:
+	if buttons_enabled and not Input.is_action_just_pressed("start"):
 		GameMaster.coinsCount = 0; # resets coins counter
 		get_tree().paused = false;
 		GameMaster.start_menu("main"); #starts the main menu
 
 #reset level
 func _on_reset_level_button_up() -> void:
-	if buttons_enabled:
+	if buttons_enabled and not Input.is_action_just_pressed("start"):
 		GameMaster.lifes = GameMaster.reload_lifes; #resets lifes quantities
 		get_tree().paused = false;
 		menu_cursor = Vector2(0,0);
@@ -234,7 +248,7 @@ func _on_reset_level_button_up() -> void:
 
 # exit
 func _on_exit_button_up() -> void:
-	if buttons_enabled:
+	if buttons_enabled and not Input.is_action_just_pressed("start"):
 		GameMaster.exit(); #exits the game
 	
 ############################################
@@ -243,13 +257,13 @@ func _on_exit_button_up() -> void:
 
 # next level
 func _on_next_level_button_up() -> void:
-	if buttons_enabled:
+	if buttons_enabled and not Input.is_action_just_pressed("start"):
 		get_tree().paused = false;
 		GameMaster.start_first_level();
 
 # repeat level
 func _on_repeat_level_button_up() -> void:
-	if buttons_enabled:
+	if buttons_enabled and not Input.is_action_just_pressed("start"):
 		get_tree().paused = false;
 		GameMaster.reload_level(); #reloads the level
 		$MenuMusic.stop();
@@ -257,7 +271,7 @@ func _on_repeat_level_button_up() -> void:
 
 # Reset run in case of hero_mode
 func _on_reset_run_button_up() -> void:
-	if buttons_enabled:
+	if buttons_enabled and not Input.is_action_just_pressed("start"):
 		#if wanted to try again, resets variables
 		GameMaster.loose = false;
 		GameMaster.lifes = 5;
@@ -281,3 +295,12 @@ func decrease_opacity_until(node,t:float,final_opacity:float):
 # prints a message:
 func print_tutorial_message(message:String):
 	text_info_playing.text = message;
+	
+# mouse behavior function
+func mouse_focus(object):
+	for i in range(len(menu_options)):
+		var index = menu_options[i].find(object);
+		if index != -1:
+			menu_options[i][index].grab_focus()
+			menu_cursor = Vector2(index,i);
+			break;

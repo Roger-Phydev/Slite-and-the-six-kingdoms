@@ -3398,7 +3398,7 @@ offset_right = 1130.0
 offset_bottom = 358.0
 theme_override_fonts/font = ExtResource("35_msuys")
 theme_override_font_sizes/font_size = 30
-text = "1.2"
+text = "1.3"
 horizontal_alignment = 1
 
 [node name="Codes" type="Node2D" parent="." unique_id=1661438538]

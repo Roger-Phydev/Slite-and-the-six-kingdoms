@@ -25,13 +25,27 @@ func _ready() -> void:
 	###################################
 	# Setting mouse focus
 	###################################
-	$PauseMenu/Panel/VBoxContainer/MainMenu.mouse_entered.connect(mouse_focus);
+	var buttons = $PauseMenu/Panel/VBoxContainer.get_children()+$LooseMenu/Panel/VBoxContainer.get_children()+$WinMenu/Panel/VBoxContainer.get_children();
+	for element in buttons:
+		if element.get_child_count() != 0:
+			for subelement in element.get_children():
+				print(subelement);
+				if subelement.get_class() == "Button":
+					subelement.mouse_entered.connect(mouse_focus.bind(subelement))
+		else:
+			if element.get_class() == "Button":
+				print(element)
+				element.mouse_entered.connect(mouse_focus.bind(element))
 	# Level info set:
 	$PlayingInterface/LevelInfo/Info.text = "Mundo "+str(GameMaster.world)+" - Nivel "+str(GameMaster.level);
 	if GameMaster.hero_mode:
 		$PlayingInterface/LevelInfo.size = Vector2(230.0,30.0);
 		$PlayingInterface/LevelInfo.position = Vector2(29,132.0);
 		$PlayingInterface/LevelInfo/Info.text += " (Héroe)"
+		$PauseMenu/Panel.size.y = 130;
+		$PauseMenu/Panel.position.y = 16;
+		$WinMenu/Panel.size.y = 120;
+		$WinMenu/Panel.position.y = 21;
 	# getting and setting the coins number for the actual level
 	if GameMaster.coins[GameMaster.world-1][GameMaster.level-1] < 10: #9 or less coins
 			target_coins.text = "0" + str(GameMaster.coins[GameMaster.world-1][GameMaster.level-1]);
@@ -45,6 +59,8 @@ func _ready() -> void:
 		$PlayingInterface/Score.position.x = 0; #sets the coin counter left of the screen
 	if GameMaster.hero_mode:
 		$LevelMusicHero.play();
+		if GameMaster.world == 6 and GameMaster.level < 6:
+			$LevelMusicHero.volume_db = 10;
 	else:
 		$LevelMusic.play();
 	$MenuMovement.volume_db = 20;
@@ -96,10 +112,10 @@ func _process(delta: float) -> void:
 			if GameMaster.hero_mode:
 				menu_options = [
 					[$PauseMenu/Panel/VBoxContainer/Continue],
+					[$PauseMenu/Panel/VBoxContainer/MainMenu],
 					[$PauseMenu/Panel/VBoxContainer/Exit]
 				];
 				$PauseMenu/Panel/VBoxContainer/ResetLevel.visible = false;
-				$PauseMenu/Panel/VBoxContainer/MainMenu.visible = false;
 			else:
 				menu_options = [
 					[$PauseMenu/Panel/VBoxContainer/Continue],
@@ -115,6 +131,8 @@ func _process(delta: float) -> void:
 			else:
 				$LevelMusic.play(resume_time);
 			$MenuMusic.stop();
+	if not get_tree().paused:
+		pause = true;
 	####################################
 	# Displaying the win menu:
 	####################################
@@ -128,11 +146,11 @@ func _process(delta: float) -> void:
 			menu_options = [
 				[$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel]
 			];
-			menu_options[0][0].grab_focus();
 			$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel.text = "Ver créditos"
 			$WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel.visible = false;
 			$WinMenu/Panel/VBoxContainer/MainMenu.visible = false;
 			$WinMenu/Panel/VBoxContainer/Exit.visible = false;
+			$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel.grab_focus();
 			if GameMaster.hero_mode: #if it hero mode
 				$LevelMusicHero.stop();
 				$LevelSuccessHero.play(0.0);
@@ -141,6 +159,7 @@ func _process(delta: float) -> void:
 			else: #sets this as true
 				$LevelMusic.stop();
 				$LevelSuccess.play(0.0);
+				SaveManager.complete_level(6,6);
 				SaveManager.completed_normal_game();
 				$WinMenu/Panel/VBoxContainer/Message.text = "Lo lograste!!!\nSiempre lo supe!";
 			button_enabled = false;
@@ -158,11 +177,6 @@ func _process(delta: float) -> void:
 				$LevelSuccess.play(0.0);
 				$Save.visible = true;
 				$WinMenu.visible = true;
-				$Save/AnimationPlayer.play("saving");
-				await get_tree().create_timer(1.0).timeout;
-				button_enabled = true;
-				$Save.visible = false;
-				$Save/AnimationPlayer.stop();
 				menu_cursor = Vector2(0,0);
 				menu_options = [
 					[$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel,$WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel],
@@ -170,6 +184,11 @@ func _process(delta: float) -> void:
 					[$WinMenu/Panel/VBoxContainer/Exit]
 				];
 				menu_options[0][0].grab_focus();
+				$Save/AnimationPlayer.play("saving");
+				await get_tree().create_timer(1.0).timeout;
+				button_enabled = true;
+				$Save.visible = false;
+				$Save/AnimationPlayer.stop();
 			else:
 				$WinMenu.visible = true;
 				$LevelMusicHero.stop();
@@ -187,6 +206,7 @@ func _process(delta: float) -> void:
 	# Displaying the loose menu
 	#####################################
 	if GameMaster.loose:
+		pause = false;
 		get_tree().paused = true;
 		playing_interface.visible = false;
 		loose_menu.visible = true;
@@ -208,8 +228,7 @@ func _process(delta: float) -> void:
 	# Navigation for the menus
 	######################################
 	if get_tree().paused:
-		if Input.is_action_just_released("Up") or Input.is_action_just_released("Down"):
-			menu_focus = true;
+		menu_focus = true;
 		# When is paused checks what input is released and then acts depending on the input
 		if menu_focus:
 			menu_movement(menu_options);
@@ -266,9 +285,11 @@ func menu_movement(options):
 		$MenuMovement.play();
 		menu_cursor.x = menu_cursor.x-1 if menu_cursor.x-1>0 else 0;
 	######## focus the new element
-	options[menu_cursor.y][menu_cursor.x].grab_focus();
+	options[int(menu_cursor.y)][int(menu_cursor.x)].grab_focus();
 	if Input.is_action_just_pressed("jump"):
 		options[menu_cursor.y][menu_cursor.x].emit_signal("button_up");
+	if Input.is_action_just_pressed("start"):
+		pass
 ###########################################
 # Menu buttons events:
 
@@ -279,7 +300,7 @@ func menu_movement(options):
 
 # continue:
 func _on_continue_button_up() -> void:
-	if button_enabled:
+	if button_enabled and not Input.is_action_just_pressed("start"):
 		get_tree().paused = false; #set pause as false
 		pause_menu.visible = false; #hide the menu
 		playing_interface.visible = true; #shows the score panel
@@ -291,14 +312,14 @@ func _on_continue_button_up() -> void:
 
 #main menu
 func _on_main_menu_button_up() -> void:
-	if button_enabled:
+	if button_enabled and not Input.is_action_just_pressed("start"):
 		GameMaster.coinsCount = 0; # resets coins counter
 		get_tree().paused = false;
 		GameMaster.start_menu("main"); #starts the main menu
 
 #reset level
 func _on_reset_level_button_up() -> void:
-	if button_enabled:
+	if button_enabled and not Input.is_action_just_pressed("start"):
 		GameMaster.lifes = GameMaster.reload_lifes; #resets lifes quantities
 		get_tree().paused = false;
 		menu_cursor = Vector2(0,0);
@@ -306,7 +327,7 @@ func _on_reset_level_button_up() -> void:
 
 # exit
 func _on_exit_button_up() -> void:
-	if button_enabled:
+	if button_enabled and not Input.is_action_just_pressed("start"):
 		GameMaster.exit(); #exits the game
 	
 ############################################
@@ -315,13 +336,13 @@ func _on_exit_button_up() -> void:
 
 # next level
 func _on_next_level_button_up() -> void:
-	if button_enabled:
+	if button_enabled and not Input.is_action_just_pressed("start"):
 		get_tree().paused = false;
 		GameMaster.start_next_level(); #starts the next level
 
 # repeat level
 func _on_repeat_level_button_up() -> void:
-	if button_enabled:
+	if button_enabled and not Input.is_action_just_pressed("start"):
 		get_tree().paused = false;
 		GameMaster.reload_level(); #reloads the level
 		$MenuMusic.stop();
@@ -329,12 +350,17 @@ func _on_repeat_level_button_up() -> void:
 
 # Reset run in case of hero_mode
 func _on_reset_run_button_up() -> void:
-	if button_enabled:
+	if button_enabled and not Input.is_action_just_pressed("start"):
 		get_tree().paused = false;
 		GameMaster.start_hero_mode();
 
 
 
 # mouse behavior function
-func mouse_focus():
-	print(self);
+func mouse_focus(object):
+	for i in range(len(menu_options)):
+		var index = menu_options[i].find(object);
+		if index != -1:
+			menu_options[i][index].grab_focus()
+			menu_cursor = Vector2(index,i);
+			break;

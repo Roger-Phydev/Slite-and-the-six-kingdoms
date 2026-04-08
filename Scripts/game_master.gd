@@ -11,7 +11,7 @@ var level = 1; #level number
 var success = false; #win variable
 var loose = false; #loose variable
 var hero_mode = false; #a variable that sets when its playing with finite lifes
-var lifes = 5; # lives in case of hero mode
+var lifes = 3; # lives in case of hero mode
 var hits = 3; # number of hits that remains to loose a life
 var reload = false;
 var reload_lifes = 0;
@@ -35,7 +35,7 @@ var coins = [ #coin for every world and course
 # Basic operation
 ##################################################
 func _ready() -> void:
-	pass;
+	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_RESIZE_DISABLED, true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -83,7 +83,7 @@ func start_hero_mode():
 	coinsCount = 0;
 	success = false;
 	loose = false;
-	lifes = 5;
+	lifes = 3;
 	hits = 3;
 	start_world_level_scene(world,level); 
 

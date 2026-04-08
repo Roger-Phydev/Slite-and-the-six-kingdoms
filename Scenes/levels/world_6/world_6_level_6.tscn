@@ -54,10 +54,10 @@
 [ext_resource type="FontFile" uid="uid://c24jqdbskikfa" path="res://Assets/Fonts/text game/junegull.ttf" id="49_hi0yc"]
 [ext_resource type="AudioStream" uid="uid://chmwu7wqg7v1u" path="res://MusicAndSounds/Music/ebunny-medieval-castle-loop-366828(menu).mp3" id="51_hi0yc"]
 [ext_resource type="AudioStream" uid="uid://dt8pr8eoyi6km" path="res://MusicAndSounds/Music/alec_koff-last-level.mp3" id="52_16r28"]
-[ext_resource type="AudioStream" uid="uid://da7uea7ysvw6w" path="res://MusicAndSounds/Music/ebunny-tavern-dance-loop-368862(win).mp3" id="53_7inmy"]
 [ext_resource type="AudioStream" uid="uid://b8dayssgfxrsq" path="res://MusicAndSounds/Music/mrclaps-last-level-hero.mp3" id="53_16r28"]
-[ext_resource type="AudioStream" uid="uid://depvx7kmjerjg" path="res://MusicAndSounds/Music/ebunny-true-fantasy-story-loop-370030(win-hero-mode).mp3" id="54_7rhis"]
+[ext_resource type="AudioStream" uid="uid://2h37k2qf4fuq" path="res://MusicAndSounds/Music/absounds-the-grand-opening-music(complete-normal-mode).mp3" id="54_16r28"]
 [ext_resource type="AudioStream" uid="uid://bln1ld8ds33me" path="res://MusicAndSounds/Music/maciejm1992-your-adventure-has-come-to-an-end-477982(fail-level).mp3" id="54_vfl4d"]
+[ext_resource type="AudioStream" uid="uid://c8wbsarwpn0a" path="res://MusicAndSounds/Music/sonican-epic-orchestral-loop-glorious-triumph(complete-hero-mode).mp3" id="55_oeyex"]
 [ext_resource type="Texture2D" uid="uid://cpcc6yi746ehf" path="res://Assets/Objects/coin_silver.png" id="57_vfl4d"]
 [ext_resource type="Texture2D" uid="uid://3yworssts83b" path="res://Assets/FX/coin_collect.png" id="58_7rhis"]
 [ext_resource type="FontFile" uid="uid://clnvskupki8ak" path="res://Assets/Fonts/menu_text/Playball-Regular.ttf" id="59_16r28"]
@@ -2367,10 +2367,10 @@ stream = ExtResource("52_16r28")
 stream = ExtResource("53_16r28")
 
 [node name="LevelSuccess" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI" unique_id=609625512]
-stream = ExtResource("53_7inmy")
+stream = ExtResource("54_16r28")
 
 [node name="LevelSuccessHero" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI" unique_id=821177198]
-stream = ExtResource("54_7rhis")
+stream = ExtResource("55_oeyex")
 
 [node name="LevelFailed" type="AudioStreamPlayer2D" parent="Player/Camera2D/PlayerUI" unique_id=524854563]
 stream = ExtResource("54_vfl4d")

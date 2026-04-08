@@ -48,7 +48,7 @@ func print_tutorial_message(message:String):
 # Jump area
 func _on_jump_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		print_tutorial_message("Salta, Slite! Salta!!!\nA/LT(Xbox)   X/L2(Ps)\nB/ZL(Nswitch)   Space/Enter(PC)");
+		print_tutorial_message("Salta, Slite! Salta!!!\nA/LT(Xbox)   X/L2(Ps)\nB/ZL(Nswitch)   Space/Enter(derecha)(PC)");
 		show_hits_arrow = false;
 # Fall area first time
 func _on_fall_1_body_entered(body: Node2D) -> void:
@@ -106,7 +106,7 @@ func _on_portals_2_body_entered(body: Node2D) -> void:
 func _on_pause_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		GameMaster.tutorial_pause = true;
-		print_tutorial_message("Qué cansado, pausemos!\nmenú (Xbox)   start(Ps)\n+(Nswitch)   backspace(PC)");
+		print_tutorial_message("Qué cansado, pausemos!\nmenú (Xbox)   start(Ps)\n+(Nswitch)   tab / enter(izq)(PC)");
 # coins area
 func _on_coins_collect_body_entered(body: Node2D) -> void:
 	if body.name == "Player":

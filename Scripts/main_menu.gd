@@ -3,7 +3,6 @@ extends Control
 var clouds_speed = 100;
 var birds_speed = 70;
 # option of menu movement
-var menu_focus = false; #indicates if the control movement is active
 var menu_options = []; #the options of menus
 var menu_cursor = Vector2(0,0); #the cursor on menus
 var previous_cursor_x = 0; #saves the previus state en case of y movement 
@@ -56,6 +55,8 @@ func _ready() -> void:
 		[$MenuBg/InitialOptions/HeroMode],
 		[$MenuBg/InitialOptions/Exit]
 	];
+	menu_options[0][0].grab_focus();
+	menu_cursor = Vector2(0,0);
 	############# Setting mouse actions to display info
 	$MenuBg/InitialOptions/Continue.mouse_entered.connect(continue_info);
 	$MenuBg/InitialOptions/StartGame.mouse_entered.connect(start_info);
@@ -71,7 +72,7 @@ func _ready() -> void:
 	$MenuBg/WorldMenu/Worlds2/World4.mouse_entered.connect(world_4_info);
 	$MenuBg/WorldMenu/Worlds2/World5.mouse_entered.connect(world_5_info);
 	$MenuBg/WorldMenu/Worlds2/World6.mouse_entered.connect(world_6_info);
-	$MenuBg/WorldMenu/ToInitialOptions.mouse_entered.connect(to_world_info);
+	$MenuBg/WorldMenu/ToInitialOptions.mouse_entered.connect(to_initial_options_info);
 	$MenuBg/LevelMenu/Levels1/Level1.mouse_entered.connect(level_1_info);
 	$MenuBg/LevelMenu/Levels1/Level2.mouse_entered.connect(level_2_info);
 	$MenuBg/LevelMenu/Levels1/Level3.mouse_entered.connect(level_3_info);
@@ -103,10 +104,7 @@ func _process(delta: float) -> void:
 	################
 	# Menu movement
 	################
-	if (Input.is_action_just_released("Up") or Input.is_action_just_pressed("Down")) and not menu_focus:
-		menu_focus = true;
-	if menu_focus:
-		menu_movement(menu_options);
+	menu_movement(menu_options);
 	if Input.is_action_just_released("cancel"):
 		if actual_menu == "world":
 			change_menu("world","initial");
@@ -144,6 +142,7 @@ func change_menu(menu_from:String,menu_to:String):
 			[$MenuBg/InitialOptions/StartGame],
 			[$MenuBg/InitialOptions/HBoxContainer/Tutorial,$MenuBg/InitialOptions/HBoxContainer/FirstScene],
 			[$MenuBg/InitialOptions/HBoxContainer2/ToWorldMenu,$MenuBg/InitialOptions/HBoxContainer2/Credits],
+			[$MenuBg/InitialOptions/HeroMode],
 			[$MenuBg/InitialOptions/Exit]
 		];
 		$MenuBg/InitialOptions.visible = true;
@@ -161,6 +160,7 @@ func change_menu(menu_from:String,menu_to:String):
 			[$MenuBg/LevelMenu/HBoxContainer/MainMenu,$MenuBg/LevelMenu/HBoxContainer/WorldMenu]
 		];
 		$MenuBg/LevelMenu.visible = true;
+	menu_options[0][0].grab_focus();
 	menu_cursor = Vector2(0,0); #resetea el cursor del menú
 # disabled or enabling things:
 func checking_disabled_buttons():
@@ -343,6 +343,7 @@ func menu_movement(options):
 func _on_continue_button_down() -> void:
 	if $MenuBg/InitialOptions/Continue.disabled: #if it's disabled
 		$MenuDisabled.play(); #plays this sound
+		await get_tree().create_timer(1).timeout;
 	else:
 		if buttons_enabled:
 			var res = SaveManager.get_latest_world_level();
@@ -707,6 +708,7 @@ func _on_world_menu_button_down() -> void:
 			$"Variable presentation/Chest/AnimationPlayer".play("idle_close");
 ## Signal control for info data
 func continue_info():
+	mouse_focus($MenuBg/InitialOptions/Continue);
 	if $MenuBg/InitialOptions/Continue.disabled:
 		$Info/OptionInfo.add_theme_font_size_override("font_size",40);
 		$Info/OptionInfo.text = "Inicia una aventura para desbloquear";
@@ -714,6 +716,7 @@ func continue_info():
 		$Info/OptionInfo.add_theme_font_size_override("font_size",40);
 		$Info/OptionInfo.text = "Continua tu partida desde el nivel en que lo dejaste";
 func start_info():
+	mouse_focus($MenuBg/InitialOptions/StartGame);
 	if $MenuBg/InitialOptions/StartGame.disabled:
 		$Info/OptionInfo.add_theme_font_size_override("font_size",40);
 		$Info/OptionInfo.text = "Para poder iniciar una aventura primero juega el tutorial";
@@ -721,6 +724,7 @@ func start_info():
 		$Info/OptionInfo.add_theme_font_size_override("font_size",40);
 		$Info/OptionInfo.text = "Inicia la aventura desde el principio";
 func tutorial_info():
+	mouse_focus($MenuBg/InitialOptions/HBoxContainer/Tutorial);
 	if $MenuBg/InitialOptions/HBoxContainer/Tutorial.disabled:
 		$Info/OptionInfo.add_theme_font_size_override("font_size",40);
 		$Info/OptionInfo.text = "Mira la escena principal para desbloquear";
@@ -728,9 +732,11 @@ func tutorial_info():
 		$Info/OptionInfo.add_theme_font_size_override("font_size",40);
 		$Info/OptionInfo.text = "Juega el tutorial para aprender los controles y a lo que te enfrentarás";
 func first_scene_info():
+	mouse_focus($MenuBg/InitialOptions/HBoxContainer/FirstScene);
 	$Info/OptionInfo.add_theme_font_size_override("font_size",40);
 	$Info/OptionInfo.text = "Ponte en contexto con una breve narrativa de la historia hasta ahora";
 func to_world_initial_info():
+	mouse_focus($MenuBg/InitialOptions/HBoxContainer2/ToWorldMenu);
 	if $MenuBg/InitialOptions/HBoxContainer2/ToWorldMenu.disabled:
 		$Info/OptionInfo.add_theme_font_size_override("font_size",40);
 		$Info/OptionInfo.text = "Disponible una vez hayas pasado algún nivel";
@@ -738,6 +744,7 @@ func to_world_initial_info():
 		$Info/OptionInfo.add_theme_font_size_override("font_size",40);
 		$Info/OptionInfo.text = "Selecciona un nivel que hayas pasado para jugar";
 func credits_info():
+	mouse_focus($MenuBg/InitialOptions/HBoxContainer2/Credits);
 	if $MenuBg/InitialOptions/HBoxContainer2/Credits.disabled:
 		$Info/OptionInfo.add_theme_font_size_override("font_size",40);
 		$Info/OptionInfo.text = "Termina el juego para poder ver los créditos";
@@ -745,6 +752,7 @@ func credits_info():
 		$Info/OptionInfo.add_theme_font_size_override("font_size",40);
 		$Info/OptionInfo.text = "Mira la escena de créditos, con todos los agradecimientos";
 func hero_mode_info():
+	mouse_focus($MenuBg/InitialOptions/HeroMode);
 	if $MenuBg/InitialOptions/HBoxContainer2/Credits.disabled:
 		$Info/OptionInfo.add_theme_font_size_override("font_size",40);
 		$Info/OptionInfo.text = "Termina el juego para poder jugar este modo";
@@ -752,9 +760,11 @@ func hero_mode_info():
 		$Info/OptionInfo.add_theme_font_size_override("font_size",40);
 		$Info/OptionInfo.text = "Pasa toda la aventura con vidas limitadas sin guardado, el modo definitivo está aquí!";
 func exit_info():
+	mouse_focus($MenuBg/InitialOptions/Exit);
 	$Info/OptionInfo.add_theme_font_size_override("font_size",40);
 	$Info/OptionInfo.text = "Al seleccionar esto, saldrás del juego";
 func world_1_info():
+	mouse_focus($MenuBg/WorldMenu/Worlds1/World1);
 	if SaveManager.is_world_available(1):
 		$Info/OptionInfo.text = "Reino del Bosque";
 		toogle_variable_presentation(1);
@@ -762,6 +772,7 @@ func world_1_info():
 		$Info/OptionInfo.text = "Sigue jugando para desbloquear este Reino";
 		toogle_variable_presentation(1);
 func world_2_info():
+	mouse_focus($MenuBg/WorldMenu/Worlds1/World2);
 	if SaveManager.is_world_available(2):
 		$Info/OptionInfo.text = "Reino de la Tierra";
 		toogle_variable_presentation(2);
@@ -769,6 +780,7 @@ func world_2_info():
 		$Info/OptionInfo.text = "Sigue jugando para desbloquear este Reino";
 		toogle_variable_presentation(1);
 func world_3_info():
+	mouse_focus($MenuBg/WorldMenu/Worlds1/World3);
 	if SaveManager.is_world_available(3):
 		$Info/OptionInfo.text = "Reino de las Arenas";
 		toogle_variable_presentation(3);
@@ -776,6 +788,7 @@ func world_3_info():
 		$Info/OptionInfo.text = "Sigue jugando para desbloquear este Reino";
 		toogle_variable_presentation(1);
 func world_4_info():
+	mouse_focus($MenuBg/WorldMenu/Worlds2/World4);
 	if SaveManager.is_world_available(4):
 		$Info/OptionInfo.text = "Reino del Mar";
 		toogle_variable_presentation(4);
@@ -783,6 +796,7 @@ func world_4_info():
 		$Info/OptionInfo.text = "Sigue jugando para desbloquear este Reino";
 		toogle_variable_presentation(1);
 func world_5_info():
+	mouse_focus($MenuBg/WorldMenu/Worlds2/World5);
 	if SaveManager.is_world_available(5):
 		$Info/OptionInfo.text = "Reino del Hielo";
 		toogle_variable_presentation(5);
@@ -790,6 +804,7 @@ func world_5_info():
 		$Info/OptionInfo.text = "Sigue jugando para desbloquear este Reino";
 		toogle_variable_presentation(1);
 func world_6_info():
+	mouse_focus($MenuBg/WorldMenu/Worlds2/World6);
 	if SaveManager.is_world_available(6):
 		$Info/OptionInfo.text = "Reino del Fuego";
 		toogle_variable_presentation(6);
@@ -797,9 +812,14 @@ func world_6_info():
 		$Info/OptionInfo.text = "Sigue jugando para desbloquear este Reino";
 		toogle_variable_presentation(1);
 func to_initial_options_info():
+	if actual_menu == "level":
+		mouse_focus($MenuBg/LevelMenu/HBoxContainer/MainMenu);
+	elif actual_menu == "world":
+		mouse_focus($MenuBg/WorldMenu/ToInitialOptions);
 	if selection_enabled:
 		$Info/OptionInfo.text = "Vuelve al menú inicial";
 func level_1_info():
+	mouse_focus($MenuBg/LevelMenu/Levels1/Level1);
 	if SaveManager.is_level_completed(GameMaster.world,1):
 		var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
 		$Info/OptionInfo.text = "Jugar nivel 1 del "+worlds[GameMaster.world-1];
@@ -808,6 +828,7 @@ func level_1_info():
 		$Info/OptionInfo.text = "Sigue jugando para desbloquear este nivel";
 		set_level_indicator(0);
 func level_2_info():
+	mouse_focus($MenuBg/LevelMenu/Levels1/Level2);
 	if SaveManager.is_level_completed(GameMaster.world,2):
 		var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
 		$Info/OptionInfo.text = "Jugar nivel 2 del "+worlds[GameMaster.world-1];
@@ -816,6 +837,7 @@ func level_2_info():
 		$Info/OptionInfo.text = "Sigue jugando para desbloquear este nivel";
 		set_level_indicator(0);
 func level_3_info():
+	mouse_focus($MenuBg/LevelMenu/Levels1/Level3);
 	if SaveManager.is_level_completed(GameMaster.world,3):
 		var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
 		$Info/OptionInfo.text = "Jugar nivel 3 del "+worlds[GameMaster.world-1];
@@ -824,6 +846,7 @@ func level_3_info():
 		$Info/OptionInfo.text = "Sigue jugando para desbloquear este nivel";
 		set_level_indicator(0);
 func level_4_info():
+	mouse_focus($MenuBg/LevelMenu/Levels2/Level4);
 	if SaveManager.is_level_completed(GameMaster.world,4):
 		var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
 		$Info/OptionInfo.text = "Jugar nivel 4 del "+worlds[GameMaster.world-1];
@@ -832,6 +855,7 @@ func level_4_info():
 		$Info/OptionInfo.text = "Sigue jugando para desbloquear este nivel";
 		set_level_indicator(0);
 func level_5_info():
+	mouse_focus($MenuBg/LevelMenu/Levels2/Level5);
 	if SaveManager.is_level_completed(GameMaster.world,5):
 		var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
 		$Info/OptionInfo.text = "Jugar nivel 5 del "+worlds[GameMaster.world-1];
@@ -840,6 +864,7 @@ func level_5_info():
 		$Info/OptionInfo.text = "Sigue jugando para desbloquear este nivel";
 		set_level_indicator(0);
 func level_6_info():
+	mouse_focus($MenuBg/LevelMenu/Levels2/Level6);
 	if SaveManager.is_level_completed(GameMaster.world,6):
 		var worlds = ["Reino del Bosque","Reino de la Tierra","Reino de las Arenas","Reino del Mar","Reino del Hielo","Reino del Fuego"];
 		$Info/OptionInfo.text = "Jugar nivel 6 del "+worlds[GameMaster.world-1];
@@ -848,10 +873,14 @@ func level_6_info():
 		$Info/OptionInfo.text = "Sigue jugando para desbloquear este nivel";
 		set_level_indicator(0);
 func to_world_info():
+	mouse_focus($MenuBg/LevelMenu/HBoxContainer/WorldMenu);
 	if selection_enabled:
 		$Info/OptionInfo.text = "Vuelve a la selección de mundo";
 # input reception and lecture:
 func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.pressed:
+			menu_options[menu_cursor.y][menu_cursor.x].emit_signal("button_down");
 	if event is InputEventKey or event is InputEventJoypadButton:
 		const keys = ["left","right","start","cancel"];
 		for key in keys:
@@ -859,4 +888,12 @@ func _input(event: InputEvent) -> void:
 				input_sequence.append(key);
 		if len(input_sequence)>6:
 			input_sequence.pop_front();
-		print(input_sequence);
+####
+# Mouse selection
+func mouse_focus(object):
+	for i in range(len(menu_options)):
+		var index = menu_options[i].find(object);
+		if index != -1:
+			menu_options[i][index].grab_focus()
+			menu_cursor = Vector2(index,i);
+			break;
