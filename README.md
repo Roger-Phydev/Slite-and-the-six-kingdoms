@@ -13,3 +13,4 @@
 - Música personalizada según el modo de juego
 
 ## Por el momento solo se encuentra en etapa de debugg, por lo que no habrán nuevas características, solo actualizaciones de solución de problemas que se encuentren
+## Actualmente ya se tiene la tercer build funcional del juego, además de un lanzamiento planeado para el 10 de Mayo de 2026!!!
