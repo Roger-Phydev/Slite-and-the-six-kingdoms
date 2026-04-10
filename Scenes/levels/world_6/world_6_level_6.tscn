@@ -1005,9 +1005,9 @@ color = Color(0.49019608, 0.39607844, 0.3647059, 1)
 polygon = PackedVector2Array(136, 720, 192, 720, 192, 968, 136, 968)
 
 [node name="Background2" type="Polygon2D" parent="Backgrounds/set4" unique_id=513878011]
-position = Vector2(1224, 759.99994)
+position = Vector2(1232, 760.00006)
 scale = Vector2(3.5714285, 0.19354838)
-color = Color(0.5058824, 0.41568628, 0.38431373, 1)
+color = Color(0.47058824, 0.37254903, 0.3372549, 1)
 polygon = PackedVector2Array(136, 720, 192, 720, 192, 968, 136, 968)
 
 [node name="set5" type="Node2D" parent="Backgrounds" unique_id=562912326]

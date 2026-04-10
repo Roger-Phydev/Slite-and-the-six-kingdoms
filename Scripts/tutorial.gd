@@ -48,7 +48,7 @@ func print_tutorial_message(message:String):
 # Jump area
 func _on_jump_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		print_tutorial_message("Salta, Slite! Salta!!!\nA/LT(Xbox)   X/L2(Ps)\nB/ZL(Nswitch)   Space/Enter(derecha)(PC)");
+		print_tutorial_message("Salta, Slite! Salta!!!\nA/LT(Xbox)   X/L2(PS) \nB/ZL(NS) Space/Enter(derecho)(PC)");
 		show_hits_arrow = false;
 # Fall area first time
 func _on_fall_1_body_entered(body: Node2D) -> void:

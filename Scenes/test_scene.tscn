@@ -776,7 +776,7 @@ shape = SubResource("RectangleShape2D_2uyjv")
 [node name="Envorment" type="Node2D" parent="." unique_id=1554367382]
 
 [node name="Saw" parent="Envorment" unique_id=1484907775 instance=ExtResource("5_q6blv")]
-position = Vector2(182, -12)
+position = Vector2(431, 99)
 
 [node name="spikes" parent="Envorment" unique_id=974841011 instance=ExtResource("7_y2jso")]
 position = Vector2(22, 70)
@@ -1337,9 +1337,6 @@ text = "Guardando"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Camera2D/PlayerUI/Save" unique_id=1851908868]
 libraries/ = SubResource("AnimationLibrary_0d0vi")
-
-[node name="Player2" parent="." unique_id=805526293 instance=ExtResource("2_q6blv")]
-position = Vector2(383, 107)
 
 [connection signal="body_entered" from="areas/PlayerRespawnArea" to="areas/PlayerRespawnArea" method="_on_body_entered"]
 [connection signal="body_entered" from="areas/PlayerRespawnArea2" to="areas/PlayerRespawnArea2" method="_on_body_entered"]

@@ -393,6 +393,15 @@ texture = ExtResource("7_qe74r")
 position = Vector2(-34, 96)
 texture = ExtResource("6_n77q7")
 
+[node name="SignArrow5" type="Sprite2D" parent="Objects" unique_id=2071251749]
+position = Vector2(216, -48)
+texture = ExtResource("6_n77q7")
+flip_h = true
+
+[node name="SignArrow4" type="Sprite2D" parent="Objects" unique_id=2038304152]
+position = Vector2(48, -16)
+texture = ExtResource("6_n77q7")
+
 [node name="SignArrow2" type="Sprite2D" parent="Objects" unique_id=1339817564]
 position = Vector2(207, 271)
 texture = ExtResource("6_n77q7")
@@ -482,6 +491,10 @@ script = ExtResource("13_vgvna")
 
 [node name="RectanguleOfRespawn" type="CollisionShape2D" parent="Areas/RespawnArea3" unique_id=829006406]
 position = Vector2(420, 326)
+shape = SubResource("RectangleShape2D_5yrtc")
+
+[node name="RectanguleOfRespawn3" type="CollisionShape2D" parent="Areas/RespawnArea3" unique_id=1986737687]
+position = Vector2(447, -39)
 shape = SubResource("RectangleShape2D_5yrtc")
 
 [node name="RectanguleOfRespawn2" type="CollisionShape2D" parent="Areas/RespawnArea3" unique_id=786027788]

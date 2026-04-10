@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://p4453qnl26p2" path="res://MusicAndSounds/SFX/death_1.ogg" id="4_x3wgy"]
 [ext_resource type="AudioStream" uid="uid://chse7g6gnuohi" path="res://MusicAndSounds/SFX/obtained.ogg" id="6_f1ek2"]
 [ext_resource type="AudioStream" uid="uid://b4l3uaex21kpg" path="res://MusicAndSounds/SFX/impact.ogg" id="7_3smsa"]
+[ext_resource type="AudioStream" uid="uid://bv2pe6rcjctni" path="res://MusicAndSounds/SFX/teleport.mp3" id="7_8erm5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
 size = Vector2(12, 10)
@@ -111,3 +112,6 @@ stream = ExtResource("6_f1ek2")
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=2031211381]
 stream = ExtResource("7_3smsa")
+
+[node name="PortalSound" type="AudioStreamPlayer2D" parent="." unique_id=777578468]
+stream = ExtResource("7_8erm5")

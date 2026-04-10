@@ -22,6 +22,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	if body.get_name() == "Player":
 		$Saw.play();
+		$Saw.volume_db = -4;
 
 
 func _on_area_2d_2_body_exited(body: Node2D) -> void:

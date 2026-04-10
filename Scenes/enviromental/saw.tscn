@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcwerq1dj5jig"]
+[gd_scene format=3 uid="uid://bcwerq1dj5jig"]
 
 [ext_resource type="Script" uid="uid://bbktwgrqod6px" path="res://Scripts/saw.gd" id="1_4qbox"]
 [ext_resource type="Texture2D" uid="uid://cf230jg281xsi" path="res://Assets/Enemies/saw.png" id="2_mk2w8"]
@@ -40,33 +40,30 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mk2w8"]
-radius = 197.01
+radius = 115.06954
 
-[node name="Saw" type="Node2D"]
+[node name="Saw" type="Node2D" unique_id=1934729582]
 script = ExtResource("1_4qbox")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=290582307]
 texture = ExtResource("2_mk2w8")
 hframes = 2
 vframes = 2
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=798018240]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=625659864]
 polygon = PackedVector2Array(0, -16, -3, -9, -10, -10, -9, -3, -16, 0, -10, 3, -10, 10, -4, 9, 0, 16, 4, 9, 11, 11, 9, 3, 16, 0, 9, -3, 11, -11, 4, -9)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ijyew")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1741922947]
+libraries/ = SubResource("AnimationLibrary_ijyew")
 
-[node name="Saw" type="AudioStreamPlayer2D" parent="."]
+[node name="Saw" type="AudioStreamPlayer2D" parent="." unique_id=596831421]
 stream = ExtResource("3_mk2w8")
 
-[node name="Area2D2" type="Area2D" parent="."]
-visible = false
+[node name="Area2D2" type="Area2D" parent="." unique_id=1519960268]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1821646568]
 shape = SubResource("CircleShape2D_mk2w8")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -22,7 +22,7 @@ extends Control
 var appear_coins_arrow = false;
 var appear_hits_arrow = false;
 var buttons_enabled = false;
-
+var pause = true;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -81,7 +81,8 @@ func _process(delta: float) -> void:
 	updating_hearts(GameMaster.hits);
 	# Pausing and displaying the pause menu:
 	####################################
-	if Input.is_action_just_pressed("start") and GameMaster.tutorial_pause: #if start is pressed
+	if Input.is_action_just_pressed("start") and GameMaster.tutorial_pause and pause: #if start is pressed
+		print("Entró al menú");
 		get_tree().paused = not get_tree().paused; #change paused state
 		pause_menu.visible = get_tree().paused; #set the value to visible property of the menu
 		playing_interface.visible = not get_tree().paused; #toogles score visibility
@@ -105,10 +106,13 @@ func _process(delta: float) -> void:
 			emit_signal("hidden");
 			$LevelMusic.play(resume_time);
 			$MenuMusic.stop();
+	if not get_tree().paused:
+		pause = true;
 	####################################
 	# Displaying the win menu:
 	####################################
 	if GameMaster.success:
+		GameMaster.tutorial_pause = false;
 		get_tree().paused = true;
 		win_menu.visible = true;
 		playing_interface.visible = false; #stop showing the score panel
@@ -134,6 +138,7 @@ func _process(delta: float) -> void:
 	# Displaying the loose menu
 	#####################################
 	if GameMaster.loose:
+		pause = false;
 		get_tree().paused = true;
 		playing_interface.visible = false;
 		loose_menu.visible = true;
@@ -150,8 +155,7 @@ func _process(delta: float) -> void:
 	# Navigation for the menus
 	######################################
 	if get_tree().paused:
-		if Input.is_action_just_released("Up") or Input.is_action_just_released("Down"):
-			menu_focus = true;
+		menu_focus = true;
 		# When is paused checks what input is released and then acts depending on the input
 		if menu_focus:
 			menu_movement(menu_options);

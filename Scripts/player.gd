@@ -12,7 +12,7 @@ func _ready() -> void:
 	respawn_position = position; #sets the original position as respawn position by default
 	GameMaster.reload_lifes = GameMaster.lifes; #sets the reload lifes quantity
 	GameMaster.reload_hits = GameMaster.hits;
-	$JumpingSound.volume_db = -5;
+	$JumpingSound.volume_db = -7;
 
 # normal operation:
 
@@ -85,3 +85,9 @@ func respawn_at(pos:Vector2):
 	respawn_position = pos;
 func flip():
 	$Sprite2D.flip_h = not $Sprite2D.flip_h;
+
+# portal function:
+func play_portal_sound():
+	$PortalSound.volume_db = 0.5;
+	$PortalSound.play();
+	

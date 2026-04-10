@@ -1559,7 +1559,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 8
 text = "Para salir de este menú también puedes usar:
 menú (xbox)  start(Ps)
-+ (Nswitch)
++ (NS)
 enter(izq) / tab (PC)"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1597,7 +1597,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 8
 text = "Para confirmar una opción usa:
 A/LT (xbox)  X/L2(Ps)
-B/ZL (Nswitch)
+B/ZL (NS)
 click izq(PC)"
 horizontal_alignment = 1
 vertical_alignment = 1
