@@ -37,7 +37,7 @@ func _ready() -> void:
 				print(element)
 				element.mouse_entered.connect(mouse_focus.bind(element))
 	# Level info set:
-	$PlayingInterface/LevelInfo/Info.text = "Mundo "+str(GameMaster.world)+" - Nivel "+str(GameMaster.level);
+	$PlayingInterface/LevelInfo/Info.text = "Mundo "+str(int(GameMaster.world))+" - Nivel "+str(int(GameMaster.level));
 	if GameMaster.hero_mode:
 		$PlayingInterface/LevelInfo.size = Vector2(230.0,30.0);
 		$PlayingInterface/LevelInfo.position = Vector2(29,132.0);
@@ -46,6 +46,12 @@ func _ready() -> void:
 		$PauseMenu/Panel.position.y = 16;
 		$WinMenu/Panel.size.y = 120;
 		$WinMenu/Panel.position.y = 21;
+	else:
+		$PauseMenu/Panel.position.y = 2.375;
+		$LooseMenu/Panel/VBoxContainer.size = Vector2(250,119);
+		$LooseMenu/Panel/VBoxContainer.position = Vector2(10,11.5);
+		$LooseMenu/Panel.size.y = 130;
+		$LooseMenu/Panel.position.y = 16;
 	# getting and setting the coins number for the actual level
 	if GameMaster.coins[GameMaster.world-1][GameMaster.level-1] < 10: #9 or less coins
 			target_coins.text = "0" + str(GameMaster.coins[GameMaster.world-1][GameMaster.level-1]);
@@ -65,13 +71,33 @@ func _ready() -> void:
 		$LevelMusic.play();
 	$MenuMovement.volume_db = 20;
 	$MenuSelect.volume_db = 20;
-	menu_options = [
-				[$PauseMenu/Panel/VBoxContainer/Continue],
-				[$PauseMenu/Panel/VBoxContainer/MainMenu],
-				[$PauseMenu/Panel/VBoxContainer/ResetLevel],
-				[$PauseMenu/Panel/VBoxContainer/Exit]
-			];
-
+	###################################
+	# Web version display
+	###################################
+	if OS.get_name() == "Windows":
+		menu_options = [
+					[$PauseMenu/Panel/VBoxContainer/Continue],
+					[$PauseMenu/Panel/VBoxContainer/MainMenu],
+					[$PauseMenu/Panel/VBoxContainer/ResetLevel],
+					[$PauseMenu/Panel/VBoxContainer/Exit]
+				];
+	else:
+		#disables every exit button
+		$PauseMenu/Panel/VBoxContainer/Exit.visible = false;
+		$WinMenu/Panel/VBoxContainer/Exit.visible = false;
+		$LooseMenu/Panel/VBoxContainer/Exit.visible = false;
+		#change of sizes and positions:
+		$PauseMenu/Panel.size.y = 130;
+		$PauseMenu/Panel.position.y = 16;
+		$WinMenu/Panel.size.y = 110;
+		$WinMenu/Panel.position.y = 26;
+		$LooseMenu/Panel.size.y = 100;
+		$LooseMenu/Panel.position.y = 31;
+		menu_options = [
+			[$PauseMenu/Panel/VBoxContainer/Continue],
+			[$PauseMenu/Panel/VBoxContainer/MainMenu],
+			[$PauseMenu/Panel/VBoxContainer/ResetLevel]
+		];
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	###################################
@@ -110,19 +136,38 @@ func _process(delta: float) -> void:
 			$MenuMusic.play();
 			menu_cursor = Vector2(0,0);
 			if GameMaster.hero_mode:
-				menu_options = [
-					[$PauseMenu/Panel/VBoxContainer/Continue],
-					[$PauseMenu/Panel/VBoxContainer/MainMenu],
-					[$PauseMenu/Panel/VBoxContainer/Exit]
-				];
+				if OS.get_name() == "Windows":
+					menu_options = [
+						[$PauseMenu/Panel/VBoxContainer/Continue],
+						[$PauseMenu/Panel/VBoxContainer/MainMenu],
+						[$PauseMenu/Panel/VBoxContainer/Exit]
+					];
+					$PauseMenu/Panel.size.y = 130;
+					$PauseMenu/Panel.position.y = 16;
+				else:
+					menu_options = [
+						[$PauseMenu/Panel/VBoxContainer/Continue],
+						[$PauseMenu/Panel/VBoxContainer/MainMenu]
+					];
+					$PauseMenu/Panel.size.y = 100;
+					$PauseMenu/Panel.position.y = 31;
+					$PauseMenu/Panel/VBoxContainer/Exit.visible = false;
 				$PauseMenu/Panel/VBoxContainer/ResetLevel.visible = false;
 			else:
-				menu_options = [
-					[$PauseMenu/Panel/VBoxContainer/Continue],
-					[$PauseMenu/Panel/VBoxContainer/MainMenu],
-					[$PauseMenu/Panel/VBoxContainer/ResetLevel],
-					[$PauseMenu/Panel/VBoxContainer/Exit]
-				];
+				if OS.get_name() == "Windows":
+					menu_options = [
+						[$PauseMenu/Panel/VBoxContainer/Continue],
+						[$PauseMenu/Panel/VBoxContainer/MainMenu],
+						[$PauseMenu/Panel/VBoxContainer/ResetLevel],
+						[$PauseMenu/Panel/VBoxContainer/Exit]
+					];
+				else:
+					menu_options = [
+						[$PauseMenu/Panel/VBoxContainer/Continue],
+						[$PauseMenu/Panel/VBoxContainer/MainMenu],
+						[$PauseMenu/Panel/VBoxContainer/ResetLevel]
+					];
+					$PauseMenu/Panel/VBoxContainer/Exit.visible = false;
 			menu_options[0][0].grab_focus();
 		else: #when returns to game
 			button_enabled = false;
@@ -178,11 +223,18 @@ func _process(delta: float) -> void:
 				$Save.visible = true;
 				$WinMenu.visible = true;
 				menu_cursor = Vector2(0,0);
-				menu_options = [
-					[$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel,$WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel],
-					[$WinMenu/Panel/VBoxContainer/MainMenu],
-					[$WinMenu/Panel/VBoxContainer/Exit]
-				];
+				if OS.get_name() == "Windows":
+					menu_options = [
+						[$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel,$WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel],
+						[$WinMenu/Panel/VBoxContainer/MainMenu],
+						[$WinMenu/Panel/VBoxContainer/Exit]
+					];
+				else:
+					menu_options = [
+						[$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel,$WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel],
+						[$WinMenu/Panel/VBoxContainer/MainMenu]
+					];
+					$WinMenu/Panel/VBoxContainer/Exit.visible = false;
 				menu_options[0][0].grab_focus();
 				$Save/AnimationPlayer.play("saving");
 				await get_tree().create_timer(1.0).timeout;
@@ -194,10 +246,20 @@ func _process(delta: float) -> void:
 				$LevelMusicHero.stop();
 				$LevelSuccessHero.play(0.0);
 				button_enabled = true;
-				menu_options = [
-					[$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel],
-					[$WinMenu/Panel/VBoxContainer/Exit]
-				];
+				if OS.get_name() == "Windows":
+					menu_options = [
+						[$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel],
+						[$WinMenu/Panel/VBoxContainer/Exit]
+					];
+					$WinMenu/Panel.size.y = 120;
+					$WinMenu/Panel.position.y = 21;
+				else:
+					menu_options = [
+						[$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel]
+					];
+					$WinMenu/Panel.size.y = 90;
+					$WinMenu/Panel.position.y = 36;
+					$WinMenu/Panel/VBoxContainer/Exit.visible = false;
 				$WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel.visible = false;
 				$WinMenu/Panel/VBoxContainer/MainMenu.visible = false;
 				menu_options[0][0].grab_focus();
@@ -217,11 +279,18 @@ func _process(delta: float) -> void:
 		$LevelFailed.play();
 		GameMaster.loose = false;
 		menu_cursor = Vector2(0,0);
-		menu_options = [
-			[$LooseMenu/Panel/VBoxContainer/ResetRun],
-			[$LooseMenu/Panel/VBoxContainer/MainMenu],
-			[$LooseMenu/Panel/VBoxContainer/Exit]
-		];
+		if OS.get_name() == "Windows":
+			menu_options = [
+				[$LooseMenu/Panel/VBoxContainer/ResetRun],
+				[$LooseMenu/Panel/VBoxContainer/MainMenu],
+				[$LooseMenu/Panel/VBoxContainer/Exit]
+			];
+		else:
+			menu_options = [
+				[$LooseMenu/Panel/VBoxContainer/ResetRun],
+				[$LooseMenu/Panel/VBoxContainer/MainMenu]
+			];
+			$LooseMenu/Panel/VBoxContainer/Exit.visible = false;
 		menu_options[0][0].grab_focus();
 		button_enabled = true;
 	######################################
@@ -259,23 +328,28 @@ func menu_movement(options):
 		#decreses y valor and remains 0 if it's smaller than 0
 		$MenuMovement.play();
 		menu_cursor.y = menu_cursor.y-1 if menu_cursor.y-1>0 else 0;
-		
-		if len(options[menu_cursor.y]) <= len(options[menu_cursor.y+1]):#if the next state has less width resets
-			#sets the x in the range except when is bigger than the width
-			previous_cursor_x = menu_cursor.x; #updates previous 
-			menu_cursor.x = len(options[menu_cursor.y])-1 if menu_cursor.x >= len(options[menu_cursor.y]) else menu_cursor.x;
-		else: #in other case, resets
-			menu_cursor.x = previous_cursor_x;
+		if len(options) > 1:
+			if len(options[int(menu_cursor.y)]) <= len(options[int(menu_cursor.y+1)]):#if the next state has less width resets
+				#sets the x in the range except when is bigger than the width
+				previous_cursor_x = menu_cursor.x; #updates previous 
+				menu_cursor.x = len(options[menu_cursor.y])-1 if menu_cursor.x >= len(options[menu_cursor.y]) else menu_cursor.x;
+			else: #in other case, resets
+				menu_cursor.x = previous_cursor_x;
+		else:
+			menu_cursor.y = 0;
 	elif Input.is_action_just_released("Down"): #down movement
 		# increases y valor and remains height - 1 if it's greather than height
 		$MenuMovement.play();
 		menu_cursor.y = menu_cursor.y+1 if menu_cursor.y+1 < height else height-1;
-		if len(options[menu_cursor.y]) <= len(options[menu_cursor.y-1]):#if the next state has less width resets
-			#sets the x in the range except when is bigger than the width
-			previous_cursor_x = menu_cursor.x;
-			menu_cursor.x = len(options[menu_cursor.y])-1 if menu_cursor.x >= len(options[menu_cursor.y]) else menu_cursor.x;
+		if len(options) > 1:
+			if len(options[menu_cursor.y]) <= len(options[menu_cursor.y-1]):#if the next state has less width resets
+				#sets the x in the range except when is bigger than the width
+				previous_cursor_x = menu_cursor.x;
+				menu_cursor.x = len(options[menu_cursor.y])-1 if menu_cursor.x >= len(options[menu_cursor.y]) else menu_cursor.x;
+			else:
+				menu_cursor.x = previous_cursor_x;
 		else:
-			menu_cursor.x = previous_cursor_x;
+			menu_cursor.y = 0;
 	elif Input.is_action_just_released("right"): #right movement
 		# increases x valor and remains width - 1 if it's greather than width
 		$MenuMovement.play();
@@ -286,7 +360,7 @@ func menu_movement(options):
 		menu_cursor.x = menu_cursor.x-1 if menu_cursor.x-1>0 else 0;
 	######## focus the new element
 	options[int(menu_cursor.y)][int(menu_cursor.x)].grab_focus();
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and not Input.is_key_label_pressed(KEY_SPACE) and not Input.is_key_label_pressed(KEY_KP_ENTER) and not Input.is_key_label_pressed(KEY_ENTER):
 		options[menu_cursor.y][menu_cursor.x].emit_signal("button_up");
 	if Input.is_action_just_pressed("start"):
 		pass
@@ -362,5 +436,7 @@ func mouse_focus(object):
 		var index = menu_options[i].find(object);
 		if index != -1:
 			menu_options[i][index].grab_focus()
+			if menu_cursor != Vector2(index,i):
+				$MenuMovement.play();
 			menu_cursor = Vector2(index,i);
 			break;

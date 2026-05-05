@@ -52,12 +52,28 @@ func _ready() -> void:
 	$LevelMusic.play();
 	$MenuMovement.volume_db = 20;
 	$MenuSelect.volume_db = 20;
-	menu_options = [
-				[$PauseMenu/Panel/VBoxContainer/Continue],
-				[$PauseMenu/Panel/VBoxContainer/MainMenu],
-				[$PauseMenu/Panel/VBoxContainer/ResetLevel],
-				[$PauseMenu/Panel/VBoxContainer/Exit]
-			];
+	#setting web configuration:
+	if OS.get_name() == "Windows":
+		menu_options = [
+					[$PauseMenu/Panel/VBoxContainer/Continue],
+					[$PauseMenu/Panel/VBoxContainer/MainMenu],
+					[$PauseMenu/Panel/VBoxContainer/ResetLevel],
+					[$PauseMenu/Panel/VBoxContainer/Exit]
+				];
+	else: #web version
+		menu_options = [
+					[$PauseMenu/Panel/VBoxContainer/Continue],
+					[$PauseMenu/Panel/VBoxContainer/MainMenu],
+					[$PauseMenu/Panel/VBoxContainer/ResetLevel]
+				];
+		#pause menu
+		$PauseMenu/Panel/VBoxContainer/Exit.visible = false;
+		$PauseMenu/Panel.size.y = 130;
+		$PauseMenu/Panel.position.y = 16;
+		#win menu
+		$WinMenu/Panel.size.y = 88;
+		$WinMenu/Panel.position.y = 37;
+		$WinMenu/Panel/VBoxContainer/Exit.visible = false;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -94,12 +110,20 @@ func _process(delta: float) -> void:
 			$MenuMusic.play();
 			buttons_enabled = true;
 			menu_cursor = Vector2(0,0);
-			menu_options = [
-				[$PauseMenu/Panel/VBoxContainer/Continue],
-				[$PauseMenu/Panel/VBoxContainer/MainMenu],
-				[$PauseMenu/Panel/VBoxContainer/ResetLevel],
-				[$PauseMenu/Panel/VBoxContainer/Exit]
-			];
+			if OS.get_name() == "Windows":
+				menu_options = [	
+					[$PauseMenu/Panel/VBoxContainer/Continue],
+					[$PauseMenu/Panel/VBoxContainer/MainMenu],
+					[$PauseMenu/Panel/VBoxContainer/ResetLevel],
+					[$PauseMenu/Panel/VBoxContainer/Exit]
+				];
+			else:
+				menu_options = [	
+					[$PauseMenu/Panel/VBoxContainer/Continue],
+					[$PauseMenu/Panel/VBoxContainer/MainMenu],
+					[$PauseMenu/Panel/VBoxContainer/ResetLevel]
+				];
+				$PauseMenu/Panel/VBoxContainer/Exit.visible = false;
 			menu_options[0][0].grab_focus();
 		else: #when returns to game
 			buttons_enabled = false;
@@ -128,12 +152,17 @@ func _process(delta: float) -> void:
 		$Save/AnimationPlayer.pause();
 		buttons_enabled = true;
 		menu_cursor = Vector2(0,0);
-		menu_options = [
-			[$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel,$WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel],
-			[$WinMenu/Panel/VBoxContainer/MainMenu],
-			[$WinMenu/Panel/VBoxContainer/Exit]
-		];
-		
+		if OS.get_name() == "Windows":
+			menu_options = [
+				[$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel,$WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel],
+				[$WinMenu/Panel/VBoxContainer/MainMenu],
+				[$WinMenu/Panel/VBoxContainer/Exit]
+			];
+		else:
+			menu_options = [
+				[$WinMenu/Panel/VBoxContainer/HBoxContainer/NextLevel,$WinMenu/Panel/VBoxContainer/HBoxContainer/RepeatLevel],
+				[$WinMenu/Panel/VBoxContainer/MainMenu]
+			];
 	#####################################
 	# Displaying the loose menu
 	#####################################
@@ -215,7 +244,7 @@ func menu_movement(options):
 	options[menu_cursor.y][menu_cursor.x].grab_focus();
 	options[menu_cursor.y][menu_cursor.x].emit_signal("mouse_entered");
 	options[menu_cursor.y][menu_cursor.x];
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and not Input.is_key_label_pressed(KEY_SPACE) and not Input.is_key_label_pressed(KEY_KP_ENTER) and not Input.is_key_label_pressed(KEY_ENTER):
 		options[menu_cursor.y][menu_cursor.x].emit_signal("button_up");
 ###########################################
 # Menu buttons events:
@@ -305,6 +334,8 @@ func mouse_focus(object):
 	for i in range(len(menu_options)):
 		var index = menu_options[i].find(object);
 		if index != -1:
-			menu_options[i][index].grab_focus()
+			menu_options[i][index].grab_focus();
+			if menu_cursor != Vector2(index,i):
+				$MenuMovement.play();
 			menu_cursor = Vector2(index,i);
 			break;

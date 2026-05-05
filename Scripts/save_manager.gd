@@ -55,6 +55,7 @@ var initial_save_data = {#save data structure
 			"level6":false
 		},
 	},
+	"continue_level":[0,0],
 	"normal_mode_completed":false,
 	"hero_mode_completed":false
 };
@@ -112,6 +113,7 @@ var save_data = {#save data structure
 			"level6":false
 		},
 	},
+	"continue_level":[0,0],
 	"normal_mode_completed":false,
 	"hero_mode_completed":false
 };
@@ -133,6 +135,13 @@ func complete_level(world:int, level:int): #complete level method, sets true the
 	var w = "world"+str(world);
 	var l = "level"+ str(int(level));
 	save_data["level_completed"][w][l] = true;
+	if world != 6 or level != 6:
+		if level != 6:
+			save_data["continue_level"] = [world,level+1];
+		else:
+			save_data["continue_level"] = [world+1,1];
+	else:
+		save_data["continue_level"] = [6,6];
 	save_game() #and saves
 
 func reset_save_data(): #resets the save_data to the initial value;
@@ -206,6 +215,7 @@ func unlock_all_levels(): #sets true all levels completed
 				"level6":true
 			},
 		},
+		"continue_level":[6,6],
 		"normal_mode_completed":false,
 		"hero_mode_completed":false
 	};
@@ -265,6 +275,7 @@ func unlock_all(): #unlocks all levels and modes
 				"level6":true
 			},
 	},
+	"continue_level":[6,6],
 	"normal_mode_completed":true,
 	"hero_mode_completed":true
 	};
@@ -282,13 +293,7 @@ func is_world_available(world:int): #indicates if a world is available to play
 		res = levels[i] or res; #aplies an or to the res, then if at least one is true it become true
 	return res;
 func get_latest_world_level():
-	for w in range(1,7): # go from 1 to 6
-		for l in range(1,7): # go from 1 to 6
-			var world = "world"+str(w); #creates strings for world and level
-			var level = "level"+str(l);
-			if not save_data["level_completed"][world][level]: #when reaches an false value
-					return [w,l] #returns its world level
-	return [6,6] #in the case the for ends, returns 6,6
+	return save_data["continue_level"];
 func is_normal_game_completed():
 	return save_data["normal_mode_completed"];
 func is_hero_game_completed():

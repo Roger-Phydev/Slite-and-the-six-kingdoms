@@ -16,7 +16,16 @@ var input_sequence = [];
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	checking_disabled_buttons();
-	# OS.shell_open(ProjectSettings.globalize_path("user://"));
+	# configuring web version:
+	if OS.get_name() == "Web":
+		$MenuBg/InitialOptions/Exit.visible = false; #disables exit button
+		#changes the minumun sizes for the rest of elements
+		$MenuBg/InitialOptions/Continue.custom_minimum_size.y = 50;
+		$MenuBg/InitialOptions/StartGame.custom_minimum_size.y = 50;
+		$MenuBg/InitialOptions/HBoxContainer/Tutorial.custom_minimum_size.y = 45;
+		$MenuBg/InitialOptions/HBoxContainer2/ToWorldMenu.custom_minimum_size.y = 45;
+		$MenuBg/InitialOptions/HBoxContainer2/Credits.custom_minimum_size.y = 45;
+		$MenuBg/InitialOptions/HeroMode.custom_minimum_size.y = 45;
 	set_level_indicator(0);
 	####### Basic configuration
 	GameMaster.coinsCount = 0;
@@ -47,14 +56,23 @@ func _ready() -> void:
 	$"Variable presentation/WorldBackgrounds/World6/Ckeckpoint/AnimationPlayer".play("move");
 	$"Variable presentation/WorldBackgrounds/World6/Ckeckpoint2/AnimationPlayer".play("move");
 	############# setting menu_options
-	menu_options = [
-		[$MenuBg/InitialOptions/Continue],
-		[$MenuBg/InitialOptions/StartGame],
-		[$MenuBg/InitialOptions/HBoxContainer/Tutorial,$MenuBg/InitialOptions/HBoxContainer/FirstScene],
-		[$MenuBg/InitialOptions/HBoxContainer2/ToWorldMenu,$MenuBg/InitialOptions/HBoxContainer2/Credits],
-		[$MenuBg/InitialOptions/HeroMode],
-		[$MenuBg/InitialOptions/Exit]
-	];
+	if OS.get_name() == "Windows": #for windows
+		menu_options = [
+			[$MenuBg/InitialOptions/Continue],
+			[$MenuBg/InitialOptions/StartGame],
+			[$MenuBg/InitialOptions/HBoxContainer/Tutorial,$MenuBg/InitialOptions/HBoxContainer/FirstScene],
+			[$MenuBg/InitialOptions/HBoxContainer2/ToWorldMenu,$MenuBg/InitialOptions/HBoxContainer2/Credits],
+			[$MenuBg/InitialOptions/HeroMode],
+			[$MenuBg/InitialOptions/Exit]
+		];
+	else: #for web
+		menu_options = [
+			[$MenuBg/InitialOptions/Continue],
+			[$MenuBg/InitialOptions/StartGame],
+			[$MenuBg/InitialOptions/HBoxContainer/Tutorial,$MenuBg/InitialOptions/HBoxContainer/FirstScene],
+			[$MenuBg/InitialOptions/HBoxContainer2/ToWorldMenu,$MenuBg/InitialOptions/HBoxContainer2/Credits],
+			[$MenuBg/InitialOptions/HeroMode]
+		];
 	menu_options[0][0].grab_focus();
 	menu_cursor = Vector2(0,0);
 	############# Setting mouse actions to display info
@@ -137,14 +155,23 @@ func change_menu(menu_from:String,menu_to:String):
 		$MenuBg/LevelMenu.visible = false;
 	# shows the next menu and sets the options
 	if menu_to == "initial":
-		menu_options = [
-			[$MenuBg/InitialOptions/Continue],
-			[$MenuBg/InitialOptions/StartGame],
-			[$MenuBg/InitialOptions/HBoxContainer/Tutorial,$MenuBg/InitialOptions/HBoxContainer/FirstScene],
-			[$MenuBg/InitialOptions/HBoxContainer2/ToWorldMenu,$MenuBg/InitialOptions/HBoxContainer2/Credits],
-			[$MenuBg/InitialOptions/HeroMode],
-			[$MenuBg/InitialOptions/Exit]
-		];
+		if OS.get_name() == "Windows": #for windows
+			menu_options = [
+				[$MenuBg/InitialOptions/Continue],
+				[$MenuBg/InitialOptions/StartGame],
+				[$MenuBg/InitialOptions/HBoxContainer/Tutorial,$MenuBg/InitialOptions/HBoxContainer/FirstScene],
+				[$MenuBg/InitialOptions/HBoxContainer2/ToWorldMenu,$MenuBg/InitialOptions/HBoxContainer2/Credits],
+				[$MenuBg/InitialOptions/HeroMode],
+				[$MenuBg/InitialOptions/Exit]
+			];
+		else: #for web
+			menu_options = [
+				[$MenuBg/InitialOptions/Continue],
+				[$MenuBg/InitialOptions/StartGame],
+				[$MenuBg/InitialOptions/HBoxContainer/Tutorial,$MenuBg/InitialOptions/HBoxContainer/FirstScene],
+				[$MenuBg/InitialOptions/HBoxContainer2/ToWorldMenu,$MenuBg/InitialOptions/HBoxContainer2/Credits],
+				[$MenuBg/InitialOptions/HeroMode]
+			];
 		$MenuBg/InitialOptions.visible = true;
 	elif menu_to == "world":
 		menu_options = [
@@ -334,7 +361,7 @@ func menu_movement(options):
 	######## focus the new element
 	options[menu_cursor.y][menu_cursor.x].grab_focus();
 	options[menu_cursor.y][menu_cursor.x].emit_signal("mouse_entered");
-	if Input.is_action_just_pressed("jump") or Input.is_action_just_pressed("start"):
+	if (Input.is_action_just_pressed("jump") or Input.is_action_just_pressed("start")) and not Input.is_key_label_pressed(KEY_SPACE) and not Input.is_key_label_pressed(KEY_KP_ENTER) and not Input.is_key_label_pressed(KEY_ENTER):
 		options[menu_cursor.y][menu_cursor.x].emit_signal("button_down");
 
 ############ Menu buttons signals
@@ -442,6 +469,7 @@ func _on_hero_mode_button_down() -> void:
 ## Exit:
 func _on_exit_button_down() -> void:
 	if $MenuBg/InitialOptions/Exit.disabled: #if it's disabled
+		get_tree().quit();
 		$MenuDisabled.play(); #plays this sound
 	else:
 		if buttons_enabled:
@@ -895,5 +923,7 @@ func mouse_focus(object):
 		var index = menu_options[i].find(object);
 		if index != -1:
 			menu_options[i][index].grab_focus()
+			if menu_cursor != Vector2(index,i):
+				$MenuMovement.play();
 			menu_cursor = Vector2(index,i);
 			break;
